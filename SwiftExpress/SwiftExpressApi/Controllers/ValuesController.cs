@@ -12,6 +12,7 @@ namespace SwiftExpressApi.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            //修改了这个获取接口
             return new string[] { "value1", "value2" };
         }
 
