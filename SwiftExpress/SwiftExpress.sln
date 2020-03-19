@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftExpressApi", "SwiftExpressApi\SwiftExpressApi.csproj", "{2CC8A409-2C6A-4176-85AE-1287E0FE53B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CC8A409-2C6A-4176-85AE-1287E0FE53B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC8A409-2C6A-4176-85AE-1287E0FE53B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC8A409-2C6A-4176-85AE-1287E0FE53B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC8A409-2C6A-4176-85AE-1287E0FE53B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4847EBE7-0A6A-4A30-8438-01E68D6CA0F5}
+	EndGlobalSection
+EndGlobal
