@@ -9,6 +9,8 @@ namespace SwiftExpressApi.Controllers
 {
     public class ValuesController : ApiController
     {
+        //1.改东西了，先提交，再拉取，最后推送
+        //2.没改东西，先拉取，再修改，再提交，最后推送
         // GET api/values
         public IEnumerable<string> Get()
         {
