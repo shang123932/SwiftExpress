@@ -24,5 +24,18 @@ namespace SwiftExpressApi.Controllers.User
         {
             return userBll.UserLogin(user);
         }
+
+        /// <summary>
+        /// 注册接口
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public UserRegisteredResponse Registered(UserRegisteredRequest  reg)
+        {
+            return userBll.UserRegistered(reg);
+        }
+
+
     }
 }

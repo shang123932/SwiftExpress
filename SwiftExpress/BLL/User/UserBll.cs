@@ -40,5 +40,32 @@ namespace BLL
         }
 
 
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        public UserRegisteredResponse UserRegistered(UserRegisteredRequest  userRegistered)
+        {
+            UserRegisteredResponse response = new UserRegisteredResponse();
+            UserModel userModel = new UserModel()
+            {
+                UserPhone = userRegistered.Phone,
+                PassWord = userRegistered.Pwd
+            };
+            var res = d.UserRegistered(userModel);
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "注册失败";
+            }
+            return response;
+        }
+
     }
 }
