@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace ApiSDKClient.FApi.Response.Area
 {
-    public class Class1
+   public class AreaCityResponse:BaseResponse
     {
     }
 }

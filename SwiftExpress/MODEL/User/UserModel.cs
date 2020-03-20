@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MODEL.User
+namespace MODEL
 {
     /// <summary>
     /// 用户表
