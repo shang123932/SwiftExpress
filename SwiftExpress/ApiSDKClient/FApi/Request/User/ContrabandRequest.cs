@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiSDKClient
+namespace ApiSDKClient.FApi.Request.User
 {
-   public class UserLoginResponse:BaseResponse
+    public class ContrabandRequest:BaseRequest
     {
-
     }
 }

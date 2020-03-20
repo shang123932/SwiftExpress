@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient
 {
-   public class UserLoginResponse:BaseResponse
+   public class UserRegisteredResponse:BaseResponse
     {
 
     }

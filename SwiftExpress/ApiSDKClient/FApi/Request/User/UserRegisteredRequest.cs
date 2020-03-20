@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient
 {
-    public class UserLoginRequest:BaseRequest
+   public class UserRegisteredRequest:BaseRequest
     {
-        
         /// <summary>
         /// 手机号
         /// </summary>
