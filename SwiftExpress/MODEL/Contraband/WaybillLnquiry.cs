@@ -20,6 +20,14 @@ namespace MODEL
         /// </summary>
         public string TrackingNumber { get; set; }
         /// <summary>
+        /// 货单id
+        /// </summary>
+        public int CargoId { get; set; }
+        /// <summary>
+        /// 运费
+        /// </summary>
+        public decimal FreightTotal { get; set; }
+        /// <summary>
         /// 快递时间
         /// </summary>
         public DateTime TrackingDate { get; set; }

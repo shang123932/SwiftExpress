@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient.FApi.Request.Contraband
 {
-    public class ContrabandRequest:BaseRequest
+    public class WaybillLnquiryRequest : BaseRequest
     {
         /// <summary>
-        /// 违禁品
+        /// 运单号
         /// </summary>
-        public string ItemName { get; set; }
+        public string TrackingNumber { get; set; }
         public override string GetApiName()
         {
-            return "/api/Contraband/GetContraband";
+            return "/api/Contraband/GetWaybillLnquiry";
         }
     }
 }
