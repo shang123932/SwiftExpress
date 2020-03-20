@@ -15,14 +15,14 @@ namespace SwiftExpressApi.Controllers.Area
     public class AreaController : ApiController
     {
         #region  zrx 
-        AreaBLL areaBll = new AreaBLL();
+        
         /// <summary>
         /// 获取省份
         /// </summary>
         /// <returns></returns>
         public List<AreaModel> GetProvince()
         {
-            return areaBll.GetProvince();
+            return AreaBLL.getInstance().;
         }
         /// <summary>
         /// 获取城市、区、县

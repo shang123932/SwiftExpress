@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Area;
+using ApiSDKClient.FApi.Request;
+using ApiSDKClient.FApi.Response.Area;
 
 namespace BLL.Area
 {
     /// <summary>
     /// 地区BLL
     /// </summary>
-   public class AreaBLL
+   public  class AreaBLL
     {
         #region  zrx 2020年3月20日13:10:17
         AreaDal areaDal = new AreaDal();
@@ -26,11 +28,23 @@ namespace BLL.Area
         /// <summary>
         /// 获取城市、区、县
         /// </summary>
-        /// <param name="pid"></param>
+        /// <param name="cityRequest"></param>
         /// <returns></returns>
-        public List<AreaModel> GetCity(int pid)
+        public AreaCityResponse GetCity(AreaCityRequest cityRequest)
         {
-            return areaDal.GetCity(pid);
+            AreaCityResponse response = new AreaCityResponse();
+            var pid = cityRequest.pid;
+            var list = areaDal.GetCity(pid);
+            if (list.Count<=0)
+            {
+                response.Status = false;
+                response.Message = "查询失败";
+            }
+            else
+            {
+                response.Message = "成功";
+            }
+            return response;
         }
         #endregion
     }
