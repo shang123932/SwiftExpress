@@ -1,11 +1,14 @@
-﻿using DAL;
+﻿using ApiSDKClient;
+using ApiSDKClient.FApi.Request.User;
+using DAL;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.User
+namespace BLL
 {
    public class UserBll
     {
@@ -16,10 +19,53 @@ namespace BLL.User
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public int UserLogin(string UserPhone, string PassWord)
+        public UserLoginResponse UserLogin(UserLoginRequest userlogin)
         {
-
-            return d.UserLogin(UserPhone,PassWord);
+            UserLoginResponse response = new UserLoginResponse();
+            UserModel userModel = new UserModel() {
+                 UserPhone=userlogin.Phone,
+                  PassWord=userlogin.Pwd
+            };
+            var res = d.UserLogin(userModel);
+            if (res>0)
+            {
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "登录失败";
+            }
+            return response;
         }
+
+
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        public UserRegisteredResponse UserRegistered(UserRegisteredRequest  userRegistered)
+        {
+            UserRegisteredResponse response = new UserRegisteredResponse();
+            UserModel userModel = new UserModel()
+            {
+                UserPhone = userRegistered.Phone,
+                PassWord = userRegistered.Pwd
+            };
+            var res = d.UserRegistered(userModel);
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "注册失败";
+            }
+            return response;
+        }
+
     }
 }

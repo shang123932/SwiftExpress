@@ -15,9 +15,10 @@ namespace DAL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public int UserLogin(string UserPhone, string PassWord)
+        public int UserLogin(UserModel u)
         {
-            string sql = $"select count(1) from UserInfo where UserPhone='{UserPhone}' and PassWord='{PassWord}'";
+            string sql = $"select count(1) from UserInfo where UserPhone='{u.UserPhone}' and PassWord='{u.PassWord}'";
+
             return Convert.ToInt32( DBHelper.ExecuteScalar(sql));
         }
         /// <summary>
@@ -25,7 +26,7 @@ namespace DAL
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public int UserAdd(UserModel user)
+        public int UserRegistered(UserModel user)
         {
             string sql = $"insert into UserInfo(UserPhone,PassWord) values('{user.UserPhone}','{user.PassWord}')";
             return DBHelper.ExecuteNonQuery(sql);
