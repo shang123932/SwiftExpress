@@ -18,7 +18,7 @@ namespace ApiSDKClient
         public string Pwd { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/AddLogin";
+            return "/api/User/Registered";
         }
     }
 }

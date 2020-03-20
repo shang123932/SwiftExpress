@@ -45,9 +45,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Contraband\ContrabandDal.cs" />
     <Compile Include="Contraband\DBHelper.cs" />
-    <Compile Include="DBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShippingInforDal.cs" />
+    <Compile Include="Shipping\ShippingInforDal.cs" />
     <Compile Include="User\UserDal.cs" />
   </ItemGroup>
   <ItemGroup>
