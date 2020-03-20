@@ -45,6 +45,7 @@
     <Compile Include="BaseBLL.cs" />
     <Compile Include="Contraband\ContrabandBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShippingInforBll.cs" />
     <Compile Include="User\UserBll.cs" />
   </ItemGroup>
   <ItemGroup>
