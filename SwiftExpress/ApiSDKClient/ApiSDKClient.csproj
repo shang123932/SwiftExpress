@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="BaseRequest.cs" />
     <Compile Include="BaseResponse.cs" />
+    <Compile Include="FApi\Request\Area\AreaCityRequest.cs" />
+    <Compile Include="FApi\Request\Area\AreaProvinceRequest.cs" />
     <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
+    <Compile Include="FApi\Response\Area\AreaCityResponse.cs" />
+    <Compile Include="FApi\Response\Area\AreaProvinceResponse.cs" />
     <Compile Include="FApi\Response\User\UserLoginResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

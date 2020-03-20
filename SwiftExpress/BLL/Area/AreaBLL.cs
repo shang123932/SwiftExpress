@@ -4,23 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Area;
 
-namespace DAL.Area
+namespace BLL.Area
 {
     /// <summary>
-    /// 地区dal
+    /// 地区BLL
     /// </summary>
-   public  class AreaDal
+   public class AreaBLL
     {
-        #region zrx  2020年3月20日13:07:16
+        #region  zrx 2020年3月20日13:10:17
+        AreaDal areaDal = new AreaDal();
         /// <summary>
-        /// 获取省份   
+        /// 获取省份
         /// </summary>
         /// <returns></returns>
         public List<AreaModel> GetProvince()
         {
-            string sql = $"select  * from  Areatable where PId=0";
-            return DBHelper.GetToList<AreaModel>(sql);
+            return areaDal.GetProvince();
         }
         /// <summary>
         /// 获取城市、区、县
@@ -29,8 +30,7 @@ namespace DAL.Area
         /// <returns></returns>
         public List<AreaModel> GetCity(int pid)
         {
-            string sql = $"select  * from  Areatable where PId={pid}";
-            return DBHelper.GetToList<AreaModel>(sql);
+            return areaDal.GetCity(pid);
         }
         #endregion
     }
