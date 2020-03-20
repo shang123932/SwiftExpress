@@ -15,7 +15,7 @@ namespace SwiftExpressApi.Controllers.User
         /// <param name="user"></param>
         /// <returns></returns>
         [HttpPost]
-        public int AddUser()
+        public int AddLogin()
         {
             return 0;
         }
