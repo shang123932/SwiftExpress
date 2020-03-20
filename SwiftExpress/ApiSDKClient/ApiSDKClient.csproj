@@ -46,6 +46,7 @@
     <Compile Include="FApi\Request\Area\AreaCityRequest.cs" />
     <Compile Include="FApi\Request\Area\AreaProvinceRequest.cs" />
     <Compile Include="FApi\Request\Contraband\ContrabandRequest.cs" />
+    <Compile Include="FApi\Request\Contraband\WaybillLnquiryRequest.cs" />
     <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserRegisteredRequest.cs" />
     <Compile Include="FApi\Response\Area\AreaCityResponse.cs" />
