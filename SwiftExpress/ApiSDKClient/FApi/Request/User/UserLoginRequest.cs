@@ -8,6 +8,18 @@ namespace ApiSDKClient.FApi.Request.User
 {
     public class UserLoginRequest:BaseRequest
     {
-
+        
+        /// <summary>
+        /// 手机号
+        /// </summary>
+        public string Phone { get; set; }
+        /// <summary>
+        /// 密码
+        /// </summary>
+        public string Pwd { get; set; }
+        public override string GetApiName()
+        {
+            return "/api/User/AddLogin";
+        }
     }
 }

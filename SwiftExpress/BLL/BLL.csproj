@@ -47,6 +47,10 @@
     <Compile Include="User\UserBll.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApiSDKClient\ApiSDKClient.csproj">
+      <Project>{3042458f-fa4b-430e-aebb-3a2045e33d8b}</Project>
+      <Name>ApiSDKClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{fb9461c2-68fd-401c-a717-70a154ccccbd}</Project>
       <Name>DAL</Name>
