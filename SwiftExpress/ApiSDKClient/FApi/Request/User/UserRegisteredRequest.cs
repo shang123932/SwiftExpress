@@ -16,6 +16,11 @@ namespace ApiSDKClient
         /// 密码
         /// </summary>
         public string Pwd { get; set; }
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        public string UserMailbox { get; set; }
+
         public override string GetApiName()
         {
             return "/api/User/Registered";

@@ -8,6 +8,9 @@ namespace ApiSDKClient
 {
    public class BaseResponse
     {
+        /// <summary>
+        /// 判断是否成功
+        /// </summary>
         public bool IsRegistSuccess { get; set; }
         /// <summary>
         /// 状态为true表示接口请求成功
