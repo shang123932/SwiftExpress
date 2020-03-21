@@ -1,4 +1,7 @@
-﻿using DAL;
+﻿using ApiSDKClient;
+using ApiSDKClient.FApi.Request.Contraband;
+using ApiSDKClient.FApi.Response.Contraband;
+using DAL;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -17,9 +20,34 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public List<Contraband> GetContrabands(string name)
+        public ContrabandResponse GetContrabands(ContrabandRequest name)
         {
-            return dal.GetContrabands(name);
+            ContrabandResponse response = new ContrabandResponse();
+            Contraband contraband = new Contraband()
+            {
+                ItemName = name.ItemName
+            };
+            return dal.GetContrabands(contraband);
+
+        }
+
+        
+
+        /// <summary>
+        /// 查询运单号查看信息
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        public WaybillLnquiryResponse GetWaybillLnquiry(WaybillLnquiryRequest bh)
+        {
+            WaybillLnquiryResponse response = new WaybillLnquiryResponse();
+            WaybillLnquiry waybillLnquiry = new WaybillLnquiry()
+            {
+                TrackingNumber = bh.TrackingNumber
+            };
+
+            return dal.GetWaybillLnquiry(bh);
         }
 
         /// <summary>
@@ -28,9 +56,12 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public List<WaybillLnquiry> GetWaybillLnquiry(string bh)
+        public StorageResponse GetStorage(BaseRequest request)
         {
-            return dal.GetWaybillLnquiry(bh);
+            StorageResponse response = new StorageResponse();
+            
+
+            return dal.GetStorage(request);
         }
     }
 }

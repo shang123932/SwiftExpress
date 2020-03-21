@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace DAL
 {
     public class ContrabandDal
@@ -31,6 +30,17 @@ namespace DAL
         {
             string sql = "select * from WaybillLnquiry";
             return DBHelper.GetToList<WaybillLnquiry>(sql);
+        }
+
+        /// <summary>
+        /// 查询存储信息表
+        /// </summary>
+        /// <param name="bh"></param>
+        /// <returns></returns>
+        public List<Storage> GetStorage(string bh)
+        {
+            string sql = "";
+            return DBHelper.GetToList<Storage>(sql);
         }
     }
 }
