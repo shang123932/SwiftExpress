@@ -16,6 +16,8 @@ namespace ApiSDKClient
         /// 状态为true表示接口请求成功
         /// </summary>
         public bool Status = true;
+
+        
         /// <summary>
         /// 当状态失败时,提示消息
         /// </summary>

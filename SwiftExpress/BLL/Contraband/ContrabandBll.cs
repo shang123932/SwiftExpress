@@ -23,11 +23,18 @@ namespace BLL
         public ContrabandResponse GetContrabands(ContrabandRequest name)
         {
             ContrabandResponse response = new ContrabandResponse();
-            Contraband contraband = new Contraband()
+            var gname = name.ItemName;
+            var list= dal.GetContrabands(gname);
+            if (list.Count<=0)
             {
-                ItemName = name.ItemName
-            };
-            return dal.GetContrabands(contraband);
+                response.Status = false;
+                response.Message = "查询失败";
+            }
+            else
+            {
+                response.Message = "成功";
+            }
+            return response;
 
         }
 
@@ -42,12 +49,18 @@ namespace BLL
         public WaybillLnquiryResponse GetWaybillLnquiry(WaybillLnquiryRequest bh)
         {
             WaybillLnquiryResponse response = new WaybillLnquiryResponse();
-            WaybillLnquiry waybillLnquiry = new WaybillLnquiry()
+            var number = bh.TrackingNumber;
+            var list = dal.GetWaybillLnquiry(number);
+            if (list.Count<=0)
             {
-                TrackingNumber = bh.TrackingNumber
-            };
-
-            return dal.GetWaybillLnquiry(bh);
+                response.Status = false;
+                response.Message = "查询失败";
+            }
+            else
+            {
+                response.Message = "成功";
+            }
+            return response;
         }
 
         /// <summary>
@@ -56,12 +69,21 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public StorageResponse GetStorage(BaseRequest request)
+        public StorageResponse GetStorage()
         {
             StorageResponse response = new StorageResponse();
-            
 
-            return dal.GetStorage(request);
+            var list = dal.GetStorage();
+            if (list.Count<=0)
+            {
+                response.Status = false;
+                response.Message = "获取用户信息失败,请检查一下在弄";
+            }
+            else
+            {
+                response.Message = "获取信息成功";
+            }
+            return response;
         }
     }
 }

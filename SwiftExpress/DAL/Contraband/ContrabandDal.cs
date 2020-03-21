@@ -37,7 +37,7 @@ namespace DAL
         /// </summary>
         /// <param name="bh"></param>
         /// <returns></returns>
-        public List<Storage> GetStorage(string bh)
+        public List<Storage> GetStorage()
         {
             string sql = "";
             return DBHelper.GetToList<Storage>(sql);
