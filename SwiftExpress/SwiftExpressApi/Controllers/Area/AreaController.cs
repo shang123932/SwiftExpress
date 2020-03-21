@@ -22,7 +22,7 @@ namespace SwiftExpressApi.Controllers.Area
         /// <returns></returns>
         public List<AreaModel> GetProvince()
         {
-            return AreaBLL.getInstance().;
+            return AreaBLL.getInstance();
         }
         /// <summary>
         /// 获取城市、区、县
