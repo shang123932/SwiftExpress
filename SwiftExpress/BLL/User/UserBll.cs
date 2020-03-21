@@ -30,6 +30,7 @@ namespace BLL
             if (res>0)
             {
                 response.IsRegistSuccess = true;
+                response.Message = "登录成功";
             }
             else
             {
@@ -51,13 +52,15 @@ namespace BLL
             UserRegisteredResponse response = new UserRegisteredResponse();
             UserModel userModel = new UserModel()
             {
-                UserPhone = userRegistered.Phone,
-                PassWord = userRegistered.Pwd
+                UserPhone = userRegistered.Phone,//手机号
+                PassWord = userRegistered.Pwd,//密码
+                UserMailbox="123",
             };
             var res = d.UserRegistered(userModel);
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
+                response.Message = "注册成功";
             }
             else
             {

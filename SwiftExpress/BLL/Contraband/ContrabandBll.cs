@@ -1,4 +1,7 @@
-﻿using DAL;
+﻿using ApiSDKClient;
+using ApiSDKClient.FApi.Request.Contraband;
+using ApiSDKClient.FApi.Response.Contraband;
+using DAL;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -17,9 +20,47 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public List<Contraband> GetContrabands(string name)
+        public ContrabandResponse GetContrabands(ContrabandRequest name)
         {
-            return dal.GetContrabands(name);
+            ContrabandResponse response = new ContrabandResponse();
+            var gname = name.ItemName;
+            var list= dal.GetContrabands(gname);
+            if (list.Count<=0)
+            {
+                response.Status = false;
+                response.Message = "查询失败";
+            }
+            else
+            {
+                response.Message = "成功";
+            }
+            return response;
+
+        }
+
+        
+
+        /// <summary>
+        /// 查询运单号查看信息
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        public WaybillLnquiryResponse GetWaybillLnquiry(WaybillLnquiryRequest bh)
+        {
+            WaybillLnquiryResponse response = new WaybillLnquiryResponse();
+            var number = bh.TrackingNumber;
+            var list = dal.GetWaybillLnquiry(number);
+            if (list.Count<=0)
+            {
+                response.Status = false;
+                response.Message = "查询失败";
+            }
+            else
+            {
+                response.Message = "成功";
+            }
+            return response;
         }
 
         /// <summary>
@@ -28,9 +69,21 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public List<WaybillLnquiry> GetWaybillLnquiry(string bh)
+        public StorageResponse GetStorage()
         {
-            return dal.GetWaybillLnquiry(bh);
+            StorageResponse response = new StorageResponse();
+
+            var list = dal.GetStorage();
+            if (list.Count<=0)
+            {
+                response.Status = false;
+                response.Message = "获取用户信息失败,请检查一下在弄";
+            }
+            else
+            {
+                response.Message = "获取信息成功";
+            }
+            return response;
         }
     }
 }

@@ -20,9 +20,11 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public List<Contraband> GetContrabands(string name)
+        [HttpPost]
+        public ContrabandResponse GetContrabands(ContrabandRequest name)
         {
             return bll.GetContrabands(name);
+
         }
 
         /// <summary>
@@ -31,9 +33,13 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public List<WaybillLnquiry> GetWaybillLnquiry(string bh)
+        [HttpPost]
+        public WaybillLnquiryResponse GetWaybillLnquiry(WaybillLnquiryRequest bh)
         {
             return bll.GetWaybillLnquiry(bh);
         }
+
+
+
     }
 }

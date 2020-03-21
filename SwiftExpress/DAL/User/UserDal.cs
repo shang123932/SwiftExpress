@@ -28,7 +28,7 @@ namespace DAL
         /// <returns></returns>
         public int UserRegistered(UserModel user)
         {
-            string sql = $"insert into UserInfo(UserPhone,PassWord) values('{user.UserPhone}','{user.PassWord}')";
+            string sql = $"insert into UserInfo(UserPhone,PassWord,UserMailbox) values('{user.UserPhone}','{user.PassWord}','{user.UserMailbox}')";
             return DBHelper.ExecuteNonQuery(sql);
         }
 

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3042458F-FA4B-430E-AEBB-3A2045E33D8B}</ProjectGuid>
+    <ProjectGuid>{5E7078AA-6C83-42CF-AFAF-313797057A3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiSDKClient</RootNamespace>
-    <AssemblyName>ApiSDKClient</AssemblyName>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ApiSDKClient">
+      <HintPath>..\..\SwiftExpress\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,26 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRequest.cs" />
-    <Compile Include="BaseResponse.cs" />
-    <Compile Include="FApi\Request\Area\AreaCityRequest.cs" />
-    <Compile Include="FApi\Request\Area\AreaProvinceRequest.cs" />
-    <Compile Include="FApi\Request\Contraband\ContrabandRequest.cs" />
-    <Compile Include="FApi\Request\Contraband\StorageRequest.cs" />
-    <Compile Include="FApi\Request\Contraband\WaybillLnquiryRequest.cs" />
-    <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
-    <Compile Include="FApi\Request\User\UserRegisteredRequest.cs" />
-    <Compile Include="FApi\Response\Area\AreaCityResponse.cs" />
-    <Compile Include="FApi\Response\Area\AreaProvinceResponse.cs" />
-    <Compile Include="FApi\Response\Contraband\ContrabandResponse.cs" />
-    <Compile Include="FApi\Response\Contraband\StorageResponse.cs" />
-    <Compile Include="FApi\Response\Contraband\WaybillLnquiryResponse.cs" />
-    <Compile Include="FApi\Response\User\UserLoginResponse.cs" />
-    <Compile Include="FApi\Response\User\UserRegisteredResponse.cs" />
+    <Compile Include="ApiRequest\ApiRequestHelper.cs" />
+    <Compile Include="UserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BApi\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
