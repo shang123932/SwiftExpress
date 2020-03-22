@@ -49,6 +49,7 @@
     <Compile Include="Contraband\WaybillLnquiry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShippingInforModel.cs" />
+    <Compile Include="User\DistributionModel.cs" />
     <Compile Include="User\UserModel.cs" />
     <Compile Include="WareHouse\WareHouseInfo.cs" />
   </ItemGroup>
