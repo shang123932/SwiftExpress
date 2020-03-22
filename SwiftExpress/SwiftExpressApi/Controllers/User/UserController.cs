@@ -35,6 +35,15 @@ namespace SwiftExpressApi.Controllers.User
         {
             return userBll.UserRegistered(reg);
         }
+        /// <summary>
+        /// 配送信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public DistributionResponse GetDistribution()
+        {
+            return userBll.GetDistribution();
+        }
 
 
     }
