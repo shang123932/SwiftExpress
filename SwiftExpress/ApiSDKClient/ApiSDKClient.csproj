@@ -45,20 +45,32 @@
     <Compile Include="BaseResponse.cs" />
     <Compile Include="FApi\Request\Area\AreaCityRequest.cs" />
     <Compile Include="FApi\Request\Area\AreaProvinceRequest.cs" />
+    <Compile Include="FApi\Request\Cargo\CargoAddRequest.cs" />
     <Compile Include="FApi\Request\Contraband\ContrabandRequest.cs" />
     <Compile Include="FApi\Request\Contraband\StorageRequest.cs" />
     <Compile Include="FApi\Request\Contraband\WaybillLnquiryRequest.cs" />
     <Compile Include="FApi\Request\User\DistributionRequest.cs" />
     <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserRegisteredRequest.cs" />
+    <Compile Include="FApi\Request\WareHouse\WareHouseAddRequest.cs" />
+    <Compile Include="FApi\Request\WareHouse\WareHouseDelRequest.cs" />
+    <Compile Include="FApi\Request\WareHouse\WareHouseGetOneRequest.cs" />
+    <Compile Include="FApi\Request\WareHouse\WareHouseGetRequest.cs" />
+    <Compile Include="FApi\Request\WareHouse\WareHouseUpdateRequest.cs" />
     <Compile Include="FApi\Response\Area\AreaCityResponse.cs" />
     <Compile Include="FApi\Response\Area\AreaProvinceResponse.cs" />
+    <Compile Include="FApi\Response\Cargo\CargoAddResponse.cs" />
     <Compile Include="FApi\Response\Contraband\ContrabandResponse.cs" />
     <Compile Include="FApi\Response\Contraband\StorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\WaybillLnquiryResponse.cs" />
     <Compile Include="FApi\Response\User\DistributionResponse.cs" />
     <Compile Include="FApi\Response\User\UserLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserRegisteredResponse.cs" />
+    <Compile Include="FApi\Response\WareHouse\WareHouseAddResponse.cs" />
+    <Compile Include="FApi\Response\WareHouse\WareHouseDelResponse.cs" />
+    <Compile Include="FApi\Response\WareHouse\WareHouseGetOneResponse.cs" />
+    <Compile Include="FApi\Response\WareHouse\WareHouseGetResponse.cs" />
+    <Compile Include="FApi\Response\WareHouse\WareHouseUpdateResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
