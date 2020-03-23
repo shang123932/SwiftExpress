@@ -10,7 +10,7 @@ namespace ApiSDKClient
     {
         public override string GetApiName()
         {
-            return "/api/User/AddLogin";
+            return "/api/User/GetDistribution";
         }
     }
 }
