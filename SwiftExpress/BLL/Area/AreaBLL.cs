@@ -15,7 +15,7 @@ namespace BLL.Area
     /// </summary>
    public  class AreaBLL
     {
-        #region  zrx 2020年3月20日13:10:17
+        #region  zrx 2020年3月21日22:28:30
         AreaDal areaDal = new AreaDal();
         /// <summary>
         /// 获取省份
@@ -30,21 +30,11 @@ namespace BLL.Area
         /// </summary>
         /// <param name="cityRequest"></param>
         /// <returns></returns>
-        public AreaCityResponse GetCity(AreaCityRequest cityRequest)
+        public List<AreaModel> GetCity(AreaCityRequest cityRequest)
         {
-            AreaCityResponse response = new AreaCityResponse();
             var pid = cityRequest.pid;
             var list = areaDal.GetCity(pid);
-            if (list.Count<=0)
-            {
-                response.Status = false;
-                response.Message = "查询失败";
-            }
-            else
-            {
-                response.Message = "成功";
-            }
-            return response;
+            return list;
         }
         #endregion
     }
