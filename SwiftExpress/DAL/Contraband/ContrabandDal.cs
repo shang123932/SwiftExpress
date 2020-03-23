@@ -42,5 +42,6 @@ namespace DAL
             string sql = "";
             return DBHelper.GetToList<Storage>(sql);
         }
+
     }
 }
