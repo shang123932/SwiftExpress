@@ -38,7 +38,7 @@ namespace DAL
         /// <returns></returns>
         public int DeleteDistribution(int ids)
         {
-            string sql = $"delete  * from  Distribution where DistributionId='{ids}'";
+            string sql = $"update Distribution set SendState=0 where DistributionId={ids}";
             return DBHelper.ExecuteNonQuery(sql);
         }
 
