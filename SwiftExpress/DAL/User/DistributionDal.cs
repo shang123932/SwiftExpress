@@ -18,7 +18,7 @@ namespace DAL
         /// <returns></returns>
         public List<DistributionModel> GetDistribution()
         {
-            string sql = $"select  * from  Distribution";
+            string sql = $"select  * from  Distribution where SendState=1";
             return DBHelper.GetToList<DistributionModel>(sql);
         }
 
