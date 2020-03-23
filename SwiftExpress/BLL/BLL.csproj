@@ -49,6 +49,7 @@
     <Compile Include="BaseBLL.cs" />
     <Compile Include="Cargo\CargoBLL.cs" />
     <Compile Include="Contraband\ContrabandBll.cs" />
+    <Compile Include="Distribution\DistributionBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShippingInforBll.cs" />
     <Compile Include="User\UserBll.cs" />

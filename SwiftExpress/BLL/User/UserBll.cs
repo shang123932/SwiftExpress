@@ -55,7 +55,8 @@ namespace BLL
             {
                 UserPhone = userRegistered.Phone,//手机号
                 PassWord = userRegistered.Pwd,//密码
-                UserMailbox="123",
+                UserMailbox = "123",//邮箱
+                UserStatus = 1,//状态
             };
             var res = d.UserRegistered(userModel);
             if (res > 0)
@@ -71,26 +72,7 @@ namespace BLL
             return response;
         }
 
-        /// <summary>
-        /// 配送
-        /// </summary>
-        /// <returns></returns>
-        public DistributionResponse GetDistribution()
-        {
-            DistributionResponse response = new DistributionResponse();
-
-            var list =dl.GetDistribution();
-            if (list.Count <= 0)
-            {
-                response.Status = false;
-                response.Message = "获取用户信息失败,请检查一下在弄";
-            }
-            else
-            {
-                response.Message = $"获取信息成功 {list}";
-            }
-            return response;
-        }
+       
 
 
     }

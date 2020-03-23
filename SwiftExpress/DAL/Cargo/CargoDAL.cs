@@ -52,10 +52,15 @@ namespace DAL.Cargo
         /// 显示货物
         /// </summary>
         /// <returns></returns>
-        public List<CargoInfo> GetWareHouses()
+        public List<CargoInfo> GetCargo()
         {
             string sql = $"select * from Cargo";
             return DBHelper.GetToList<CargoInfo>(sql);
+        }
+        public int IsExistShipping(string ship)
+        {
+            string sql = $"select count(1) from Cargo where ShippingOrder={ship} and CargoState=1";
+            return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
         }
     }
 }

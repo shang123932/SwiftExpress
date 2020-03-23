@@ -12,9 +12,9 @@ namespace BLL.Cargo
 {
    public class CargoBLL
     {
-        CargoDAL wdal = new CargoDAL();
+        CargoDAL cdal = new CargoDAL();
         /// <summary>
-        /// 添加仓库
+        /// 添加仓库   zrx   2020年3月23日15:20:31
         /// </summary>
         /// <returns></returns>
         public CargoAddResponse AddCargo(CargoAddRequest request)
@@ -31,7 +31,22 @@ namespace BLL.Cargo
                  CargoState  = request.CargoState,
                   CargoRemark= request.CargoRemark
             };
-            var res = wdal.AddCargo(cargo);
+            if (request==null||!string.IsNullOrEmpty(request.CargoName))
+            {
+                response.Status = false;
+                response.Message = "货物名称不能为空";
+                return response;
+            }
+            //验证货物是否存在
+            var shiporder = cdal.IsExistShipping(request.ShippingOrder);
+            if (shiporder<1)
+            {
+                response.Status = false;
+                response.Message = "货物已存在";
+                return response;
+            }
+            
+            var res = cdal.AddCargo(cargo);
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
@@ -52,7 +67,7 @@ namespace BLL.Cargo
         /// <returns></returns>
         public CargoInfo GetOneCargo(int pid)
         {
-            return wdal.GetOneCargo(pid);
+            return cdal.GetOneCargo(pid);
         }
         /// <summary>
         /// 保存仓库
@@ -60,7 +75,7 @@ namespace BLL.Cargo
         /// <returns></returns>
         public int SaveCargo(CargoInfo info)
         {
-            return wdal.SaveCargo(info);
+            return cdal.SaveCargo(info);
         }
         /// <summary>
         /// 删除仓库
@@ -68,7 +83,7 @@ namespace BLL.Cargo
         /// <returns></returns>
         public int DelCargo(int id)
         {
-            return wdal.DelCargo(id);
+            return cdal.DelCargo(id);
         }
         /// <summary>
         /// 显示仓库
@@ -76,7 +91,7 @@ namespace BLL.Cargo
         /// <returns></returns>
         public List<CargoInfo> GetCargo()
         {
-            return wdal.GetCargo();
+            return cdal.GetCargo();
         }
     }
 }
