@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient
 {
-  public  class DistributionRequest:BaseRequest
+   public class DistributionRequestGet:BaseRequest
     {
         public override string GetApiName()
         {

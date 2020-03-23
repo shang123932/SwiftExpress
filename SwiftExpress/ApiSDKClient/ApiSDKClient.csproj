@@ -49,7 +49,9 @@
     <Compile Include="FApi\Request\Contraband\ContrabandRequest.cs" />
     <Compile Include="FApi\Request\Contraband\StorageRequest.cs" />
     <Compile Include="FApi\Request\Contraband\WaybillLnquiryRequest.cs" />
-    <Compile Include="FApi\Request\User\DistributionRequest.cs" />
+    <Compile Include="FApi\Request\Distribution\AddDistributionRequest.cs" />
+    <Compile Include="FApi\Request\Distribution\DeleteDistributionRequest.cs" />
+    <Compile Include="FApi\Request\Distribution\DistributionRequestGet.cs" />
     <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserRegisteredRequest.cs" />
     <Compile Include="FApi\Request\WareHouse\WareHouseAddRequest.cs" />
@@ -63,7 +65,9 @@
     <Compile Include="FApi\Response\Contraband\ContrabandResponse.cs" />
     <Compile Include="FApi\Response\Contraband\StorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\WaybillLnquiryResponse.cs" />
-    <Compile Include="FApi\Response\User\DistributionResponse.cs" />
+    <Compile Include="FApi\Response\Distribution\AddDistributionResponse.cs" />
+    <Compile Include="FApi\Response\Distribution\DeleteDistributionResponse.cs" />
+    <Compile Include="FApi\Response\Distribution\DistributionResponseGet.cs" />
     <Compile Include="FApi\Response\User\UserLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserRegisteredResponse.cs" />
     <Compile Include="FApi\Response\WareHouse\WareHouseAddResponse.cs" />

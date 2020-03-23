@@ -27,5 +27,9 @@ namespace MODEL
         /// 邮箱
         /// </summary>
         public string UserMailbox { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public int UserStatus { get; set; }
     }
 }
