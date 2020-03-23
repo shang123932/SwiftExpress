@@ -39,7 +39,16 @@ namespace SwiftExpressApi.Controllers.Contrabands
             return bll.GetWaybillLnquiry(bh);
         }
 
-
+        /// <summary>
+        /// 查询运单号查看信息
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        public StorageResponse GetStorage()
+        {
+            return bll.GetStorage();
+        }
 
     }
 }
