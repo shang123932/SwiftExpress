@@ -42,35 +42,5 @@ namespace DAL
             string sql = "";
             return DBHelper.GetToList<Storage>(sql);
         }
-
-        /// <summary>
-        /// 添加运单信息
-        /// </summary>
-        /// <returns></returns>
-        public int AddWaybillLnquiry()
-        {
-            string sql = "";
-            return DBHelper.ExecuteNonQuery(sql);
-        }
-
-        /// <summary>
-        /// 修改运单信息
-        /// </summary>
-        /// <returns></returns>
-        public int UpdateWaybillLnquiry()
-        {
-            string sql = "";
-            return DBHelper.ExecuteNonQuery(sql);
-        }
-
-        /// <summary>
-        /// 删除运单信息
-        /// </summary>
-        /// <returns></returns>
-        public int DeleteWaybillLnquiry()
-        {
-            string sql = "";
-            return DBHelper.ExecuteNonQuery(sql);
-        }
     }
 }
