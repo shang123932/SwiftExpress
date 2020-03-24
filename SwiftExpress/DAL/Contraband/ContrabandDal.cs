@@ -89,7 +89,6 @@ namespace DAL
         }
         #endregion
 
-
         #region 查询存储信息表一套
         /// <summary>
         /// 查询运单号查看信息

@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient.FApi.Request.Contraband
 {
-    public class StorageRequest:BaseRequest
+    public class UpdateWaybillLnquiryRequest:BaseRequest
     {
-        public override string GetApiName()
-        {
-            return "/api/Contraband/GetContraband";
-        }
     }
 }
