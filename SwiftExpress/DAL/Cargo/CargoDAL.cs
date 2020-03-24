@@ -18,7 +18,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public int AddCargo(CargoInfo info)
         {
-            string sql = $"insert into Cargo values('{info.CargoName}',{info.CargoType},{info.CargoWeight},'{info.ShippingOrder}',{info.CargoState},'{info.CargoRemark}')";
+            string sql = $"insert into Cargo values('{info.CargoName}',{info.CargoType},{info.CargoWeight},'{info.ShippingOrder}',{info.CargoState},'{info.CargoRemark}',GETDATE(),GETDATE(),1,1,1)";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -27,7 +27,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public CargoInfo GetOneCargo(int pid)
         {
-            string sql = $"select * from Cargo where CargoId=={pid}";
+            string sql = $"select * from Cargo where CargoId=={pid} and Status=1";
             return DBHelper.GetToList<CargoInfo>(sql)[0];
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public int SaveCargo(CargoInfo info)
         {
-            string sql = $"update Cargo set CargoName='{info.CargoName}',CargoType={info.CargoType},CargoWeight={info.CargoWeight},ShippingOrder='{info.ShippingOrder}',,CargoRemark='{info.CargoRemark}',CargoState= {info.CargoState} where CargoId={info.CargoId}";
+            string sql = $"update Cargo set CargoName='{info.CargoName}',CargoType={info.CargoType},CargoWeight={info.CargoWeight},ShippingOrder='{info.ShippingOrder}',,CargoRemark='{info.CargoRemark}',CargoState= {info.CargoState},,UpdateTime=GETDATE(),UpdateId=1 where CargoId={info.CargoId}";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -52,10 +52,20 @@ namespace DAL.Cargo
         /// 显示货物
         /// </summary>
         /// <returns></returns>
-        public List<CargoInfo> GetWareHouses()
+        public List<CargoInfo> GetCargo()
         {
-            string sql = $"select * from Cargo";
+            string sql = $"select * from Cargo  and  Status=1";
             return DBHelper.GetToList<CargoInfo>(sql);
+        }
+        /// <summary>
+        /// 查询快递单是否存在
+        /// </summary>
+        /// <param name="ship"></param>
+        /// <returns></returns>
+        public int IsExistShipping(string ship)
+        {
+            string sql = $"select count(1) from Cargo where ShippingOrder={ship} and CargoState=1  and  Status=1";
+            return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
         }
     }
 }

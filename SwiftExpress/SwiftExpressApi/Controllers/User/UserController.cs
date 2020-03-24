@@ -1,5 +1,5 @@
-﻿using ApiSDKClient;
-
+﻿
+using ApiSDKClient;
 using ApiSDKClient.FApi.Response;
 using BLL;
 using System;
@@ -14,6 +14,7 @@ namespace SwiftExpressApi.Controllers.User
     public class UserController : ApiController
     {
         UserBll userBll = new UserBll();
+        DistributionBll disbll = new DistributionBll();
         /// <summary>
         /// 登录接口
         /// </summary>
@@ -36,15 +37,37 @@ namespace SwiftExpressApi.Controllers.User
             return userBll.UserRegistered(reg);
         }
         /// <summary>
-        /// 配送信息
+        ///显示接口
         /// </summary>
+        /// <param name="user"></param>
         /// <returns></returns>
         [HttpPost]
-        public DistributionResponse GetDistribution()
+        public DistributionResponseGet GetDistribution()
         {
-            return userBll.GetDistribution();
+            return disbll.GetDistribution();
         }
 
+        /// <summary>
+        /// 添加接口
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public AddDistributionResponse AddDistribution(AddDistributionRequest reg)
+        {
+            return disbll.AddDistribution(reg);
+        }
+        
+        /// <summary>
+        /// 删除接口
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public DeleteDistributionResponse DeleteDistribution(DeleteDistributionRequest reg)
+        {
+            return disbll.DeleteDistribution(reg);
+        }
 
     }
 }

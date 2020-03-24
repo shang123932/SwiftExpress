@@ -10,28 +10,50 @@ using System.Threading.Tasks;
 
 namespace BLL.Cargo
 {
-   public class CargoBLL
+    public class CargoBLL
     {
-        CargoDAL wdal = new CargoDAL();
+        CargoDAL cdal = new CargoDAL();
         /// <summary>
-        /// 添加仓库
+        /// 添加仓库   zrx   2020年3月23日15:20:31
         /// </summary>
         /// <returns></returns>
         public CargoAddResponse AddCargo(CargoAddRequest request)
         {
             CargoAddResponse response = new CargoAddResponse();
-           
 
             CargoInfo cargo = new CargoInfo()
             {
-                 CargoName = request.CargoName,
-                 ShippingOrder = request.ShippingOrder,
-                 CargoWeight = request.CargoWeight,
-                 CargoType = request.CargoType,
-                 CargoState  = request.CargoState,
-                  CargoRemark= request.CargoRemark
+                CargoName = request.CargoName,
+                ShippingOrder = request.ShippingOrder,
+                CargoWeight = request.CargoWeight,
+                CargoType = request.CargoType,
+                CargoState = request.CargoState,
+                CargoRemark = request.CargoRemark
             };
-            var res = wdal.AddCargo(cargo);
+            //获取名不能为空
+            if (request == null || !string.IsNullOrEmpty(request.CargoName))
+            {
+                response.Status = false;
+                response.Message = "货物名称不能为空";
+                return response;
+            }
+            //获取名不能为空
+            if (request.CargoWeight == 0)
+            {
+                response.Status = false;
+                response.Message = "重量不能为空";
+                return response;
+            }
+            //验证货物是否存在
+            var shiporder = cdal.IsExistShipping(request.ShippingOrder);
+            if (shiporder < 1)
+            {
+                response.Status = false;
+                response.Message = "货物已存在";
+                return response;
+            }
+
+            var res = cdal.AddCargo(cargo);
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
@@ -50,33 +72,136 @@ namespace BLL.Cargo
         /// 获取一条仓库数据
         /// </summary>
         /// <returns></returns>
-        public CargoInfo GetOneCargo(int pid)
+        public CargoGetOneResponse GetOneCargo(CargoGetOneRequest request)
         {
-            return wdal.GetOneCargo(pid);
+            var info = cdal.GetOneCargo(request.pid);
+            CargoGetOneResponse response = new CargoGetOneResponse()
+            {
+                CargoId = info.CargoId,
+                CargoName = info.CargoName,
+                CargoRemark = info.CargoRemark,
+                CargoState = info.CargoState,
+                CargoType = info.CargoType,
+                CargoWeight = info.CargoWeight,
+                ShippingOrder = info.ShippingOrder
+            };
+            //判断pid是否存在
+            if (request.pid>0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "获取成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "未获取选中数据";
+                return response;
+            }
+
+
+            return response;
         }
         /// <summary>
         /// 保存仓库
         /// </summary>
         /// <returns></returns>
-        public int SaveCargo(CargoInfo info)
+        public CargoUpdateResponse SaveCargo(CargoAddRequest request)
         {
-            return wdal.SaveCargo(info);
+            CargoUpdateResponse response = new CargoUpdateResponse();
+            CargoInfo cargo = new CargoInfo()
+            {
+                CargoName = request.CargoName,
+                ShippingOrder = request.ShippingOrder,
+                CargoWeight = request.CargoWeight,
+                CargoType = request.CargoType,
+                CargoState = request.CargoState,
+                CargoRemark = request.CargoRemark
+            };
+            if (request == null || !string.IsNullOrEmpty(request.CargoName))
+            {
+                response.Status = false;
+                response.Message = "货物名称不能为空";
+                return response;
+            }
+            //获取名不能为空
+            if (request.CargoWeight == 0)
+            {
+                response.Status = false;
+                response.Message = "重量不能为空";
+                return response;
+            }
+            //验证货物是否存在
+            var shiporder = cdal.IsExistShipping(request.ShippingOrder);
+            if (shiporder < 1)
+            {
+                response.Status = false;
+                response.Message = "货物已存在";
+                return response;
+            }
+            var res= cdal.SaveCargo(cargo);
+            if (res>0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "保存成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "保存失败";
+                return response;
+            }
+            return response;
         }
         /// <summary>
         /// 删除仓库
         /// </summary>
         /// <returns></returns>
-        public int DelCargo(int id)
+        public CargoDelResponse DelCargo(CargoDelRequest request)
         {
-            return wdal.DelCargo(id);
+            CargoDelResponse response = new CargoDelResponse();
+
+            var res = cdal.DelCargo(request.id);
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "删除成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "删除失败";
+                return response;
+            }
+            return response;
         }
         /// <summary>
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
-        public List<CargoInfo> GetCargo()
+        public CargoGetResponse GetCargo()
         {
-            return wdal.GetCargo();
+            CargoGetResponse response = new CargoGetResponse();
+            List<CargoInfo> clist = cdal.GetCargo();
+            CargoInfo info = new CargoInfo();
+            foreach (var i in clist)
+            {
+                info.CargoId = i.CargoId;
+                info.CargoName = i.CargoName;
+                info.CargoRemark = i.CargoRemark;
+                info.CargoState = i.CargoState;
+                info.CargoType = i.CargoType;
+                info.CargoWeight = i.CargoWeight;
+                info.ShippingOrder = i.ShippingOrder;
+            }
+
+            response.list.Add(info);
+            if (response.list.Count<0)
+            {
+                response.Status = false;
+                response.Message = "仓库获取失败";
+            }
+
+            return response;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient
 {
-   public class DistributionResponse:BaseResponse
+   public class AddDistributionResponse : BaseResponse
     {
     }
 }
