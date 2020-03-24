@@ -10,6 +10,9 @@ using ApiSDKClient.FApi.Request.WareHouse;
 
 namespace BLL.WareHouse
 {
+    /// <summary>
+    /// 仓库bll  zrx 2020年3月24日14:35:38
+    /// </summary>
     public class WareHouseBLL
     {
         WareHouseDAL wdal = new WareHouseDAL();
@@ -60,25 +63,100 @@ namespace BLL.WareHouse
         /// 获取一条仓库数据
         /// </summary>
         /// <returns></returns>
-        public WareHouseInfo GetOneWareHouse(int pid)
+        public WareHouseGetOneResponse GetOneWareHouse(WareHouseGetOneRequest request)
         {
-            return wdal.GetOneWareHouse(pid);
+            var info = wdal.GetOneWareHouse(request.pid);
+            WareHouseGetOneResponse response = new WareHouseGetOneResponse()
+            {
+                WareHouseId = info.WareHouseId,
+                 WareHouseName = info.WareHouseName,
+                 WareHouseAddress = info.WareHouseAddress,
+                 WareHouseCapacity = info.WareHouseCapacity,
+                 WareHouseRemark = info.WareHouseRemark,
+                 WareHouseStatus = info.WareHouseStatus
+            };
+            //判断pid是否存在
+            if (request.pid > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "获取成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "未获取选中数据";
+                return response;
+            }
+
+
+            return response;
         }
         /// <summary>
         /// 保存仓库
         /// </summary>
         /// <returns></returns>
-        public int SaveWareHouse(WareHouseInfo info)
+        public WareHouseUpdateResponse SaveWareHouse(WareHouseAddRequest  request)
         {
-            return wdal.SaveWareHouse(info);
+            WareHouseUpdateResponse response = new WareHouseUpdateResponse();
+            WareHouseInfo ware = new WareHouseInfo()
+            {
+                 WareHouseName = request.WareHouseName,
+                 WareHouseAddress = request.WareHouseAddress,
+                 WareHouseCapacity = request.WareHouseCapacity,
+                 WareHouseRemark = request.WareHouseRemark,
+                 WareHouseStatus = request.WareHouseStatus
+            };
+            //获取名不能为空
+            if (request == null || !string.IsNullOrEmpty(request.WareHouseName))
+            {
+                response.Status = false;
+                response.Message = "仓库名称不能为空";
+                return response;
+            }
+            if (!string.IsNullOrEmpty(request.WareHouseAddress))
+            {
+                response.Status = false;
+                response.Message = "仓库地址不能为空";
+                return response;
+            }
+            
+           
+            var res = wdal.SaveWareHouse(ware);
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "保存成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "保存失败";
+                return response;
+            }
+            return response;
+           
         }
         /// <summary>
         /// 删除仓库
         /// </summary>
         /// <returns></returns>
-        public int DelWareHouse(int id)
+        public WareHouseDelResponse DelWareHouse(WareHouseDelRequest request)
         {
-            return wdal.DelWareHouse(id);
+            WareHouseDelResponse response = new WareHouseDelResponse();
+
+            var res = wdal.DelWareHouse(request.id);
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "删除成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "删除失败";
+                return response;
+            }
+            return response;
         }
         /// <summary>
         /// 显示仓库

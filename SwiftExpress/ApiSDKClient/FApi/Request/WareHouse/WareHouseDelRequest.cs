@@ -8,5 +8,10 @@ namespace ApiSDKClient.FApi.Request.WareHouse
 {
     public class WareHouseDelRequest :BaseRequest
     {
+        public int id { get; set; }
+        public override string GetApiName()
+        {
+            return "";
+        }
     }
 }

@@ -11,7 +11,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
     <link href="~/layui/css/layui.css" rel="stylesheet" />
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
@@ -33,25 +33,52 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">手机号</label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入手机号" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
-                        <input type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入" autocomplete="off" class="layui-input">
+                        <input type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
-                        <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">登录</button>
-                  
-                        <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">取消</button>
-      
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">登录</button>
+
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">取消</button>
+
                 </div>
 
-                
+                <div class="layui-carousel" id="test2" style="margin-top: 15px;">
+                    <div carousel-item="">
+                        <div>条目1</div>
+                        <div>条目2</div>
+                    </div>
+                </div>
             </div>
-            <div class="layui-tab-item">内容2</div>
+            <div class="layui-tab-item">
+        
+                <div class="layui-form-item">
+                    <label class="layui-form-label">手机号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入管理员手机号" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">登录</button>
+
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">取消</button>
+
+                </div>
+
+
+            </div>
         </div>
     </div>
 
@@ -104,6 +131,76 @@
             });
 
         });
+
+        layui.use(['carousel', 'form'], function(){
+  var carousel = layui.carousel
+  ,form = layui.form;
+  
+  //常规轮播
+  carousel.render({
+    elem: '#test1'
+    ,arrow: 'always'
+  });
+  
+  //改变下时间间隔、动画类型、高度
+  carousel.render({
+    elem: '#test2'
+    ,interval: 1800
+    ,anim: 'fade'
+    ,height: '120px'
+  });
+  
+  //设定各种参数
+  var ins3 = carousel.render({
+    elem: '#test3'
+  });
+  //图片轮播
+  carousel.render({
+    elem: '#test10'
+    ,width: '778px'
+    ,height: '440px'
+    ,interval: 5000
+  });
+  
+  //事件
+  carousel.on('change(test4)', function(res){
+    console.log(res)
+  });
+  
+  var $ = layui.$, active = {
+    set: function(othis){
+      var THIS = 'layui-bg-normal'
+      ,key = othis.data('key')
+      ,options = {};
+      
+      othis.css('background-color', '#5FB878').siblings().removeAttr('style'); 
+      options[key] = othis.data('value');
+      ins3.reload(options);
+    }
+  };
+  
+  //监听开关
+  form.on('switch(autoplay)', function(){
+    ins3.reload({
+      autoplay: this.checked
+    });
+  });
+  
+  $('.demoSet').on('keyup', function(){
+    var value = this.value
+    ,options = {};
+    if(!/^\d+$/.test(value)) return;
+    
+    options[this.name] = value;
+    ins3.reload(options);
+  });
+  
+  //其它示例
+  $('.demoTest .layui-btn').on('click', function(){
+    var othis = $(this), type = othis.data('type');
+    active[type] ? active[type].call(this, othis) : '';
+  });
+});
     </script>
 
 </body>

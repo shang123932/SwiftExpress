@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Area\AreaDal.cs" />
     <Compile Include="Cargo\CargoDAL.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Contraband\ContrabandDal.cs" />
     <Compile Include="Contraband\DBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
