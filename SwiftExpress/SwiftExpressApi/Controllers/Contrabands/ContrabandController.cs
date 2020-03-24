@@ -34,7 +34,7 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="dh"></param>
         /// <returns></returns>
         [HttpPost]
-        public WaybillLnquiryResponse GetWaybillLnquiry(WaybillLnquiryRequest bh)
+        public GetWaybillLnquiryResponse GetWaybillLnquiry(GetWaybillLnquiryRequest bh)
         {
             return bll.GetWaybillLnquiry(bh);
         }
@@ -45,7 +45,7 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public StorageResponse GetStorage()
+        public GetStorageResponse GetStorage()
         {
             return bll.GetStorage();
         }

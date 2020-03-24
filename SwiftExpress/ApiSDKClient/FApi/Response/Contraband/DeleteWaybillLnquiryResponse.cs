@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient.FApi.Response.Contraband
 {
-    public class StorageResponse:BaseResponse
+    public class DeleteWaybillLnquiryResponse:BaseResponse
     {
     }
 }
