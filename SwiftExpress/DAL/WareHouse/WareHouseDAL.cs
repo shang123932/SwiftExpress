@@ -19,7 +19,7 @@ namespace DAL.WareHouse
         /// <returns></returns>
         public int AddWareHouse(WareHouseInfo info)
         {
-            string sql = $"insert into WareHouse values('{info.WareHouseName}',{info.WareHouseCapacity},'{info.WareHouseAddress}',{info.WareHouseStatus},'{info.WareHouseRemark}')"; 
+            string sql = $"insert into WareHouse values('{info.WareHouseName}',{info.WareHouseCapacity},'{info.WareHouseAddress}',{info.WareHouseStatus},'{info.WareHouseRemark}',GETDATE(),GETDATE(),1,1,1)"; 
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -28,7 +28,7 @@ namespace DAL.WareHouse
         /// <returns></returns>
         public WareHouseInfo GetOneWareHouse(int pid)
         {
-            string sql = $"select * from WareHouse where WareHouseId={pid}";
+            string sql = $"select * from WareHouse where WareHouseId={pid} and Status=1";
             return DBHelper.GetToList<WareHouseInfo>(sql)[0];
         }
         /// <summary>
@@ -37,7 +37,7 @@ namespace DAL.WareHouse
         /// <returns></returns>
         public int SaveWareHouse(WareHouseInfo info)
         {
-            string sql = $"update WareHouse set WareHouseName='{info.WareHouseName}',WareHouseCapacity={info.WareHouseCapacity},WareHouseStatus={info.WareHouseStatus} where WareHouseId={info.WareHouseId}";
+            string sql = $"update WareHouse set WareHouseName='{info.WareHouseName}',WareHouseCapacity={info.WareHouseCapacity},WareHouseStatus={info.WareHouseStatus},UpdateTime=GETDATE(),UpdateId=1 where WareHouseId=4 where WareHouseId={info.WareHouseId}";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -46,7 +46,7 @@ namespace DAL.WareHouse
         /// <returns></returns>
         public int DelWareHouse(int id)
         {
-            string sql = $"update WareHouse set WareHouseStatus=0 where WareHouseId={id}";
+            string sql = $"update WareHouse set WareHouseStatus=0,Status=0 where WareHouseId={id}";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace DAL.WareHouse
         /// <returns></returns>
         public List<WareHouseInfo> GetWareHouses()
         {
-            string sql = $"select * from WareHouse";
+            string sql = $"select * from WareHouse and Status=1";
             return DBHelper.GetToList<WareHouseInfo>(sql);
         }
     }

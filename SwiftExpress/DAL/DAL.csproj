@@ -48,6 +48,7 @@
     <Compile Include="Contraband\DBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shipping\ShippingInforDal.cs" />
+    <Compile Include="Staff\StaffDal.cs" />
     <Compile Include="User\DistributionDal.cs" />
     <Compile Include="User\UserDal.cs" />
     <Compile Include="WareHouse\WareHouseDAL.cs" />
