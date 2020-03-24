@@ -46,9 +46,9 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public WaybillLnquiryResponse GetWaybillLnquiry(WaybillLnquiryRequest bh)
+        public GetWaybillLnquiryResponse GetWaybillLnquiry(GetWaybillLnquiryRequest bh)
         {
-            WaybillLnquiryResponse response = new WaybillLnquiryResponse();
+            GetWaybillLnquiryResponse response = new GetWaybillLnquiryResponse();
             var number = bh.TrackingNumber;
             var list = dal.GetWaybillLnquiry(number);
             if (list.Count<=0)
@@ -69,9 +69,9 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public StorageResponse GetStorage()
+        public GetStorageResponse GetStorage()
         {
-            StorageResponse response = new StorageResponse();
+            GetStorageResponse response = new GetStorageResponse();
 
             var list = dal.GetStorage();
             if (list.Count<=0)
@@ -85,5 +85,60 @@ namespace BLL
             }
             return response;
         }
+
+        /// <summary>
+        /// 添加运单信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public AddWaybillLnquiryResponse AddWaybillLnquiryResponse(AddWaybillLnquiryRequest request)
+        {
+            AddWaybillLnquiryResponse response = new AddWaybillLnquiryResponse();
+            if (request=null||!string.IsNullOrEmpty(request.FreightTotal))
+            {
+                response.Status = false;
+                response.Message = "运费不能为空呀";
+                return response;
+            }
+            if (request = null || !string.IsNullOrEmpty(request.TrackingDate))
+            {
+                response.Status = false;
+                response.Message = "快递时间不能为空呀";
+                return response;
+            }
+            if (request = null || !string.IsNullOrEmpty(request.TrackingDetails))
+            {
+                response.Status = false;
+                response.Message = "快递详情不能为空呀";
+                return response;
+            }
+            if (request = null || !string.IsNullOrEmpty(request.TrackingState))
+            {
+                response.Status = false;
+                response.Message = "物品状态不能为空呀";
+                return response;
+            }
+
+            WaybillLnquiry waybill = new WaybillLnquiry()
+            {
+                FreightTotal = request.FreightTotal,
+                TrackingDate = request.TrackingDate,
+                TrackingDetails = request.TrackingDetails,
+                TrackingState = request.TrackingState
+            };
+            var res = dal.AddWaybillLnquiry(waybill);
+            if (res>0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "添加成功";
+            }
+            else
+            {
+                response.Message = "添加失败";
+            }
+            return response;
+        }
+
+
     }
 }
