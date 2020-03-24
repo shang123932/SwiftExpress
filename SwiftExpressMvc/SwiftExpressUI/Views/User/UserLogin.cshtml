@@ -33,17 +33,17 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">手机号</label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入手机号" class="layui-input">
+                        <input id="phone" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入手机号" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
-                        <input type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input"><a href="/User/UserRegist" style="color:#faabab">用户注册</a>
+                        <input id="pwd" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input"><a href="/User/UserRegist" style="color:#faabab">用户注册</a>
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">登录</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" onclick="Login()">登录</button>
 
                     <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">取消</button>
 
@@ -76,9 +76,9 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">登录</button>
+                    <button type="submit" class="layui-btn layui-btn-normal layui-btn-radius">登录</button>
 
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">取消</button>
+                    <button type="submit" class="layui-btn layui-btn-normal layui-btn-radius">取消</button>
 
                 </div>
 
@@ -205,3 +205,41 @@
 
 </body>
 </html>
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    //登录
+    function Login() {
+        var phone = $("#phone").val();
+        var pwd = $("#pwd").val();
+        $.ajax({
+            url: "/User/UserLogin",
+            type: "Post",
+            data: {
+                Phone: phone,
+                Pwd: pwd,
+            },
+            success: function (res) {
+                //表示接口成功
+                if (res.Status) {
+                    if (res.IsRegistSuccess) {
+                        alert("登录成功");
+                        location.href = "/User/Index";
+                    }
+                    else {
+                        alert("登录失败");
+                    }
+                }
+                else {
+                    alert(res.Message);
+                }
+            }
+
+        })
+        }
+
+
+</script>

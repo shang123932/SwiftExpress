@@ -22,10 +22,10 @@
             <div class="m-login-warp">
                 <form class="layui-form">
                     <div class="layui-form-item">
-                        <input type="text" name="title" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+                        <input id="phone1" type="text" name="title" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-item">
-                        <input type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+                        <input id="pwd1" type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
@@ -34,14 +34,14 @@
                         <div class="layui-inline">
                             <img class="verifyImg" onclick="this.src=this.src+'?c='+Math.random();" src="~/css/yzm.jpg" />
                         </div>
-                     
+
                     </div>
                     <div class="layui-form-item m-login-btn">
                         <div class="layui-inline">
-                            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">登录</button>
+                            <button type="button" class="layui-btn layui-btn-normal" lay-submit lay-filter="login" onclick="Regist()">登录</button>
                         </div>
                         <div class="layui-inline">
-                            <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                            <button type="button" class="layui-btn layui-btn-primary">取消</button>
                         </div>
                     </div>
                 </form>
@@ -51,34 +51,73 @@
     </div>
     <script src="~/css/layui.js"></script>
     <script>
-			layui.use(['form', 'layedit', 'laydate'], function() {
-				var form = layui.form(),
-					layer = layui.layer;
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form(),
+                layer = layui.layer;
 
 
-				//自定义验证规则
-				form.verify({
-					title: function(value) {
-						if(value.length < 5) {
-							return '标题至少得5个字符啊';
-						}
-					},
-					password: [/(.+){6,12}$/, '密码必须6到12位'],
-					verity: [/(.+){6}$/, '验证码必须是6位'],
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length < 5) {
+                        return '标题至少得5个字符啊';
+                    }
+                },
+                password: [/(.+){6,12}$/, '密码必须6到12位'],
+                verity: [/(.+){6}$/, '验证码必须是6位'],
 
-				});
+            });
 
 
-				//监听提交
-				form.on('submit(login)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-					})
-					return false;
-				});
+            //监听提交
+            form.on('submit(login)', function (data) {
+                layer.alert(JSON.stringify(data.field), {
+                    title: '最终的提交信息'
+                })
+                return false;
+            });
 
-			});
+        });
     </script>
 </body>
 
 </html>
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<script>
+    //注册
+    function Regist() {
+        var phone = $("#phone1").val();
+        var pwd = $("#pwd1").val();
+ 
+        $.ajax({
+            url: "/User/UserRegist",
+            type: "Post",
+            data: {
+                Phone: phone,
+                Pwd: pwd,
+            },
+            success: function (res) {
+                //表示接口成功
+                if (res.Status) {
+                    //请求成功
+                    if (res.IsRegistSuccess) {
+                        alert(res.Message);
+                        location.href = "/User/UserLogin";
+                    }
+                    else {
+                        alert(res.Message);
+                    }
+                }
+                else {
+                    alert(res.Message);
+                }
+            }
+
+        })
+    }
+</script>
