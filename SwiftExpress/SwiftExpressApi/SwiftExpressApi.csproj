@@ -222,6 +222,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Distribution1\" />
+    <Folder Include="Controllers\ShippingInfor\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
