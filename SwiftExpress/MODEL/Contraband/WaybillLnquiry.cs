@@ -40,6 +40,10 @@ namespace MODEL
         /// </summary>
         public int TrackingState { get; set; }
         /// <summary>
+        /// 运单备注
+        /// </summary>
+        public string TrackingRemark { get; set; }
+        /// <summary>
         /// 状态
         /// </summary>
         public int Status { get; set; }
