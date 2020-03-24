@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient.FApi.Request.WareHouse
 {
-    public class WareHouseAddRequest
+    public class WareHouseAddRequest:BaseRequest
     {
         /// <summary>
         /// 仓库名称
@@ -28,5 +28,10 @@ namespace ApiSDKClient.FApi.Request.WareHouse
         /// 仓库备注
         /// </summary>
         public string WareHouseRemark { get; set; }
+
+        public override string GetApiName()
+        {
+            return "";
+        }
     }
 }

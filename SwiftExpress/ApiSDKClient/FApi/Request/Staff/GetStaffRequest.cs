@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiSDKClient.FApi.Request.WareHouse
+namespace ApiSDKClient.FApi.Request.Staff
 {
-    public class WareHouseGetOneRequest : BaseRequest
+   public class GetStaffRequest:BaseRequest
     {
-        public int pid { get; set; }
         public override string GetApiName()
         {
-            return "";
+            return "/api/Contraband/GetWaybillLnquiry";
         }
     }
 }

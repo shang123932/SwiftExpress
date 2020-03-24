@@ -135,10 +135,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\layui.css" />
+    <Content Include="css\layui.js" />
+    <Content Include="css\login.css" />
+    <Content Include="css\yzm.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\01300000110309121977155456560.jpg" />
+    <Content Include="img\16sucai_p20161009100_0d0.jpg" />
+    <Content Include="img\3-1PG2110R8.jpg" />
+    <Content Include="img\5d12c2e6f1f16.jpg" />
+    <Content Include="img\9217.jpg_wh1200.jpg" />
     <Content Include="layui\css\layui.css" />
     <Content Include="layui\css\layui.mobile.css" />
     <Content Include="layui\css\modules\code.css" />
@@ -277,6 +286,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\UserLogin.cshtml" />
     <Content Include="Views\User\UserRegist.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,7 @@ namespace BLL.Cargo
 {
     public class CargoBLL
     {
+
         CargoDAL cdal = new CargoDAL();
         /// <summary>
         /// 添加仓库   zrx   2020年3月23日15:20:31
@@ -86,7 +87,7 @@ namespace BLL.Cargo
                 ShippingOrder = info.ShippingOrder
             };
             //判断pid是否存在
-            if (request.pid>0)
+            if (request.pid > 0)
             {
                 response.IsRegistSuccess = true;
                 response.Message = "获取成功";
@@ -138,8 +139,8 @@ namespace BLL.Cargo
                 response.Message = "货物已存在";
                 return response;
             }
-            var res= cdal.SaveCargo(cargo);
-            if (res>0)
+            var res = cdal.SaveCargo(cargo);
+            if (res > 0)
             {
                 response.IsRegistSuccess = true;
                 response.Message = "保存成功";
@@ -195,7 +196,7 @@ namespace BLL.Cargo
             }
 
             response.list.Add(info);
-            if (response.list.Count<0)
+            if (response.list.Count < 0)
             {
                 response.Status = false;
                 response.Message = "仓库获取失败";
@@ -203,5 +204,6 @@ namespace BLL.Cargo
 
             return response;
         }
+
     }
 }
