@@ -49,5 +49,13 @@ namespace SwiftExpressUI
         {
             return Json(b.UserLogin(request));
         }
+        /// <summary>
+        /// 显示母版页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }
