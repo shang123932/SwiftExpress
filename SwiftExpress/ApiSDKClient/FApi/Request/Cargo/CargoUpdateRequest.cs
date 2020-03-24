@@ -8,6 +8,9 @@ namespace ApiSDKClient.FApi.Request.Cargo
 {
   public class CargoUpdateRequest:BaseRequest
     {
-
+        public override string GetApiName()
+        {
+            return "";
+        }
     }
 }
