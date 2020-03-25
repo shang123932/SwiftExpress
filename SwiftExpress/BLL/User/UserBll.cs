@@ -67,8 +67,8 @@ namespace BLL
             {
                 UserPhone = userRegistered.Phone,//手机号
                 PassWord = userRegistered.Pwd,//密码
-                UserMailbox = "123",//邮箱
-                UserStatus = 1,//状态
+                UserMailbox =userRegistered.UserMailbox,//邮箱
+      
             };
          
             if (userRegistered == null || userRegistered.Phone==null)

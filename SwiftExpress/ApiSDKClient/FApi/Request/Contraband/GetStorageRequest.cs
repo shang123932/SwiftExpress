@@ -10,7 +10,7 @@ namespace ApiSDKClient.FApi.Request.Contraband
     {
         public override string GetApiName()
         {
-            return "/api/Contraband/GetContraband";
+            return "/api/Contraband/GetStorage";
         }
     }
 }

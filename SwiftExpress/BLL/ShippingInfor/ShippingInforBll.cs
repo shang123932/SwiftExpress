@@ -44,7 +44,7 @@ namespace BLL
             }
             return response;
         }
-        public GetShippingInforResonse GetDistribution()
+        public GetShippingInforResonse GetShippingInfor()
         {
             GetShippingInforResonse response = new GetShippingInforResonse();
 

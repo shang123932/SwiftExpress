@@ -57,5 +57,57 @@ namespace SwiftExpressUI
         {
             return View();
         }
+
+       
+
+        /// <summary>
+        /// 用户添加
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddDistribution()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 配送添加
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult AddDistribution(AddDistributionRequest request)
+        {
+            return Json(b.AddDistribution(request));
+        }
+        /// <summary>
+        /// 配送显示
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult GetDistribution(DistributionRequestGet request)
+        {
+            return Json(b.GetDistribution(request));
+        }
+
+        /// <summary>
+        /// 配送查询
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult GetCxDistribution(GetCxDistributionRequest request)
+        {
+            return Json(b.GetCxDistribution(request));
+        }
+
+        /// <summary>
+        /// 配送删除
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult DeleteDistribution(DeleteDistributionRequest request)
+        {
+            return Json(b.DeleteDistribution(request));
+        }
+
+
+
     }
 }

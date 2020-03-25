@@ -55,6 +55,8 @@
     <Compile Include="FApi\Request\Contraband\ContrabandRequest.cs" />
     <Compile Include="FApi\Request\Contraband\DeleteStorageRequest.cs" />
     <Compile Include="FApi\Request\Contraband\DeleteWaybillLnquiryRequest.cs" />
+    <Compile Include="FApi\Request\Contraband\GetOneStorageRequest.cs" />
+    <Compile Include="FApi\Request\Contraband\GetOneWaybillLnquiryRequest.cs" />
     <Compile Include="FApi\Request\Contraband\GetStorageRequest.cs" />
     <Compile Include="FApi\Request\Contraband\GetWaybillLnquiryRequest.cs" />
     <Compile Include="FApi\Request\Contraband\UpdateStorageRequest.cs" />
@@ -62,6 +64,9 @@
     <Compile Include="FApi\Request\Distribution\AddDistributionRequest.cs" />
     <Compile Include="FApi\Request\Distribution\DeleteDistributionRequest.cs" />
     <Compile Include="FApi\Request\Distribution\DistributionRequestGet.cs" />
+    <Compile Include="FApi\Request\Distribution\GetCxDistributionRequest.cs" />
+    <Compile Include="FApi\Request\Distribution\GetOneDistributionRequest.cs" />
+    <Compile Include="FApi\Request\Distribution\UpdateDistributionRequest.cs" />
     <Compile Include="FApi\Request\ShippingInfor\ADDShippingInforRequest.cs" />
     <Compile Include="FApi\Request\Staff\ADDStaffRequest.cs" />
     <Compile Include="FApi\Request\Staff\DelStaffRequest.cs" />
@@ -86,6 +91,8 @@
     <Compile Include="FApi\Response\Contraband\ContrabandResponse.cs" />
     <Compile Include="FApi\Response\Contraband\DeleteStorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\DeleteWaybillLnquiryResponse.cs" />
+    <Compile Include="FApi\Response\Contraband\GetOneStorageResponse.cs" />
+    <Compile Include="FApi\Response\Contraband\GetOneWaybillLnquiryResponse.cs" />
     <Compile Include="FApi\Response\Contraband\GetStorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\UpdateStorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\UpdateWaybillLnquiryResponse.cs" />
@@ -93,6 +100,9 @@
     <Compile Include="FApi\Response\Distribution\AddDistributionResponse.cs" />
     <Compile Include="FApi\Response\Distribution\DeleteDistributionResponse.cs" />
     <Compile Include="FApi\Response\Distribution\DistributionResponseGet.cs" />
+    <Compile Include="FApi\Response\Distribution\GetCxDistributionResponse.cs" />
+    <Compile Include="FApi\Response\Distribution\GetOneDistributionResponse.cs" />
+    <Compile Include="FApi\Response\Distribution\UpdateDistributionResponse.cs" />
     <Compile Include="FApi\Response\ShippingInfor\ADDShippingInforResonse.cs" />
     <Compile Include="FApi\Response\ShippingInfor\GetShippingInforResonse.cs" />
     <Compile Include="FApi\Response\Staff\ADDStaffResponse.cs" />

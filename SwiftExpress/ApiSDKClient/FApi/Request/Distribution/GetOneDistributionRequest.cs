@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiSDKClient.FApi.Request.Contraband
+namespace ApiSDKClient
 {
-    public class DeleteStorageRequest:BaseRequest
+   public class GetOneDistributionRequest:BaseRequest
     {
-        public int id { get; set; }
+
+        public int pid { get; set; }
         public override string GetApiName()
         {
-            return "/api/Contraband/DeleteStorage";
+            return "/api/User/GetOneDistribution";
         }
     }
 }
