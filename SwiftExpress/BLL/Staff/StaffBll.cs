@@ -13,7 +13,7 @@ namespace BLL.Staff
    public class StaffBll
     {
         StaffDal dal = new StaffDal();
-        public ADDStaffResponse AddCargo(ADDStaffRequest request)
+        public ADDStaffResponse ADDStaff(ADDStaffRequest request)
         {
             ADDStaffResponse response = new ADDStaffResponse();
 
@@ -68,7 +68,7 @@ namespace BLL.Staff
         /// 删除员工
         /// </summary>
         /// <returns></returns>
-        public DelStaffResponse DelCargo(DelStaffRequest request)
+        public DelStaffResponse DelStaff(DelStaffRequest request)
         {
             DelStaffResponse response = new DelStaffResponse();
 
@@ -90,7 +90,7 @@ namespace BLL.Staff
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
-        public GetStaffResponse GetDistribution()
+        public GetStaffResponse GetStaff()
         {
             GetStaffResponse response = new GetStaffResponse();
 
@@ -106,5 +106,6 @@ namespace BLL.Staff
             }
             return response;
         }
+
     }
 }
