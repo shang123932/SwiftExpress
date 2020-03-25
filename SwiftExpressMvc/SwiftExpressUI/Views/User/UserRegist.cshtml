@@ -28,17 +28,12 @@
                         <input id="pwd1" type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <input type="text" name="verity" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
-                        </div>
-                        <div class="layui-inline">
-                            <img class="verifyImg" onclick="this.src=this.src+'?c='+Math.random();" src="~/css/yzm.jpg" />
-                        </div>
+                        <input id="you" type="text" name="password" required lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
 
                     </div>
                     <div class="layui-form-item m-login-btn">
                         <div class="layui-inline">
-                            <button type="button" class="layui-btn layui-btn-normal" lay-submit lay-filter="login" onclick="Regist()">登录</button>
+                            <button type="button" class="layui-btn layui-btn-normal" lay-submit lay-filter="login" onclick="Regist()">注册</button>
                         </div>
                         <div class="layui-inline">
                             <button type="button" class="layui-btn layui-btn-primary">取消</button>
@@ -93,13 +88,14 @@
     function Regist() {
         var phone = $("#phone1").val();
         var pwd = $("#pwd1").val();
- 
+        var you = $("#you").val();
         $.ajax({
             url: "/User/UserRegist",
             type: "Post",
             data: {
                 Phone: phone,
                 Pwd: pwd,
+                UserMailbox:you,
             },
             success: function (res) {
                 //表示接口成功

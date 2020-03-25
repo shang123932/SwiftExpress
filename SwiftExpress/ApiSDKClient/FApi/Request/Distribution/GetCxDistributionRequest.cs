@@ -11,7 +11,7 @@ namespace ApiSDKClient
         public string name { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/GetDistribution";
+            return "/api/User/GetCxDistribution";
         }
     }
 }
