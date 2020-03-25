@@ -8,6 +8,7 @@ namespace DAL
 {
     public class ContrabandDal
     {
+        #region
         /// <summary>
         /// 查询物品是否是违禁物品
         /// </summary>
@@ -85,5 +86,6 @@ namespace DAL
             string sql = "";
             return DBHelper.GetToList<Storage>(sql);
         }
+        #endregion
     }
 }

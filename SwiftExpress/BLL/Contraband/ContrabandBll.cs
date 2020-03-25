@@ -94,25 +94,25 @@ namespace BLL
         public AddWaybillLnquiryResponse AddWaybillLnquiryResponse(AddWaybillLnquiryRequest request)
         {
             AddWaybillLnquiryResponse response = new AddWaybillLnquiryResponse();
-            if (request=null||!string.IsNullOrEmpty(request.FreightTotal))
+            if (request==null||!string.IsNullOrEmpty(request.FreightTotal.ToString()))
             {
                 response.Status = false;
                 response.Message = "运费不能为空呀";
                 return response;
             }
-            if (request = null || !string.IsNullOrEmpty(request.TrackingDate))
+            if (request == null )
             {
                 response.Status = false;
                 response.Message = "快递时间不能为空呀";
                 return response;
             }
-            if (request = null || !string.IsNullOrEmpty(request.TrackingDetails))
+            if (request == null || !string.IsNullOrEmpty(request.TrackingDetails))
             {
                 response.Status = false;
                 response.Message = "快递详情不能为空呀";
                 return response;
             }
-            if (request = null || !string.IsNullOrEmpty(request.TrackingState))
+            if (request == null )
             {
                 response.Status = false;
                 response.Message = "物品状态不能为空呀";
