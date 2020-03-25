@@ -38,7 +38,7 @@ namespace BLL.Cargo
                 response.Message = "货物名称不能为空";
                 return response;
             }
-            //获取名不能为空
+            //重量不能为0
             if (request.CargoWeight == 0)
             {
                 response.Status = false;
@@ -182,26 +182,16 @@ namespace BLL.Cargo
         public CargoGetResponse GetCargo()
         {
             CargoGetResponse response = new CargoGetResponse();
-            List<CargoInfo> clist = cdal.GetCargo();
-            CargoInfo info = new CargoInfo();
-            foreach (var i in clist)
-            {
-                info.CargoId = i.CargoId;
-                info.CargoName = i.CargoName;
-                info.CargoRemark = i.CargoRemark;
-                info.CargoState = i.CargoState;
-                info.CargoType = i.CargoType;
-                info.CargoWeight = i.CargoWeight;
-                info.ShippingOrder = i.ShippingOrder;
-            }
-
-            response.list.Add(info);
-            if (response.list.Count < 0)
+            var list = cdal.GetCargo();
+            if (list.Count <= 0)
             {
                 response.Status = false;
-                response.Message = "仓库获取失败";
+                response.Message = "获取失败";
             }
-
+            else
+            {
+                response.Message = "获取成功";
+            }
             return response;
         }
 

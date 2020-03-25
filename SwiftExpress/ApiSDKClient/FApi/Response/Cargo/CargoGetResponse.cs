@@ -9,7 +9,6 @@ namespace ApiSDKClient.FApi.Response.Cargo
 {
    public class CargoGetResponse:BaseResponse
     { 
-    
-        public List<CargoInfo> list { get; set; }
+
     }
 }

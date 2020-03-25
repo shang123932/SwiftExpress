@@ -27,6 +27,18 @@ namespace BLL
                  UserPhone=userlogin.Phone,
                   PassWord=userlogin.Pwd
             };
+            if (userlogin == null || userlogin.Phone == null)
+            {
+                response.Status = false;
+                response.Message = "手机号不能为空";
+                return response;
+            }
+            if (userlogin == null || userlogin.Pwd == null)
+            {
+                response.Status = false;
+                response.Message = "密码不能为空";
+                return response;
+            }
             var res = d.UserLogin(userModel);
             if (res>0)
             {
@@ -58,6 +70,19 @@ namespace BLL
                 UserMailbox = "123",//邮箱
                 UserStatus = 1,//状态
             };
+         
+            if (userRegistered == null || userRegistered.Phone==null)
+            {
+                response.Status = false;
+                response.Message = "手机号不能为空";
+                return response;
+            }
+            if (userRegistered == null || userRegistered.Pwd==null)
+            {
+                response.Status = false;
+                response.Message = "密码不能为空";
+                return response;
+            }
             var res = d.UserRegistered(userModel);
             if (res > 0)
             {

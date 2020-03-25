@@ -14,7 +14,7 @@ namespace BLL
    public class ApiRequestHelper
     {
         //地址
-        static string BaseAddress = "http://localhost:50067";
+        static string BaseAddress = "http://localhost:61800/";
         /// <summary>
         /// POST
         /// 

@@ -123,8 +123,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Area\AreaController.cs" />
+    <Compile Include="Controllers\Cargo\CargoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
+    <Compile Include="Controllers\WareHouse\WareHouseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,6 +273,49 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Scripts\bootstrap.js" />
+    <Content Include="Scripts\Scripts\bootstrap.min.js" />
+    <None Include="Scripts\Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Scripts\MvcPager.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\demo.htm" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\lang\en.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\readme.txt" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\Scripts\My97DatePicker\My97DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\Scripts\respond.js" />
+    <Content Include="Scripts\Scripts\respond.min.js" />
+    <None Include="Scripts\Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -287,10 +333,15 @@
     <Content Include="Views\User\UserLogin.cshtml" />
     <Content Include="Views\User\UserRegist.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Scripts\Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\Scripts\jquery-3.3.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Area\" />
+    <Folder Include="Views\Cargo\" />
+    <Folder Include="Views\WareHouse\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
