@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiSDKClient.FApi.Response.Distribution
+namespace ApiSDKClient
 {
-    class GetCxDistributionResponse
+   public class GetCxDistributionResponse:BaseResponse
     {
     }
 }

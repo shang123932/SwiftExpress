@@ -46,7 +46,16 @@ namespace SwiftExpressApi.Controllers.User
         {
             return disbll.GetDistribution();
         }
-
+        /// <summary>
+        ///查询接口
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public GetCxDistributionResponse GetCxDistribution(GetCxDistributionRequest getCx)
+        {
+            return disbll.GetCxDistribution(getCx);
+        }
         /// <summary>
         /// 添加接口
         /// </summary>
@@ -68,6 +77,21 @@ namespace SwiftExpressApi.Controllers.User
         {
             return disbll.DeleteDistribution(reg);
         }
-
+        /// <summary>
+        /// 获取一条配送数据
+        /// </summary>
+        /// <returns></returns>
+        public GetOneDistributionResponse GetOneDistribution(GetOneDistributionRequest  getOne)
+        {
+            return disbll.GetOneDistribution(getOne);
+        }
+        /// <summary>
+        /// 修改配送信息
+        /// </summary>
+        /// <returns></returns>
+        public UpdateDistributionResponse SaveDistribution(UpdateDistributionRequest info)
+        {
+            return disbll.SaveDistribution(info);
+        }
     }
 }

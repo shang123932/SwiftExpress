@@ -123,12 +123,20 @@ namespace BLL
         public GetOneDistributionResponse GetOneDistribution(GetOneDistributionRequest request)
         {
             var info = disdal.GetOneDistribution(request.pid);
-            DistributionModel response = new DistributionModel()
+            GetOneDistributionResponse response = new GetOneDistributionResponse()
             {
-             
+                DistributionId = info.DistributionId,
+                ShippingOrder = info.ShippingOrder,
+                StaffId = info.StaffId,
+                     WareHouseId=info.WareHouseId,
+                     PickTime = info.PickTime,
+                     SendTime =info.SendTime,
+                     SendType = info.SendType,
+                     SendState = info.SendState,
+                     SendRemark=info.SendRemark
             };
             //判断pid是否存在
-            if (request.pid > 0)
+            if (request.pid> 0)
             {
                 response.IsRegistSuccess = true;
                 response.Message = "获取成功";
@@ -150,39 +158,38 @@ namespace BLL
         public UpdateDistributionResponse SaveDistribution(UpdateDistributionRequest request)
         {
             UpdateDistributionResponse response = new UpdateDistributionResponse();
-            WareHouseInfo ware = new WareHouseInfo()
+            DistributionModel ware = new DistributionModel()
             {
-                WareHouseName = request.WareHouseName,
-                WareHouseAddress = request.WareHouseAddress,
-                WareHouseCapacity = request.WareHouseCapacity,
-                WareHouseRemark = request.WareHouseRemark,
-                WareHouseStatus = request.WareHouseStatus
+                DistributionId = request.DistributionId,     
+                StaffId = request.StaffId,
+                 WareHouseId=request.WareHouseId,
+              
             };
             //获取名不能为空
-            if (request == null || !string.IsNullOrEmpty(request.WareHouseName))
+            if (request == null || !string.IsNullOrEmpty(request.StaffId.ToString()))
             {
                 response.Status = false;
-                response.Message = "仓库名称不能为空";
+                response.Message = "员工id不能为空";
                 return response;
             }
-            if (!string.IsNullOrEmpty(request.WareHouseAddress))
+            if (!string.IsNullOrEmpty(request.WareHouseId.ToString()))
             {
                 response.Status = false;
-                response.Message = "仓库地址不能为空";
+                response.Message = "仓库id不能为空";
                 return response;
             }
 
 
-            var res = wdal.SaveWareHouse(ware);
+            var res =disdal.SaveDistribution(ware);
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
-                response.Message = "保存成功";
+                response.Message = "修改成功";
             }
             else
             {
                 response.Status = false;
-                response.Message = "保存失败";
+                response.Message = "修改失败";
                 return response;
             }
             return response;

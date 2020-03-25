@@ -74,6 +74,7 @@ namespace BLL.WareHouse
                  WareHouseCapacity = info.WareHouseCapacity,
                  WareHouseRemark = info.WareHouseRemark,
                  WareHouseStatus = info.WareHouseStatus
+                 
             };
             //判断pid是否存在
             if (request.pid > 0)
