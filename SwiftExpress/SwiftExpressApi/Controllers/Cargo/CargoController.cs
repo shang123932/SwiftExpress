@@ -18,6 +18,8 @@ namespace SwiftExpressApi.Controllers.Cargo
         /// 添加仓库   zrx  2020年3月24日14:43:15
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public CargoAddResponse AddCargo(CargoAddRequest request)
         {
 
@@ -27,6 +29,8 @@ namespace SwiftExpressApi.Controllers.Cargo
         /// 获取一条仓库数据
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public CargoGetOneResponse GetOneCargo(CargoGetOneRequest request)
         {
             return cbll.GetOneCargo(request);
@@ -35,6 +39,8 @@ namespace SwiftExpressApi.Controllers.Cargo
         /// 保存仓库
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public CargoUpdateResponse SaveCargo(CargoAddRequest request)
         {
             return cbll.SaveCargo(request);
@@ -43,6 +49,8 @@ namespace SwiftExpressApi.Controllers.Cargo
         /// 删除仓库
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public CargoDelResponse DelCargo(CargoDelRequest request)
         {
             return cbll.DelCargo(request);
@@ -51,6 +59,8 @@ namespace SwiftExpressApi.Controllers.Cargo
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public CargoGetResponse GetCargo()
         {
             return cbll.GetCargo();
