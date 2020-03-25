@@ -32,6 +32,7 @@ namespace BLL.Area
             }
             else
             {
+                response.arealist = list;
                 response.IsRegistSuccess = true;
                 response.Message = "获取成功";
             }
@@ -54,6 +55,7 @@ namespace BLL.Area
             }
             else
             {
+                response.arealist = list;
                 response.IsRegistSuccess = true;
                 response.Message = "获取成功";
             }
