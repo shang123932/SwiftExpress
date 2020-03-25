@@ -16,14 +16,6 @@ namespace MODEL
         /// </summary>
         public int WaybillId { get; set; }
         /// <summary>
-        /// 快递单号
-        /// </summary>
-        public string TrackingNumber { get; set; }
-        /// <summary>
-        /// 货单id
-        /// </summary>
-        public int CargoId { get; set; }
-        /// <summary>
         /// 运费
         /// </summary>
         public decimal FreightTotal { get; set; }
@@ -47,10 +39,6 @@ namespace MODEL
         /// 状态
         /// </summary>
         public int Status { get; set; }
-        /// <summary>
-        /// 备注
-        /// </summary>
-        public string Remark { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>

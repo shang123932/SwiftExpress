@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient.FApi.Request.Contraband
 {
-    public class DeleteStorageRequest:BaseRequest
+   public  class GetOneWaybillLnquiryRequest:BaseRequest
     {
         public int id { get; set; }
         public override string GetApiName()
         {
-            return "/api/Contraband/DeleteStorage";
+            return "/api/Contraband/GetOneWaybillLnquiry";
         }
     }
 }
