@@ -53,9 +53,9 @@ namespace DAL.WareHouse
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
-        public List<WareHouseInfo> GetWareHouses()
+        public List<WareHouseInfo> GetWareHouses(string name)
         {
-            string sql = $"select * from WareHouse and Status=1";
+            string sql = $"select * from WareHouse where WareHouseName like '%{name}%' and Status=1";
             return DBHelper.GetToList<WareHouseInfo>(sql);
         }
     }

@@ -8,6 +8,7 @@ namespace ApiSDKClient.FApi.Request.WareHouse
 {
     public class WareHouseGetRequest : BaseRequest
     {
+        public string name { get; set; }
         public override string GetApiName()
         {
             return "";

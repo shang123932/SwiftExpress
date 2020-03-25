@@ -51,9 +51,9 @@ namespace SwiftExpressApi.Controllers.WareHouse
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
-        public List<WareHouseInfo> GetWareHouses()
+        public WareHouseGetResponse GetWareHouses(WareHouseGetRequest request)
         {
-            return wbll.GetWareHouses();
+            return wbll.GetWareHouses(request);
         }
     }
 }

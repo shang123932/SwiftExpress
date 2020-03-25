@@ -162,9 +162,21 @@ namespace BLL.WareHouse
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
-        public List<WareHouseInfo> GetWareHouses()
+        public WareHouseGetResponse GetWareHouses(WareHouseGetRequest request)
         {
-            return wdal.GetWareHouses();
+            WareHouseGetResponse response = new WareHouseGetResponse();
+            var list = wdal.GetWareHouses(request.name);
+            if (list.Count <= 0)
+            {
+                response.Status = false;
+                response.Message = "获取失败";
+            }
+            else
+            {
+                response.Message = "获取成功";
+            }
+            return response;
         }
+
     }
 }
