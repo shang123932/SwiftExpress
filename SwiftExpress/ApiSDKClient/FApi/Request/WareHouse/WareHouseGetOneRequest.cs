@@ -11,7 +11,7 @@ namespace ApiSDKClient.FApi.Request.WareHouse
         public int pid { get; set; }
         public override string GetApiName()
         {
-            return "";
+            return "/api/WareHouse/GetOneWareHouse";
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ApiSDKClient.FApi.Request.Cargo
         public int id { get; set; }
         public override string GetApiName()
         {
-            return "";
+            return "/api/Cargo/DelCargo";
         }
     }
 }
