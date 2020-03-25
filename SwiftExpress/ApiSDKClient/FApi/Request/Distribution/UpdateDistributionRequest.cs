@@ -22,7 +22,7 @@ namespace ApiSDKClient
         public int WareHouseId { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/GetDistribution";
+            return "/api/User/SaveDistribution";
         }
     }
 }

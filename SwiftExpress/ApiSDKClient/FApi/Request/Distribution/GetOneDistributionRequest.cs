@@ -12,7 +12,7 @@ namespace ApiSDKClient
         public int pid { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/GetDistribution";
+            return "/api/User/GetOneDistribution";
         }
     }
 }

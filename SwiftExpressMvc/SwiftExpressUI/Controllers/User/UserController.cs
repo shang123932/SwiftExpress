@@ -57,5 +57,25 @@ namespace SwiftExpressUI
         {
             return View();
         }
+
+       
+
+        /// <summary>
+        /// 用户添加
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddDistribution()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 用户添加
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult AddDistribution(AddDistributionRequest request)
+        {
+            return Json(b.AddDistribution(request));
+        }
     }
 }
