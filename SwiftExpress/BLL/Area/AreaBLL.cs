@@ -21,9 +21,9 @@ namespace BLL.Area
         /// 获取省份
         /// </summary>
         /// <returns></returns>
-        public AreaCityResponse GetProvince()
+        public AreaProvinceResponse GetProvince()
         {
-            AreaCityResponse response = new AreaCityResponse();
+            AreaProvinceResponse response = new AreaProvinceResponse();
             var list = areaDal.GetProvince();
             if (list.Count <= 0)
             {

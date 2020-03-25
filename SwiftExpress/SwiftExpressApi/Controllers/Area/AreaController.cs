@@ -27,7 +27,7 @@ namespace SwiftExpressApi.Controllers.Area
         /// <returns></returns>
         [HttpPost]
         
-        public List<AreaModel> GetProvince()
+        public AreaProvinceResponse GetProvince()
         {
             return abll.GetProvince();
         }
@@ -37,7 +37,7 @@ namespace SwiftExpressApi.Controllers.Area
         /// <param name="pid"></param>
         /// <returns></returns>
         [HttpPost]
-        public List<AreaModel> GetCity(AreaCityRequest request)
+        public AreaCityResponse GetCity(AreaCityRequest request)
         {
             return abll.GetCity(request);
         }
