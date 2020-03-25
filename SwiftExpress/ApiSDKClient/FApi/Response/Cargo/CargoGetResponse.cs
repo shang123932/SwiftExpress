@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ApiSDKClient.FApi.Response.Cargo
 {
    public class CargoGetResponse:BaseResponse
-    { 
-
+    {
+        public List<CargoInfo> cargolist { get; set; }
     }
 }

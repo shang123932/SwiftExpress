@@ -31,7 +31,7 @@ namespace ApiSDKClient.FApi.Request.WareHouse
 
         public override string GetApiName()
         {
-            return "";
+            return "/api/WareHouse/AddWareHouse";
         }
     }
 }

@@ -18,6 +18,8 @@ namespace SwiftExpressApi.Controllers.WareHouse
         /// 添加仓库   zrx   2020年3月24日15:00:01
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public WareHouseAddResponse AddWareHouse(WareHouseAddRequest request)
         {
 
@@ -27,6 +29,8 @@ namespace SwiftExpressApi.Controllers.WareHouse
         /// 获取一条仓库数据
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public WareHouseGetOneResponse GetOneWareHouse(WareHouseGetOneRequest request)
         {
             return wbll.GetOneWareHouse(request);
@@ -35,6 +39,8 @@ namespace SwiftExpressApi.Controllers.WareHouse
         /// 保存仓库
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public WareHouseUpdateResponse SaveWareHouse(WareHouseAddRequest request)
         {
             return wbll.SaveWareHouse(request);
@@ -43,6 +49,8 @@ namespace SwiftExpressApi.Controllers.WareHouse
         /// 删除仓库
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public WareHouseDelResponse DelWareHouse(WareHouseDelRequest request)
         {
             return wbll.DelWareHouse(request);
@@ -51,9 +59,11 @@ namespace SwiftExpressApi.Controllers.WareHouse
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
-        public List<WareHouseInfo> GetWareHouses()
+        /// 
+        [HttpPost]
+        public WareHouseGetResponse GetWareHouses(WareHouseGetRequest request)
         {
-            return wbll.GetWareHouses();
+            return wbll.GetWareHouses(request);
         }
     }
-}
+} 

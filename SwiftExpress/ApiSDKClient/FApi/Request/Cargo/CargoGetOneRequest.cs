@@ -12,7 +12,7 @@ namespace ApiSDKClient.FApi.Request.Cargo
 
         public override string GetApiName()
         {
-            return "";
+            return "/api/Cargo/GetOneCargo";
         }
     }
 }

@@ -21,6 +21,15 @@ namespace DAL
             string sql = $"select  * from  Distribution where SendState=1";
             return DBHelper.GetToList<DistributionModel>(sql);
         }
+        /// <summary>
+        /// 查询配送
+        /// </summary>
+        /// <returns></returns>
+        public List<DistributionModel> GetCxDistribution(string name)
+        {
+            string sql = $"select * from Distribution where ShippingOrder='{name}' and Status=1";
+            return DBHelper.GetToList<DistributionModel>(sql);
+        }
 
         /// <summary>
         /// 配送 添加 
@@ -28,7 +37,7 @@ namespace DAL
         /// <returns></returns>
         public int  AddDistribution(DistributionModel dis)
         {
-            string sql = $"insert into Distribution(ShippingOrder,StaffId,WareHouseId,PickTime,SendTime,SendType,SendState,SendRemark) values('{dis.ShippingOrder}','{dis.StaffId}','{dis.WareHouseId}','{dis.PickTime}','{dis.SendTime}','{dis.SendType}','{dis.SendState}','{dis.SendRemark}')";
+            string sql = $"insert into Distribution(ShippingOrder,StaffId,WareHouseId,PickTime,SendTime,SendType,SendState,SendRemark,Status,CreateTime,CreaterId) values('{dis.ShippingOrder}','{dis.StaffId}','{dis.WareHouseId}','{dis.PickTime}','{dis.SendTime}','{dis.SendType}','{dis.SendState}','{dis.SendRemark}',1,GETDATE(),GETDATE(),1,1)";
             return DBHelper.ExecuteNonQuery(sql);
         }
 
@@ -38,7 +47,26 @@ namespace DAL
         /// <returns></returns>
         public int DeleteDistribution(int ids)
         {
-            string sql = $"update Distribution set SendState=0 where DistributionId={ids}";
+            string sql = $"update Distribution set SendState=0 Status=0 where DistributionId={ids}";
+            return DBHelper.ExecuteNonQuery(sql);
+        }
+
+        /// <summary>
+        /// 获取一条配送数据
+        /// </summary>
+        /// <returns></returns>
+        public DistributionModel GetOneDistribution(int pid)
+        {
+            string sql = $"select * from Distribution where DistributionId={pid} and Status=1";
+            return DBHelper.GetToList<DistributionModel>(sql)[0];
+        }
+        /// <summary>
+        /// 修改配送信息
+        /// </summary>
+        /// <returns></returns>
+        public int SaveDistribution(DistributionModel info)
+        {
+            string sql = $"update Distribution set StaffId='{info.StaffId}',WareHouseId={info.WareHouseId},UpdateTime=GETDATE(),UpdateId=1 where DistributionId={info.DistributionId}";
             return DBHelper.ExecuteNonQuery(sql);
         }
 

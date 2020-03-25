@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiSDKClient.FApi.Request.WareHouse
+namespace ApiSDKClient
 {
-    public class WareHouseGetOneRequest : BaseRequest
+   public class GetCxDistributionRequest:BaseRequest
     {
-        public int pid { get; set; }
+        public string name { get; set; }
         public override string GetApiName()
         {
-            return "/api/WareHouse/GetOneWareHouse";
+            return "/api/User/GetDistribution";
         }
     }
 }

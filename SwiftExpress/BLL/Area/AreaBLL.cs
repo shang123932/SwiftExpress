@@ -21,20 +21,45 @@ namespace BLL.Area
         /// 获取省份
         /// </summary>
         /// <returns></returns>
-        public List<AreaModel> GetProvince()
+        public AreaProvinceResponse GetProvince()
         {
-            return areaDal.GetProvince();
+            AreaProvinceResponse response = new AreaProvinceResponse();
+            var list = areaDal.GetProvince();
+            if (list.Count <= 0)
+            {
+                response.Status = false;
+                response.Message = "获取失败";
+            }
+            else
+            {
+                response.arealist = list;
+                response.IsRegistSuccess = true;
+                response.Message = "获取成功";
+            }
+            return response;
         }
+
         /// <summary>
         /// 获取城市、区、县
         /// </summary>
         /// <param name="cityRequest"></param>
-        /// <returns></returns>
-        public List<AreaModel> GetCity(AreaCityRequest cityRequest)
+        /// <returns></returns
+        public AreaCityResponse GetCity(AreaCityRequest request)
         {
-            var pid = cityRequest.pid;
-            var list = areaDal.GetCity(pid);
-            return list;
+            AreaCityResponse response = new AreaCityResponse();
+            var list = areaDal.GetCity(request.pid);
+            if (list.Count <= 0)
+            {
+                response.Status = false;
+                response.Message = "获取失败";
+            }
+            else
+            {
+                response.arealist = list;
+                response.IsRegistSuccess = true;
+                response.Message = "获取成功";
+            }
+            return response;
         }
         #endregion
     }
