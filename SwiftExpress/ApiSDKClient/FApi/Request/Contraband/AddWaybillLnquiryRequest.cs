@@ -61,5 +61,10 @@ namespace ApiSDKClient.FApi.Request.Contraband
         /// 修改人id
         /// </summary>
         public int UpdateId { get; set; }
+
+        public override string GetApiName()
+        {
+            return "/api/Contraband/AddWaybillLnquiry";
+        }
     }
 }

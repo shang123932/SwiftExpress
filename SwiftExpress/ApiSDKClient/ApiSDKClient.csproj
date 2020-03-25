@@ -55,6 +55,8 @@
     <Compile Include="FApi\Request\Contraband\ContrabandRequest.cs" />
     <Compile Include="FApi\Request\Contraband\DeleteStorageRequest.cs" />
     <Compile Include="FApi\Request\Contraband\DeleteWaybillLnquiryRequest.cs" />
+    <Compile Include="FApi\Request\Contraband\GetOneStorageRequest.cs" />
+    <Compile Include="FApi\Request\Contraband\GetOneWaybillLnquiryRequest.cs" />
     <Compile Include="FApi\Request\Contraband\GetStorageRequest.cs" />
     <Compile Include="FApi\Request\Contraband\GetWaybillLnquiryRequest.cs" />
     <Compile Include="FApi\Request\Contraband\UpdateStorageRequest.cs" />
@@ -89,6 +91,8 @@
     <Compile Include="FApi\Response\Contraband\ContrabandResponse.cs" />
     <Compile Include="FApi\Response\Contraband\DeleteStorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\DeleteWaybillLnquiryResponse.cs" />
+    <Compile Include="FApi\Response\Contraband\GetOneStorageResponse.cs" />
+    <Compile Include="FApi\Response\Contraband\GetOneWaybillLnquiryResponse.cs" />
     <Compile Include="FApi\Response\Contraband\GetStorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\UpdateStorageResponse.cs" />
     <Compile Include="FApi\Response\Contraband\UpdateWaybillLnquiryResponse.cs" />

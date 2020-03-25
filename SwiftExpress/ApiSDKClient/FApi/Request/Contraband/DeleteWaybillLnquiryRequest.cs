@@ -8,5 +8,10 @@ namespace ApiSDKClient.FApi.Request.Contraband
 {
     public class DeleteWaybillLnquiryRequest:BaseRequest
     {
+        public int id { get; set; }
+        public override string GetApiName()
+        {
+            return "/api/Contraband/DeleteWaybillLnquiry";
+        }
     }
 }
