@@ -1,5 +1,202 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = null;
 }
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
 
+    <div style="height:800px;width:1685px;  ">
+        @*头部分*@
+        <div id="topnav" style="        height: 80px;
+        width: auto;
+        background-color: gold">
+            <img src="~/img/YuYan.jfif" />
+            <img src="~/img/雨燕速递.jpg" />
+        </div>
+        @*轮播图部分*@
+        <div style="height:520px;width:1685px;">
+            <div class="layui-carousel" id="test3" lay-filter="test4" lay-anim="default" lay-indicator="none" lay-arrow="none" style="height:520px;width:auto;">
+                <div carousel-item style="        height: 520px;
+        width: 1685px;
+">
+                    <div style="height:520px;width:1685px;">
+                        <img src="~/img/IMG20190905_170942.jpg" />
+                    </div>
+                    <div style="height:520px;width:1685px;">
+                        <img src="~/img/wKhBFl4NqOGAXi6pAAS6Y1QC39Y309.jpg" />
+                    </div>
+                    <div style="height:520px;width:1685px;">
+                        <img src="~/img/快递.jpg" />
+                    </div>
+                   
+                </div>
+            </div>
+  
+        </div>
+
+
+
+        @*底部导航栏*@
+    <div id="bottomnav" style=" height: 160px; width: auto; margin-top: 20px; ">
+        @*定位盒子*@
+        <div style="height:150px;width:300px;background-color:darkslateblue;border-radius:8px; float:left;margin-left:110px;">
+            <div>
+                <div class="layui-tab" style="color:white">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">快递单号</li>
+                        <li>手机号</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <div>
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入快递单号" autocomplete="off" class="layui-input">
+                            </div>
+                            <div style="float:right;margin-top:10px;">
+                                <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">查询</button>
+                            </div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <div>
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                            </div>
+                            <div style="float:right;margin-top:10px;">
+                                <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div style="height:150px;width:1200px;color:white;background-color:midnightblue; float:left;border-radius:8px;">
+            <div style="height:50px;width:200px; background-color:slateblue; float:left; text-align:center;line-height:50px;margin:50px 35px 50px 100px;font-family:KaiTi;font-size:24px;font-weight:bold">登录</div>
+            <div style="height:50px;width:200px;background-color:slateblue;  float:left; text-align:center;line-height:50px;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold">运费时效查询</div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px ;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold">自助查询</div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px; margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold">仓库招租</div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="~/layui/layui.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use(['carousel', 'form'], function () {
+        var carousel = layui.carousel
+            , form = layui.form;
+
+        //常规轮播
+        carousel.render({
+            elem: '#test1'
+            , arrow: 'always'
+        });
+
+        //改变下时间间隔、动画类型、高度
+        carousel.render({
+            elem: '#test2'
+            , interval: 1800
+            , anim: 'fade'
+            , height: '120px'
+        });
+
+        //设定各种参数
+        var ins3 = carousel.render({
+            elem: '#test3'
+        });
+        //图片轮播
+        carousel.render({
+            elem: '#test10'
+            , width: '778px'
+            , height: '440px'
+            , interval: 5000
+        });
+
+        //事件
+        carousel.on('change(test4)', function (res) {
+            console.log(res)
+        });
+
+        var $ = layui.$, active = {
+            set: function (othis) {
+                var THIS = 'layui-bg-normal'
+                    , key = othis.data('key')
+                    , options = {};
+
+                othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+                options[key] = othis.data('value');
+                ins3.reload(options);
+            }
+        };
+
+        //监听开关
+        form.on('switch(autoplay)', function () {
+            ins3.reload({
+                autoplay: this.checked
+            });
+        });
+
+        $('.demoSet').on('keyup', function () {
+            var value = this.value
+                , options = {};
+            if (!/^\d+$/.test(value)) return;
+
+            options[this.name] = value;
+            ins3.reload(options);
+        });
+
+        //其它示例
+        $('.demoTest .layui-btn').on('click', function () {
+            var othis = $(this), type = othis.data('type');
+            active[type] ? active[type].call(this, othis) : '';
+        });
+    });
+    layui.use('element', function () {
+        var $ = layui.jquery
+            , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+        //触发事件
+        var active = {
+            tabAdd: function () {
+                //新增一个Tab项
+                element.tabAdd('demo', {
+                    title: '新选项' + (Math.random() * 1000 | 0) //用于演示
+                    , content: '内容' + (Math.random() * 1000 | 0)
+                    , id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                })
+            }
+            , tabDelete: function (othis) {
+                //删除指定Tab项
+                element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                othis.addClass('layui-btn-disabled');
+            }
+            , tabChange: function () {
+                //切换到指定Tab项
+                element.tabChange('demo', '22'); //切换到：用户管理
+            }
+        };
+
+        $('.site-demo-active').on('click', function () {
+            var othis = $(this), type = othis.data('type');
+            active[type] ? active[type].call(this, othis) : '';
+        });
+
+        //Hash地址的定位
+        var layid = location.hash.replace(/^#test=/, '');
+        element.tabChange('test', layid);
+
+        element.on('tab(test)', function (elem) {
+            location.hash = 'test=' + $(this).attr('lay-id');
+        });
+
+    });
+</script>
