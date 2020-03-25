@@ -32,6 +32,7 @@ namespace BLL.Area
             }
             else
             {
+                response.IsRegistSuccess = true;
                 response.Message = "获取成功";
             }
             return response;
@@ -53,6 +54,7 @@ namespace BLL.Area
             }
             else
             {
+                response.IsRegistSuccess = true;
                 response.Message = "获取成功";
             }
             return response;

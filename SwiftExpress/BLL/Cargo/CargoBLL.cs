@@ -190,6 +190,7 @@ namespace BLL.Cargo
             }
             else
             {
+                response.IsRegistSuccess = true;
                 response.Message = "获取成功";
             }
             return response;

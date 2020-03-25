@@ -173,6 +173,7 @@ namespace BLL.WareHouse
             }
             else
             {
+                response.IsRegistSuccess = true;
                 response.Message = "获取成功";
             }
             return response;
