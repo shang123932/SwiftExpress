@@ -138,9 +138,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\admin.css" />
+    <Content Include="css\common.js" />
     <Content Include="css\layui.css" />
     <Content Include="css\layui.js" />
     <Content Include="css\login.css" />
+    <Content Include="css\main.js" />
     <Content Include="css\yzm.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
