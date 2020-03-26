@@ -57,8 +57,15 @@ namespace SwiftExpressUI
         {
             return View();
         }
+        /// <summary>
+        /// 后台模板页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Backstage()
+        {
+            return View();
+        }
 
-       
 
         /// <summary>
         /// 用户添加
