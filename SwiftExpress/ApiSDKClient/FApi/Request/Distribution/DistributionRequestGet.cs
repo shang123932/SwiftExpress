@@ -8,6 +8,9 @@ namespace ApiSDKClient
 {
    public class DistributionRequestGet:BaseRequest
     {
+
+
+
         public override string GetApiName()
         {
             return "/api/User/GetDistribution";
