@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SwiftExpressUI.Controllers.Contraband
+namespace SwiftExpressUI
 {
     public class ContrabandController : Controller
     {
