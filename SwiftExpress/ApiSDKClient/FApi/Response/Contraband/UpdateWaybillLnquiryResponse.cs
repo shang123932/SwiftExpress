@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiSDKClient.FApi.Response.Contraband
+namespace ApiSDKClient
 {
     public class UpdateWaybillLnquiryResponse:BaseResponse
     {

@@ -73,5 +73,47 @@ namespace BLL
             return ApiRequestHelper.Post<GetOneWaybillLnquiryRequest, GetOneWaybillLnquiryResponse>(request);
         }
         #endregion
+
+
+        #region 存储
+        /// <summary>
+        /// 查询存储信息
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        //public GetStorageResponse GetStorage()
+        //{
+        //    return ApiRequestHelper.Post<GetStorageResponse>
+        //}
+
+        public UpdateStorageResponse UpdateStorage(UpdateStorageRequest request)
+        {
+            return ApiRequestHelper.Post<UpdateStorageRequest, UpdateStorageResponse>(request);
+        }
+        /// <summary>
+        /// 删除存储信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DeleteStorageResponse DeleteStorage(DeleteStorageRequest request)
+        {
+            return ApiRequestHelper.Post<DeleteStorageRequest, DeleteStorageResponse>(request);
+        }
+        /// <summary>
+        /// 获取一条存储信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public GetOneStorageResponse GetOneStorage(GetOneStorageRequest request)
+        {
+            return ApiRequestHelper.Post<GetOneStorageRequest, GetOneStorageResponse>(request);
+
+        }
+
+
+
+        #endregion
+
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiSDKClient.FApi.Request.Contraband
+namespace ApiSDKClient
 {
    public  class GetOneWaybillLnquiryRequest:BaseRequest
     {

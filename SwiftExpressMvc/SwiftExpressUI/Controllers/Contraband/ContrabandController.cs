@@ -30,21 +30,5 @@ namespace SwiftExpressUI
         }
         #endregion
 
-        public ActionResult AddWaybillLnquiry()
-        {
-            return View();
-        }
-        /// <summary>
-        /// 添加运单信息
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public JsonResult AddWaybillLnquiry(AddWaybillLnquiryRequest request)
-        {
-            return Json(bll.AddWaybillLnquiry(request));
-        }
-        
-
     }
 }
