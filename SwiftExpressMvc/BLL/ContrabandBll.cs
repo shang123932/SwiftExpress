@@ -68,13 +68,10 @@ namespace BLL
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        //public GetOneWaybillLnquiryResponse GetOneWaybillLnquiry(GetOneWaybillLnquiryRequest request)
-        //{
-        //    GetOneWaybillLnquiryResponse response = new GetOneWaybillLnquiryResponse();
-        //    var res = dal.GetOneWaybillLnquiry(request.id);
-
-        //    return response;
-        //}
+        public GetOneWaybillLnquiryResponse GetOneWaybillLnquiry(GetOneWaybillLnquiryRequest request)
+        {
+            return ApiRequestHelper.Post<GetOneWaybillLnquiryRequest, GetOneWaybillLnquiryResponse>(request);
+        }
         #endregion
     }
 }

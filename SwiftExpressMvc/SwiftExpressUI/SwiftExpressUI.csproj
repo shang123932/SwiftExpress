@@ -124,10 +124,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ContrabandController.cs" />
     <Compile Include="Controllers\Area\AreaController.cs" />
     <Compile Include="Controllers\Cargo\CargoController.cs" />
+    <Compile Include="Controllers\Contraband\ContrabandController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Shipping\ShippingController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\WareHouse\WareHouseController.cs" />
     <Compile Include="Global.asax.cs">
@@ -787,15 +788,13 @@
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.woff" />
-    <Content Include="Views\User\AddDistribution.cshtml" />
-    <Content Include="Views\User\GetDistribution1.cshtml" />
+    <Content Include="Views\Contraband\GetContraband.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Area\" />
     <Folder Include="Views\Cargo\" />
-    <Folder Include="Views\Shipping\" />
     <Folder Include="Views\WareHouse\" />
   </ItemGroup>
   <ItemGroup>
