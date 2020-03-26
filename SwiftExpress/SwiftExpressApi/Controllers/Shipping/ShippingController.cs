@@ -55,11 +55,11 @@ namespace SwiftExpressApi
 
             return Sbl.ADDStaff(request);
         }
-        public UpdateStaffResponse UpdateStaff(UpdateStaffRequest request)
-        {
+        //public UpdateStaffResponse UpdateStaff(UpdateStaffRequest request)
+        //{
 
-            return Sbl.(request);
-        }
+        //    return Sbl.(request);
+        //}
     }
 }
 

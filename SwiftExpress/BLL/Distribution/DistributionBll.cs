@@ -52,7 +52,7 @@ namespace BLL
             }
             else
             {
-                response.User = list;
+               
                 response.Message = $"获取信息成功";
             }
             return response;

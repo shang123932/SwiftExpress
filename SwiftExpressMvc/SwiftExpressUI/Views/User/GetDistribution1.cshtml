@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "GetDistribution1";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+    <table class="layui-table" lay-skin="line">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>快递单号</th>
+                <th>员工编号</th>
+                <th>仓库编号</th>
+                <th>接货时间</th>
+                <th>发货时间</th>
+                <th>配送方式</th>
+                <th>货物状态</th>
+                <th>配送备注</th>
+            </tr>
+        </thead>
+        <tbody id="td"></tbody>
+    </table>
+    <script src="~/layui/layui.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+</body>
+</html>
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    GetDistribution();
+    function GetDistribution() {
+         $.ajax({
+            url: "/User/GetDistribution1",
+            type: "POST",
+            dataType:"Json",
+            success: function (res) {
+                var op = "";
+                $(res.User).each(function () {
+                    var oo = "<tr>" +
+                        +"<td>" +this.DistributionId+ "</td>"
+                        + "<td>" +this.ShippingOrder+ "</td>"
+                        + "<td>" +this.StaffId+ "</td>"
+                        + "<td>" +this.WareHouseId+ "</td>"
+                        + "<td>" +this.PickTime+ "</td>"
+                        + "<td>" +this.SendTime+ "</td>"
+                        + "<td>" +this.SendType+ "</td>"
+                        + "<td>" +this.SendState+ "</td>"
+                        + "<td>" +this.SendRemark+ "</td>"
+                        + "</tr>"
+                    op += oo;
+                })
+                $("#td").html(op);
+            }
+        })
+    }
+
+</script>
