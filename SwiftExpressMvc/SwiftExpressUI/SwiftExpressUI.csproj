@@ -129,6 +129,8 @@
     <Compile Include="Controllers\Cargo\CargoController.cs" />
     <Compile Include="Controllers\Contraband\ContrabandController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Shipp\ShippController.cs" />
+    <Compile Include="Controllers\Staff\StaffController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\WareHouse\WareHouseController.cs" />
     <Compile Include="Global.asax.cs">
@@ -796,6 +798,8 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Area\" />
     <Folder Include="Views\Cargo\" />
+    <Folder Include="Views\Shipp\" />
+    <Folder Include="Views\Staff\" />
     <Folder Include="Views\WareHouse\" />
   </ItemGroup>
   <ItemGroup>

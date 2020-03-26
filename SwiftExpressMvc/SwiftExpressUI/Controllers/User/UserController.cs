@@ -85,15 +85,23 @@ namespace SwiftExpressUI
             return Json(b.AddDistribution(request));
         }
         /// <summary>
+        /// 配送显示页面
+        /// </summary>
+        /// <returns></returns> 
+        public ActionResult GetDistribution1( )
+        {
+            return View();
+        }
+        /// <summary>
         /// 配送显示
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult GetDistribution(DistributionRequestGet request)
+        public JsonResult GetDistribution1(DistributionRequestGet request)
         {
+         
             return Json(b.GetDistribution(request));
-        }
-
+        }   
         /// <summary>
         /// 配送查询
         /// </summary>
