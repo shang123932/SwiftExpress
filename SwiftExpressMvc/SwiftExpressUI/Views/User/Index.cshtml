@@ -17,10 +17,15 @@
     <div style="height:800px;width:1685px;  ">
         @*头部分*@
         <div id="topnav" style="        height: 80px;
-        width: auto;
-        background-color: gold">
+        width: auto;">
             <img src="~/img/YuYan.jfif" />
             <img src="~/img/雨燕速递.jpg" />
+            <div style="height:80px;width:150px; float:right;line-height:80px;">
+                <span class="layui-breadcrumb">
+                    <a href="/">登录</a>   
+                    <a href="//">注册</a>
+                </span>
+            </div>
         </div>
         @*轮播图部分*@
         <div style="height:520px;width:1685px;">
@@ -77,11 +82,11 @@
             </div>
 
         </div>
-        <div style="height:150px;width:1200px;color:white;background-color:midnightblue; float:left;border-radius:8px;">
-            <div style="height:50px;width:200px; background-color:slateblue; float:left; text-align:center;line-height:50px;margin:50px 35px 50px 100px;font-family:KaiTi;font-size:24px;font-weight:bold">登录</div>
-            <div style="height:50px;width:200px;background-color:slateblue;  float:left; text-align:center;line-height:50px;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold">运费时效查询</div>
-            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px ;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold">自助查询</div>
-            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px; margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold">仓库招租</div>
+        <div style="height:150px;width:1200px;background-color:midnightblue; float:left;border-radius:8px;">
+            <div style="height:50px;width:200px; background-color:slateblue; float:left; text-align:center;line-height:50px;margin:50px 35px 50px 100px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">寄件</a></div>
+            <div style="height:50px;width:200px;background-color:slateblue;  float:left; text-align:center;line-height:50px;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">违禁品查询</a></div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px ;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">自助查询</a></div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px; margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">仓库招租</a></div>
         </div>
     </div>
     </div>
@@ -198,5 +203,14 @@
             location.hash = 'test=' + $(this).attr('lay-id');
         });
 
+    });
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
     });
 </script>
