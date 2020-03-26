@@ -71,7 +71,7 @@ namespace SwiftExpressUI
         /// 用户添加
         /// </summary>
         /// <returns></returns>
-        public ActionResult AddDistribution()
+        public ActionResult AddDistribution1()
         {
             return View();
         }
@@ -80,7 +80,7 @@ namespace SwiftExpressUI
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult AddDistribution(AddDistributionRequest request)
+        public JsonResult AddDistribution1(AddDistributionRequest request)
         {
             return Json(b.AddDistribution(request));
         }
@@ -88,7 +88,7 @@ namespace SwiftExpressUI
         /// 配送显示页面
         /// </summary>
         /// <returns></returns> 
-        public ActionResult GetDistribution1( )
+        public ActionResult GetDistribution11( )
         {
             return View();
         }
@@ -97,7 +97,7 @@ namespace SwiftExpressUI
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult GetDistribution1(DistributionRequestGet request)
+        public JsonResult GetDistribution11(DistributionRequestGet request)
         {
          
             return Json(b.GetDistribution(request));
