@@ -1,5 +1,5 @@
-﻿using ApiSDKClient.FApi.Request.Contraband;
-using ApiSDKClient.FApi.Response.Contraband;
+﻿using ApiSDKClient;
+
 using BLL;
 using MODEL;
 using System;
@@ -95,9 +95,9 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="dh"></param>
         /// <returns></returns>
         [HttpPost]
-        public GetStorageResponse GetStorage()
+        public GetStorageResponse GetStorage(GetStorageRequest request)
         {
-            return bll.GetStorage();
+            return bll.GetStorage(request);
         }
         /// <summary>
         /// 修改存储信息

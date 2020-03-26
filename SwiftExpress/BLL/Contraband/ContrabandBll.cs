@@ -1,6 +1,4 @@
 ﻿
-using ApiSDKClient.FApi.Request.Contraband;
-using ApiSDKClient.FApi.Response.Contraband;
 using DAL;
 using MODEL;
 using System;
@@ -33,11 +31,13 @@ namespace BLL
 
             if (list.Count <= 0)
             {
-                response.Status = false;
+                response.IsRegistSuccess = false;
                 response.Message = "查询失败";
             }
             else
             {
+                response.Contrabandlist = list;
+                response.IsRegistSuccess = true;
                 response.Message = "成功";
             }
             return response;
@@ -201,7 +201,7 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public GetStorageResponse GetStorage()
+        public GetStorageResponse GetStorage(GetStorageRequest request)
         {
             GetStorageResponse response = new GetStorageResponse();
 
@@ -213,6 +213,8 @@ namespace BLL
             }
             else
             {
+                response.Storagelist = list;
+                response.IsRegistSuccess = true;
                 response.Message = "获取信息成功";
             }
             return response;
