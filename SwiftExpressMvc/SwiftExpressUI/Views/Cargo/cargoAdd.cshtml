@@ -14,7 +14,7 @@
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-
+    <h2>添加货物</h2>
     <form class="layui-form layui-form-pane" action="">
 
         <div class="layui-form-item">
@@ -28,8 +28,8 @@
             <div class="layui-inline">
                 <label class="layui-form-label">货物类型</label>
                     <div class="layui-input-block">
-                        <input type="radio" name="a1" value="1" title="货到付款" checked="">
-                        <input type="radio" name="a1" value="2" title="普通快递">
+                        <input type="radio" name="b" value="1" title="货到付款" checked="">
+                        <input type="radio" name="b" value="2" title="普通快递">
                     </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">货物重量</label>
                 <div class="layui-input-block">
-                    <input id="txtweight" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                    <input id="txtheavy" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
@@ -159,8 +159,8 @@
     //货物添加
     function Addcargo() {
         var name = $("#txtname").val();
-        var ctype = $("input[name='a1']:checked").val();
-        var weight = $("#txtweight").val();
+        var ctype = $("input[name='b']:checked").val();
+        var weight = $("#txtheavy").val();
         var order = $("#txtorder").val();
         var cstate = $("input[name='a']:checked").val();
         var remark = $("#txtremark").val();

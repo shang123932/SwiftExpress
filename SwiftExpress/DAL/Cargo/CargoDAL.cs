@@ -64,7 +64,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public int IsExistShipping(string ship)
         {
-            string sql = $"select count(1) from Cargo where ShippingOrder={ship} and CargoState=1  and  Status=1";
+            string sql = $"select count(1) from Cargo where ShippingOrder='{ship}' and CargoState=1  and  Status=1";
             return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
         }
     }

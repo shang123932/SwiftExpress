@@ -65,6 +65,16 @@ namespace BLL
             }
             catch (Exception ex)
             {
+                //加上日志 log4net
+                //异常是请求处理日志
+
+
+
+                //日志应包含的信息
+                //1请求的接口
+                //2请求的参数
+                //3具体的请求错误信息
+                //4请求的时间
 
                 return new TResponse() { Status = false, Message = ex.Message };
             }
