@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ApiSDKClient.FApi.Request.ShippingInfor;
+using ApiSDKClient.ShippingInfor;
 using BLL;
 namespace SwiftExpressUI
 {
@@ -23,9 +25,9 @@ namespace SwiftExpressUI
             return View();
         }
         [HttpPost]
-        public JsonResult cargoAdd(ADDShippingInforRequest request)
+        public JsonResult ADDShippingInfor(ADDShippingInforRequest request)
         {
-            return Json(bll(request));
+            return Json(bll.ADDShippingInfor(request));
         }
 
       
@@ -33,14 +35,14 @@ namespace SwiftExpressUI
         /// 显示库房
         /// </summary>
         /// <returns></returns>
-        public ActionResult cargoShow()
+        public ActionResult GetShippingInfor()
         {
             return View();
         }
         [HttpPost]
-        public JsonResult cargoShow(CargoGetRequest request)
+        public JsonResult GetShippingInfor(ShippingInforRequest request)
         {
-            return Json(cbll.CargoGet(request));
+            return Json(bll.GetShippingInfor(request));
         }
     }
 }

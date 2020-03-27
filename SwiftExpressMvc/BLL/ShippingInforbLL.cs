@@ -15,7 +15,7 @@ namespace BLL
         {
             return ApiRequestHelper.Post<ADDShippingInforRequest, ADDShippingInforResonse>(addRequest);
         }
-        public GetShippingInforResonse CargoGet(ShippingInforRequest getRequest)
+        public GetShippingInforResonse GetShippingInfor(ShippingInforRequest getRequest)
         {
             return ApiRequestHelper.Post<ShippingInforRequest, GetShippingInforResonse>(getRequest);
         }
