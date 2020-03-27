@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "cargoAdd";
+}
+
+<h2>添加货物</h2>
+
+<table class="table">
+    <tr>
+        <td>货物名称：</td>
+        <td><input id="txtname" type="text" /></td>
+    </tr>
+    <tr>
+        <td>货物类型</td>
+        <td><input id="txttype" type="text" /></td>
+    </tr>
+    <tr>
+        <td>货物重量</td>
+        <td><input id="txtweight" type="text" /></td>
+    </tr>
+    <tr>
+        <td>快递单号</td>
+        <td><input id="txtorder" type="text" /></td>
+    </tr>
+    <tr>
+        <td>货物状态</td>
+        <td>
+            <input id="Radio1" type="radio" name="a"/>出库
+            <input id="Radio1" type="radio" name="a"/>在库
+        </td>
+    </tr>
+    <tr>
+        <td>货物备注</td>
+        <td><input id="txtremark" type="text" /> </td>
+    </tr>
+    <tr>
+        <td><input id="Button1" type="button" value="提交" onclick="Addcargo()" /> </td>
+        <td><input id="Button1" type="button" value="取消" /> </td>
+    </tr>
+</table>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    function Addcargo() {
+        var name = $("#txtname").val();
+        var ctype = $("#txttype").val();
+        var weight = $("#txtheavy").val();
+        var order = $("#txtorder").val();
+        var cstate = $("#Radio1").val();
+        var remark = $("#txtremark").val();
+
+        $.ajax({
+            url: "/Cargo/cargoAdd",
+            dataType: "json",
+            type: "POST",
+            data:
+            {
+                CargoName : name,
+                CargoType: ctype,
+                CargoWeight: weight,
+                ShippingOrder: order,
+                CargoState: cstate,
+                CargoRemark: remark
+            },
+            success: function (res) {
+                if (res.Status) {
+                    alert(res.Message);
+                    location.href = "/Cargo/cargoShow";
+                }
+                else {
+                    alert(res.Message);
+                }
+            }
+        })
+    }
+</script>

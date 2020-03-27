@@ -56,9 +56,9 @@ namespace BLL
         /// </summary>
         /// <param name="addRequest"></param>
         /// <returns></returns>
-        public WareHouseUpdateResponse WareHouseSave(WareHouseAddRequest addRequest)
+        public WareHouseUpdateResponse WareHouseSave(WareHouseUpdateRequest addRequest)
         {
-            return ApiRequestHelper.Post<WareHouseAddRequest, WareHouseUpdateResponse>(addRequest);
+            return ApiRequestHelper.Post<WareHouseUpdateRequest, WareHouseUpdateResponse>(addRequest);
         }
     }
 }

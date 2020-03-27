@@ -1,5 +1,10 @@
 ﻿
 @{
+    ViewBag.Title = "GetDistribution11";
+}
+
+
+@{
     ViewBag.Title = "GetDistribution1";
 }
 
@@ -52,7 +57,7 @@
     GetDistribution();
     function GetDistribution() {
          $.ajax({
-            url: "/User/GetDistribution1",
+            url: "/User/GetDistribution11",
             type: "POST",
             dataType:"Json",
             success: function (res) {
@@ -77,3 +82,4 @@
     }
 
 </script>
+

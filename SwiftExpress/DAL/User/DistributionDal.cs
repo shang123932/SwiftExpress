@@ -37,7 +37,7 @@ namespace DAL
         /// <returns></returns>
         public int  AddDistribution(DistributionModel dis)
         {
-            string sql = $"insert into Distribution(ShippingOrder,StaffId,WareHouseId,PickTime,SendTime,SendType,SendState,SendRemark,Status,CreateTime,CreaterId) values('{dis.ShippingOrder}','{dis.StaffId}','{dis.WareHouseId}','{dis.PickTime}','{dis.SendTime}','{dis.SendType}','{dis.SendState}','{dis.SendRemark}',1,GETDATE(),GETDATE(),1,1)";
+            string sql = $"insert into Distribution(ShippingOrder,StaffId,WareHouseId,PickTime,SendTime,SendType,SendState,SendRemark,Status,CreateTime,UpdateTime,CreaterId,UpdaterId) values('{dis.ShippingOrder}','{dis.StaffId}','{dis.WareHouseId}','{dis.PickTime}','{dis.SendTime}','物流',1,'{dis.SendRemark}',1,GETDATE(),GETDATE(),1,1)";
             return DBHelper.ExecuteNonQuery(sql);
         }
 
