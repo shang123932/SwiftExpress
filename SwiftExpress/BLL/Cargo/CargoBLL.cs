@@ -31,8 +31,8 @@ namespace BLL.Cargo
                 CargoState = request.CargoState,
                 CargoRemark = request.CargoRemark
             };
-            //获取名不能为空
-            if (request == null || !string.IsNullOrEmpty(request.CargoName))
+            ////获取名不能为空
+            if (request == null || string.IsNullOrEmpty(request.CargoName))
             {
                 response.Status = false;
                 response.Message = "货物名称不能为空";

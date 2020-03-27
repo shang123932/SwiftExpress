@@ -793,15 +793,21 @@
     <Content Include="Views\Contraband\GetStorage.cshtml" />
     <Content Include="Views\Contraband\AddStorage.cshtml" />
     <Content Include="Views\Shipp\GetShippingInfor.cshtml" />
+    <Content Include="Views\Area\Freight.cshtml" />
+    <Content Include="Views\Cargo\cargoAdd.cshtml" />
+    <Content Include="Views\Cargo\cargoShow.cshtml" />
+    <Content Include="Views\Cargo\cargoUpdate.cshtml" />
+    <Content Include="Views\User\AddDistribution1.cshtml" />
+    <Content Include="Views\User\GetDistribution11.cshtml" />
+    <Content Include="Views\WareHouse\wareHouseAdd.cshtml" />
+    <Content Include="Views\WareHouse\wareHouseShow.cshtml" />
+    <Content Include="Views\WareHouse\wareHouseUpdate.cshtml" />
+    <Content Include="Views\Staff\AddStaff1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Area\" />
-    <Folder Include="Views\Cargo\" />
     <Folder Include="Views\Shipping\" />
-    <Folder Include="Views\Staff\" />
-    <Folder Include="Views\WareHouse\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

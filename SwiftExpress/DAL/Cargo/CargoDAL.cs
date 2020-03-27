@@ -27,7 +27,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public CargoInfo GetOneCargo(int pid)
         {
-            string sql = $"select * from Cargo where CargoId=={pid} and Status=1";
+            string sql = $"select * from Cargo where CargoId={pid} and Status=1";
             return DBHelper.GetToList<CargoInfo>(sql)[0];
         }
         /// <summary>

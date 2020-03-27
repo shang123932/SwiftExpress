@@ -10,6 +10,7 @@ namespace BLL
 {
   public  class StaffBll
     {
+
         public ADDStaffResponse ADDStaff(ADDStaffRequest addRequest)
         {
             return ApiRequestHelper.Post<ADDStaffRequest, ADDStaffResponse>(addRequest);
