@@ -106,7 +106,7 @@ namespace BLL.Cargo
         /// 保存仓库
         /// </summary>
         /// <returns></returns>
-        public CargoUpdateResponse SaveCargo(CargoAddRequest request)
+        public CargoUpdateResponse SaveCargo(CargoUpdateRequest request)
         {
             CargoUpdateResponse response = new CargoUpdateResponse();
             CargoInfo cargo = new CargoInfo()

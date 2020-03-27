@@ -1,5 +1,5 @@
 ﻿using ApiSDKClient;
-
+using ApiSDKClient.FApi.Request.Contraband;
 using BLL;
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,21 @@ namespace SwiftExpressUI
         {
             return Json(bll.GetContraband(request));
         }
+        #endregion
+
+
+        #region  存储信息
+        /// <summary>
+        /// 存储信息显示
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult GetStorage(GetStorageRequest request)
+        {
+            return Json(bll.GetStorage(request));
+        }
+
         #endregion
 
     }

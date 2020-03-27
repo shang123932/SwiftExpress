@@ -41,7 +41,7 @@ namespace SwiftExpressApi.Controllers.Cargo
         /// <returns></returns>
         /// 
         [HttpPost]
-        public CargoUpdateResponse SaveCargo(CargoAddRequest request)
+        public CargoUpdateResponse SaveCargo(CargoUpdateRequest request)
         {
             return cbll.SaveCargo(request);
         }

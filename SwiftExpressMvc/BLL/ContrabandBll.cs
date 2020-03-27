@@ -1,5 +1,6 @@
 ﻿using ApiSDKClient;
-
+using ApiSDKClient.FApi.Request.Contraband;
+using ApiSDKClient.FApi.Response.Contraband;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,10 +83,10 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        //public GetStorageResponse GetStorage()
-        //{
-        //    return ApiRequestHelper.Post<GetStorageResponse>
-        //}
+        public GetStorageResponse GetStorage(GetStorageRequest request)
+        {
+            return ApiRequestHelper.Post<GetStorageRequest, GetStorageResponse>(request);
+        }
 
         public UpdateStorageResponse UpdateStorage(UpdateStorageRequest request)
         {

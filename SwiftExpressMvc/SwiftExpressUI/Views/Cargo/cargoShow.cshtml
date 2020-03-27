@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "cargoShow";
+}
+
+<h2>cargoShow</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>货物名称</td>
+            <td>货物类型</td>
+            <td>货物重量</td>
+            <td>快递单号</td>
+            <td>货物状态</td>
+            <td>货物备注</td>
+            <td>详情</td>
+        </tr>
+    </thead>
+    <tbody id="body">
+    </tbody>
+</table>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $().ready(function () {
+        $.ajax({
+            url: "/Cargo/cargoShow",
+            dataType: "json",
+            type: "POST",
+            success: function (res) {
+                var tbs = "";
+                $(res.cargolist).each(function () {
+                    var tb = "<tr>"
+                        + "<td>" + this.CargoName.ToString() + "</td> "
+                        + "<td>" + this.CargoType + "</td> "
+                        + "<td>" + this.CargoWeight + "</td> "
+                        + "<td>" + this.ShippingOrder + "</td> "
+                        + "<td>" + this.CargoState + "</td> "
+                        + "<td>" + this.CargoRemark + "</td> "
+                        + " <td><a href='/Cargo/cargoUpdate?pid=" + this.CargoId + "'></a>详情"
+                        + "< a href = '/Cargo/cargoDel?id=" + this.CargoId + "' > 删除</a ></td > "
+                        + " </tr >";
+                    tbs += tb;
+                })
+                $("#body").html(tbs);
+            }
+        })
+    })
+</script>

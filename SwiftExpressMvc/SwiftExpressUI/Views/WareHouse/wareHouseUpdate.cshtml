@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "wareHouseUpdate";
+}
+
+<h2>wareHouseUpdate</h2>
+
+
+<table class="table">
+    <tr>
+        <td>仓库名称：</td>
+        <td><input id="txtname" type="text" /></td>
+    </tr>
+    <tr>
+        <td>仓库容量</td>
+        <td><input id="txtcap" type="text" /></td>
+    </tr>
+    <tr>
+        <td>仓库地址</td>
+        <td><input id="txtaddr" type="text" /></td>
+    </tr>
+    <tr>
+        <td>仓库状态</td>
+        <td>
+            <input id="Radio1" type="radio" name="a" />使用中
+            <input id="Radio1" type="radio" name="a" />备用
+        </td>
+    </tr>
+    <tr>
+        <td>仓库备注</td>
+        <td><input id="txtremark" type="text" /> </td>
+    </tr>
+    <tr>
+        <td><input id="Button1" type="button" value="提交" onclick="Addware()" /> </td>
+        <td><input id="Button1" type="button" value="取消" /> </td>
+    </tr>
+</table>
+<script>
+    $().ready(function () {
+        $.ajax({
+            url: "/Cargo/cargoGetOne",
+            dataType: "json",
+            type: "POST",
+            success: function (res) {
+                $("#txtname").val(res.WareHouseName),
+                    $("#txtcap").val(res..WareHouseCapacity),
+                    $("#txtaddr").val(res.WareHouseAddress),
+                    ["input=[name='a']:checked"].val(res.WareHouseRemark),
+                    $("#txtremark").val(res.WareHouseStatus)
+            }
+        })
+    })
+
+    function Addware() {
+        var name = $("#txtname").val();
+        var capa = $("#txtcap").val();
+        var addr = $("#txtaddr").val();
+        var stu = ["input=[name='a']:checked"].val();
+        var remark = $("#txtremark").val();
+
+        $.ajax({
+            url: "/WareHouse/wareHouseAdd",
+            dataType: "json",
+            type: "POST",
+            data:
+            {
+                WareHouseName: name,
+                WareHouseCapacity: capa,
+                WareHouseAddress: addr,
+                WareHouseRemark: remark,
+                WareHouseStatus: stu
+            },
+            success: function (res) {
+                if (res.Status) {
+                    alert(res.Message);
+                    location.href = "/WareHouse/wareHouseShow";
+                }
+                else {
+                    alert(res.Message);
+                }
+            }
+        })
+    }
+</script>
