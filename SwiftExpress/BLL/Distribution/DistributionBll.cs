@@ -52,7 +52,7 @@ namespace BLL
             }
             else
             {
-                response.User = list;
+               
                 response.Message = $"获取信息成功";
             }
             return response;
@@ -73,9 +73,7 @@ namespace BLL
                 StaffId=addDistribution.StaffId,
                 WareHouseId=addDistribution.WareHouseId,
                 PickTime=addDistribution.PickTime,
-                SendTime=addDistribution.SendTime,
-                SendType=addDistribution.SendType,
-                SendState=addDistribution.SendState,
+                SendTime=addDistribution.SendTime,           
                 SendRemark=addDistribution.SendRemark,
             };
             var res = disdal.AddDistribution(dis);

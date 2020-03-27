@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace ApiSDKClient
 {
    public class DistributionResponseGet:BaseResponse
     {
-
+        public List<DistributionModel> User { get; set; }
     }
 }

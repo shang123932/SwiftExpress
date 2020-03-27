@@ -18,7 +18,7 @@ namespace ApiSDKClient
         /// </summary>
         public bool Status = true;
 
-        public List<DistributionModel> User { get; set; }
+     
         
         /// <summary>
         /// 当状态失败时,提示消息
