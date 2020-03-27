@@ -10,7 +10,7 @@ namespace DAL
     public class UserDal
     {
         /// <summary>
-        /// 登录
+        /// 用户登录
         /// </summary>
         /// <param name="name"></param>
         /// <param name="dh"></param>
@@ -20,6 +20,19 @@ namespace DAL
             string sql = $"select count(1) from UserInfo where UserPhone='{u.UserPhone}' and PassWord='{u.PassWord}' and UserStatus=1";
 
             return Convert.ToInt32( DBHelper.ExecuteScalar(sql));
+        }
+
+        /// <summary>
+        /// 管理员登录
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        public int Administrator(UserModel u)
+        {
+            string sql = $"select count(1) from UserInfo where UserPhone='{u.UserPhone}' and PassWord='{u.PassWord}' and UserStatus=1";
+
+            return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
         }
         /// <summary>
         /// 注册

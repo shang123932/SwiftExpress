@@ -1,5 +1,5 @@
-﻿using ApiSDKClient.FApi.Request.Contraband;
-using ApiSDKClient.FApi.Response.Contraband;
+﻿using ApiSDKClient;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

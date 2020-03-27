@@ -81,6 +81,7 @@ namespace SwiftExpressApi.Controllers.User
         /// 获取一条配送数据
         /// </summary>
         /// <returns></returns>
+        [HttpPost]
         public GetOneDistributionResponse GetOneDistribution(GetOneDistributionRequest  getOne)
         {
             return disbll.GetOneDistribution(getOne);
@@ -89,6 +90,7 @@ namespace SwiftExpressApi.Controllers.User
         /// 修改配送信息
         /// </summary>
         /// <returns></returns>
+        [HttpPost]
         public UpdateDistributionResponse SaveDistribution(UpdateDistributionRequest info)
         {
             return disbll.SaveDistribution(info);
