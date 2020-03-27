@@ -246,8 +246,7 @@
     $().ready(function () {
         $.ajax({
             url: "/Contraband/GetContraband",
-            type: "POST",
-            dataType: "json",
+            type: "Post",
             success: function (res) {
                 var tb = "";
                 $(res).each(function () {
@@ -255,7 +254,6 @@
                     "<th><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></th>"
                     "<th class='hidden-xs'>" + this.ContrabandId + "</th>"
                     "<th class='hidden-xs'>" + this.ItemName + "</th>"
-
                     "</tr>"
                 });
 

@@ -19,7 +19,7 @@ namespace BLL
         /// </summary>
         /// <param name="getRequest"></param>
         /// <returns></returns>
-        public AreaProvinceResponse AreaGet(AreaProvinceRequest getRequest)
+        public AreaProvinceResponse GetProvince(AreaProvinceRequest getRequest)
         {
             return ApiRequestHelper.Post<AreaProvinceRequest, AreaProvinceResponse>(getRequest);
         }
@@ -28,7 +28,7 @@ namespace BLL
         /// </summary>
         /// <param name="getRequest"></param>
         /// <returns></returns>
-        public AreaCityResponse AreaGet(AreaCityRequest getRequest)
+        public AreaCityResponse GetCity(AreaCityRequest getRequest)
         {
             return ApiRequestHelper.Post<AreaCityRequest, AreaCityResponse>(getRequest);
         }

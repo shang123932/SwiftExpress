@@ -9,7 +9,7 @@ namespace ApiSDKClient
     /// <summary>
     /// 添加请求
     /// </summary>
-   public class AddDistributionRequest:BaseRequest
+    public class AddDistributionRequest : BaseRequest
     {
         /// <summary>
         /// 快递单号
@@ -31,14 +31,7 @@ namespace ApiSDKClient
         /// 发货时间
         /// </summary>
         public DateTime SendTime { get; set; }
-        /// <summary>
-        /// 配送方式
-        /// </summary>
-        public string SendType { get; set; }
-        /// <summary>
-        /// 货物状态 0配送完毕  1配送中 2 待配送
-        /// </summary>
-        public int SendState { get; set; }
+
         /// <summary>
         /// 配送备注
         /// </summary>

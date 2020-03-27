@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "wareHouseAdd";
+}
+
+<h2>wareHouseAdd</h2>
+
+<table class="table">
+    <tr>
+        <td>仓库名称：</td>
+        <td><input id="txtname" type="text" /></td>
+    </tr>
+    <tr>
+        <td>仓库容量</td>
+        <td><input id="txtcap" type="text" /></td>
+    </tr>
+    <tr>
+        <td>仓库地址</td>
+        <td><input id="txtaddr" type="text" /></td>
+    </tr>
+    <tr>
+        <td>仓库状态</td>
+        <td>
+        <input id="Radio1" type="radio" name="a"/>使用中
+            <input id="Radio1" type="radio" name="a" />备用
+        </td>
+    </tr>
+    <tr>
+        <td>仓库备注</td>
+        <td><input id="txtremark" type="text" /> </td>
+    </tr>
+    <tr>
+        <td><input id="Button1" type="button" value="提交" onclick="Addware()" /> </td>
+        <td><input id="Button1" type="button" value="取消" /> </td>
+    </tr>
+</table>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    function Addware() {
+        var name = $("#txtname").val();
+        var capa = $("#txtcap").val();
+        var addr = $("#txtaddr").val();
+        var stu = $("#txtname").val();
+        var remark = $("#txtremark").val();
+
+        $.ajax({
+            url: "/WareHouse/wareHouseAdd",
+            dataType: "json",
+            type: "POST",
+            data:
+            {
+                WareHouseName: name,
+                WareHouseCapacity: capa,
+                WareHouseAddress: addr,
+                WareHouseRemark: remark,
+                WareHouseStatus: stu
+            },
+            success: function (res) {
+                if (res.Status) {
+                    alert(res.Message);
+                    location.href = "/WareHouse/wareHouseShow";
+                }
+                else {
+                    alert(res.Message);
+                }
+            }
+        })
+    }
+</script>

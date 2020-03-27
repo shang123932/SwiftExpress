@@ -8,7 +8,7 @@ namespace DAL
 {
     public class ContrabandDal
     {
-        #region
+        # region 违禁物品
         /// <summary>
         /// 查询物品是否是违禁物品
         /// </summary>
