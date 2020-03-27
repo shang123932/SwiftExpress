@@ -41,7 +41,7 @@ namespace SwiftExpressApi.Controllers.WareHouse
         /// <returns></returns>
         /// 
         [HttpPost]
-        public WareHouseUpdateResponse SaveWareHouse(WareHouseAddRequest request)
+        public WareHouseUpdateResponse SaveWareHouse(WareHouseUpdateRequest request)
         {
             return wbll.SaveWareHouse(request);
         }

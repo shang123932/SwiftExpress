@@ -55,9 +55,9 @@ namespace BLL
         /// </summary>
         /// <param name="addRequest"></param>
         /// <returns></returns>
-        public CargoUpdateResponse CargoSave(CargoAddRequest addRequest)
+        public CargoUpdateResponse CargoSave(CargoUpdateRequest addRequest)
         {
-            return ApiRequestHelper.Post<CargoAddRequest, CargoUpdateResponse>(addRequest);
+            return ApiRequestHelper.Post<CargoUpdateRequest, CargoUpdateResponse>(addRequest);
         }
     }
 }

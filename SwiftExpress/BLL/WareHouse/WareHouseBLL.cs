@@ -96,7 +96,7 @@ namespace BLL.WareHouse
         /// 保存仓库
         /// </summary>
         /// <returns></returns>
-        public WareHouseUpdateResponse SaveWareHouse(WareHouseAddRequest  request)
+        public WareHouseUpdateResponse SaveWareHouse(WareHouseUpdateRequest  request)
         {
             WareHouseUpdateResponse response = new WareHouseUpdateResponse();
             WareHouseInfo ware = new WareHouseInfo()
