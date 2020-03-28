@@ -1,4 +1,6 @@
 ﻿using ApiSDKClient;
+using ApiSDKClient.FApi.Request.Contraband;
+using ApiSDKClient.FApi.Response.Contraband;
 using ApiSDKClient.FApi.Request;
 using ApiSDKClient.FApi.Response;
 using System;

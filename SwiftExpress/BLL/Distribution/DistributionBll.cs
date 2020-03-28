@@ -21,8 +21,9 @@ namespace BLL
         public DistributionResponseGet GetDistribution()
         {
             DistributionResponseGet response = new DistributionResponseGet();
-
+            
             var list = disdal.GetDistribution();
+          
             if (list.Count <= 0)
             {
                 response.Status = false;
@@ -44,7 +45,7 @@ namespace BLL
         {
             GetCxDistributionResponse response = new GetCxDistributionResponse();
 
-            var list = disdal.GetCxDistribution(request.name);
+            var list = disdal.GetCxDistribution(request.ShippingOrder);
             if (list.Count <= 0)
             {
                 response.Status = false;
@@ -52,7 +53,7 @@ namespace BLL
             }
             else
             {
-               
+                response.User = list;
                 response.Message = $"获取信息成功";
             }
             return response;
@@ -73,7 +74,8 @@ namespace BLL
                 StaffId=addDistribution.StaffId,
                 WareHouseId=addDistribution.WareHouseId,
                 PickTime=addDistribution.PickTime,
-                SendTime=addDistribution.SendTime,           
+                SendTime=addDistribution.SendTime,   
+                 SendState=addDistribution.SendState,
                 SendRemark=addDistribution.SendRemark,
             };
             var res = disdal.AddDistribution(dis);
@@ -103,12 +105,12 @@ namespace BLL
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
-                response.Message = "删除配送信息成功";
+                response.Message = "收货成功";
             }
             else
             {
                 response.Status = false;
-                response.Message = "删除配送信息失败";
+                response.Message = "收货失败";
 
             }
             return response;
@@ -130,14 +132,14 @@ namespace BLL
                      PickTime = info.PickTime,
                      SendTime =info.SendTime,
                      SendType = info.SendType,
-                     SendState = info.SendState,
-                     SendRemark=info.SendRemark
+
             };
             //判断pid是否存在
             if (request.pid> 0)
             {
                 response.IsRegistSuccess = true;
                 response.Message = "获取成功";
+        
             }
             else
             {

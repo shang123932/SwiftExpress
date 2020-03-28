@@ -8,7 +8,7 @@ namespace ApiSDKClient
 {
    public class GetCxDistributionRequest:BaseRequest
     {
-        public string name { get; set; }
+        public string ShippingOrder { get; set; }
         public override string GetApiName()
         {
             return "/api/User/GetCxDistribution";

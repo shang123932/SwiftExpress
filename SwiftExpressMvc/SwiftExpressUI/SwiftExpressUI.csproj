@@ -788,12 +788,14 @@
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.woff" />
     <Content Include="Views\Contraband\GetContraband.cshtml" />
+    <Content Include="Views\Shipp\ADDShippingInfor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Area\" />
     <Folder Include="Views\Cargo\" />
+    <Folder Include="Views\Shipping\" />
     <Folder Include="Views\Shipp\" />
     <Folder Include="Views\Staff\" />
     <Folder Include="Views\WareHouse\" />

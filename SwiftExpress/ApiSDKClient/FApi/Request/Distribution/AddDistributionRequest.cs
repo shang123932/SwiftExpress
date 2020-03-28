@@ -31,7 +31,10 @@ namespace ApiSDKClient
         /// 发货时间
         /// </summary>
         public DateTime SendTime { get; set; }
-
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public int SendState { get; set; }
         /// <summary>
         /// 配送备注
         /// </summary>
