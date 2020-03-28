@@ -74,6 +74,7 @@ namespace SwiftExpressUI
         /// <returns></returns>
         public ActionResult Index()
         {
+        
             return View();
         }
         /// <summary>
@@ -141,6 +142,32 @@ namespace SwiftExpressUI
             return Json(b.DeleteDistribution(request));
         }
 
+        /// <summary>
+        /// 传值
+        /// </summary>
+        /// <returns></returns> 
+        [HttpPost]
+        public void Cookie()
+        {
+            //实例化
+            HttpCookie http = new HttpCookie("cookie");
+            string name =HttpUtility.UrlEncode(Request["SS"]);//接受data并加密
+            http.Value=name;//赋值
+            Response.Cookies.Add(http);  
+        }
+        /// <summary>
+        /// 传值
+        /// </summary>
+        /// <returns></returns> 
+        public JsonResult Cookieqest()
+        {
+            //接受cookie
+            HttpCookie http = System.Web.HttpContext.Current.Request.Cookies["cookie"];
+            var name = HttpUtility.UrlDecode(http.Value);//解密
+            var arr = name.ToString().Split('"');
+            name = arr[arr.Length - 2];
+            return Json(new {name1=name },JsonRequestBehavior.AllowGet);
+        }
 
 
     }

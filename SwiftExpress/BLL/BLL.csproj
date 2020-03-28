@@ -57,6 +57,10 @@
     <Compile Include="WareHouse\WareHouseBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{8cf7face-25eb-4a99-a2b6-df90c456564f}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{fb9461c2-68fd-401c-a717-70a154ccccbd}</Project>
       <Name>DAL</Name>

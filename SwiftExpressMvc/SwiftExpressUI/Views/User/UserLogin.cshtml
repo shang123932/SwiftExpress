@@ -32,7 +32,7 @@
         <div class="layui-tab-content" style="height: 100px;">
             <div class="layui-tab-item layui-show">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">手机号</label>
+                    <label class="layui-form-label">用户名</label>
                     <div class="layui-input-block">
                         <input id="phone" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入手机号" class="layui-input">
                     </div>
@@ -40,7 +40,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
-                        <input id="pwd" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        <input id="pwd" type="password" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -49,8 +49,9 @@
                         <input id="yanz" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入验证码" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-input-block">
-                        <img class="verifyImg" src="/Content/ValidateCode.ashx" onclick="this.src='/Content/ValidateCode.ashx?d='+new Date()" />
+                        <img class="verifyImg" src="~/Content/ValidateCode.ashx" onclick="this.src='/Content/ValidateCode.ashx?d='+new Date()" />
                     </div>
+
                     <div class="layui-input-block">
                         <a href="/User/UserRegist" style="color:#faabab">用户注册</a>
                     </div>
@@ -229,6 +230,8 @@
 </html>
 
 <script>
+    
+
     //登录
     function Login() {
         var phone = $("#phone").val();
@@ -251,7 +254,7 @@
                         url: "/User/UserLogin",
                         type: "Post",
                         data: {
-                            Phone: phone,
+                            UserName: phone,
                             Pwd: pwd,
                         },
                         success: function (res) {
@@ -259,10 +262,20 @@
                             if (res.Status) {
                                 if (res.IsRegistSuccess) {
                                     alert(res.Message);
+                                    $.ajax({
+                                        url: "/User/Cookie",
+                                        type: "POST",
+                                        dataType:"JSON",
+                                        data: {
+                                            SS: JSON.stringify(res.UserName)
+                                        },
+
+                                    })
                                     location.href = "/User/Index";
                                 }
                                 else {
                                     alert(res.Message);
+
                                     location.href = "/User/UserLogin";
                                 }
                             }
@@ -283,6 +296,8 @@
 
 
     }
+
+
 
     //登录
     function Log() {

@@ -16,6 +16,10 @@ namespace MODEL
         /// </summary>
         public int UserId        { get; set; }
         /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserName { get; set; }
+        /// <summary>
         /// 用户手机号码
         /// </summary>
         public string UserPhone     { get; set; }
@@ -23,6 +27,10 @@ namespace MODEL
         /// 密码
         /// </summary>
         public string PassWord      { get; set; }
+        /// <summary>
+        /// 加密
+        /// </summary>
+        public string PassJmi { get; set; }
         /// <summary>
         /// 邮箱
         /// </summary>

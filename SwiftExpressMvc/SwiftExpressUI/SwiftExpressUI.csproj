@@ -123,10 +123,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Content\ValidateCode.ashx.cs">
+      <DependentUpon>ValidateCode.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\Area\AreaController.cs" />
     <Compile Include="Controllers\Cargo\CargoController.cs" />
     <Compile Include="Controllers\Contraband\ContrabandController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Shipping\ShippingController.cs" />
     <Compile Include="Controllers\Shipp\ShippController.cs" />
     <Compile Include="Controllers\Staff\StaffController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
@@ -266,6 +270,7 @@
     <Content Include="layui\font\iconfont.ttf" />
     <Content Include="layui\font\iconfont.woff" />
     <Content Include="layui\font\iconfont.woff2" />
+    <Content Include="Content\ValidateCode.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
