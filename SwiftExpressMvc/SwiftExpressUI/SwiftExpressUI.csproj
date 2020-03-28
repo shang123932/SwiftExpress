@@ -259,19 +259,12 @@
     <Content Include="layui\lay\modules\tree.js" />
     <Content Include="layui\lay\modules\upload.js" />
     <Content Include="layui\lay\modules\util.js" />
-    <Content Include="obj\Debug\SwiftExpressUI.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\SwiftExpressUI.dll" />
-    <Content Include="obj\Debug\SwiftExpressUI.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="layui\font\iconfont.eot" />
     <Content Include="layui\font\iconfont.ttf" />
     <Content Include="layui\font\iconfont.woff" />
     <Content Include="layui\font\iconfont.woff2" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\SwiftExpressUI.csproj.CopyComplete" />
-    <Content Include="obj\Debug\SwiftExpressUI.csproj.CoreCompileInputs.cache" />
-    <Content Include="obj\Debug\SwiftExpressUI.csprojAssemblyReference.cache" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -799,10 +792,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Area\" />
     <Folder Include="Views\Cargo\" />
-    <Folder Include="Views\Shipping\" />
     <Folder Include="Views\Shipp\" />
     <Folder Include="Views\Staff\" />
     <Folder Include="Views\WareHouse\" />
