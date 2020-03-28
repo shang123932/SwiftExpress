@@ -20,57 +20,57 @@
         <form class="layui-form" style="width: 90%;padding-top: 20px;">
             <div class="layui-form-item">
                 <label class="layui-form-label">货物id：</label>
-                <div class="layui-input-block" id="hw">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入货物id" autocomplete="off" class="layui-input">
+                <div class="layui-input-block" >
+                    <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物id" autocomplete="off" class="layui-input">
                 </div>
 
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">仓库id：</label>
-                <div class="layui-input-block" id="ck">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入仓库id" autocomplete="off" class="layui-input">
+                <div class="layui-input-block" >
+                    <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库id" autocomplete="off" class="layui-input">
                 </div>
 
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">员工id：</label>
-                <div class="layui-input-block" id="yg">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入员工id" autocomplete="off" class="layui-input">
+                <div class="layui-input-block" >
+                    <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工id" autocomplete="off" class="layui-input">
                 </div>
 
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">入库时间：</label>
-                <div class="layui-input-block" id="rk">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" class="layui-input">
+                <div class="layui-input-block" >
+                    <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" class="layui-input">
                 </div>
 
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">入库数量：</label>
-                <div class="layui-input-block" id="rs">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
+                <div class="layui-input-block" >
+                    <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
                 </div>
 
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">出库时间：</label>
-                <div class="layui-input-block" id="cksj">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+                <div class="layui-input-block" >
+                    <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
                 </div>
 
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">出库数量：</label>
-                <div class="layui-input-block" id="cksl">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+                <div class="layui-input-block" >
+                    <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
                 </div>
 
             </div>
             <div class="layui-form-item layui-form-text">
                 <label class="layui-form-label">备注</label>
-                <div class="layui-input-block" id="bz">
-                    <textarea name="desc" placeholder="请输入备注" class="layui-textarea"></textarea>
+                <div class="layui-input-block">
+                    <textarea name="desc"  id="bz" placeholder="请输入备注" class="layui-textarea"></textarea>
                 </div>
             </div>
 
@@ -104,14 +104,14 @@
 
 <script>
     function Add() {
-        var hw = $("#hw").val;
-        var ck = $("#ck").val;
-        var yg = $("#yg").val;
-        var rk = $("#rk").val;
-        var rs = $("#rs").val;
-        var cksj = $("#cksj").val;
-        var cksl = $("#cksl").val;
-        var bz = $("#bz").val;
+        var hw = $("#hw").val();
+        var ck = $("#ck").val();
+        var yg = $("#yg").val();
+        var rk = $("#rk").val();
+        var rs = $("#rs").val();
+        var cksj = $("#cksj").val();
+        var cksl = $("#cksl").val();
+        var bz = $("#bz").val();
         $.ajax({
             url: "/Contraband/AddStorage",
             type: "Post",
@@ -126,12 +126,7 @@
                 Remark:bz
             },
             success: function (res) {
-                if (res>0) {
-                    alert("添加成功");
-                }
-                else {
-                    alert("添加失败");
-                }
+                alert(res.Message);
             }
         })
     }

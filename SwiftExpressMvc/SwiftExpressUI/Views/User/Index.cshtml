@@ -21,10 +21,10 @@
             <img src="~/img/YuYan.jfif" />
             <img src="~/img/雨燕速递.jpg" />
             <div style="height:80px;width:150px; float:right;line-height:80px;">
-        
-                    <span>登录人</span><span><input style="width:40px;height:40px" type="text" id="na" /></span>....
-                    <a href="/User/UserLogin">退出</a>
-         
+                <span class="layui-breadcrumb">
+                    <a href="/User/UserLogin">登录</a>   
+                    <a href="/User/UserRegist">注册</a>
+                </span>
             </div>
         </div>
         @*轮播图部分*@
@@ -42,60 +42,59 @@
                     <div style="height:520px;width:1685px;">
                         <img src="~/img/快递.jpg" />
                     </div>
-
+                   
                 </div>
             </div>
-
+  
         </div>
 
 
 
         @*底部导航栏*@
-        <div id="bottomnav" style=" height: 160px; width: auto; margin-top: 20px; ">
-            @*定位盒子*@
-            <div style="height:150px;width:300px;background-color:darkslateblue;border-radius:8px; float:left;margin-left:110px;">
-                <div>
-                    <div class="layui-tab" style="color:white">
-                        <ul class="layui-tab-title">
-                            <li class="layui-this">快递单号</li>
-                            <li>手机号</li>
-                        </ul>
-                        <div class="layui-tab-content">
-                            <div class="layui-tab-item layui-show">
-                                <div>
-                                    <input type="text" name="username" lay-verify="required" placeholder="请输入快递单号" autocomplete="off" class="layui-input">
-                                </div>
-                                <div style="float:right;margin-top:10px;">
-                                    <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">查询</button>
-                                </div>
+    <div id="bottomnav" style=" height: 160px; width: auto; margin-top: 20px; ">
+        @*定位盒子*@
+        <div style="height:150px;width:300px;background-color:darkslateblue;border-radius:8px; float:left;margin-left:110px;">
+            <div>
+                <div class="layui-tab" style="color:white">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">快递单号</li>
+                        <li>手机号</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <div>
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入快递单号" autocomplete="off" class="layui-input">
                             </div>
-                            <div class="layui-tab-item">
-                                <div>
-                                    <input type="text" name="username" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
-                                </div>
-                                <div style="float:right;margin-top:10px;">
-                                    <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">查询</button>
-                                </div>
+                            <div style="float:right;margin-top:10px;">
+                                <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">查询</button>
+                            </div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <div>
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                            </div>
+                            <div style="float:right;margin-top:10px;">
+                                <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">查询</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            </div>
-            <div style="height:150px;width:1200px;background-color:midnightblue; float:left;border-radius:8px;">
-                <div style="height:50px;width:200px; background-color:slateblue; float:left; text-align:center;line-height:50px;margin:50px 35px 50px 100px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">寄件</a></div>
-                <div style="height:50px;width:200px;background-color:slateblue;  float:left; text-align:center;line-height:50px;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">违禁品查询</a></div>
-                <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px ;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/Area/Freight" style="color:white">自助查询</a></div>
-                <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px; margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/WareHouse/wareHouseAdd" style="color:white">仓库招租</a></div>
-            </div>
         </div>
+        <div style="height:150px;width:1200px;background-color:midnightblue; float:left;border-radius:8px;">
+            <div style="height:50px;width:200px; background-color:slateblue; float:left; text-align:center;line-height:50px;margin:50px 35px 50px 100px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">寄件</a></div>
+            <div style="height:50px;width:200px;background-color:slateblue;  float:left; text-align:center;line-height:50px;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/Contraband/GetContraband" style="color:white">违禁品查询</a></div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px ;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">自助查询</a></div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px; margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">仓库招租</a></div>
+            <div style="height:50px;width:200px;background-color:slateblue;  float:left; text-align:center;line-height:50px;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="//" style="color:white">违禁品查询</a></div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px ;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/Area/Freight" style="color:white">自助查询</a></div>
+            <div style="height:50px;width:200px; background-color:slateblue;  float:left; text-align:center;line-height:50px; margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/WareHouse/wareHouseAdd" style="color:white">仓库招租</a></div>
+        </div>
+    </div>
     </div>
 </body>
 <script src="~/layui/layui.js"></script>
-<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
     layui.use(['carousel', 'form'], function () {
@@ -217,19 +216,4 @@
             layer.msg(elem.text());
         });
     });
-
-    $.ajax({
-        url: "/User/Cookieqest",
-        type: "POST",
-        dataType: "JSON",
-        success: function (res) {
-            $(res).each(function () {
-    
-                $("#na").val(this.name1);
-            })
-
-        }
-
-    })
 </script>
-

@@ -26,7 +26,6 @@ namespace BLL
             {
                 list = list.Where(w => w.ItemName.Contains(request.ItemName)).ToList();
             }
-
             if (list.Count <= 0)
             {
                 response.Status = false;
@@ -199,7 +198,7 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public GetStorageResponse GetStorage(GetStorageRequest request)
+        public GetStorageResponse GetStorage(/*GetStorageRequest request*/)
         {
             GetStorageResponse response = new GetStorageResponse();
 
@@ -223,11 +222,15 @@ namespace BLL
             UpdateStorageResponse response = new UpdateStorageResponse();
             Storage storage = new Storage()
             {
+                StorageId=request.StorageId,
+                CargoId=request.CargoId,
+                WareHouseId=request.WareHouseId,
+                StaffId=request.StaffId,
                 InStorageTime = request.InStorageTime,
                 InStorageNumber = request.InStorageNumber,
                 OutStorageTime = request.OutStorageTime,
                 OutStorageNumber = request.OutStorageNumber,
-                Status = request.Status
+                Remark = request.Remark
             };
 
             var res = dal.UpdateStorage(storage);
@@ -276,7 +279,15 @@ namespace BLL
         public GetOneStorageResponse GetOneStorage(GetOneStorageRequest request)
         {
             GetOneStorageResponse response = new GetOneStorageResponse();
-            var res = dal.GetOneStorage(request.id);
+            var res = dal.GetOneStorage(request.id); //storages
+            if (res==null)
+            {
+                response.Message = "请求失败";
+            }
+            else
+            {
+                response.storages = res;
+            }
             return response;
 
         }

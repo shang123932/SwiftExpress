@@ -8,7 +8,6 @@ namespace ApiSDKClient.FApi.Request.Staff
 {
   public  class ADDStaffRequest:BaseRequest
     {
-        public int            StaffId             { get; set; }
         public string       StaffName        { get; set; }
         public int            StaffSex            { get; set; }
         public int            StaffAge           { get; set; }
@@ -19,7 +18,7 @@ namespace ApiSDKClient.FApi.Request.Staff
         public string       StaffRemark     { get; set; }
         public override string GetApiName()
         {
-            return "/api/Contraband/GetWaybillLnquiry";
+            return "/api/Staff/GetWaybillLnquiry";
         }
     }
 }
