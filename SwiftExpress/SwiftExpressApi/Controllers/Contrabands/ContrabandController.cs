@@ -22,9 +22,9 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="dh"></param>
         /// <returns></returns>
         [HttpPost]
-        public ContrabandResponse GetContrabands(ContrabandRequest name)
+        public ContrabandResponse GetContrabands(ContrabandRequest request)
         {
-            return bll.GetContrabands(name);
+            return bll.GetContrabands(request);
         }
         #endregion
 

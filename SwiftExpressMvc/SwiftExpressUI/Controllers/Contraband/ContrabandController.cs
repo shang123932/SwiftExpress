@@ -1,5 +1,6 @@
 ﻿using ApiSDKClient;
-
+using ApiSDKClient.FApi.Request.Contraband;
+using ApiSDKClient.FApi.Request;
 using BLL;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,6 @@ namespace SwiftExpressUI
         {
             return View();
         }
-
         /// <summary>
         /// 违禁品查询
         /// </summary>
