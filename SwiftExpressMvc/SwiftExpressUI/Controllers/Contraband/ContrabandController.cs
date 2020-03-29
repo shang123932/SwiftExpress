@@ -51,6 +51,20 @@ namespace SwiftExpressUI
             return Json(bll.GetStorage(request));
         }
 
+        public ActionResult AddStorage()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 存储信息添加
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult AddStorage(AddStorageRequest request)
+        {
+            return Json(bll.AddStorage(request));
+        }
         #endregion
 
     }

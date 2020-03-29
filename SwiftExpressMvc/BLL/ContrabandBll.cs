@@ -77,6 +77,7 @@ namespace BLL
 
 
         #region 存储
+
         /// <summary>
         /// 查询存储信息
         /// </summary>
@@ -112,7 +113,15 @@ namespace BLL
 
         }
 
-
+        /// <summary>
+        /// 添加存储信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public AddStorageResponse AddStorage(AddStorageRequest request)
+        {
+            return ApiRequestHelper.Post<AddStorageRequest, AddStorageResponse>(request);
+        }
 
         #endregion
 
