@@ -1,6 +1,4 @@
 ﻿using ApiSDKClient;
-using ApiSDKClient.FApi.Request.Contraband;
-using ApiSDKClient.FApi.Response.Contraband;
 using ApiSDKClient.FApi.Request;
 using ApiSDKClient.FApi.Response;
 using System;
@@ -42,9 +40,9 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public GetWaybillLnquiryResponse GetWaybillLnquiry(GetWaybillLnquiryRequest bh)
+        public GetWaybillLnquiryResponse GetWaybillLnquiry(GetWaybillLnquiryRequest request)
         {
-            return ApiRequestHelper.Post<GetWaybillLnquiryRequest, GetWaybillLnquiryResponse>(bh);
+            return ApiRequestHelper.Post<GetWaybillLnquiryRequest, GetWaybillLnquiryResponse>(request);
         }
         /// <summary>
         /// 运单删除
