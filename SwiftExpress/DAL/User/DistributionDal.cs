@@ -19,7 +19,7 @@ namespace DAL
         /// <returns></returns>
         public List<DistributionModel> GetDistribution()
         {
-            string sql = $"select  * from  Distribution where SendState=1";
+            string sql = $"select  * from  Distribution";
             return DBHelper.GetToList<DistributionModel>(sql);
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace DAL
         {
              
            
-              string   sql = $"select * from Distribution where ShippingOrder='{name}' and SendState=1";
+              string   sql = $"select * from Distribution where ShippingOrder='{name}'";
 
           
             return DBHelper.GetToList<DistributionModel>(sql);

@@ -50,12 +50,15 @@
       <HintPath>..\..\lib\ApiSDKClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\C#辅助方法\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -796,13 +799,17 @@
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.woff" />
     <Content Include="Views\Contraband\GetContraband.cshtml" />
     <Content Include="Views\Shipp\ADDShippingInfor.cshtml" />
+    <Content Include="Views\User\AddDistribution1.cshtml" />
+    <Content Include="Views\User\GetDistribution11.cshtml" />
+    <Content Include="Views\Cargo\cargoAdd.cshtml" />
+    <Content Include="Views\Cargo\cargoShow.cshtml" />
+    <Content Include="Views\Cargo\cargoUpdate.cshtml" />
+    <Content Include="Views\Area\Freight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Area\" />
-    <Folder Include="Views\Cargo\" />
     <Folder Include="Views\Shipping\" />
     <Folder Include="Views\Staff\" />
     <Folder Include="Views\WareHouse\" />

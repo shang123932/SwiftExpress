@@ -20,7 +20,7 @@ namespace SwiftExpressUI
         /// 添加库房
         /// </summary>
         /// <returns></returns>
-        public ActionResult cargoAdd()
+        public ActionResult ADDShippingInfor()
         {
             return View();
         }
