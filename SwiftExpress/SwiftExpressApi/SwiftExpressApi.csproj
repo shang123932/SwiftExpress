@@ -161,6 +161,7 @@
     <Compile Include="Controllers\Contrabands\ContrabandController.cs" />
     <Compile Include="Controllers\Shipping\ShippingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Staff\StaffController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WareHouse\WareHouseController.cs" />
@@ -222,7 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Staff\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

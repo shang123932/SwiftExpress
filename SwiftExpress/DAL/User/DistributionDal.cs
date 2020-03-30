@@ -19,7 +19,7 @@ namespace DAL
         /// <returns></returns>
         public List<DistributionModel> GetDistribution()
         {
-            string sql = $"select  * from  Distribution";
+            string sql = $"select  * from  Distribution where SendState>=0 ";
             return DBHelper.GetToList<DistributionModel>(sql);
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace DAL
         {
              
            
-              string   sql = $"select * from Distribution where ShippingOrder='{name}'";
+              string   sql = $"select * from Distribution where ShippingOrder='{name}' and SendState>=0 ";
 
           
             return DBHelper.GetToList<DistributionModel>(sql);
@@ -52,7 +52,7 @@ namespace DAL
         /// <returns></returns>
         public int DeleteDistribution(int ids)
         {
-            string sql = $"update Distribution set SendState=0,Status=0 where DistributionId={ids} and SendState=1 and Status=1";
+            string sql = $"update Distribution set SendState=-1,Status=0 where DistributionId={ids} and SendState=0 and Status=1";
             return DBHelper.ExecuteNonQuery(sql);
         }
 
