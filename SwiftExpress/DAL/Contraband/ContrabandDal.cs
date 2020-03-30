@@ -79,7 +79,7 @@ namespace DAL
         #endregion
 
 
-        #region 查询存储信息表一套
+        #region 存储信息表一套
         /// <summary>
         /// 查询存储号查看信息
         /// </summary>
@@ -100,7 +100,7 @@ namespace DAL
         /// <returns></returns>
         public int AddStorage(Storage w)
         {
-            string sql = $"insert into Storage values('{w.InStorageTime}','{w.InStorageNumber}',{w.OutStorageTime},'{w.OutStorageNumber}',GETDATE(),GETDATE(),1,1,1,Remark='{w.Remark}')";
+            string sql = $"insert into Storage values({w.CargoId},{w.WareHouseId},{w.StaffId}'{w.InStorageTime}','{w.InStorageNumber}',{w.OutStorageTime},'{w.OutStorageNumber}',GETDATE(),GETDATE(),1,1,1,Remark='{w.Remark}')";
             return DBHelper.ExecuteNonQuery(sql);
         }
 

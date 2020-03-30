@@ -281,6 +281,40 @@ namespace BLL
             return response;
 
         }
+
+        /// <summary>
+        /// 添加存储信息
+        /// </summary>
+        /// <returns></returns>
+        public AddStorageResponse AddStorage(AddStorageRequest request)
+        {
+            AddStorageResponse response = new AddStorageResponse();
+            Storage storage = new Storage()
+            {
+                CargoId = request.CargoId,
+                WareHouseId = request.WareHouseId,
+                StaffId = request.StaffId,
+                InStorageTime = request.InStorageTime,
+                InStorageNumber = request.InStorageNumber,
+                OutStorageTime = request.OutStorageTime,
+                OutStorageNumber = request.OutStorageNumber,
+                Remark = request.Remark
+            };
+            var res = dal.AddStorage(storage);
+
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "保存成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "保存失败";
+                return response;
+            }
+            return response;
+        }
         #endregion
 
 
