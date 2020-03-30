@@ -55,6 +55,7 @@
     <Compile Include="CargoBll.cs" />
     <Compile Include="ContrabandBll.cs" />
     <Compile Include="ShippingInforBll.cs" />
+    <Compile Include="StaffBll.cs" />
     <Compile Include="UserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WareHouseBll.cs" />

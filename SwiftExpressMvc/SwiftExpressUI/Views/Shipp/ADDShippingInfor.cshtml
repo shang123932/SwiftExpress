@@ -7,18 +7,30 @@
     <div class="m-login-warp">
         <div class="layui-form">
             <div class="layui-form-item">
-                <input id="phone1" type="text" name="title" required lay-verify="required" placeholder="用户手机号" autocomplete="off" class="layui-input">
+                <input id="ShippingName" type="text" name="title" required lay-verify="required" placeholder="寄件姓名" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-item">
-                <input id="pwd1" type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+                <input id="ShippingPhone " type="text" name="title" required lay-verify="required" placeholder="寄件联系方式" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-item">
-                <input id="you" type="text" name="password" required lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
+                <input id="ShippingAddress                 " type="text" name="title" required lay-verify="required" placeholder="寄件地址" autocomplete="off" class="layui-input">
+
+            </div>
+            <div class="layui-form-item">
+                <input id="ReceiveName                 " type="text" name="title" required lay-verify="required" placeholder="收件人姓名" autocomplete="off" class="layui-input">
+
+            </div>
+            <div class="layui-form-item">
+                <input id="ReceivePhone                 " type="text" name="title" required lay-verify="required" placeholder="收件联系方式" autocomplete="off" class="layui-input">
+
+            </div>
+            <div class="layui-form-item">
+                <input id="ReceiveAddress                  " type="text" name="title" required lay-verify="required" placeholder="收件地址" autocomplete="off" class="layui-input">
 
             </div>
             <div class="layui-form-item m-login-btn">
                 <div class="layui-inline">
-                    <button type="button" class="layui-btn layui-btn-normal" onclick="Regist()">注册</button>
+                    <button type="button" class="layui-btn layui-btn-normal" onclick="Regist()">提交</button>
                 </div>
                 <div class="layui-inline">
                     <button type="button" class="layui-btn layui-btn-primary">取消</button>
@@ -33,11 +45,16 @@
 <script>
     //注册
     function Regist() {
-        var phone = $("#phone1").val();
-        var pwd = $("#pwd1").val();
-        var you = $("#you").val();
+        var  ShippingName= $("     ShippingName  "          ).val();
+        var  ShippingPhone   =    $(" ShippingPhone "              ).val();
+        var  ShippingAddress   =    $("    ShippingAddress     "              ).val();
+        var  ReceiveName  = $(" ReceiveName                   "         ).val();
+        var  ReceivePhone   =    $(" ReceivePhone               "         ).val();
+        var ReceiveAddress = $(" ReceiveAddress          ").val();
+        var ShippingOrder = new Date();
+        ShippingOrder.getSeconds;
         $.ajax({
-            url: "/User/UserRegist",
+            url: "/Shipp/ADDShippingInfor",
             type: "Post",
             data: {
                 Phone: phone,
@@ -50,7 +67,7 @@
                     //请求成功
                     if (res.IsRegistSuccess) {
                         alert(res.Message);
-                        location.href = "/User/UserLogin";
+                    
                     }
                     else {
                         alert(res.Message);

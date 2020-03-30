@@ -792,6 +792,7 @@
     <Content Include="Views\Shipp\ADDShippingInfor.cshtml" />
     <Content Include="Views\Contraband\GetStorage.cshtml" />
     <Content Include="Views\Contraband\AddStorage.cshtml" />
+    <Content Include="Views\Shipp\GetShippingInfor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
