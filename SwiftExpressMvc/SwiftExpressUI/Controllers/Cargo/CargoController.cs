@@ -57,6 +57,7 @@ namespace SwiftExpressUI.Controllers.Cargo
            
             return View();
         }
+        [HttpPost]
         public ActionResult cargoUpdate(CargoGetOneRequest request)
         {
             return Json(cbll.CargoGetOne(request));

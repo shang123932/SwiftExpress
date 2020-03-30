@@ -30,8 +30,8 @@ namespace MODEL
         /// <summary>
         /// 接货时间
         /// </summary>
-        public DateTime PickTime       { get; set; }
-        
+        public DateTime PickTime       { get; set; }      
+       
         /// <summary>
         /// 发货时间
         /// </summary>

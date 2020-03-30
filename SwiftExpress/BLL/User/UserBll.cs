@@ -67,7 +67,7 @@ namespace BLL
             {
                 UserPhone = userRegistered.Phone,//手机号
                 PassWord = userRegistered.Pwd,//密码
-                UserMailbox =userRegistered.UserMailbox,//邮箱
+                UserMailbox ="16096533",//邮箱
       
             };
          
@@ -81,6 +81,12 @@ namespace BLL
             {
                 response.Status = false;
                 response.Message = "密码不能为空";
+                return response;
+            }
+            if (userRegistered.Pwd!=userRegistered.Pwd1)
+            {
+                response.Status = false;
+                response.Message = "密码不一致";
                 return response;
             }
             var res = d.UserRegistered(userModel);
