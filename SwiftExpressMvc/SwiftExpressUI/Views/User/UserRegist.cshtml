@@ -26,10 +26,10 @@
                         <input id="phone1" type="text" name="title" required lay-verify="required" placeholder="用户手机号" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-item">
-                        <input id="pwd1" type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+                        <input id="pwd1" type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-item">
-                        <input id="you" type="text" name="password" required lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
+                        <input id="you" type="password" name="password" required lay-verify="required" placeholder="确定密码" autocomplete="off" class="layui-input">
 
                     </div>
                     <div class="layui-form-item m-login-btn">
@@ -90,14 +90,14 @@
     function Regist() {
         var phone = $("#phone1").val();
         var pwd = $("#pwd1").val();
-        var you = $("#you").val();
+        var you = $("#you").val();     
         $.ajax({
             url: "/User/UserRegist",
             type: "Post",
             data: {
                 Phone: phone,
                 Pwd: pwd,
-                UserMailbox:you,
+                Pwd1: you,
             },
             success: function (res) {
                 //表示接口成功

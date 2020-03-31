@@ -1,5 +1,5 @@
 ﻿using ApiSDKClient;
-//using ApiSDKClient.FApi.Request.Contraband;
+using ApiSDKClient.FApi.Request;
 using BLL;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,6 @@ namespace SwiftExpressUI
         {
             return View();
         }
-
         /// <summary>
         /// 违禁品查询
         /// </summary>
@@ -28,6 +27,43 @@ namespace SwiftExpressUI
         public JsonResult GetContraband(ContrabandRequest request)
         {
             return Json(bll.GetContraband(request));
+        }
+        #endregion
+
+        #region 运单的显示列表
+
+        public JsonResult GetWaybillLnquiry(GetWaybillLnquiryRequest request)
+        {
+            return Json(bll.GetWaybillLnquiry(request));
+        }
+
+        #endregion
+
+        #region  存储信息
+        /// <summary>
+        /// 存储信息显示
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult GetStorage(GetStorageRequest request)
+        {
+            return Json(bll.GetStorage(request));
+        }
+
+        public ActionResult AddStorage()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 存储信息添加
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult AddStorage(AddStorageRequest request)
+        {
+            return Json(bll.AddStorage(request));
         }
         #endregion
 

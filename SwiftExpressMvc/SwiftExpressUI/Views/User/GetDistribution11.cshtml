@@ -22,6 +22,13 @@
 </head>
 <body>
 
+        <input id="dingd" name="username" class="layui-input" type="text" placeholder="请输入订单号" autocomplete="off" lay-verify="required">
+
+
+        <button class="layui-btn" type="button" lay-filter="demo1" onclick="GetDistribution1()">查询</button>
+
+    
+  
     <table class="layui-table" lay-skin="line">
         <colgroup>
             <col width="150">
@@ -31,15 +38,16 @@
         </colgroup>
         <thead>
             <tr>
-                <th>序号</th>
-                <th>快递单号</th>
-                <th>员工编号</th>
-                <th>仓库编号</th>
-                <th>接货时间</th>
-                <th>发货时间</th>
-                <th>配送方式</th>
-                <th>货物状态</th>
-                <th>配送备注</th>
+                <td>序号</td>
+                <td>快递单号</td>
+                <td>员工编号</td>
+                <td>仓库编号</td>
+                <td>接货时间</td>
+                <td>发货时间</td>
+                <td>配送方式</td>
+                <td>货物状态</td>
+                <td>配送备注</td>
+                <td>操作</td>
             </tr>
         </thead>
         <tbody id="td"></tbody>
@@ -55,30 +63,94 @@
 <script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
     GetDistribution();
-    function GetDistribution() {
-         $.ajax({
+    //显示
+    function GetDistribution() {  
+        $.ajax({
             url: "/User/GetDistribution11",
             type: "POST",
-            dataType:"Json",
+            dataType: "Json",
             success: function (res) {
                 var op = "";
                 $(res.User).each(function () {
-                    var oo = "<tr>" +
-                        +"<td>" +this.DistributionId+ "</td>"
-                        + "<td>" +this.ShippingOrder+ "</td>"
-                        + "<td>" +this.StaffId+ "</td>"
-                        + "<td>" +this.WareHouseId+ "</td>"
-                        + "<td>" +this.PickTime+ "</td>"
-                        + "<td>" +this.SendTime+ "</td>"
-                        + "<td>" +this.SendType+ "</td>"
-                        + "<td>" +this.SendState+ "</td>"
-                        + "<td>" +this.SendRemark+ "</td>"
+                    var oo = "<tr>"
+                        + "<td>" + this.DistributionId + "</td>"
+                        + "<td>" + this.ShippingOrder + "</td>"
+                        + "<td>" + this.StaffId + "</td>"
+                        + "<td>" + this.WareHouseId + "</td>"
+                        + "<td>" + this.PickTime+ "</td>"
+                        + "<td>" + this.SendTime+ "</td>"
+                        + "<td>" + this.SendType + "</td>"
+                        + "<td>" + (this.SendState==1?'配送中':'已完成')+ "</td>"
+                        + "<td>" + this.SendRemark + "</td>"
+                        + "<td><a href=''style='color:#0094ff' onclick='Dele(" + this.DistributionId+ ")'>收货</a>" + "</td>"
                         + "</tr>"
                     op += oo;
                 })
                 $("#td").html(op);
             }
         })
+    }
+
+    //查询
+    function GetDistribution1() {  
+        var name =$("#dingd").val();
+        $.ajax({
+            url: "/User/GetCxDistribution",
+            type: "POST",
+            data: {
+                ShippingOrder: name,
+            },
+            dataType: "Json",
+            success: function (res) {
+                var op = "";
+                $(res.User).each(function () {
+                    var oo = "<tr>"
+                        + "<td>" + this.DistributionId + "</td>"
+                        + "<td>" + this.ShippingOrder + "</td>"
+                        + "<td>" + this.StaffId + "</td>"
+                        + "<td>" + this.WareHouseId + "</td>"
+                        + "<td>" + this.PickTime+ "</td>"
+                        + "<td>" + this.SendTime+ "</td>"
+                        + "<td>" + this.SendType + "</td>"
+                        + "<td>" +(this.SendState==1?'配送中':'已完成')+"</td>"                
+                        + "<td>" + this.SendRemark + "</td>"
+                        + "<td><a href=''style='color:#0094ff' onclick='Dele(" + this.DistributionId+ ")'>收货</a>" + "</td>"
+                        + "</tr>"
+                    op += oo;
+                })
+                $("#td").html(op);
+            }
+        })
+    }
+    //删除
+    function Dele(did) {
+        if (confirm("确定收货吗")) {
+            $.ajax({
+            url: "/User/DeleteDistribution",
+            type: "POST",
+            data: {
+                Id: did,
+            },
+            dataType: "Json",
+            success: function (res) {
+                //表示接口成功
+                if (res.Status) {
+                    if (res.IsRegistSuccess) {
+                        alert(res.Message);
+                        location.href = "/User/GetDistribution11";
+                            GetDistribution();
+                    }
+                    else {
+                        alert(res.Message);
+                    }
+                }
+                else {
+                    alert(res.Message);
+                }
+            }
+        })
+        }
+        
     }
 
 </script>

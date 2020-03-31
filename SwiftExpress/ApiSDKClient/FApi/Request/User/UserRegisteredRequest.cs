@@ -17,6 +17,10 @@ namespace ApiSDKClient
         /// </summary>
         public string Pwd { get; set; }
         /// <summary>
+        /// 确定密码
+        /// </summary>
+        public string Pwd1 { get; set; }
+        /// <summary>
         /// 邮箱
         /// </summary>
         public string UserMailbox { get; set; }

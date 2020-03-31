@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "GetShippingInfor";
+}
+
+<div class="layui-form" id="table-list">
+    <table class="layui-table" lay-skin="line">
+        <colgroup>
+            <col width="50">
+            <col class="hidden-xs" width="50">
+            <col class="hidden-xs" width="100">
+            <col class="hidden-xs" width="100">
+            <col>
+            <col width="80">
+            <col width="130">
+        </colgroup>
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+                <th class="hidden-xs">快递单号</th>
+                <th class="hidden-xs">寄件姓名</th>
+                <th class="hidden-xs">寄件联系方式</th>
+                <th class="hidden-xs">寄件地址</th>
+                <th class="hidden-xs">收件人姓名</th>
+                <th class="hidden-xs">收件联系方式</th>
+                <th class="hidden-xs">收件地址</th>
+
+            </tr>
+        </thead>
+        <tbody id="tb">
+            @*<tr id='node-1' class="parent collapsed">
+                    <td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
+                    <td class="hidden-xs">1</td>
+                    <td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
+                    <td class="hidden-xs">Admin</td>
+                    <td>
+                        菜单管理
+                        <a class="layui-btn layui-btn-mini layui-btn-normal showSubBtn" data-id='1'>+</a>
+                    </td>
+                    <td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status">显示 </button></td>
+                    <td>
+                        <div class="layui-inline">
+                            <button class="layui-btn layui-btn-mini layui-btn-normal  add-btn" data-id="1" data-url="menu-add.html"><i class="layui-icon">&#xe654;</i></button>
+                            <button class="layui-btn layui-btn-mini layui-btn-normal  edit-btn" data-id="1" data-url="menu-add.html"><i class="layui-icon">&#xe642;</i></button>
+                            <button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="menu-add.html"><i class="layui-icon">&#xe640;</i></button>
+                        </div>
+                    </td>
+                </tr>*@
+
+        </tbody>
+    </table>
+</div>
+<script>
+    $().ready(function () {
+        $.ajax({
+            url: "/Shipp/GetShippingInfor",
+            type: "Post",
+            success: function (res) {
+                var tb = "";
+                $(res).each(function () {
+                    tb += "<tr>"
+                    "<th><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></th>"
+                    "<th class='hidden-xs'>" + this.ShippingOrder    + "</th>"
+                    "<th class='hidden-xs'>" + this.ShippingName + "</th>"
+                    "<th class='hidden-xs'>" + this. ShippingPhone + "</th>"
+                    "<th class='hidden-xs'>" + this.ShippingAddres    + "</th>"
+                    "<th class='hidden-xs'>" + this.ReceiveName + "</th>"
+                    "<th class='hidden-xs'>" + this.ReceivePhone+ "</th>"
+                    "<th class='hidden-xs'>" + this. ReceiveAddress  + "</th>"
+                    "</tr>"
+                });
+
+                $("#tb").append(tb);
+            }
+
+        })
+    })
+</script>

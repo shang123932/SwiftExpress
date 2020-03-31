@@ -18,20 +18,19 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public ContrabandResponse GetContrabands(ContrabandRequest name)
+        public ContrabandResponse GetContrabands(ContrabandRequest request)
         {
             ContrabandResponse response = new ContrabandResponse();
-            var gname = name.ItemName;
-            var list = dal.GetContrabands(gname);
-            if (!string.IsNullOrEmpty(gname))
+            var list = dal.GetContrabands(request.ItemName);
+            if (!string.IsNullOrEmpty(request.ItemName))
             {
-                list = list.Where(w => w.ItemName.Contains(gname)).ToList();
+                list = list.Where(w => w.ItemName.Contains(request.ItemName)).ToList();
             }
 
             if (list.Count <= 0)
             {
-                response.IsRegistSuccess = false;
-                response.Message = "查询失败";
+                response.Status = false;
+                response.Message = "获取失败";
             }
             else
             {
@@ -280,6 +279,40 @@ namespace BLL
             var res = dal.GetOneStorage(request.id);
             return response;
 
+        }
+
+        /// <summary>
+        /// 添加存储信息
+        /// </summary>
+        /// <returns></returns>
+        public AddStorageResponse AddStorage(AddStorageRequest request)
+        {
+            AddStorageResponse response = new AddStorageResponse();
+            Storage storage = new Storage()
+            {
+                CargoId = request.CargoId,
+                WareHouseId = request.WareHouseId,
+                StaffId = request.StaffId,
+                InStorageTime = request.InStorageTime,
+                InStorageNumber = request.InStorageNumber,
+                OutStorageTime = request.OutStorageTime,
+                OutStorageNumber = request.OutStorageNumber,
+                Remark = request.Remark
+            };
+            var res = dal.AddStorage(storage);
+
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "保存成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "保存失败";
+                return response;
+            }
+            return response;
         }
         #endregion
 

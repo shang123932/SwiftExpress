@@ -9,6 +9,6 @@ namespace ApiSDKClient
 {
    public class DistributionResponseGet:BaseResponse
     {
-        public List<DistributionModel> User { get; set; }
+        
     }
 }

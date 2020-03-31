@@ -47,6 +47,7 @@ namespace SwiftExpressUI
         [HttpPost]
         public JsonResult UserLogin(UserLoginRequest request)
         {
+
             return Json(b.UserLogin(request));
         }
         /// <summary>
@@ -99,7 +100,7 @@ namespace SwiftExpressUI
         [HttpPost]
         public JsonResult GetDistribution11(DistributionRequestGet request)
         {
-         
+
             return Json(b.GetDistribution(request));
         }   
         /// <summary>

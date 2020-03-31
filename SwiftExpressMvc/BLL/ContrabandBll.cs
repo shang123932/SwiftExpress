@@ -1,6 +1,6 @@
 ﻿using ApiSDKClient;
-//using ApiSDKClient.FApi.Request.Contraband;
-//using ApiSDKClient.FApi.Response.Contraband;
+using ApiSDKClient.FApi.Request;
+using ApiSDKClient.FApi.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +40,9 @@ namespace BLL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public GetWaybillLnquiryResponse GetWaybillLnquiry(GetWaybillLnquiryRequest bh)
+        public GetWaybillLnquiryResponse GetWaybillLnquiry(GetWaybillLnquiryRequest request)
         {
-            return ApiRequestHelper.Post<GetWaybillLnquiryRequest, GetWaybillLnquiryResponse>(bh);
+            return ApiRequestHelper.Post<GetWaybillLnquiryRequest, GetWaybillLnquiryResponse>(request);
         }
         /// <summary>
         /// 运单删除
@@ -77,16 +77,17 @@ namespace BLL
 
 
         #region 存储
+
         /// <summary>
         /// 查询存储信息
         /// </summary>
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        //public GetStorageResponse GetStorage()
-        //{
-        //    return ApiRequestHelper.Post<GetStorageResponse>
-        //}
+        public GetStorageResponse GetStorage(GetStorageRequest request)
+        {
+            return ApiRequestHelper.Post<GetStorageRequest, GetStorageResponse>(request);
+        }
 
         public UpdateStorageResponse UpdateStorage(UpdateStorageRequest request)
         {
@@ -112,7 +113,15 @@ namespace BLL
 
         }
 
-
+        /// <summary>
+        /// 添加存储信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public AddStorageResponse AddStorage(AddStorageRequest request)
+        {
+            return ApiRequestHelper.Post<AddStorageRequest, AddStorageResponse>(request);
+        }
 
         #endregion
 
