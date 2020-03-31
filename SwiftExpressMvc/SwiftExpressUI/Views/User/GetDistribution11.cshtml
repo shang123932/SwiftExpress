@@ -92,12 +92,7 @@
     }
     
 
-function formatTime(second) {
-    return [parseInt(second / 60 / 60), second / 60 % 60, second % 60].join(":")
-        .replace(/\b(\d)\b/g, "0$1");
-}
- 
-alert(formatTime(6000));
+
 function ChangeDateFormat(val) {
     if (val != null) {
         var date = new Date(parseInt(val.replace("/Date(", "").replace(")/", ""), 10));
