@@ -51,6 +51,24 @@ namespace SwiftExpressUI
             return Json(b.UserLogin(request));
         }
         /// <summary>
+        /// 登录页面验证码
+        /// </summary>
+        /// <returns></returns>
+        public int Indexyanz(string yan)
+        {
+            int res = 0;
+            string cnum = Session["CheckCode"].ToString();
+            if (yan.ToLower() == cnum.ToLower())
+            {
+                res = 1;
+                return res;
+            }
+            else
+            {
+                return res;
+            }
+        }
+        /// <summary>
         /// 显示母版页
         /// </summary>
         /// <returns></returns>

@@ -40,9 +40,23 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
-                        <input id="pwd" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input"><a href="/User/UserRegist" style="color:#faabab">用户注册</a>
+                        <input id="pwd" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
                     </div>
                 </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">验证码</label>
+                    <div class="layui-input-block">
+                        <input id="yanz" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-input-block">
+                        <img class="verifyImg" src="/Content/ValidateCode.ashx" onclick="this.src='/Content/ValidateCode.ashx?d='+new Date()" />
+                    </div>
+                    <div class="layui-input-block">
+                        <a href="/User/UserRegist" style="color:#faabab">用户注册</a>
+                    </div>
+
+                </div>
+
                 <div class="layui-form-item">
                     <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" onclick="Login()">登录</button>
 
@@ -208,70 +222,95 @@
             });
         });
 
-     
+
     </script>
 
 </body>
 </html>
 
 <script>
-       //登录
-        function Login() {
-            var phone = $("#phone").val();
-            var pwd = $("#pwd").val();
-            $.ajax({
-                url: "/User/UserLogin",
-                type: "Post",
-                data: {
-                    Phone: phone,
-                    Pwd: pwd,
-                },
-                success: function (res) {
-                    //表示接口成功
-                    if (res.Status) {
-                        if (res.IsRegistSuccess) {
-                            alert(res.Message);
-                            location.href = "/User/Index";
+    //登录
+    function Login() {
+        var phone = $("#phone").val();
+        var pwd = $("#pwd").val();
+        var yanz = $("#yanz").val();
+        if (yanz == "") {
+            alert("验证码为空!!!");
+            return;
+        }
+        $.ajax({
+            url: "/User/Indexyanz/yanz",
+            type: "POST",
+            dataType: "json",
+            data: {
+                yan: yanz,
+            },
+            success: function (res) {
+                if (res > 0) {
+                    $.ajax({
+                        url: "/User/UserLogin",
+                        type: "Post",
+                        data: {
+                            Phone: phone,
+                            Pwd: pwd,
+                        },
+                        success: function (res) {
+                            //表示接口成功
+                            if (res.Status) {
+                                if (res.IsRegistSuccess) {
+                                    alert(res.Message);
+                                    location.href = "/User/Index";
+                                }
+                                else {
+                                    alert(res.Message);
+                                    location.href = "/User/UserLogin";
+                                }
+                            }
+                            else {
+                                alert(res.Message);
+                            }
                         }
-                        else {
-                            alert(res.Message);
-                        }
+
+                    })
+                }
+                else {
+                       alert("验证码有误!!!");
+                }
+            }
+
+        })
+
+
+
+    }
+
+    //登录
+    function Log() {
+        var phone1 = $("#phone1").val();
+        var pwd1 = $("#pwd1").val();
+        $.ajax({
+            url: "/User/UserLogin",
+            type: "Post",
+            data: {
+                Phone: phone1,
+                Pwd: pwd1,
+            },
+            success: function (res) {
+                //表示接口成功
+                if (res.Status) {
+                    if (res.IsRegistSuccess) {
+                        alert(res.Message);
+                        location.href = "/User/Backstage";
                     }
                     else {
                         alert(res.Message);
                     }
                 }
-
-            })
-        }
-
-      //登录
-        function Log() {
-            var phone1 = $("#phone1").val();
-            var pwd1 = $("#pwd1").val();
-            $.ajax({
-                url: "/User/UserLogin",
-                type: "Post",
-                data: {
-                    Phone: phone1,
-                    Pwd: pwd1,
-                },
-                success: function (res) {
-                    //表示接口成功
-                    if (res.Status) {
-                        if (res.IsRegistSuccess) {
-                            alert(res.Message);
-                            location.href = "/User/Backstage";
-                        }
-                        else {
-                            alert(res.Message);
-                        }
-                    }
-                    else {
-                        alert(res.Message);
-                    }
+                else {
+                    alert(res.Message);
                 }
+            }
 
-            })
-        }
+        })
+    }
 </script>
