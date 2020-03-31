@@ -32,8 +32,8 @@
             <div class="layui-inline">
                 <label class="layui-form-label">货物类型</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="a" value="1" title="货到付款" checked="">
-                    <input type="radio" name="a" value="2" title="普通快递">
+                    <input type="radio" name="b" value="1" title="货到付款" checked="">
+                    <input type="radio" name="b" value="2" title="普通快递">
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">货物重量</label>
                 <div class="layui-input-block">
-                    <input id="txtweight" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                    <input id="txtheavy" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
@@ -187,7 +187,7 @@
 
     function Addcargo() {
         var name = $("#txtname").val();
-        var ctype = $("#txttype").val();
+        var ctype = $("input[name='b']:checked").val();
         var weight = $("#txtheavy").val();
         var order = $("#txtorder").val();
         var cstate = $("input[name='a']:checked").val();
