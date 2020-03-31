@@ -649,7 +649,7 @@
                 sendday = sendday + dvalue + 1;
             }
 
-            alert("运费为：" + fare + ",预计到达时间为：" + sendday + "=f1=" + f1 + ",f2=" + f2);
+            alert("运费为：" + fare + ",预计到达时间为：" + sendday );
 
         } else if ((f2 - f1) > 0) {   //原寄地为远地区
             dvalue = f2 - f1;
@@ -671,11 +671,11 @@
                 }
                 sendday = sendday + dvalue + 1;
             }
-            alert("运费为：" + fare + ",预计到达时间为：" + sendday + "=f1=" + f1 + ",f2=" + f2);
+            alert("运费为：" + fare + ",预计到达时间为：" + sendday );
         }
         else if ((f2 - f1) == 0) {
             fare = 8;
-            alert("运费为：" + fare + ",预计到达时间为：" + sendday + "=f1=" + f1 + ",f2=" + f2);
+            alert("运费为：" + fare + ",预计到达时间为：" + sendday );
         }
 
     }
