@@ -118,7 +118,7 @@ namespace BLL.Cargo
                 CargoState = request.CargoState,
                 CargoRemark = request.CargoRemark
             };
-            if (request == null || !string.IsNullOrEmpty(request.CargoName))
+            if (request == null ||string.IsNullOrEmpty(request.CargoName))
             {
                 response.Status = false;
                 response.Message = "货物名称不能为空";
@@ -183,7 +183,7 @@ namespace BLL.Cargo
         {
             CargoGetResponse response = new CargoGetResponse();
             var list = cdal.GetCargo();
-            if (list.Count <= 0)
+            if (list.Count < 0)
             {
                 response.Status = false;
                 response.Message = "获取失败";

@@ -11,6 +11,10 @@ namespace ApiSDKClient.FApi.Request.WareHouse
         /// <summary>
         /// 仓库名称
         /// </summary>
+        public int WareHouseId { get; set; }
+        /// <summary>
+        /// 仓库名称
+        /// </summary>
         public string WareHouseName { get; set; }
         /// <summary>
         /// 仓库容量

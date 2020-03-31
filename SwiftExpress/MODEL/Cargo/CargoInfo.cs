@@ -35,6 +35,6 @@ namespace MODEL.Cargo
         /// <summary>
         /// 货物备注
         /// </summary>
-        public int CargoRemark   { get; set; }
+        public string CargoRemark   { get; set; }
     }
 }

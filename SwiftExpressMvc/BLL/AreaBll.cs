@@ -32,5 +32,15 @@ namespace BLL
         {
             return ApiRequestHelper.Post<AreaCityRequest, AreaCityResponse>(getRequest);
         }
+
+        /// <summary>
+        /// 获取did
+        /// </summary>
+        /// <param name="getRequest"></param>
+        /// <returns></returns>
+        public AreaFreResponse GetFre(AreaFreRequest getRequest)
+        {
+            return ApiRequestHelper.Post<AreaFreRequest, AreaFreResponse>(getRequest);
+        }
     }
 }

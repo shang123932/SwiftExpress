@@ -51,23 +51,33 @@ namespace SwiftExpressUI
         {
             return Json(wbll.WareHouseGet(request));
         }
-
-        public ActionResult wareHouseUpdate()
+        /// <summary>
+        /// 修改页面
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        public ActionResult wareHouseUpdate(int pid)
         {
+            ViewBag.pid = pid;
             return View();
         }
-        [HttpPost]
-        public JsonResult wareHouseUpdate(WareHouseGetOneRequest request)
-        {
-            return Json(wbll.WareHouseGetOne(request));
-        }
+        /// <summary>
+        /// 获取一条数据
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult wareHouseGetOne(WareHouseGetOneRequest request)
         {
             return Json(wbll.WareHouseGetOne(request));
         }
+        /// <summary>
+        /// 保存修改
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
-        public JsonResult wareHouseSave(WareHouseUpdateRequest request)
+        public JsonResult wareHouseUpdate(WareHouseUpdateRequest request)
         {
             return Json(wbll.WareHouseSave(request));
         }

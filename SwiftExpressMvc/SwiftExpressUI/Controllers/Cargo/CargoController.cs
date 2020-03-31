@@ -52,22 +52,33 @@ namespace SwiftExpressUI.Controllers.Cargo
         {
             return Json(cbll.CargoGet(request));
         }
-        public ActionResult cargoUpdate()
+
+        /// <summary>
+        /// 修改页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult cargoUpdate(int pid)
         {
-           
+            ViewBag.pid = pid;
             return View();
         }
-        public ActionResult cargoUpdate(CargoGetOneRequest request)
-        {
-            return Json(cbll.CargoGetOne(request));
-        }
+        /// <summary>
+        /// 获取一条
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult cargoGetOne(CargoGetOneRequest request)
         {
             return Json(cbll.CargoGetOne(request));
         }
+        /// <summary>
+        /// 保存修改
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
-        public JsonResult cargoSave(CargoUpdateRequest request)
+        public JsonResult cargoUpdate(CargoUpdateRequest request)
         {
             return Json(cbll.CargoSave(request));
         }

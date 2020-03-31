@@ -41,6 +41,12 @@ namespace SwiftExpressApi.Controllers.Area
         {
             return abll.GetCity(request);
         }
+
+        [HttpPost]
+        public AreaFreResponse GetFre(AreaFreRequest request)
+        {
+            return abll.GetFre(request);
+        }
         #endregion
     }
 }

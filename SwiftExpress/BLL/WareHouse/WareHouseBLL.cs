@@ -23,13 +23,13 @@ namespace BLL.WareHouse
         public WareHouseAddResponse AddWareHouse(WareHouseAddRequest request)
         {
             WareHouseAddResponse response = new WareHouseAddResponse();
-            if (request == null || !string.IsNullOrEmpty(request.WareHouseName))
+            if (request == null || string.IsNullOrEmpty(request.WareHouseName))
             {
                 response.Status = false;
                 response.Message = "仓库名不能为空";
                 return response;
             }
-            if (request == null || !string.IsNullOrEmpty(request.WareHouseAddress))
+            if (request == null || string.IsNullOrEmpty(request.WareHouseAddress))
             {
                 response.Status = false;
                 response.Message = "仓库地址不能为空";
@@ -101,6 +101,7 @@ namespace BLL.WareHouse
             WareHouseUpdateResponse response = new WareHouseUpdateResponse();
             WareHouseInfo ware = new WareHouseInfo()
             {
+                 WareHouseId=request.WareHouseId,
                  WareHouseName = request.WareHouseName,
                  WareHouseAddress = request.WareHouseAddress,
                  WareHouseCapacity = request.WareHouseCapacity,
@@ -108,13 +109,13 @@ namespace BLL.WareHouse
                  WareHouseStatus = request.WareHouseStatus
             };
             //获取名不能为空
-            if (request == null || !string.IsNullOrEmpty(request.WareHouseName))
+            if (request == null ||string.IsNullOrEmpty(request.WareHouseName))
             {
                 response.Status = false;
                 response.Message = "仓库名称不能为空";
                 return response;
             }
-            if (!string.IsNullOrEmpty(request.WareHouseAddress))
+            if (string.IsNullOrEmpty(request.WareHouseAddress))
             {
                 response.Status = false;
                 response.Message = "仓库地址不能为空";
@@ -166,8 +167,8 @@ namespace BLL.WareHouse
         public WareHouseGetResponse GetWareHouses(WareHouseGetRequest request)
         {
             WareHouseGetResponse response = new WareHouseGetResponse();
-            var list = wdal.GetWareHouses(request.name);
-            if (list.Count <= 0)
+            var list = wdal.GetWareHouses();
+            if (list.Count < 0)
             {
                 response.Status = false;
                 response.Message = "获取失败";
