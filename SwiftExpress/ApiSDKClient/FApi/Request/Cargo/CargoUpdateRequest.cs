@@ -11,6 +11,10 @@ namespace ApiSDKClient.FApi.Request.Cargo
         /// <summary>
         /// 货物名称
         /// </summary>
+        public int CargoId { get; set; }
+        /// <summary>
+        /// 货物名称
+        /// </summary>
         public string CargoName { get; set; }
         /// <summary>
         /// 货物类型 1 货到付款  2即时快递  3普通快递  4礼品快递
@@ -31,7 +35,7 @@ namespace ApiSDKClient.FApi.Request.Cargo
         /// <summary>
         /// 货物备注
         /// </summary>
-        public int CargoRemark { get; set; }
+        public string CargoRemark { get; set; }
         public override string GetApiName()
         {
             return "/api/Cargo/SaveCargo";

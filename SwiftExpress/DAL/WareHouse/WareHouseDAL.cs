@@ -37,7 +37,7 @@ namespace DAL.WareHouse
         /// <returns></returns>
         public int SaveWareHouse(WareHouseInfo info)
         {
-            string sql = $"update WareHouse set WareHouseName='{info.WareHouseName}',WareHouseCapacity={info.WareHouseCapacity},WareHouseStatus={info.WareHouseStatus},UpdateTime=GETDATE(),UpdateId=1 where WareHouseId=4 where WareHouseId={info.WareHouseId}";
+            string sql = $"update WareHouse set WareHouseName='{info.WareHouseName}',WareHouseCapacity='{info.WareHouseCapacity}',WareHouseAddress='{info.WareHouseAddress}',WareHouseStatus='{info.WareHouseStatus}',WareHouseRemark= '{info.WareHouseRemark}',UpdateTime=GETDATE()where WareHouseId='{info.WareHouseId}'";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -46,16 +46,25 @@ namespace DAL.WareHouse
         /// <returns></returns>
         public int DelWareHouse(int id)
         {
-            string sql = $"update WareHouse set WareHouseStatus=0,Status=0 where WareHouseId={id}";
+            string sql = $"update WareHouse set Status=0 where WareHouseId={id}";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// 显示仓库
         /// </summary>
         /// <returns></returns>
-        public List<WareHouseInfo> GetWareHouses(string name)
+        //public List<WareHouseInfo> GetWareHouses(string name)
+        //{
+        //    string sql = $"select * from WareHouse where WareHouseName like '%{name}%' and Status=1";
+        //    return DBHelper.GetToList<WareHouseInfo>(sql);
+        //}
+        /// <summary>
+        ///查询仓库
+        /// </summary>
+        /// <returns></returns>
+        public List<WareHouseInfo> GetWareHouses()
         {
-            string sql = $"select * from WareHouse where WareHouseName like '%{name}%' and Status=1";
+            string sql = $"select * from WareHouse where  Status=1";
             return DBHelper.GetToList<WareHouseInfo>(sql);
         }
     }

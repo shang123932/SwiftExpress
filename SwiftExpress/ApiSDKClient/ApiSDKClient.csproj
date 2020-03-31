@@ -44,6 +44,7 @@
     <Compile Include="BaseRequest.cs" />
     <Compile Include="BaseResponse.cs" />
     <Compile Include="FApi\Request\Area\AreaCityRequest.cs" />
+    <Compile Include="FApi\Request\Area\AreaFreRequest.cs" />
     <Compile Include="FApi\Request\Area\AreaProvinceRequest.cs" />
     <Compile Include="FApi\Request\Cargo\CargoAddRequest.cs" />
     <Compile Include="FApi\Request\Cargo\CargoDelRequest.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="FApi\Request\WareHouse\WareHouseGetRequest.cs" />
     <Compile Include="FApi\Request\WareHouse\WareHouseUpdateRequest.cs" />
     <Compile Include="FApi\Response\Area\AreaCityResponse.cs" />
+    <Compile Include="FApi\Response\Area\AreaFreResponse.cs" />
     <Compile Include="FApi\Response\Area\AreaProvinceResponse.cs" />
     <Compile Include="FApi\Response\Cargo\CargoAddResponse.cs" />
     <Compile Include="FApi\Response\Cargo\CargoDelResponse.cs" />
