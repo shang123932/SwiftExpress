@@ -803,6 +803,8 @@
     <Content Include="Views\WareHouse\wareHouseShow.cshtml" />
     <Content Include="Views\WareHouse\wareHouseUpdate.cshtml" />
     <Content Include="Views\Staff\AddStaff1.cshtml" />
+    <Content Include="Views\Staff\UpdateStaff.cshtml" />
+    <Content Include="Views\Staff\GetStaff1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

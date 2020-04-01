@@ -31,7 +31,33 @@ namespace SwiftExpressUI
         {
             return Json(b.ADDStaff(request));
         }
-    
+        public ActionResult GetStaff1()
+        {
+            return View();
+        }
+        [HttpPost]
+        public JsonResult GetStaff1(GetStaffRequest request)
+        {
+            return Json(b.GetStaff(request));
+        }
+        public ActionResult DelStaff()
+        {
+            return View();
+        }
+        [HttpPost]
+        public JsonResult DelStaff(DelStaffRequest request)
+        {
+            return Json(b.DelStaff(request));
+        }
+        public ActionResult UpdateStaff()
+        {
+            return View();
+        }
+        [HttpPost]
+        public JsonResult UpdateStaff(UpdateStaffRequest request)
+        {
+            return Json(b.UpdateStaff(request));
+        }
 
     }
 }
