@@ -32,6 +32,13 @@ namespace DAL.Area
             string sql = $"select  * from  Areatable where PId={pid}";
             return DBHelper.GetToList<AreaModel>(sql);
         }
+
+        public int GetFre(int did)
+        {
+            string sql = $"select DId from Areatable where SId={did}";
+            return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
+        }
+
         #endregion
     }
 }

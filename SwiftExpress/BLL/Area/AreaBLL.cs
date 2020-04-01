@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DAL.Area;
 using ApiSDKClient.FApi.Request;
 using ApiSDKClient.FApi.Response.Area;
+using ApiSDKClient.FApi.Request.Area;
 
 namespace BLL.Area
 {
@@ -25,7 +26,7 @@ namespace BLL.Area
         {
             AreaProvinceResponse response = new AreaProvinceResponse();
             var list = areaDal.GetProvince();
-            if (list.Count <= 0)
+            if (list.Count < 0)
             {
                 response.Status = false;
                 response.Message = "获取失败";
@@ -47,18 +48,43 @@ namespace BLL.Area
         public AreaCityResponse GetCity(AreaCityRequest request)
         {
             AreaCityResponse response = new AreaCityResponse();
-            var list = areaDal.GetCity(request.pid);
-            if (list.Count <= 0)
+            var alist = areaDal.GetCity(request.pid);
+            if (alist.Count < 0)
             {
                 response.Status = false;
                 response.Message = "获取失败";
             }
             else
             {
-                response.arealist = list;
+                response.Alist = alist;
                 response.IsRegistSuccess = true;
                 response.Message = "获取成功";
             }
+            return response;
+        }
+
+        /// <summary>
+        /// 获取运费
+        /// </summary>
+        /// <param name="did"></param>
+        /// <returns></returns>
+        public AreaFreResponse GetFre(AreaFreRequest request)
+        {
+            AreaFreResponse response = new AreaFreResponse();
+            var res = areaDal.GetFre(request.did);
+            if (res>0)
+            {
+                response.fid = res;
+                response.IsRegistSuccess = true;
+                response.Message = "获取成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "获取失败";
+               
+            }
+
             return response;
         }
         #endregion

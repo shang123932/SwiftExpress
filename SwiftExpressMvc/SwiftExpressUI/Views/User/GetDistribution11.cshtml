@@ -22,13 +22,13 @@
 </head>
 <body>
 
-        <input id="dingd" name="username" class="layui-input" type="text" placeholder="请输入订单号" autocomplete="off" lay-verify="required">
+    <input id="dingd" name="username" class="layui-input" type="text" placeholder="请输入订单号" autocomplete="off" lay-verify="required">
 
 
-        <button class="layui-btn" type="button" lay-filter="demo1" onclick="GetDistribution1()">查询</button>
+    <button class="layui-btn" type="button" lay-filter="demo1" onclick="GetDistribution1()">查询</button>
 
-    
-  
+
+
     <table class="layui-table" lay-skin="line">
         <colgroup>
             <col width="150">
@@ -64,7 +64,7 @@
 <script>
     GetDistribution();
     //显示
-    function GetDistribution() {  
+    function GetDistribution() {
         $.ajax({
             url: "/User/GetDistribution11",
             type: "POST",
@@ -77,12 +77,12 @@
                         + "<td>" + this.ShippingOrder + "</td>"
                         + "<td>" + this.StaffId + "</td>"
                         + "<td>" + this.WareHouseId + "</td>"
-                        + "<td>" + this.PickTime+ "</td>"
-                        + "<td>" + this.SendTime+ "</td>"
+                        + "<td>" + ChangeDateFormat(this.PickTime) + "</td>"
+                        + "<td>" + ChangeDateFormat(this.SendTime) + "</td>"
                         + "<td>" + this.SendType + "</td>"
-                        + "<td>" + (this.SendState==1?'配送中':'已完成')+ "</td>"
+                        + "<td>" + (this.SendState == 1 ? '配送中' : '已完成') + "</td>"
                         + "<td>" + this.SendRemark + "</td>"
-                        + "<td><a href=''style='color:#0094ff' onclick='Dele(" + this.DistributionId+ ")'>收货</a>" + "</td>"
+                        + "<td><a href=''style='color:#0094ff' onclick='Dele(" + this.DistributionId + ")'>收货</a>" + "</td>"
                         + "</tr>"
                     op += oo;
                 })
@@ -91,9 +91,22 @@
         })
     }
 
+
+
+    function ChangeDateFormat(val) {
+        if (val != null) {
+            var date = new Date(parseInt(val.replace("/Date(", "").replace(")/", ""), 10));
+            //月份为0-11，所以+1，月份小于10时补个0
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+        return "";
+    }
+
     //查询
-    function GetDistribution1() {  
-        var name =$("#dingd").val();
+    function GetDistribution1() {
+        var name = $("#dingd").val();
         $.ajax({
             url: "/User/GetCxDistribution",
             type: "POST",
@@ -109,12 +122,12 @@
                         + "<td>" + this.ShippingOrder + "</td>"
                         + "<td>" + this.StaffId + "</td>"
                         + "<td>" + this.WareHouseId + "</td>"
-                        + "<td>" + this.PickTime+ "</td>"
-                        + "<td>" + this.SendTime+ "</td>"
+                        + "<td>" +ChangeDateFormat( this.PickTime) + "</td>"
+                        + "<td>" +ChangeDateFormat( this.SendTime) + "</td>"
                         + "<td>" + this.SendType + "</td>"
-                        + "<td>" +(this.SendState==1?'配送中':'已完成')+"</td>"                
+                        + "<td>" + (this.SendState == 1 ? '配送中' : '已完成') + "</td>"
                         + "<td>" + this.SendRemark + "</td>"
-                        + "<td><a href=''style='color:#0094ff' onclick='Dele(" + this.DistributionId+ ")'>收货</a>" + "</td>"
+                        + "<td><a href=''style='color:#0094ff' onclick='Dele(" + this.DistributionId + ")'>收货</a>" + "</td>"
                         + "</tr>"
                     op += oo;
                 })
@@ -126,31 +139,27 @@
     function Dele(did) {
         if (confirm("确定收货吗")) {
             $.ajax({
-            url: "/User/DeleteDistribution",
-            type: "POST",
-            data: {
-                Id: did,
-            },
-            dataType: "Json",
-            success: function (res) {
-                //表示接口成功
-                if (res.Status) {
-                    if (res.IsRegistSuccess) {
-                        alert(res.Message);
-                        location.href = "/User/GetDistribution11";
+                url: "/User/DeleteDistribution",
+                type: "POST",
+                data: {
+                    Id: did,
+                },
+                dataType: "Json",
+                success: function (res) {
+                    //表示成功
+                 
+                        if (res.Status) {
+                            alert("收货成功");           
                             GetDistribution();
-                    }
-                    else {
-                        alert(res.Message);
-                    }
+                        }
+                        else {
+                            alert("正在配送中不能收货");
+                        }
+                   
                 }
-                else {
-                    alert(res.Message);
-                }
-            }
-        })
+            })
         }
-        
+
     }
 
 </script>

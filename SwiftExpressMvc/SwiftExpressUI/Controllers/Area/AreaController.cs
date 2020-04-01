@@ -36,5 +36,10 @@ namespace SwiftExpressUI
         {
             return Json(abll.GetCity(request));
         }
+        [HttpPost]
+        public JsonResult CityDid(AreaFreRequest request)
+        {
+            return Json(abll.GetFre(request));
+        }
     }
 }

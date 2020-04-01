@@ -31,7 +31,7 @@ namespace BLL.Staff
                 StaffRemark= request.StaffRemark
             };
             //获取名不能为空
-            if (request == null || !string.IsNullOrEmpty(request.StaffName))
+            if (request == null || string.IsNullOrEmpty(request.StaffName))
             {
                 response.Status = false;
                 response.Message = "货物名称不能为空";

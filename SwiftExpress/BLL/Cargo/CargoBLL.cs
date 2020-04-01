@@ -32,7 +32,7 @@ namespace BLL.Cargo
                 CargoRemark = request.CargoRemark
             };
             //获取名不能为空
-            if (request == null || !string.IsNullOrEmpty(request.CargoName))
+            if (request == null || string.IsNullOrEmpty(request.CargoName))
             {
                 response.Status = false;
                 response.Message = "货物名称不能为空";
@@ -47,7 +47,7 @@ namespace BLL.Cargo
             }
             //验证货物是否存在
             var shiporder = cdal.IsExistShipping(request.ShippingOrder);
-            if (shiporder < 1)
+            if (shiporder >=1)
             {
                 response.Status = false;
                 response.Message = "货物已存在";
@@ -111,6 +111,7 @@ namespace BLL.Cargo
             CargoUpdateResponse response = new CargoUpdateResponse();
             CargoInfo cargo = new CargoInfo()
             {
+                CargoId = request.CargoId,
                 CargoName = request.CargoName,
                 ShippingOrder = request.ShippingOrder,
                 CargoWeight = request.CargoWeight,
@@ -118,7 +119,7 @@ namespace BLL.Cargo
                 CargoState = request.CargoState,
                 CargoRemark = request.CargoRemark
             };
-            if (request == null || !string.IsNullOrEmpty(request.CargoName))
+            if (request == null ||string.IsNullOrEmpty(request.CargoName))
             {
                 response.Status = false;
                 response.Message = "货物名称不能为空";
@@ -183,7 +184,7 @@ namespace BLL.Cargo
         {
             CargoGetResponse response = new CargoGetResponse();
             var list = cdal.GetCargo();
-            if (list.Count <= 0)
+            if (list.Count < 0)
             {
                 response.Status = false;
                 response.Message = "获取失败";

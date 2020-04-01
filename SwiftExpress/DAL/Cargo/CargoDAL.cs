@@ -27,7 +27,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public CargoInfo GetOneCargo(int pid)
         {
-            string sql = $"select * from Cargo where CargoId=={pid} and Status=1";
+            string sql = $"select * from Cargo where CargoId={pid} and Status=1";
             return DBHelper.GetToList<CargoInfo>(sql)[0];
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public int SaveCargo(CargoInfo info)
         {
-            string sql = $"update Cargo set CargoName='{info.CargoName}',CargoType={info.CargoType},CargoWeight={info.CargoWeight},ShippingOrder='{info.ShippingOrder}',,CargoRemark='{info.CargoRemark}',CargoState= {info.CargoState},,UpdateTime=GETDATE(),UpdateId=1 where CargoId={info.CargoId}";
+            string sql = $"update Cargo set CargoName='{info.CargoName}',CargoType={info.CargoType},CargoWeight={info.CargoWeight},CargoRemark='{info.CargoRemark}',CargoState= {info.CargoState},UpdateTime=GETDATE(),UpdateId=1 where CargoId={info.CargoId}";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -45,7 +45,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public int DelCargo(int id)
         {
-            string sql = $"update Cargo set CargoState=0 where CargoId={id}";
+            string sql = $"update Cargo set Status=0 where CargoId={id}";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public List<CargoInfo> GetCargo()
         {
-            string sql = $"select * from Cargo  and  Status=1";
+            string sql = $"select * from Cargo  where Status=1";
             return DBHelper.GetToList<CargoInfo>(sql);
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace DAL.Cargo
         /// <returns></returns>
         public int IsExistShipping(string ship)
         {
-            string sql = $"select count(1) from Cargo where ShippingOrder={ship} and CargoState=1  and  Status=1";
+            string sql = $"select count(1) from Cargo where ShippingOrder='{ship}' and CargoState=1  and  Status=1";
             return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
         }
     }

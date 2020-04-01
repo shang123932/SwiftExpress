@@ -1,76 +1,206 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "cargoUpdate";
 }
 
 <h2>cargoUpdate</h2>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+    <h2>添加货物</h2>
+    <form class="layui-form layui-form-pane" action="">
+        <div>
+            <input id="Hidden1" type="hidden" value="@ViewBag.pid" />
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">货物名称</label>
+            <div class="layui-input-inline">
+                <input id="txtname" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
 
-<table class="table">
-    <tr>
-        <td>货物名称：</td>
-        <td><input id="txtname" type="text" /></td>
-    </tr>
-    <tr>
-        <td>货物类型</td>
-        <td><input id="txttype" type="text" /></td>
-    </tr>
-    <tr>
-        <td>货物重量</td>
-        <td><input id="txtweight" type="text" /></td>
-    </tr>
-    <tr>
-        <td>快递单号</td>
-        <td><input id="txtorder" type="text" /></td>
-    </tr>
-    <tr>
-        <td>货物状态</td>
-        <td>
-            <input id="Radio1" type="radio" name="a"/>出库
-            <input id="Radio1" type="radio" name="a"/>在库
-        </td>
-    </tr>
-    <tr>
-        <td>货物备注</td>
-        <td><input id="txtremark" type="text" /> </td>
-    </tr>
-    <tr>
-        <td><input id="Button1" type="button" value="提交" onclick="Addcargo()" /> </td>
-        <td><input id="Button1" type="button" value="取消" /> </td>
-    </tr>
-</table>
-<script src="~/Scripts/jquery-3.3.1.js"></script>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">货物类型</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="b" value="1" title="货到付款" checked="">
+                    <input type="radio" name="b" value="2" title="普通快递">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">货物重量</label>
+                <div class="layui-input-block">
+                    <input id="txtheavy" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">快递单号</label>
+                <div class="layui-input-block">
+                    <input id="txtorder" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">货物状态</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="a" value="1" title="出库" checked="">
+                    <input type="radio" name="a" value="2" title="在库">
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">货物备注</label>
+                <div class="layui-input-block">
+                    <input id="txtremark" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" type="button" lay-filter="demo1" onclick="Addcargo()">立即提交</button>
+            <button class="layui-btn" type="button" lay-filter="demo1">取消</button>
+        </div>
+    </form>
+    <script src="~/layui/layui.js"></script>
+
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+
+            //日期
+            laydate.render({
+                elem: '#date'
+            });
+            laydate.render({
+                elem: '#date1'
+            });
+
+            //创建一个编辑器
+            var editIndex = layedit.build('LAY_demo_editor');
+
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length < 5) {
+                        return '标题至少得5个字符啊';
+                    }
+                }
+                , pass: [
+                    /^[\S]{6,12}$/
+                    , '密码必须6到12位，且不能出现空格'
+                ]
+                , content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+
+            //监听指定开关
+            form.on('switch(switchTest)', function (data) {
+                layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+                    offset: '6px'
+                });
+                layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+            });
+
+            //监听提交
+            form.on('submit(demo1)', function (data) {
+                layer.alert(JSON.stringify(data.field), {
+                    title: '最终的提交信息'
+                })
+                return false;
+            });
+
+            //表单赋值
+            layui.$('#LAY-component-form-setval').on('click', function () {
+                form.val('example', {
+                    "username": "贤心" // "name": "value"
+                    , "password": "123456"
+                    , "interest": 1
+                    , "like[write]": true //复选框选中状态
+                    , "close": true //开关状态
+                    , "sex": "女"
+                    , "desc": "我爱 layui"
+                });
+            });
+
+            //表单取值
+            layui.$('#LAY-component-form-getval').on('click', function () {
+                var data = form.val('example');
+                alert(JSON.stringify(data));
+            });
+
+        });
+    </script>
+</body>
+</html>
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
     $().ready(function () {
+        var pid = $("#Hidden1").val();
         $.ajax({
             url: "/Cargo/cargoGetOne",
             dataType: "json",
             type: "POST",
+            data:
+            {
+                pid: pid
+            },
             success: function (res) {
                 $("#txtname").val(res.CargoName),
-                $("#txttype").val(res.CargoType),
-                $("#txtheavy").val(res.CargoWeight),
-                $("#txtorder").val(res.ShippingOrder),
-                ["input=[name='a']:checked"].val(res.CargoState),
-                $("#txtremark").val(res.CargoRemark)
+                    $("#txttype").val(res.CargoType),
+                    $("#txtheavy").val(res.CargoWeight),
+                    $("#txtorder").val(res.ShippingOrder),
+                    $("input[type='radio']").each(function () {
+                        if (this.value == res.CargoState) {
+                            this.checked = true;
+                        }
+                    }),
+                    $("#txtremark").val(res.CargoRemark)
             }
         })
     })
 
     function Addcargo() {
         var name = $("#txtname").val();
-        var ctype = $("#txttype").val();
+        var ctype = $("input[name='b']:checked").val();
         var weight = $("#txtheavy").val();
         var order = $("#txtorder").val();
-        var cstate = ["input=[name='a']:checked"].val();
+        var cstate = $("input[name='a']:checked").val();
         var remark = $("#txtremark").val();
+        var pid = $("#Hidden1").val();
 
         $.ajax({
-            url: "/Cargo/cargoSave",
+            url: "/Cargo/cargoUpdate",
             dataType: "json",
             type: "POST",
             data:
             {
+                CargoId: pid,
                 CargoName: name,
                 CargoType: ctype,
                 CargoWeight: weight,
@@ -90,3 +220,6 @@
         })
     }
 </script>
+
+
+
