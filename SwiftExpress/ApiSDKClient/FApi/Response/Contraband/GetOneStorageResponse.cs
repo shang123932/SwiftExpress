@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ApiSDKClient
 {
     public class GetOneStorageResponse:BaseResponse
     {
+        public Storage storages { get; set; }
     }
 }

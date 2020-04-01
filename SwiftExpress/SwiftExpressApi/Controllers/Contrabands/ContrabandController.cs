@@ -95,9 +95,9 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="dh"></param>
         /// <returns></returns>
         [HttpPost]
-        public GetStorageResponse GetStorage(GetStorageRequest request)
+        public GetStorageResponse GetStorage(/*GetStorageRequest request*/)
         {
-            return bll.GetStorage(request);
+            return bll.GetStorage(/*request*/);
         }
         /// <summary>
         /// 修改存储信息
@@ -132,7 +132,10 @@ namespace SwiftExpressApi.Controllers.Contrabands
 
         }
 
-
+        public AddStorageResponse AddStorage(AddStorageRequest request)
+        {
+            return bll.AddStorage(request);
+        }
 
         #endregion
 
