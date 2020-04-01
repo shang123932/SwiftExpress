@@ -54,6 +54,7 @@
       <HintPath>..\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MODEL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -788,10 +789,11 @@
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.woff" />
-    <Content Include="Views\Contraband\GetContraband.cshtml" />
     <Content Include="Views\Shipp\ADDShippingInfor.cshtml" />
     <Content Include="Views\Contraband\GetStorage.cshtml" />
     <Content Include="Views\Contraband\AddStorage.cshtml" />
+    <Content Include="Views\Contraband\GetContraband.cshtml" />
+    <Content Include="Views\Contraband\UpdateStorageSt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

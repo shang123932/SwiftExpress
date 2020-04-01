@@ -63,7 +63,7 @@ namespace ApiSDKClient
 
         public override string GetApiName()
         {
-            return "/api/Contraband/";
+            return "api/Contraband/AddStorage";
         }
     }
 }

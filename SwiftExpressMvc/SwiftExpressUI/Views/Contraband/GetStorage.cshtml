@@ -27,9 +27,9 @@
             <form class="layui-form" action="">
                 <div class="layui-form-item">
                     <div class="layui-inline tool-btn">
-                            <button class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs" data-url="menu-add.html"><i class="layui-icon">&#xe654;</i></button>
-                            <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs" data-url="menu-add.html"><i class="iconfont">&#xe656;</i></button>
-                        </div>
+                        <button class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs" data-url="menu-add.html"><i class="layui-icon">&#xe654;</i></button>
+                        <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs" data-url="menu-add.html"><i class="iconfont">&#xe656;</i></button>
+                    </div>
                     <div class="layui-inline">
                         <input type="text" name="title" required lay-verify="required" placeholder="请输入物品关键字" autocomplete="off" class="layui-input">
                     </div>
@@ -66,7 +66,7 @@
                             <th class="hidden-xs">出库时间</th>
                             <th class="hidden-xs">出库数量</th>
                             <th class="hidden-xs">备注</th>
-
+                            <th class="hidden-xs">操作</th>
                         </tr>
                     </thead>
                     <tbody id="tb">
@@ -88,7 +88,6 @@
                                     </div>
                                 </td>
                             </tr>*@
-                        
                     </tbody>
                 </table>
             </div>
@@ -144,26 +143,51 @@
         $.ajax({
             url: "/Contraband/GetStorage",
             type: "Post",
+            dataType: "Json",
             success: function (res) {
                 var tb = "";
-                $(res).each(function () {
+                $(res.Storagelist).each(function () {
                     tb += "<tr>"
-                    "<th><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></th>"
-                    "<th class='hidden-xs'>" + this.StorageId + "</th>"
-                    "<th class='hidden-xs'>" + this.CargoId + "</th>"
-                    "<th class='hidden-xs'>" + this.WareHouseId + "</th>"
-                    "<th class='hidden-xs'>" + this.StaffId + "</th>"
-                    "<th class='hidden-xs'>" + this.InStorageTime + "</th>"
-                    "<th class='hidden-xs'>" + this.InStorageNumber + "</th>"
-                    "<th class='hidden-xs'>" + this.OutStorageTime + "</th>"
-                    "<th class='hidden-xs'>" + this.OutStorageNumber + "</th>"
-                    "<th class='hidden-xs'>" + this.Remark + "</th>"
-                    "</tr>"
+                        + "<td><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></td>"
+                        + "<td class='hidden-xs'>" + this.StorageId + "</td>"
+                        + "<td class='hidden-xs'>" + this.CargoId + "</td>"
+                        + "<td class='hidden-xs'>" + this.WareHouseId + "</td>"
+                        + "<td class='hidden-xs'>" + this.StaffId + "</td>"
+                        + "<td class='hidden-xs'>" + this.InStorageTime + "</td>"
+                        + "<td class='hidden-xs'>" + this.InStorageNumber + "</td>"
+                        + "<td class='hidden-xs'>" + this.OutStorageTime + "</td>"
+                        + "<td class='hidden-xs'>" + this.OutStorageNumber + "</td>"
+                        + "<td class='hidden-xs'>" + this.Remark + "</td>"
+                        + "<td class='hidden-xs'><div class='layui-inline'><button class='layui-btn layui-btn-mini layui-btn-normal  edit-btn' data-id='1' data-url='menu-add.html' onclick='Xg(" + this.StorageId + ")'><i class='layui-icon'>&#xe642;</i></button><button class='layui-btn layui-btn-mini layui-btn-danger del-btn' data-id='1'  onclick='Sc(" + this.StorageId + ")'><i class='layui-icon'>&#xe640;</i></button></div></td>"
+                        + "</tr>"
                 });
-
                 $("#tb").append(tb);
             }
 
         })
     })
+
+    //删除
+    function Sc(did) {
+        $.ajax({
+            url: "/Contraband/DeleteStorage",
+            type: "Post",
+            dataType: "Json",
+            data: {
+                id: did
+            },
+            success: function (res) {
+                $(res).each(function () {
+                    alert(this.Message);
+                })
+            }
+        })
+    }
+
+
+    function Xg(StorageId) {
+        location.href = "/Contraband/UpdateStorageSt/" + StorageId;
+    }
+
+
 </script>

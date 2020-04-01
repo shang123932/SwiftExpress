@@ -14,7 +14,7 @@ namespace ApiSDKClient
         public string ItemName { get; set; }
         public override string GetApiName()
         {
-            return "/api/Contraband/GetContraband";
+            return "/api/Contraband/GetContrabands";
         }
     }
 }
