@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "UpdateStaff";
+}
+
+<h2>UpdateStaff</h2>
+<form class="layui-form layui-form-pane" action="">
+    <div>
+        <input id="Hidden1" type="hidden" value="@ViewBag.pid" />
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">员工姓名</label>
+        <div class="layui-input-inline">
+            <input id="StaffName" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">员工性别</label>
+            <div class="layui-input-block">
+                <input id="StaffSex" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">员工年龄</label>
+            <div class="layui-input-block">
+                <input id="StaffAge" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">员工电话</label>
+            <div class="layui-input-block">
+                <input id="StaffPhone" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">员工职务</label>
+            <div class="layui-input-block">
+                <input id="StaffDuty" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">入职时间</label>
+            <div class="layui-input-block">
+                <input id="StaffLoginTime" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">入职状态</label>
+            <div class="layui-input-block">
+                <input id="StaffRemark" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">员工备注</label>
+            <div class="layui-input-block">
+                <input id="StaffRemark" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn" type="button" lay-filter="demo1" onclick="Addcargo()">立即提交</button>
+        <button class="layui-btn" type="button" lay-filter="demo1">取消</button>
+    </div>
+</form>
+<script>
+    $().ready(function () {
+        var pid = $("#Hidden1").val();
+        $.ajax({
+            url: "/Staff/GetStaff",
+            dataType: "json",
+            type: "POST",
+            data:
+            {
+                pid: pid
+            },
+            success: function (res) {
+                      $("#StaffName").val(res.StaffName),
+                      $("#StaffAge").val(res.StaffAge),
+                       $("#StaffPhone").val(res.StaffPhone),
+                        $("#StaffDuty").val(res.StaffDuty),
+                        $("#StaffLoginTime").val(res.StaffLoginTime),
+                        $("#StaffStatus").val(res.StaffStatus),
+                    $("input[type='radio']").each(function () {
+                        if (this.value == res.CargoState) {
+                            this.checked = true;
+                        }
+                    }),          
+                      $("#StaffRemark").val(res.StaffRemark)
+            }
+        })
+    })
+
+    function Addcargo() {
+        var name = $("#StaffName").val();
+        var ctype = $("#StaffAge").val();
+        var weight = $("#StaffPhone").val();
+        var order = $("#StaffDuty").val();
+        var cstate = $("#StaffLoginTime").val();
+        var remark = $("#txtremark").val();
+        var pid = $("#StaffStatus").val();
+
+        $.ajax({
+            url: "/Staff/UpdateStaff",
+            dataType: "json",
+            type: "POST",
+            data:
+            {
+                CargoId: pid,
+                CargoName: name,
+                CargoType: ctype,
+                CargoWeight: weight,
+                ShippingOrder: order,
+                CargoState: cstate,
+                CargoRemark: remark
+            },
+            success: function (res) {
+                if (res.Status) {
+                    alert(res.Message);
+                    location.href = "/Staff/GetStaff1";
+                }
+                else {
+                    alert(res.Message);
+                }
+            }
+        })
+    }
+</script>

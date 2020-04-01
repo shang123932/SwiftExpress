@@ -8,6 +8,9 @@ namespace ApiSDKClient
 {
    public class UserLoginResponse:BaseResponse
     {
-
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserName { get; set; }
     }
 }
