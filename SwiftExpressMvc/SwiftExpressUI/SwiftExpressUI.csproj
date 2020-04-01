@@ -793,6 +793,7 @@
     <Content Include="Views\Contraband\GetStorage.cshtml" />
     <Content Include="Views\Contraband\AddStorage.cshtml" />
     <Content Include="Views\Shipp\GetShippingInfor.cshtml" />
+    <Content Include="Views\Staff\GetStaff.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -800,7 +801,6 @@
     <Folder Include="Views\Area\" />
     <Folder Include="Views\Cargo\" />
     <Folder Include="Views\Shipping\" />
-    <Folder Include="Views\Staff\" />
     <Folder Include="Views\WareHouse\" />
   </ItemGroup>
   <ItemGroup>
