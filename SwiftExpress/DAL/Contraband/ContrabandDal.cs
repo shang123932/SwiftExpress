@@ -77,7 +77,16 @@ namespace DAL
             return DBHelper.GetToList<WaybillLnquiry>(sql)[0];
         }
         #endregion
-
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public List<ShippingInfors> GetShippingInfor(string name)
+        {
+            string sql = $"select * from ShippingInfor  s join Cargo c on s.ShippingOrder=c.ShippingOrder where ShippingOrder={name}";
+            return DBHelper.GetToList<ShippingInfors>(sql);
+        }
 
         #region 存储信息表一套
         /// <summary>

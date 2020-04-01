@@ -189,6 +189,29 @@ namespace BLL
             return response;
         }
         #endregion
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public GetShippingInforResponse GetShippingInfor(GetShippingInforRequest request)
+        {
+            GetShippingInforResponse response = new GetShippingInforResponse();
+            var list = dal.GetShippingInfor(request.Name);
+            if (list.Count <= 0)
+            {
+                response.Status = false;
+                response.Message = "获取失败";
+            }
+            else
+            {
+                response.ShippingInforlist = list;
+                response.IsRegistSuccess = true;
+                response.Message = "成功";
+            }
+            return response;
+
+        }
 
 
         #region 存储
