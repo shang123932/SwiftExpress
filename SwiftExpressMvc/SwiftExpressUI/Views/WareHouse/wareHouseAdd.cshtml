@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Layui</title>
+    <title>雨燕速递</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,57 +14,64 @@
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-    <h2>仓库招租</h2>
-    <form class="layui-form layui-form-pane" action="">
+    <br />
+    <h2 style="color:#ff5511">加入云仓</h2>
+    <br />
+    <div>
+        <form class="layui-form layui-form-pane" action="">
 
-        <div class="layui-form-item">
-            <label class="layui-form-label">仓库名称</label>
-            <div class="layui-input-inline">
-                <input id="txtname" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">仓库容量</label>
-                <div class="layui-input-block">
-                    <input id="txtcap" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
-                </div>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">仓库地址</label>
-                <div class="layui-input-block">
-                    <input id="txtaddr" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            <div class="layui-form-item">
+                <label class="layui-form-label">仓库名称</label>
+                <div class="layui-input-inline">
+                    <input id="txtname" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">仓库状态</label>
-                <div class="layui-input-block">
-                    <input type="radio" name="a" value="1" title="使用中" checked="">
-                    <input type="radio" name="a" value="2" title="备用">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">仓库容量</label>
+                    <div class="layui-input-block">
+                        <input id="txtcap" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
             </div>
-
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">仓库备注</label>
-                <div class="layui-input-block">
-                    <input id="txtremark" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">仓库地址</label>
+                    <div class="layui-input-block">
+                        <input id="txtaddr" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="layui-form-item">
-            <button class="layui-btn" type="button" lay-filter="demo1" onclick="Addware()">立即提交</button>
-            <button class="layui-btn" type="button" lay-filter="demo1">取消</button>
-        </div>
-    </form>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">仓库状态</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="a" value="1" title="使用中" checked="">
+                        <input type="radio" name="a" value="2" title="备用">
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">仓库备注</label>
+                    <div class="layui-input-block">
+                        <input id="txtremark" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Addware()">提交申请</button>
+                <a class="layui-btn layui-btn-primary layui-btn-radius" href="javascript:history.back(-1)">取消</a>
+            </div>
+        </form>
+    </div>
+    <div style="float:right;margin-top:-20px;">
+        <img src="~/img/云仓.jpg" />
+    </div>
     <script src="~/layui/layui.js"></script>
 
     <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
@@ -178,6 +185,8 @@
             }
         })
     }
+
+  
 </script>
 
 

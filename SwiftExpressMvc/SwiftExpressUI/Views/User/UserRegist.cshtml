@@ -34,10 +34,10 @@
                     </div>
                     <div class="layui-form-item m-login-btn">
                         <div class="layui-inline">
-                            <button type="button" class="layui-btn layui-btn-normal"  onclick="Regist()">注册</button>
+                            <button type="button" class="layui-btn layui-btn-normal" onclick="Regist()">注册</button>
                         </div>
                         <div class="layui-inline">
-                            <button type="button" class="layui-btn layui-btn-primary">取消</button>
+                            <button type="button" class="layui-btn layui-btn-primary" onclick="ind()">取消</button>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
     function Regist() {
         var phone = $("#phone1").val();
         var pwd = $("#pwd1").val();
-        var you = $("#you").val();     
+        var you = $("#you").val();
         $.ajax({
             url: "/User/UserRegist",
             type: "Post",
@@ -117,5 +117,9 @@
             }
 
         })
+    }
+
+    function ind() {
+        location.href = "/User/Index";
     }
 </script>

@@ -153,7 +153,10 @@
     <Content Include="img\IMG20190905_170942.jpg" />
     <Content Include="img\wKhBFl4NqOGAXi6pAAS6Y1QC39Y309.jpg" />
     <Content Include="img\YuYan.jfif" />
+    <Content Include="img\云仓.jpg" />
     <Content Include="img\快递.jpg" />
+    <Content Include="img\背景.jpg" />
+    <Content Include="img\运费查询.png" />
     <Content Include="img\雨燕速递.jpg" />
     <Content Include="layui\css\layui.css" />
     <Content Include="layui\css\layui.mobile.css" />
@@ -793,6 +796,7 @@
     <Content Include="Views\Contraband\GetStorage.cshtml" />
     <Content Include="Views\Contraband\AddStorage.cshtml" />
     <Content Include="Views\Shipp\GetShippingInfor.cshtml" />
+    <Content Include="Views\User\Lay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

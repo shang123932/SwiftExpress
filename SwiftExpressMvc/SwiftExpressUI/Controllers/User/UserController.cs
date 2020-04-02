@@ -141,7 +141,9 @@ namespace SwiftExpressUI
             return Json(b.DeleteDistribution(request));
         }
 
-
-
+        public ActionResult Lay()
+        {
+            return View();
+        }
     }
 }
