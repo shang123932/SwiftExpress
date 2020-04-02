@@ -23,18 +23,7 @@
     <div>
         <input id="dh" value="@ViewBag.id" type="hidden" />
         <div class="page-content-wrap">
-            <form class="layui-form" action="">
-                <div class="layui-form-item">
-                    <div class="layui-inline tool-btn">
-                        <button class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs" data-url="menu-add.html"><i class="layui-icon">&#xe654;</i></button>
-                        <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs" data-url="menu-add.html"><i class="iconfont">&#xe656;</i></button>
-                    </div>
-                    <div class="layui-inline">
-                        <input type="text" name="title" required lay-verify="required" placeholder="请输入物品关键字" autocomplete="off" class="layui-input">
-                    </div>
-                    <button class="layui-btn layui-btn-normal" lay-submit="search">搜索</button>
-                </div>
-            </form>
+            
             <div class="layui-form" id="table-list">
                 <table class="layui-table" lay-skin="line">
                     <colgroup>
@@ -117,17 +106,17 @@
 <script>
 
     $().ready(function () {
-        var db = ("#dh").val();
+        var db = $("#dh").val();
         $.ajax({
             url: "/Contraband/GetShippingInfors",
             type: "Post",
             dataType: "Json",
             data: {
-                ShippingOrder:dh
+                ShippingOrder:db
             },
             success: function (res) {
                 var tb = "";
-                $(res.Storagelist).each(function () {
+                $(res.ShippingInforlist).each(function () {
                     tb += "<tr>"
                         + "<td><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></td>"
                         + "<td class='hidden-xs'>" + this.ShippingOrder + "</td>"
@@ -142,7 +131,8 @@
                         + "<td class='hidden-xs'>" + this.CargoWeight + "</td>"
                         + "<td class='hidden-xs'>" + this.CargoState + "</td>"
                         + "<td class='hidden-xs'><div class='layui-inline'><button class='layui-btn layui-btn-mini layui-btn-normal  edit-btn' data-id='1' data-url='menu-add.html' onclick='Xg(" + this.StorageId + ")'><i class='layui-icon'>&#xe642;</i></button><button class='layui-btn layui-btn-mini layui-btn-danger del-btn' data-id='1'  onclick='Sc(" + this.StorageId + ")'><i class='layui-icon'>&#xe640;</i></button></div></td>"
-                        + "</tr>"
+                        + "</tr>";
+                    alert(this.CargoType);
                 });
                 $("#tb").append(tb);
             }

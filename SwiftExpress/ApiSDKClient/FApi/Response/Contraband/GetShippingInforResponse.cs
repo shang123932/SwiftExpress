@@ -8,6 +8,6 @@ namespace ApiSDKClient
 {
     public class GetShippingInforResponse:BaseResponse
     {
-        public List<ShippingInfors> ShippingInforlist { get; set; }
+        public ShippingInfors ShippingInforlist { get; set; }
     }
 }

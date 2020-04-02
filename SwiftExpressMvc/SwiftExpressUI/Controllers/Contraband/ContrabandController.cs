@@ -63,8 +63,10 @@ namespace SwiftExpressUI
         public JsonResult GetShippingInfors()
         {
             GetShippingInforRequest request = new GetShippingInforRequest();
-
-            return Json(bll.GetShippingInfor(request));
+            var name = Request["ShippingOrder"];
+            request.Name = name;
+            var ass = bll.GetShippingInfor(request);
+            return Json(ass,JsonRequestBehavior.AllowGet);
         }
 
         #region  存储信息
