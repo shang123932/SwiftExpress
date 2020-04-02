@@ -23,6 +23,9 @@
             <div class="m-login-warp">
                 <div class="layui-form">
                     <div class="layui-form-item">
+                        <input id="name" type="text" name="title" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-item">
                         <input id="phone1" type="text" name="title" required lay-verify="required" placeholder="用户手机号" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-item">
@@ -88,6 +91,7 @@
 <script>
     //注册
     function Regist() {
+        var name= $("#name").val();
         var phone = $("#phone1").val();
         var pwd = $("#pwd1").val();
         var you = $("#you").val();
@@ -95,6 +99,7 @@
             url: "/User/UserRegist",
             type: "Post",
             data: {
+                UserName: name,
                 Phone: phone,
                 Pwd: pwd,
                 Pwd1: you,

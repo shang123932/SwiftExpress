@@ -9,6 +9,10 @@ namespace ApiSDKClient
    public class UserRegisteredRequest:BaseRequest
     {
         /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserName { get; set; }
+        /// <summary>
         /// 手机号
         /// </summary>
         public string Phone { get; set; }
@@ -20,6 +24,10 @@ namespace ApiSDKClient
         /// 确定密码
         /// </summary>
         public string Pwd1 { get; set; }
+        /// <summary>
+        /// 加密
+        /// </summary>
+        public string Mijia { get; set; }
         /// <summary>
         /// 邮箱
         /// </summary>

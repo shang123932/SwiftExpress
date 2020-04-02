@@ -85,7 +85,16 @@ namespace SwiftExpressApi.Controllers.Contrabands
         }
 
         #endregion
-
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public GetShippingInforResponse GetShippingInfor(GetShippingInforRequest request)
+        {
+            return bll.GetShippingInfor(request);
+        }
 
         #region 存储一套
         /// <summary>
@@ -95,9 +104,9 @@ namespace SwiftExpressApi.Controllers.Contrabands
         /// <param name="dh"></param>
         /// <returns></returns>
         [HttpPost]
-        public GetStorageResponse GetStorage(GetStorageRequest request)
+        public GetStorageResponse GetStorage(/*GetStorageRequest request*/)
         {
-            return bll.GetStorage(request);
+            return bll.GetStorage(/*request*/);
         }
         /// <summary>
         /// 修改存储信息
@@ -132,7 +141,10 @@ namespace SwiftExpressApi.Controllers.Contrabands
 
         }
 
-
+        public AddStorageResponse AddStorage(AddStorageRequest request)
+        {
+            return bll.AddStorage(request);
+        }
 
         #endregion
 

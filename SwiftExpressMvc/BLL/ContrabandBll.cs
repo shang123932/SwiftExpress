@@ -17,7 +17,7 @@ namespace BLL
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public ContrabandResponse GetContraband(ContrabandRequest request)
+        public ContrabandResponse GetContrabands(ContrabandRequest request)
         {
             return ApiRequestHelper.Post<ContrabandRequest, ContrabandResponse>(request);
         }
@@ -75,6 +75,15 @@ namespace BLL
         }
         #endregion
 
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public GetShippingInforResponse GetShippingInfor(GetShippingInforRequest request)
+        {
+            return ApiRequestHelper.Post<GetShippingInforRequest, GetShippingInforResponse>(request);
+        }
 
         #region 存储
 
@@ -88,7 +97,11 @@ namespace BLL
         {
             return ApiRequestHelper.Post<GetStorageRequest, GetStorageResponse>(request);
         }
-
+        /// <summary>
+        /// 修改存储信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public UpdateStorageResponse UpdateStorage(UpdateStorageRequest request)
         {
             return ApiRequestHelper.Post<UpdateStorageRequest, UpdateStorageResponse>(request);

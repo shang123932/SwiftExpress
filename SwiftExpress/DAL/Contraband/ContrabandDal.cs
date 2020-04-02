@@ -77,7 +77,16 @@ namespace DAL
             return DBHelper.GetToList<WaybillLnquiry>(sql)[0];
         }
         #endregion
-
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public List<ShippingInfors> GetShippingInfor(string name)
+        {
+            string sql = $"select * from ShippingInfor  s join Cargo c on s.ShippingOrder=c.ShippingOrder where ShippingOrder={name}";
+            return DBHelper.GetToList<ShippingInfors>(sql);
+        }
 
         #region 存储信息表一套
         /// <summary>
@@ -87,10 +96,11 @@ namespace DAL
         /// <returns></returns>
         public List<Storage> GetStorage()
         {
-            string sql = @"select * from Storage s 
-                        join Cargo c on s.CargoId=c.CargoId
-                        join WareHouse w on s.WareHouseId=w.WareHouseId
-                        join Staff f on s.StaffId=f.StaffId";
+            string sql = @"select * from Storage s where s.Status=1";
+            //s
+            //            join Cargo c on s.CargoId = c.CargoId
+            //            join WareHouse w on s.WareHouseId = w.WareHouseId
+            //            join Staff f on s.StaffId = f.StaffId";
             return DBHelper.GetToList<Storage>(sql);
         }
 
@@ -100,7 +110,7 @@ namespace DAL
         /// <returns></returns>
         public int AddStorage(Storage w)
         {
-            string sql = $"insert into Storage values({w.CargoId},{w.WareHouseId},{w.StaffId}'{w.InStorageTime}','{w.InStorageNumber}',{w.OutStorageTime},'{w.OutStorageNumber}',GETDATE(),GETDATE(),1,1,1,Remark='{w.Remark}')";
+            string sql = $"insert into Storage values({w.CargoId},{w.WareHouseId},{w.StaffId},'{w.InStorageTime}',{w.InStorageNumber},'{w.OutStorageTime}',{w.OutStorageNumber},GETDATE(),GETDATE(),1,1,1,'{w.Remark}')";
             return DBHelper.ExecuteNonQuery(sql);
         }
 
@@ -110,7 +120,7 @@ namespace DAL
         /// <returns></returns>
         public int UpdateStorage(Storage w)
         {
-            string sql = $"update Storage set InStorageTime='{w.InStorageTime}',InStorageNumber='{w.InStorageNumber}',OutStorageTime='{w.OutStorageTime}',OutStorageNumber='{w.OutStorageNumber}',CreateTime=GETDATE(),UpdateTime=GETDATE(),CreateId=1,UpdateId=1,Status=1 Remark='{w.Remark}' where StorageId={w.StorageId}";
+            string sql = $"update Storage set CargoId={w.CargoId},WareHouseId={w.WareHouseId},StaffId={w.StaffId},InStorageTime='{w.InStorageTime}',InStorageNumber='{w.InStorageNumber}',OutStorageTime='{w.OutStorageTime}',OutStorageNumber='{w.OutStorageNumber}',CreateTime=GETDATE(),UpdateTime=GETDATE(),CreateId=1,UpdateId=1,Status=1,Remark='{w.Remark}' where StorageId={w.StorageId}";
             return DBHelper.ExecuteNonQuery(sql);
         }
 

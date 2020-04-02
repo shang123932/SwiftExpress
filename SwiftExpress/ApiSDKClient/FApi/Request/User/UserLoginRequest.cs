@@ -8,7 +8,10 @@ namespace ApiSDKClient
 {
     public class UserLoginRequest:BaseRequest
     {
-        
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserName { get; set; }
         /// <summary>
         /// 手机号
         /// </summary>
@@ -17,6 +20,10 @@ namespace ApiSDKClient
         /// 密码
         /// </summary>
         public string Pwd { get; set; }
+        /// <summary>
+        /// 加密
+        /// </summary>
+        public string Mijia { get; set; }
         public override string GetApiName()
         {
             return "/api/User/AddLogin";

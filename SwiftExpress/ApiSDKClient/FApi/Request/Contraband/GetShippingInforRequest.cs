@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace ApiSDKClient
 {
-    public class ContrabandRequest:BaseRequest
+    public class GetShippingInforRequest:BaseRequest
     {
-        /// <summary>
-        /// 违禁品
-        /// </summary>
-        public string ItemName { get; set; }
+        public string Name { get; set; }
+
         public override string GetApiName()
         {
-            return "/api/Contraband/GetContrabands";
+            return "/api/Contraband/GetShippingInfor";
         }
     }
 }

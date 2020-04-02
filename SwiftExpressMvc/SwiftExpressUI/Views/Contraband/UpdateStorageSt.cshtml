@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "UpdateStorageSt";
+}
+
+
+
+<h2>UpdateStorage</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>网站后台管理模版</title>
+    <link rel="stylesheet" type="text/css" href="~/static/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="~/static/admin/css/admin.css" />
+</head>
+<body>
+    <div class="wrap-container">
+        <input value="@ViewBag.Id" id="UpdateId" type="hidden" />
+        <div class="layui-form-item">
+            <label class="layui-form-label">货物id：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物id" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">仓库id：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库id" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">员工id：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工id" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">入库时间：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">入库数量：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">出库时间：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">出库数量：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea name="desc" id="bz" placeholder="请输入备注" class="layui-textarea"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" onclick="Add()">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script>
+    $().ready(function () {
+        $.ajax({
+            url: "/Contraband/GetOneStorage",
+            type: "Post",
+            dataType: "json",
+            data: {
+                Id: $("#UpdateId").val()
+            },
+            success: function (res) {
+                $(res).each(function () {
+                    $("#hw").val(this.CargoId);
+                    $("#ck").val(this.WareHouseId);
+                    $("#yg").val(this.StaffId);
+                    $("#rk").val(this.InStorageTime);
+                    $("#rs").val(this.InStorageNumber);
+                    $("#cksj").val(this.OutStorageTime);
+                    $("#cksl").val(this.OutStorageNumber);
+                    $("#bz").val(this.Remark);
+                })
+
+            }
+        });
+    })
+
+    function Add() {
+        var hw = $("#hw").val();
+        var ck = $("#ck").val();
+        var yg = $("#yg").val();
+        var rk = $("#rk").val();
+        var rs = $("#rs").val();
+        var cksj = $("#cksj").val();
+        var cksl = $("#cksl").val();
+        var bz = $("#bz").val();
+
+        var aaa = {
+            StorageId:$("#UpdateId").val(),
+            CargoId: hw,
+            WareHouseId: ck,
+            StaffId: yg,
+            InStorageTime: rk,
+            InStorageNumber: rs,
+            OutStorageTime: cksj,
+            OutStorageNumber: cksl,
+            Remark: bz
+        };
+        $.ajax({
+            url: "/Contraband/Update",
+            type: "Post",
+            dataType: "json",
+            data: {
+                data: JSON.stringify(aaa)
+            },
+            success: function (res) {
+                $(res).each(function () {
+                    alert(this.Message);
+                })
+            }
+        });
+    }
+
+</script>
+

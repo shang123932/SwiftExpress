@@ -17,7 +17,7 @@ namespace DAL
         /// <returns></returns>
         public int UserLogin(UserModel u)
         {
-            string sql = $"select count(1) from UserInfo where UserPhone='{u.UserPhone}' and PassWord='{u.PassWord}' and UserStatus=1";
+            string sql = $"select count(1) from UserInfo where UserName='{u.UserName}' and PassWord='{u.PassWord}' and UserStatus=1";
 
             return Convert.ToInt32( DBHelper.ExecuteScalar(sql));
         }
@@ -41,7 +41,7 @@ namespace DAL
         /// <returns></returns>
         public int UserRegistered(UserModel user)
         {
-            string sql = $"insert into UserInfo(UserPhone,PassWord,UserMailbox,UserStatus,Status,CreateTime,UpdateTime,CreaterId,UpdaterId) values('{user.UserPhone}','{user.PassWord}','{user.UserMailbox}',1,1,GETDATE(),GETDATE(),1,1)";
+            string sql = $"insert into UserInfo(UserName,UserPhone,PassWord,PassJmi,UserMailbox,UserStatus,Status,CreateTime,UpdateTime,CreaterId,UpdaterId) values('{user.UserName}','{user.UserPhone}','{user.PassWord}','{user.PassJmi}','{user.UserMailbox}',1,1,GETDATE(),GETDATE(),1,1)";
             return DBHelper.ExecuteNonQuery(sql);
         }
 

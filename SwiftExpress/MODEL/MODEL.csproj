@@ -45,6 +45,7 @@
     <Compile Include="Cargo\CargoInfo.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Contraband\Contraband.cs" />
+    <Compile Include="Contraband\ShippingInfors.cs" />
     <Compile Include="Contraband\Storage.cs" />
     <Compile Include="Contraband\WaybillLnquiry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

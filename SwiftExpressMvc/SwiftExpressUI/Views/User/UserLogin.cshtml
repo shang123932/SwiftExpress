@@ -228,6 +228,8 @@
 </html>
 
 <script>
+    
+
     //登录
     function Login() {
         var phone = $("#phone").val();
@@ -250,7 +252,7 @@
                         url: "/User/UserLogin",
                         type: "Post",
                         data: {
-                            Phone: phone,
+                            UserName: phone,
                             Pwd: pwd,
                         },
                         success: function (res) {
@@ -258,10 +260,20 @@
                             if (res.Status) {
                                 if (res.IsRegistSuccess) {
                                     alert(res.Message);
-                                    location.href = "/User/Lay";
+                                    $.ajax({
+                                        url: "/User/Cookie",
+                                        type: "POST",
+                                        dataType:"JSON",
+                                        data: {
+                                            SS: JSON.stringify(res.UserName)
+                                        },
+
+                                    })
+                                    location.href = "/User/Index";
                                 }
                                 else {
                                     alert(res.Message);
+
                                     location.href = "/User/UserLogin";
                                 }
                             }
@@ -282,6 +294,8 @@
 
 
     }
+
+
 
     //登录
     function Log() {

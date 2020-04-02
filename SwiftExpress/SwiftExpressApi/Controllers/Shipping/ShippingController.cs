@@ -24,7 +24,7 @@ namespace SwiftExpressApi
             return bll.GetShippingInfor();
         }
         [HttpPost]
-        public ADDShippingInforResonse AddCargo(ADDShippingInforRequest request)
+        public ADDShippingInforResonse AddCargo1(ADDShippingInforRequest request)
         {
 
             return bll.AddDistribution(request);
