@@ -1,6 +1,7 @@
 ﻿using MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,10 +83,42 @@ namespace DAL
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<ShippingInfors> GetShippingInfor(string name)
+        public ShippingInfors GetShippingInfor(string name)
         {
-            string sql = $"select * from ShippingInfor  s join Cargo c on s.ShippingOrder=c.ShippingOrder where ShippingOrder={name}";
-            return DBHelper.GetToList<ShippingInfors>(sql);
+            SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=SwiftExpress;Integrated Security=True");
+            if (connection.State==System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+            var table = new ShippingInfors();
+            string sql = $"select * from ShippingInfor  s join Cargo c on s.ShippingOrder=c.ShippingOrder where s.ShippingOrder='{name}'";
+            SqlCommand comm = new SqlCommand(sql,connection);
+            var res = comm.ExecuteReader();
+            while (res.Read())
+            {
+                ShippingInfors shipping = new ShippingInfors()
+                {
+                    CargoName = Convert.ToString(res["CargoName"]),
+                    CargoState = Convert.ToInt32(res["CargoState"]),
+                    CargoType = Convert.ToInt32(res["CargoType"]),
+                    CargoWeight = Convert.ToInt32(res["CargoWeight"]),
+                    ReceiveAddress = Convert.ToString(res["ReceiveAddress"]),
+                    ReceiveName = Convert.ToString(res["ReceiveName"]),
+                    ReceivePhone = Convert.ToString(res["ReceivePhone"]),
+                    ShippingAddress = Convert.ToString(res["ShippingAddress"]),
+                    ShippingName = Convert.ToString(res["ShippingName"]),
+                    ShippingOrder = Convert.ToString(res["ShippingOrder"]),
+                    ShippingPhone = Convert.ToString(res["ShippingPhone"])
+                };
+                table = shipping;
+            }
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+            }
+
+           
+            return table;
         }
 
         #region 存储信息表一套
@@ -146,7 +179,7 @@ namespace DAL
         }
 
 
-        
+
         #endregion
     }
 }

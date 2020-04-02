@@ -44,10 +44,10 @@ namespace SwiftExpressApi.Controllers.Staff
 
         //    return Sbl.(request);
         //}
-        [HttpPost]
-        public UpdateStaffResponse UpdateStaff(UpdateStaffRequest info)
-        {
-            return Sbl.UpdateStaff(info);
-        }
+        //[HttpPost]
+        //public UpdateStaffResponse UpdateStaff(UpdateStaffRequest info)
+        //{
+        //    return Sbl.UpdateStaff(info);
+        //}
     }
 }
