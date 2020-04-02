@@ -16,5 +16,6 @@ namespace MODEL
         public string ReceiveName      { get; set; }//收件人姓名
         public int      ReceivePhone      { get; set; }   //收件联系方式
         public string ReceiveAddress   { get; set; } //收件地址
+        public string ShippingRemark { get; set; }
     }
 }

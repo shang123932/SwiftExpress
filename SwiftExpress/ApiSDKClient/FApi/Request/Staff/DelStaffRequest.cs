@@ -11,7 +11,7 @@ namespace ApiSDKClient.FApi.Request.Staff
         public int id { get; set; }
         public override string GetApiName()
         {
-            return "";
+            return "api/Staff/DelStaff";
         }
     }
 }

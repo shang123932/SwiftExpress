@@ -17,5 +17,11 @@ namespace MODEL.Staff
         public DateTime    StaffLoginTime     { get; set; }
         public int    StaffStatus           { get; set; }
         public string  StaffRemark            { get; set; }
+        public int    Status	 { get; set; }
+        public DateTime CreateTime	 { get; set; }
+        public DateTime UpdateTime	 { get; set; }
+        public int CreaterId	 { get; set; }
+        public int UpdaterId { get; set; }
+
     }
 }

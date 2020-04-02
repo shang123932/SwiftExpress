@@ -1,6 +1,9 @@
 ﻿
 using ApiSDKClient;
+using ApiSDKClient.FApi.Request.ShippingInfor;
 using ApiSDKClient.FApi.Response;
+using ApiSDKClient.FApi.Response.ShippingInfor;
+using ApiSDKClient.FApi.Response.Staff;
 using BLL;
 using System;
 using System.Collections.Generic;
@@ -32,7 +35,7 @@ namespace SwiftExpressApi.Controllers.User
         /// <param name="user"></param>
         /// <returns></returns>
         [HttpPost]
-        public UserRegisteredResponse Registered(UserRegisteredRequest  reg)
+        public UserRegisteredResponse Registered(UserRegisteredRequest reg)
         {
             return userBll.UserRegistered(reg);
         }
@@ -66,7 +69,7 @@ namespace SwiftExpressApi.Controllers.User
         {
             return disbll.AddDistribution(reg);
         }
-        
+
         /// <summary>
         /// 删除接口
         /// </summary>
@@ -82,7 +85,7 @@ namespace SwiftExpressApi.Controllers.User
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public GetOneDistributionResponse GetOneDistribution(GetOneDistributionRequest  getOne)
+        public GetOneDistributionResponse GetOneDistribution(GetOneDistributionRequest getOne)
         {
             return disbll.GetOneDistribution(getOne);
         }
@@ -95,5 +98,27 @@ namespace SwiftExpressApi.Controllers.User
         {
             return disbll.SaveDistribution(info);
         }
+
+
+        /// <summary>
+        /// 寄件信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ADDShippingInforResonse AddShipp(ADDShippingInforRequest info)
+        {
+            return userBll.AddShipp(info);
+        }
+
+        /// <summary>
+        /// 员工显示
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public GetStaffResponse Staffbllshow()
+        {
+            return disbll.Staffbllshow();
+        }
+
     }
 }

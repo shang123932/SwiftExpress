@@ -10,7 +10,8 @@ namespace ApiSDKClient.FApi.Request.Staff
     {
         public override string GetApiName()
         {
-            return "/api/Contraband/GetWaybillLnquiry";
+            return "api/User/Staffbllshow";
+    
         }
     }
 }

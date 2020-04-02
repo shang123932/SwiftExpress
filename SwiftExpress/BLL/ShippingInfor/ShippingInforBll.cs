@@ -13,7 +13,7 @@ namespace BLL
    public  class ShippingInforBll
     {
         ShippingInforDal dal = new ShippingInforDal();
-        public ADDShippingInforResonse AddDistribution(ADDShippingInforRequest ADDShippingInfor)
+        public ADDShippingInforResonse ADD(ADDShippingInforRequest ADDShippingInfor)
         {
             ADDShippingInforResonse response = new ADDShippingInforResonse();
 
@@ -21,25 +21,25 @@ namespace BLL
             ShippingInforModel dis = new ShippingInforModel()
             {
 
-              ShippingOrder= ADDShippingInfor.ShippingOrder,
-              ShippingName = ADDShippingInfor.ShippingName,
-              ShippingPhone = ADDShippingInfor.ShippingPhone,
-              ShippingAddress = ADDShippingInfor.ShippingAddress,
-              ReceiveName = ADDShippingInfor.ReceiveName,
-              ReceivePhone = ADDShippingInfor.ReceivePhone,
-              ReceiveAddress = ADDShippingInfor.ReceiveAddress
-
+              ShippingOrder= ADDShippingInfor.ShippingOrder1,
+              ShippingName = ADDShippingInfor.ShippingName1,
+              ShippingPhone = ADDShippingInfor.ShippingPhone1,
+              ShippingAddress = ADDShippingInfor.ShippingAddress1,
+              ReceiveName = ADDShippingInfor.ReceiveName1,
+              ReceivePhone = ADDShippingInfor.ReceivePhone1,
+              ReceiveAddress = ADDShippingInfor.ReceiveAddress1,
+              ShippingRemark=ADDShippingInfor.ShippingRemark1,
             };
             var res = dal.ADD(dis);
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
-                response.Message = "添加配送信息成功";
+                response.Message = "寄件成功";
             }
             else
             {
                 response.Status = false;
-                response.Message = "添加配送信息失败";
+                response.Message = "寄件失败";
 
             }
             return response;

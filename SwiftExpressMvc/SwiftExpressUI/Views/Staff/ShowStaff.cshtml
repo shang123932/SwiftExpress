@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "ShowStaff";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>YUY</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+    <table class="layui-table" lay-skin="line">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td>员工id  </td>
+                <td>员工姓名</td>
+                <td>员工性别</td>
+                <td>员工年龄</td>
+                <td>员工电话</td>
+                <td>员工职务</td>
+                <td>入职时间 </td>
+                <td>入职状态 </td>
+                <td>员工备注</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="td"></tbody>
+    </table>
+    <script src="~/layui/layui.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+</body>
+</html>
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $().ready(function () {
+        $.ajax({
+            url: "/Staff/ShowStaff",
+            type: "POST",
+            dataType: "Json",
+            success: function (res) {
+                var op = "";
+                $(res.staff).each(function () {
+                    var oo = "<tr>"
+                        + "<td>" + this.StaffId + "</td>"
+                        + "<td>" + this.StaffName + "</td>"
+                        + "<td>" + this.StaffSex + "</td>"
+                        + "<td>" + this.StaffAge + "</td>"
+                        + "<td>" + this.StaffPhone + "</td>"
+                        + "<td>" + this.StaffDuty + "</td>"
+                        + "<td>" +ChangeDateFormat(this.StaffLoginTime) + "</td>"
+                        + "<td>" + (this.StaffStatus == 1 ? '在职' : '离职') + "</td>"
+                        + "<td>" + this.StaffRemark + "</td>"
+                        + "<td><a href=''style='color:#0094ff' onclick='Dele(" + this.StaffId + ")'>删除</a>" + "</td>"
+                        + "</tr>"
+                    op += oo;
+                })
+                $("#td").html(op);
+            }
+        })
+
+    })
+       function ChangeDateFormat(val) {
+        if (val != null) {
+            var date = new Date(parseInt(val.replace("/Date(", "").replace(")/", ""), 10));
+            //月份为0-11，所以+1，月份小于10时补个0
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+        return "";
+    }
+      //删除
+    function Dele(did) {
+        if (confirm("确定删除吗")) {
+            $.ajax({
+                url: "/Staff/DelStaff5",
+                type: "POST",
+                data: {
+                    id: did,
+                },
+                dataType: "Json",
+                success: function (res) {
+                    //表示成功
+                        if (res.Status) {
+                            alert("删除成功");
+
+                            location.href = "/Staff/ShowStaff";
+                        }
+                        else {
+                            alert("删除失败");
+                        }
+                   
+                }
+            })
+        }
+
+    }
+
+
+</script>
+
+

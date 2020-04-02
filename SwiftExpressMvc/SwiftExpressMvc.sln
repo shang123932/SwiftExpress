@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftExpressUI", "SwiftExpr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{5E7078AA-6C83-42CF-AFAF-313797057A3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDemo", "RedisDemo\RedisDemo.csproj", "{1D28F1DF-7C16-4D78-B2FA-8563DF9999EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5E7078AA-6C83-42CF-AFAF-313797057A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E7078AA-6C83-42CF-AFAF-313797057A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E7078AA-6C83-42CF-AFAF-313797057A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D28F1DF-7C16-4D78-B2FA-8563DF9999EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D28F1DF-7C16-4D78-B2FA-8563DF9999EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D28F1DF-7C16-4D78-B2FA-8563DF9999EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D28F1DF-7C16-4D78-B2FA-8563DF9999EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
