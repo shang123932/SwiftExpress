@@ -198,7 +198,7 @@ namespace BLL
         {
             GetShippingInforResponse response = new GetShippingInforResponse();
             var list = dal.GetShippingInfor(request.Name);
-            if (list.Count <= 0)
+            if (list==null)
             {
                 response.Status = false;
                 response.Message = "获取失败";
