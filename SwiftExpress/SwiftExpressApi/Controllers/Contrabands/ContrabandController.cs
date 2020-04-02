@@ -85,7 +85,16 @@ namespace SwiftExpressApi.Controllers.Contrabands
         }
 
         #endregion
-
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public GetShippingInforResponse GetShippingInfor(GetShippingInforRequest request)
+        {
+            return bll.GetShippingInfor(request);
+        }
 
         #region 存储一套
         /// <summary>

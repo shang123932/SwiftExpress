@@ -810,10 +810,8 @@
     <Content Include="Views\Staff\AddStaff1.cshtml" />
     <Content Include="Views\Contraband\GetContraband.cshtml" />
     <Content Include="Views\Contraband\UpdateStorageSt.cshtml" />
-    <Content Include="Views\Staff\GetStaff1.cshtml" />
-    <Content Include="Views\Staff\UpdateStaff.cshtml" />
-    <Content Include="Views\Staff\DelStaff2.cshtml" />
-    <Content Include="Views\Staff\ShowStaff.cshtml" />
+    <Content Include="Views\Contraband\GetShippingInfor.cshtml" />
+    <Content Include="Views\User\Lay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Mvc;
 using ApiSDKClient;
 
-
 namespace SwiftExpressUI
 {
     public class UserController : Controller
@@ -170,38 +169,13 @@ namespace SwiftExpressUI
             return Json(new {name1=name },JsonRequestBehavior.AllowGet);
         }
 
-
-
-        //生成卡号
-        public ActionResult VIPKaHao()
-
+        /// <summary>
+        /// 用户管理页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Lay()
         {
-
-            //声明一个变量为空
-
-            var aa = "";
-
-            //随机数生成器
-
-            Random bb = new Random();
-
-            //指定1000-10000的4位随机数
-
-            string cc = bb.Next(1000, 10000).ToString();
-
-            //获取当前时间分秒值，或“ffff”毫秒值
-
-            string dd = DateTime.Now.ToString("mmss");
-
-            //拼接字符串
-
-            aa = "YUY" + dd + cc;
-
-            return Json(aa, JsonRequestBehavior.AllowGet);
-
+            return View();
         }
-
-
-
     }
 }

@@ -75,6 +75,15 @@ namespace BLL
         }
         #endregion
 
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public GetShippingInforResponse GetShippingInfor(GetShippingInforRequest request)
+        {
+            return ApiRequestHelper.Post<GetShippingInforRequest, GetShippingInforResponse>(request);
+        }
 
         #region 存储
 
