@@ -1,5 +1,7 @@
 ﻿using ApiSDKClient;
+using ApiSDKClient.FApi.Response.Staff;
 using DAL;
+using DAL.Staff;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -194,6 +196,30 @@ namespace BLL
             }
             return response;
 
+        }
+
+        StaffDal sd = new StaffDal();
+        /// <summary>
+        /// 员工显示
+        /// </summary>
+        /// <returns></returns>
+        public GetStaffResponse Staffbllshow()
+        {
+            GetStaffResponse response = new GetStaffResponse();
+
+            var list = sd.GetStaff();
+
+            if (list.Count <= 0)
+            {
+                response.Status = false;
+                response.Message = "获取用户信息失败,请检查一下在弄";
+            }
+            else
+            {
+                response.staff = list;
+                response.Message = $"获取信息成功";
+            }
+            return response;
         }
 
     }

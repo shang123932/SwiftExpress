@@ -40,15 +40,19 @@ namespace SwiftExpressUI
         {
             return Json(b.GetStaff(request));
         }
-        public ActionResult DelStaff()
-        {
-            return View();
-        }
-        [HttpPost]
-        public JsonResult DelStaff(DelStaffRequest request)
-        {
-            return Json(b.DelStaff(request));
-        }
+        /// <summary>
+        /// 显示员工
+        /// </summary>
+        /// <returns></returns>
+        //public ActionResult DelStaff2()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public JsonResult DelStaff2(GetStaffRequest request)
+        //{
+        //    return Json(b.GetStaff1(request));
+        //}
         public ActionResult UpdateStaff()
         {
             return View();
@@ -58,6 +62,30 @@ namespace SwiftExpressUI
         {
             return Json(b.UpdateStaff(request));
         }
+        /// <summary>
+        /// 显示员工
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ShowStaff()
+        {
+            return View();
+        }
+        [HttpPost]
+        public JsonResult ShowStaff(GetStaffRequest request)
+        {
+            return Json(b.GetStaff(request));
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult DelStaff5(DelStaffRequest request)
+        {
+            return Json(b.DelStaff(request));
+        }
+
 
     }
 }

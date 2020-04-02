@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Lay";
+}
+
+<h2>Lay</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>雨燕速递</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/admin.css" />
+</head>
+<body>
+    <div class="main-layout" id='main-layout'>
+        <!--侧边栏-->
+        <div class="main-layout-side" style="background-color:#DDDDDD;">
+            <div class="m-logo" style=" background-image: url('../../img/雨燕速递.jpg');background-size: auto;background-color:#FFFFFF"> </div>
+
+            <ul class="layui-nav layui-nav-tree" lay-filter="leftNav" style="background-color:#DDDDDD;">
+                <li class="layui-nav-item layui-nav-itemed" style="background-color:#DDDDDD;">
+                    <a href="javascript:;" style="color :indianred;font-family:KaiTi;font-size:22px;font-weight:bold;"><i class="iconfont">&#xe607;</i>寄件服务</a>
+                    <dl class="layui-nav-child" style="background-color:#DDDDDD;">
+                        <dd>
+                            <a href="javascript:;" data-url="/User/Show" data-id='11000' data-text="我要寄件" style="        color: #FF5511;
+        font-family: KaiTi;
+        font-size: 20px;"><span class="l-line"></span>我要寄件</a>
+                        </dd>
+
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed" style="background-color:#DDDDDD;">
+                    <a href="javascript:;" style="        color: #FF5511;
+        font-family: KaiTi;
+        font-size: 22px;
+        font-weight: bold;"><i class="iconfont">&#xe607;</i>查询服务</a>
+                    <dl class="layui-nav-child" style="background-color:#DDDDDD;" id="ull">
+                        <dd><a href="javascript:;" data-url="/User/Add" data-id='200000' data-text="快递查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>快递查询</a></dd>
+                        <dd>
+                            <a href="javascript:;" data-url="/Area/Freight" data-id='200000' data-text="运费查询" style="        color: #FF5511;
+        font-family: KaiTi;
+        font-size: 20px;
+"><span class="l-line"></span>运费查询</a>
+                        </dd>
+                        <dd><a href="javascript:;" data-url="/User/Add" data-id='200000' data-text="违禁品查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>违禁品查询</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <!--右侧内容-->
+        <div class="main-layout-container">
+            <!--头部-->
+            <div class="main-layout-header">
+                <ul class="layui-nav" lay-filter="rightNav">
+                    <li class="layui-nav-item"><a href="javascript:;" data-url="/User/Message" data-id='4' data-text="留言系统"><i class="iconfont">&#xe603;</i></a></li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人: @Request["name"]</a>
+
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" data-id='5' data-text="个人信息"></a>
+                    </li>
+                    <li class="layui-nav-item"><a href="/User/Index">退出</a></li>
+                </ul>
+            </div>
+
+            <div class="main-layout-body">
+                <!--tab 切换-->
+                <div class="layui-tab layui-tab-brief main-layout-tab" lay-filter="tab" lay-allowClose="true">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this welcome"> 后台主页</li>
+                    </ul>
+
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--遮罩-->
+            <div class="main-mask">
+
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../static/admin/js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+                //var scope = {
+                //    link: './welcome.html'
+                //}
+
+    </script>
+
+
+
+</body>
+</html>

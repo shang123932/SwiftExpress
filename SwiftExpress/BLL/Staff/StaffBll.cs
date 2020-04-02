@@ -13,28 +13,27 @@ namespace BLL.Staff
    public class StaffBll
     {
         StaffDal dal = new StaffDal();
-        public ADDStaffResponse ADDStaff(ADDStaffRequest request)
+        public ADDStaffResponse AddStaff(ADDStaffRequest request)
         {
             ADDStaffResponse response = new ADDStaffResponse();
 
             StaffModel cargo = new StaffModel()
             {
              
-                StaffName= request.StaffName,
-                
+                StaffName= request.StaffName,               
                 StaffSex= request.StaffSex,
                 StaffAge= request.StaffAge,
                 StaffPhone= request.StaffPhone,
                 StaffDuty= request.StaffDuty,
                 StaffLoginTime= request.StaffLoginTime,
-                StaffStatus= request.StaffStatus,
+     
                 StaffRemark= request.StaffRemark
             };
             //获取名不能为空
             if (request == null || string.IsNullOrEmpty(request.StaffName))
             {
                 response.Status = false;
-                response.Message = "货物名称不能为空";
+                response.Message = "姓名不能为空";
                 return response;
             }
             //获取名不能为空
@@ -87,7 +86,7 @@ namespace BLL.Staff
             return response;
         }
         /// <summary>
-        /// 显示仓库
+        /// 显示员工
         /// </summary>
         /// <returns></returns>
         public GetStaffResponse GetStaff()
@@ -102,6 +101,8 @@ namespace BLL.Staff
             }
             else
             {
+                response.staff = list;
+                response.Status = true;
                 response.Message = $"获取信息成功";
             }
             return response;

@@ -96,6 +96,15 @@ namespace DAL
             return DBHelper.ExecuteNonQuery(sql);
         }
 
+        /// <summary>
+        ///寄件添加 
+        /// </summary>
+        /// <returns></returns>
+        public int AddShipp(ShippingInforModel dis)
+        {
+            string sql = $"insert into ShippingInfo(ShippingOrder,ShippingName,ShippingPhone,ShippingAddress,ReceiveName,ReceivePhone,ReceiveAddress,ShippingRemark,Status,CreateTime,UpdateTime,CreaterId,UpdaterId) values('{dis.ShippingOrder}','{dis.ShippingName}','{dis.ShippingPhone}','{dis.ShippingAddress}','{dis.ReceiveName}','{dis.ReceivePhone}','{dis.ReceiveAddress}','{dis.ShippingRemark}',1,GETDATE(),GETDATE(),1,1)";
+            return DBHelper.ExecuteNonQuery(sql);
+        }
 
     }
 }

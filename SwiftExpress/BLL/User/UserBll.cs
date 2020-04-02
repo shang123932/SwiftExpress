@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using ApiSDKClient.FApi.Request.ShippingInfor;
+using ApiSDKClient.FApi.Response.ShippingInfor;
+using System.Security.Cryptography;
+
 namespace BLL
 {
    public class UserBll
@@ -111,8 +115,42 @@ namespace BLL
             return response;
         }
 
-       
+     
+        /// <summary>
+        /// 寄件
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="dh"></param>
+        /// <returns></returns>
+        public ADDShippingInforResonse AddShipp(ADDShippingInforRequest userRegistered)
+        {
+            ADDShippingInforResonse response = new ADDShippingInforResonse();
+    
+            ShippingInforModel userModel = new ShippingInforModel()
+            {
+               ShippingOrder=userRegistered.ShippingOrder1,
+               ShippingName= userRegistered.ShippingName1,
+               ShippingPhone= userRegistered.ShippingPhone1,
+               ShippingAddress= userRegistered.ShippingAddress1,
+               ReceiveName= userRegistered.ReceiveName1,
+               ReceivePhone= userRegistered.ReceivePhone1,
+               ReceiveAddress= userRegistered.ReceiveAddress1,
+               ShippingRemark= userRegistered.ShippingRemark1
 
+            };
 
+            var res = dl.AddShipp(userModel);
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "寄件成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "寄件失败";
+            }
+            return response;
+        }
     }
 }

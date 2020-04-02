@@ -17,8 +17,9 @@ namespace BLL
         }
         public GetStaffResponse GetStaff(GetStaffRequest getRequest)
         {
-            return ApiRequestHelper.Post<GetStaffRequest, GetStaffResponse>(getRequest);
+            return ApiRequestHelper.Post<GetStaffRequest,GetStaffResponse>(getRequest);
         }
+   
         public DelStaffResponse DelStaff(DelStaffRequest delRequest)
         {
             return ApiRequestHelper.Post<DelStaffRequest, DelStaffResponse>(delRequest);

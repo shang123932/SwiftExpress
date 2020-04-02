@@ -1,7 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "GetStaff";
+    ViewBag.Title = "DelStaff2";
 }
+
+<h2>DelStaff2</h2>
+
 
 <div class="layui-form" id="table-list">
     <table class="layui-table" lay-skin="line">
@@ -52,25 +55,30 @@
         </tbody>
     </table>
 </div>
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
+
     $().ready(function () {
         $.ajax({
-            url: "/Staff/GetStaff",
+            url: "/Staff/DelStaff2",
             type: "Post",
             success: function (res) {
                 var tb = "";
-                $(res).each(function () {
+                $(res.staff).each(function () {
                     tb += "<tr>"
                     "<th><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></th>"
-                    "<th class='hidden-xs'>" + this.SStaffId                             + "</th>"
-                    "<th class='hidden-xs'>" + this.SStaffName                  + "</th>"
-                    "<th class='hidden-xs'>" + this.StaffSex                        + "</th>"
-                    "<th class='hidden-xs'>" + this.SStaffAge                            + "</th>"
-                    "<th class='hidden-xs'>" + this.StaffPhone                     + "</th>"
-                    "<th class='hidden-xs'>" + this.StaffDuty                     + "</th>"
-                    "<th class='hidden-xs'>" + this.StaffLoginTime                              + "</th>"
-                    "<th class='hidden-xs'>" + this.StaffStatus             + "</th>"
-                    "<th class='hidden-xs'>" + this.StaffRemark                    + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffId + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffName + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffSex + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffAge + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffPhone + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffDuty + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffLoginTime + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffStatus + "</th>"
+                    "<th class='hidden-xs'>" + this.StaffRemark + "</th>"
                     "</tr>"
                 });
 
@@ -80,4 +88,3 @@
         })
     })
 </script>
-

@@ -11,19 +11,19 @@ namespace DAL.Staff
     {
         public int ADD(StaffModel m)
         {
-            string sql = string.Format("insert into Staff values('{0}','{1}','{2}',{3}','{4}','{5}','{6}','{7}','{8}')", m.StaffId,m.StaffName,m.StaffSex,m.StaffAge,m.StaffPhone,m.StaffDuty,m.StaffLoginTime,m.StaffStatus,m.StaffRemark);
+            string sql = string.Format($"insert into  Staff(StaffName,StaffSex,StaffAge,StaffPhone,StaffDuty,StaffLoginTime,StaffStatus,StaffRemark,Status,CreateTime,UpdateTime,CreaterId,UpdaterId) values('{m.StaffName}','{m.StaffSex}','{m.StaffAge}','{m.StaffPhone}','{m.StaffDuty}','{m.StaffLoginTime}','1','{m.StaffRemark}',1,GETDATE(),GETDATE(),1,1)");
             return DBHelper.ExecuteNonQuery(sql);
         }
         //查询
         public List<StaffModel> GetStaff()
         {
-            string sql = "select * from Staff where StaffId=‘{}’";
+            string sql = "select * from Staff where StaffStatus=1 ";
             return DBHelper.GetToList<StaffModel>(sql);
         }
         //删除
         public int DelteStaff(int id)
         {
-            string sql = $"update Staff set StaffStatus=0 where StaffId={id} ";
+            string sql = $"update Staff set StaffStatus=0 where StaffId={id} and StaffStatus=1 ";
             return DBHelper.ExecuteNonQuery(sql);
         }
         //修改

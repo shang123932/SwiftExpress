@@ -72,7 +72,7 @@
                 <label class="layui-form-label">入职时间</label>
                 <div class="layui-input-block">
 
-                    <input name="date" class="layui-input" id="date3" type="text" autocomplete="off" onclick="WdatePicker()">
+                    <input name="date" class="layui-input" id="date2" type="text" autocomplete="off" onclick="WdatePicker()">
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
 
         </div>
         <div class="layui-form-item">
-            <button class="layui-btn" type="button" lay-filter="demo1" onclick="adddis()">立即提交</button>
+            <button class="layui-btn" type="button" lay-filter="demo1" onclick="adddis1()">立即提交</button>
             <button class="layui-btn" type="button" lay-filter="demo1">取消</button>
         </div>
     </form>
@@ -165,26 +165,27 @@
 <script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
-    function adddis() {
+    function adddis1() {
         var name = $("#name").val();
         var sex = $("input[type='radio']:checked").val();
         var age = $("#age").val();
         var phone = $("#phone").val();
-        var date3 = $("#date3").val();
-         var zhiw = $("input[name='status1']:checked").val();
+   
+        var zhiw = $("input[name='status1']:checked").val();
+         var rk = $("#date2").val();
         var beiz = $("#beiz").val();
 
         $.ajax({
             url: "/Staff/AddStaff1",
             type: "POST",
             data: {
-                ShippingOrder: kuaidi,
-                StaffId: yuang,
-                WareHouseId: cangk,
-                PickTime: date1,
-                SendTime: date2,
-                SendState: zhaung,
-                SendRemark: beiz,
+                StaffName: name,
+                StaffSex: sex,
+                StaffAge: age,
+                StaffPhone: phone,
+                StaffDuty: zhiw,
+                StaffLoginTime: rk,
+                StaffRemark: beiz,
             },
             dataType: "Json",
             success: function (res) {
@@ -192,7 +193,7 @@
                 if (res.Status) {
                     if (res.IsRegistSuccess) {
                         alert(res.Message);
-                        location.href = "/Staff/GetDistribution11";
+                        location.href = "/Staff/DelStaff2";
                     }
                     else {
                         alert(res.Message);

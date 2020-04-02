@@ -14,7 +14,7 @@ namespace SwiftExpressApi.Controllers.Staff
     {
         StaffBll Sbl = new StaffBll();
         [HttpPost]
-        public DelStaffResponse DelCargo(DelStaffRequest request)
+        public DelStaffResponse DelStaff(DelStaffRequest request)
         {
             return Sbl.DelStaff(request);
         }
@@ -24,20 +24,20 @@ namespace SwiftExpressApi.Controllers.Staff
         /// <returns></returns>
         /// 
         [HttpPost]
-        public GetStaffResponse GetCargo()
+        public GetStaffResponse GetStaff()
         {
             return Sbl.GetStaff();
         }
         /// <summary>
-        /// 添加仓库   zrx  2020年3月24日14:43:15
+        /// 添加员工   zrx  2020年3月24日14:43:15
         /// </summary>
         /// <returns></returns>
         /// 
         [HttpPost]
-        public ADDStaffResponse AddCargo(ADDStaffRequest request)
+        public ADDStaffResponse AddStaff(ADDStaffRequest request)
         {
 
-            return Sbl.ADDStaff(request);
+            return Sbl.AddStaff(request);
         }
         //public UpdateStaffResponse UpdateStaff(UpdateStaffRequest request)
         //{

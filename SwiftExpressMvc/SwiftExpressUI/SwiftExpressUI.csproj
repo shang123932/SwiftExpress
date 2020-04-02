@@ -814,6 +814,7 @@
     <Content Include="Views\Contraband\GetContraband.cshtml" />
     <Content Include="Views\Contraband\UpdateStorageSt.cshtml" />
     <Content Include="Views\Contraband\GetShippingInfor.cshtml" />
+    <Content Include="Views\User\Lay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -27,7 +27,7 @@ namespace SwiftExpressApi
         public ADDShippingInforResonse AddCargo1(ADDShippingInforRequest request)
         {
 
-            return bll.AddDistribution(request);
+            return bll.ADD(request);
         }
         [HttpPost]
         public DelStaffResponse DelCargo(DelStaffRequest request)
@@ -45,15 +45,15 @@ namespace SwiftExpressApi
             return Sbl.GetStaff();
         }
         /// <summary>
-        /// 添加仓库   zrx  2020年3月24日14:43:15
+        /// 添加寄件   zrx  2020年3月24日14:43:15
         /// </summary>
         /// <returns></returns>
         /// 
         [HttpPost]
-        public ADDStaffResponse AddCargo(ADDStaffRequest request)
+        public ADDShippingInforResonse ShippingAdd(ADDShippingInforRequest request)
         {
 
-            return Sbl.ADDStaff(request);
+            return bll.ADD(request);
         }
         //public UpdateStaffResponse UpdateStaff(UpdateStaffRequest request)
         //{
