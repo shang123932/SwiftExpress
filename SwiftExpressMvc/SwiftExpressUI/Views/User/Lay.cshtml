@@ -58,7 +58,7 @@
                 <ul class="layui-nav" lay-filter="rightNav">
                     <li class="layui-nav-item"><a href="javascript:;" data-url="/User/Message" data-id='4' data-text="留言系统"><i class="iconfont">&#xe603;</i></a></li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人: @Request["name"]</a>
+                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人:<input id="a" type="text"/></a>
 
                     </li>
                     <li class="layui-nav-item">
@@ -94,10 +94,14 @@
     <script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../static/admin/js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript">
-                //var scope = {
-                //    link: './welcome.html'
-                //}
+        //var scope = {
+        //    link: './welcome.html'
+        //}
 
     </script>
 
@@ -105,3 +109,15 @@
 
 </body>
 </html>
+<script>
+    $.ready(function () {
+        $.ajax({
+            url: "/User/Cookieqest",
+            type: "POST",
+            dataType: "JSON",
+            success: function (res) {
+                alert(this.name1);
+            }
+        })
+    })
+</script>

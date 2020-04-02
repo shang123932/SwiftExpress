@@ -159,6 +159,7 @@ namespace SwiftExpressUI
         /// 传值
         /// </summary>
         /// <returns></returns> 
+        [HttpPost]
         public JsonResult Cookieqest()
         {
             //接受cookie
