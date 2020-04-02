@@ -26,7 +26,7 @@
                     <a href="javascript:;" style="color :indianred;font-family:KaiTi;font-size:22px;font-weight:bold;"><i class="iconfont">&#xe607;</i>寄件服务</a>
                     <dl class="layui-nav-child" style="background-color:#DDDDDD;">
                         <dd>
-                            <a href="javascript:;" data-url="/User/Show" data-id='11000' data-text="我要寄件" style="        color: #FF5511;
+                            <a href="javascript:;" data-url="/Shipp/ADDShippingInfor" data-id='11000' data-text="我要寄件" style="        color: #FF5511;
         font-family: KaiTi;
         font-size: 20px;"><span class="l-line"></span>我要寄件</a>
                         </dd>
@@ -39,14 +39,14 @@
         font-size: 22px;
         font-weight: bold;"><i class="iconfont">&#xe607;</i>查询服务</a>
                     <dl class="layui-nav-child" style="background-color:#DDDDDD;" id="ull">
-                        <dd><a href="javascript:;" data-url="/User/Add" data-id='200000' data-text="快递查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>快递查询</a></dd>
+                        <dd><a href="javascript:;" data-url="/User/Add" data-id='1' data-text="快递查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>快递查询</a></dd>
                         <dd>
-                            <a href="javascript:;" data-url="/Area/Freight" data-id='200000' data-text="运费查询" style="        color: #FF5511;
+                            <a href="javascript:;" data-url="/Area/Freight" data-id='2' data-text="运费查询" style="        color: #FF5511;
         font-family: KaiTi;
         font-size: 20px;
 "><span class="l-line"></span>运费查询</a>
                         </dd>
-                        <dd><a href="javascript:;" data-url="/User/Add" data-id='200000' data-text="违禁品查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>违禁品查询</a></dd>
+                        <dd><a href="javascript:;" data-url="/Contraband/GetContraband" data-id='3' data-text="违禁品查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>违禁品查询</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -56,10 +56,9 @@
             <!--头部-->
             <div class="main-layout-header">
                 <ul class="layui-nav" lay-filter="rightNav">
-                    <li class="layui-nav-item"><a href="javascript:;" data-url="/User/Message" data-id='4' data-text="留言系统"><i class="iconfont">&#xe603;</i></a></li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人: @Request["name"]</a>
-
+                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人: <span id="uname"></span></a>
+                       
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;" data-id='5' data-text="个人信息"></a>
@@ -95,13 +94,17 @@
     <script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../static/admin/js/main.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-                //var scope = {
-                //    link: './welcome.html'
-                //}
+                    //var scope = {
+                    //    link: './welcome.html'
+                    //}
 
     </script>
 
-
-
 </body>
 </html>
+<script>
+    $().ready(function () {
+        var ss = document.cookie;
+        $("#uname").val(ss);
+    })
+</script>
