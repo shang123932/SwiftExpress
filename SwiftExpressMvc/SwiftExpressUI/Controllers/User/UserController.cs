@@ -169,6 +169,13 @@ namespace SwiftExpressUI
             return Json(new {name1=name },JsonRequestBehavior.AllowGet);
         }
 
-
+        /// <summary>
+        /// 用户管理页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Lay()
+        {
+            return View();
+        }
     }
 }

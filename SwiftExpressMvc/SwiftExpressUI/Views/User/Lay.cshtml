@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Lay";
 }
 
@@ -41,10 +40,12 @@
         font-weight: bold;"><i class="iconfont">&#xe607;</i>查询服务</a>
                     <dl class="layui-nav-child" style="background-color:#DDDDDD;" id="ull">
                         <dd><a href="javascript:;" data-url="/User/Add" data-id='200000' data-text="快递查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>快递查询</a></dd>
-                        <dd><a href="javascript:;" data-url="/Area/Freight" data-id='200000' data-text="运费查询" style="        color: #FF5511;
+                        <dd>
+                            <a href="javascript:;" data-url="/Area/Freight" data-id='200000' data-text="运费查询" style="        color: #FF5511;
         font-family: KaiTi;
         font-size: 20px;
-"><span class="l-line"></span>运费查询</a></dd>
+"><span class="l-line"></span>运费查询</a>
+                        </dd>
                         <dd><a href="javascript:;" data-url="/User/Add" data-id='200000' data-text="违禁品查询" style="color :#FF5511;font-family:KaiTi;font-size:20px; "><span class="l-line"></span>违禁品查询</a></dd>
                     </dl>
                 </li>
@@ -57,7 +58,7 @@
                 <ul class="layui-nav" lay-filter="rightNav">
                     <li class="layui-nav-item"><a href="javascript:;" data-url="/User/Message" data-id='4' data-text="留言系统"><i class="iconfont">&#xe603;</i></a></li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" data-id='5' data-text="个人信息" >当前登录人: @Request["name"]</a>
+                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人: @Request["name"]</a>
 
                     </li>
                     <li class="layui-nav-item">
@@ -94,9 +95,9 @@
     <script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../static/admin/js/main.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-            //var scope = {
-            //    link: './welcome.html'
-            //}
+                //var scope = {
+                //    link: './welcome.html'
+                //}
 
     </script>
 
