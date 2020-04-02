@@ -166,7 +166,7 @@ namespace SwiftExpressUI
             HttpCookie http = System.Web.HttpContext.Current.Request.Cookies["cookie"];
             var name = HttpUtility.UrlDecode(http.Value);//解密
             var arr = name.ToString().Split('"');
-            name = arr[arr.Length - 2];
+            name = arr[arr.Length -2];
             return Json(new {name1=name },JsonRequestBehavior.AllowGet);
         }
 
@@ -178,5 +178,37 @@ namespace SwiftExpressUI
         {
             return View();
         }
+        //生成卡号
+
+        [HttpPost]
+        public ActionResult VIPKaHao()
+
+        {
+
+            //声明一个变量为空
+
+            var aa = "";
+
+            //随机数生成器
+
+            Random bb = new Random();
+
+            //指定1000-10000的4位随机数
+
+            string cc = bb.Next(1000, 10000).ToString();
+
+            //获取当前时间分秒值，或“ffff”毫秒值
+
+            string dd = DateTime.Now.ToString("mmss");
+
+            //拼接字符串
+
+            aa = "YUY" + dd + cc;
+
+            return Json(aa, JsonRequestBehavior.AllowGet);
+
+        }
+
+
     }
 }

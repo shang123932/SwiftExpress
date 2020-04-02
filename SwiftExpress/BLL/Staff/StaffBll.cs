@@ -50,12 +50,12 @@ namespace BLL.Staff
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
-                response.Message = "添加货物成功";
+                response.Message = "添加员工成功";
             }
             else
             {
                 response.Status = false;
-                response.Message = "添加货物失败";
+                response.Message = "添加员工失败";
 
             }
 

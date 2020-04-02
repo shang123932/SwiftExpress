@@ -20,12 +20,12 @@ namespace SwiftExpressUI
         /// 添加库房
         /// </summary>
         /// <returns></returns>
-        public ActionResult ADDShippingInfor()
+        public ActionResult ADDShippingInfor1()
         {
             return View();
         }
         [HttpPost]
-        public JsonResult ADDShippingInfor(ADDShippingInforRequest request)
+        public JsonResult ADDShippingInfor1(ADDShippingInforRequest request)
         {
             return Json(bll.ADDShippingInfor(request));
         }

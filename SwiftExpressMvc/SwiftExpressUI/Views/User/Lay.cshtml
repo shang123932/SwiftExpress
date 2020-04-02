@@ -57,8 +57,8 @@
             <div class="main-layout-header">
                 <ul class="layui-nav" lay-filter="rightNav">
                     <li class="layui-nav-item">
-                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人: <span id="uname"></span></a>
-                       
+                        <a href="javascript:;" data-id='5' data-text="个人信息">当前登录人:<input style="width:50px;height:40px; border:#FFFFFF" id="aa" type="text" /></a>
+
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;" data-id='5' data-text="个人信息"></a>
@@ -94,17 +94,27 @@
     <script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../static/admin/js/main.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-                    //var scope = {
-                    //    link: './welcome.html'
-                    //}
+        //var scope = {
+        //    link: './welcome.html'
+        //}
 
     </script>
 
 </body>
 </html>
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
     $().ready(function () {
-        var ss = document.cookie;
-        $("#uname").val(ss);
+        $.ajax({
+            url: "/User/Cookieqest",
+            type: "POST",
+            dataType: "json",
+            success: function (res) {
+                $("#aa").val(res.name1);
+            }
+        })
     })
 </script>
