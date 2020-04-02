@@ -49,6 +49,24 @@ namespace SwiftExpressUI
 
         #endregion
 
+        public ActionResult GetShippingInfor()
+        {
+            var request = Request.Url.ToString().Split('/');
+            var dh = request[request.Length - 1];
+            ViewBag.id = dh;
+            return View();
+        }
+        /// <summary>
+        /// 运单查询
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult GetShippingInfors()
+        {
+            GetShippingInforRequest request = new GetShippingInforRequest();
+
+            return Json(bll.GetShippingInfor(request));
+        }
+
         #region  存储信息
 
         #region 存储信息列表

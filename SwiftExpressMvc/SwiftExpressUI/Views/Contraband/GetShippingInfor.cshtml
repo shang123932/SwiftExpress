@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "GetShippingInfor";
 }
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
 
 <body>
     <div>
-
+        <input id="dh" value="@ViewBag.id" type="hidden" />
         <div class="page-content-wrap">
             <form class="layui-form" action="">
                 <div class="layui-form-item">
@@ -32,13 +32,6 @@
                     <div class="layui-inline">
                         <input type="text" name="title" required lay-verify="required" placeholder="请输入物品关键字" autocomplete="off" class="layui-input">
                     </div>
-                    @*<div class="layui-inline">
-                            <select name="states" lay-filter="status">
-                                <option value="">请选择一个状态</option>
-                                <option value="010">显示</option>
-                                <option value="021">隐藏</option>
-                            </select>
-                        </div>*@
                     <button class="layui-btn layui-btn-normal" lay-submit="search">搜索</button>
                 </div>
             </form>
@@ -56,37 +49,21 @@
                     <thead>
                         <tr>
                             <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
-                            <th class="hidden-xs">存储id</th>
-                            <th class="hidden-xs">货物id</th>
-                            <th class="hidden-xs">仓库id</th>
-                            <th class="hidden-xs">员工id</th>
-                            <th class="hidden-xs">入库时间</th>
-                            <th class="hidden-xs">入库数量</th>
-                            <th class="hidden-xs">出库时间</th>
-                            <th class="hidden-xs">出库数量</th>
-                            <th class="hidden-xs">备注</th>
-                            <th class="hidden-xs">操作</th>
+                            <th class="hidden-xs">快递单号</th>
+                            <th class="hidden-xs">寄件姓名</th>
+                            <th class="hidden-xs">寄件联系方式</th>
+                            <th class="hidden-xs">寄件地址</th>
+                            <th class="hidden-xs">收件人姓名</th>
+                            <th class="hidden-xs">收件联系方式</th>
+                            <th class="hidden-xs">收件地址</th>
+                            <th class="hidden-xs">货物名称</th>
+                            <th class="hidden-xs">货物类型</th>
+                            <th class="hidden-xs">货物重量</th>
+                            <th class="hidden-xs">货物状态</th>
                         </tr>
                     </thead>
                     <tbody id="tb">
-                        @*<tr id='node-1' class="parent collapsed">
-                                <td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-                                <td class="hidden-xs">1</td>
-                                <td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
-                                <td class="hidden-xs">Admin</td>
-                                <td>
-                                    菜单管理
-                                    <a class="layui-btn layui-btn-mini layui-btn-normal showSubBtn" data-id='1'>+</a>
-                                </td>
-                                <td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status">显示 </button></td>
-                                <td>
-                                    <div class="layui-inline">
-                                        <button class="layui-btn layui-btn-mini layui-btn-normal  add-btn" data-id="1" data-url="menu-add.html"><i class="layui-icon">&#xe654;</i></button>
-                                        <button class="layui-btn layui-btn-mini layui-btn-normal  edit-btn" data-id="1" data-url="menu-add.html"><i class="layui-icon">&#xe642;</i></button>
-                                        <button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="menu-add.html"><i class="layui-icon">&#xe640;</i></button>
-                                    </div>
-                                </td>
-                            </tr>*@
+                       
                     </tbody>
                 </table>
             </div>
@@ -138,25 +115,32 @@
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <script>
+
     $().ready(function () {
+        var db = ("#dh").val();
         $.ajax({
-            url: "/Contraband/GetStorage",
+            url: "/Contraband/GetShippingInfors",
             type: "Post",
             dataType: "Json",
+            data: {
+                ShippingOrder:dh
+            },
             success: function (res) {
                 var tb = "";
                 $(res.Storagelist).each(function () {
                     tb += "<tr>"
                         + "<td><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></td>"
-                        + "<td class='hidden-xs'>" + this.StorageId + "</td>"
-                        + "<td class='hidden-xs'>" + this.CargoId + "</td>"
-                        + "<td class='hidden-xs'>" + this.WareHouseId + "</td>"
-                        + "<td class='hidden-xs'>" + this.StaffId + "</td>"
-                        + "<td class='hidden-xs'>" + this.InStorageTime + "</td>"
-                        + "<td class='hidden-xs'>" + this.InStorageNumber + "</td>"
-                        + "<td class='hidden-xs'>" + this.OutStorageTime + "</td>"
-                        + "<td class='hidden-xs'>" + this.OutStorageNumber + "</td>"
-                        + "<td class='hidden-xs'>" + this.Remark + "</td>"
+                        + "<td class='hidden-xs'>" + this.ShippingOrder + "</td>"
+                        + "<td class='hidden-xs'>" + this.ShippingName + "</td>"
+                        + "<td class='hidden-xs'>" + this.ShippingPhone + "</td>"
+                        + "<td class='hidden-xs'>" + this.ShippingAddress + "</td>"
+                        + "<td class='hidden-xs'>" + this.ReceiveName + "</td>"
+                        + "<td class='hidden-xs'>" + this.ReceivePhone + "</td>"
+                        + "<td class='hidden-xs'>" + this.ReceiveAddress + "</td>"
+                        + "<td class='hidden-xs'>" + this.CargoName + "</td>"
+                        + "<td class='hidden-xs'>" + this.CargoType + "</td>"
+                        + "<td class='hidden-xs'>" + this.CargoWeight + "</td>"
+                        + "<td class='hidden-xs'>" + this.CargoState + "</td>"
                         + "<td class='hidden-xs'><div class='layui-inline'><button class='layui-btn layui-btn-mini layui-btn-normal  edit-btn' data-id='1' data-url='menu-add.html' onclick='Xg(" + this.StorageId + ")'><i class='layui-icon'>&#xe642;</i></button><button class='layui-btn layui-btn-mini layui-btn-danger del-btn' data-id='1'  onclick='Sc(" + this.StorageId + ")'><i class='layui-icon'>&#xe640;</i></button></div></td>"
                         + "</tr>"
                 });
@@ -167,26 +151,28 @@
     })
 
     //删除
-    function Sc(did) {
-        $.ajax({
-            url: "/Contraband/DeleteStorage",
-            type: "Post",
-            dataType: "Json",
-            data: {
-                id: did
-            },
-            success: function (res) {
-                $(res).each(function () {
-                    alert(this.Message);
-                })
-            }
-        })
-    }
+    //function Sc(did) {
+    //    $.ajax({
+    //        url: "/Contraband/DeleteStorage",
+    //        type: "Post",
+    //        dataType: "Json",
+    //        data: {
+    //            id: did
+    //        },
+    //        success: function (res) {
+    //            $(res).each(function () {
+    //                alert(this.Message);
+    //            })
+    //        }
+    //    })
+    //}
 
 
-    function Xg(StorageId) {
-        location.href = "/Contraband/UpdateStorageSt/" + StorageId;
-    }
+    //function Xg(StorageId) {
+    //    location.href = "/Contraband/UpdateStorageSt/" + StorageId;
+    //}
 
 
 </script>
+
+
