@@ -27,20 +27,20 @@
             <div class="layui-tab-content" style="height: 350px;background-color:white;width:400px;border:1px solid #DDDDDD;">
                
                 <ul class="layui-tab-title" style="width:396px;background-color:white;margin-left:-8px;">
-                    <li class="layui-this">用户登录</li>
-                    <li>管理员登录</li>
+                    <li class="layui-this" >用户登录</li>
+                    <li >管理员登录</li>
                 </ul>
                 <div class="layui-tab-item layui-show">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">手机号</label>
+                        <label class="layui-form-label">用户名</label>
                         <div class="layui-input-block">
-                            <input id="phone" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入手机号" class="layui-input">
+                            <input id="phone" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">密码</label>
                         <div class="layui-input-block">
-                            <input id="pwd" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                            <input id="pwd" type="password" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -68,29 +68,31 @@
                 <div class="layui-tab-item">
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">手机号</label>
+                        <label class="layui-form-label">管理员</label>
                         <div class="layui-input-block">
-                            <input id="phone1" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入管理员手机号" class="layui-input">
+                            <input id="txtname" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入名称或手机号" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">密码</label>
                         <div class="layui-input-block">
-                            <input id="pwd1" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                            <input id="txtpwd" type="password" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入密码" autocomplete="off" class="layui-input">
                         </div>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">验证码</label>
-                        <div class="layui-input-block">
-                            <input id="yanz" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入验证码" autocomplete="off" class="layui-input">
-                        </div>
-                        <div class="layui-input-block">
-                            <img class="verifyImg" src="/Content/ValidateCode.ashx" onclick="this.src='/Content/ValidateCode.ashx?d='+new Date()" />
-                        </div>
 
-                    </div>
+                 
+                    <div class="layui-form-item">
+            <label class="layui-form-label">验证码</label>
+            <div class="layui-input-block">
+                <input id="yanz1" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-block">
+                <img class="verifyImg" src="/Content/ValidateCode.ashx" onclick="this.src='/Content/ValidateCode.ashx?d='+new Date()" />
+            </div>
+
+        </div>
                     <div class="layui-form-item" style="margin-top:51px;">
-                        <button type="button" class="layui-btn-lg layui-btn-danger layui-btn-radius" onclick="Log()" style="margin-left:25px;">登录</button>
+                        <button type="button" class="layui-btn-lg layui-btn-danger layui-btn-radius" onclick="AAA()" style="margin-left:25px;">登录</button>
 
                         <button type="button" class="layui-btn-lg layui-btn-primary layui-btn-radius" style="margin-left: 150px;" onclick="ind()">取消</button>
 
@@ -228,7 +230,6 @@
 </html>
 
 <script>
-    
 
     //登录
     function Login() {
@@ -295,8 +296,6 @@
 
     }
 
-
-
     //登录
     function Log() {
         var phone1 = $("#phone1").val();
@@ -330,4 +329,62 @@
     function ind() {
         location.href = "/User/Index";
     }
+    function refer() {
+        location.reload();
+    }
+    function AAA() {
+        var aname = $("#txtname").val();
+        var apwd = $("#txtpwd").val();
+        var yanz = $("#yanz1").val();
+        if (yanz == "") {
+            alert("验证码为空!!!");
+            return;
+        }
+        $.ajax({
+            url: "/User/Indexyanz/yanz",
+            type: "POST",
+            dataType: "json",
+            data: {
+                yan: yanz,
+            },
+            success: function (res) {
+                if (res > 0) {
+                    $.ajax({
+                        url: "/User/AdminLogin",
+                        type: "Post",
+                        dataType: "json",
+                        data: {
+                            AdminName: aname,
+                            AdminPhone: aname,
+                            AdminPwd: apwd
+                        },
+                        success: function (res) {
+                            //表示接口成功
+                            if (res.Status) {
+                                if (res.IsRegistSuccess) {
+                                    alert(res.Message);
+                                    location.href = "/User/Backstage?name=" + aname;
+                                }
+                                else {
+                                    alert(res.Message);
+                                }
+                            }
+                            else {
+                                alert(res.Message);
+                            }
+                        }
+
+                    })
+                }
+                else {
+                    alert("验证码有误!!!");
+                }
+            }
+
+        })
+
+
+    }
+
+
 </script>

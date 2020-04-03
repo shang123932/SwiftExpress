@@ -22,7 +22,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">员工名称</label>
             <div class="layui-input-inline">
-                <input id="txtname" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <input id="txtname" name="username" class="layui-input" type="text" value="@Request["name"]" autocomplete="off" lay-verify="required" disabled="disabled">
             </div>
         </div>
 
@@ -52,7 +52,7 @@
             </div>
 
         <div class="layui-form-item">
-            <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Addcargo()">确认修改</button>
+            <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="ChangePwd()">确认修改</button>
             <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
         </div>
     </form>
@@ -137,8 +137,8 @@
 <script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
-    //货物添加
-    function Addcargo() {
+    //修改密码
+    function ChangePwd() {
         var name = $("#txtname").val();
         var origin = $("#txtoriginal").val();
         var uppwd = $("#txtupdate").val();
@@ -146,9 +146,11 @@
 
         if (origin == uppwd) {
             alert("密码与原密码一直，请重新修改");
+            return;
         }
         if (uppwd != surepwd) {
             alert("密码不一致，请重新输入");
+            return;
         }
       
         $.ajax({
@@ -158,12 +160,12 @@
             data:
             {
                 spwd: uppwd,
-                sid:
+                sname:name
             },
             success: function (res) {
                 if (res.Status) {
                     alert(res.Message);
-                    location.href = "/User/Lay";
+                    location.close();
                 }
                 else {
                     alert(res.Message);

@@ -69,7 +69,6 @@
                     </a>
                 </div>
                 <ul class="layui-nav" lay-filter="rightNav">
-                    <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i class="iconfont">&#xe603;</i></a></li>
                     <li class="layui-nav-item">
                         <a href="javascript:;" data-url="/Staff/UpdateStaffPwd?name=@Request["name"]" data-id='5' data-text="个人信息">当前登录人为：@Request["name"]</a>
                     </li>
@@ -114,3 +113,16 @@
 
 </body>
 </html>
+
+<script>
+    $().ready(function () {
+        $.ajax({
+            url: "/User/Cookieqest",
+            type: "POST",
+            dataType: "json",
+            success: function (res) {
+                $("#aa").val(res.name1);
+            }
+        })
+    })
+</script>

@@ -120,5 +120,17 @@ namespace SwiftExpressApi.Controllers.User
             return disbll.Staffbllshow();
         }
 
+        /// <summary>
+        /// 管理员登录
+        /// </summary>
+        /// <param name="userlogin"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public AdminLoginResponse AdminLogin(AdminLoginRequest request)
+        {
+            return userBll.AdminLogin(request);
+        }
+
+
     }
 }

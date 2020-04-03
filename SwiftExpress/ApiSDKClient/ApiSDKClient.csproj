@@ -75,6 +75,7 @@
     <Compile Include="FApi\Request\Staff\GetStaffRequest.cs" />
     <Compile Include="FApi\Request\Staff\UpdateStaffPwdRequest.cs" />
     <Compile Include="FApi\Request\Staff\UpdateStaffRequest.cs" />
+    <Compile Include="FApi\Request\User\AdminLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserRegisteredRequest.cs" />
     <Compile Include="FApi\Request\WareHouse\WareHouseAddRequest.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="FApi\Response\Staff\GetStaffResponse.cs" />
     <Compile Include="FApi\Response\Staff\UpdateStaffPwdResponse.cs" />
     <Compile Include="FApi\Response\Staff\UpdateStaffResponse.cs" />
+    <Compile Include="FApi\Response\User\AdminLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserRegisteredResponse.cs" />
     <Compile Include="FApi\Response\WareHouse\WareHouseAddResponse.cs" />
