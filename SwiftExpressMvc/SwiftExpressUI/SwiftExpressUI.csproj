@@ -797,7 +797,6 @@
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="static\admin\lib\ueditor\third-party\video-js\font\vjs.woff" />
-    <Content Include="Views\Shipp\ADDShippingInfor.cshtml" />
     <Content Include="Views\Contraband\GetStorage.cshtml" />
     <Content Include="Views\Contraband\AddStorage.cshtml" />
     <Content Include="Views\Shipp\GetShippingInfor.cshtml" />
@@ -815,6 +814,11 @@
     <Content Include="Views\Contraband\UpdateStorageSt.cshtml" />
     <Content Include="Views\Contraband\GetShippingInfor.cshtml" />
     <Content Include="Views\User\Lay.cshtml" />
+    <Content Include="Views\Staff\DelStaff2.cshtml" />
+    <Content Include="Views\Staff\GetStaff1.cshtml" />
+    <Content Include="Views\Staff\ShowStaff.cshtml" />
+    <Content Include="Views\Staff\UpdateStaff.cshtml" />
+    <Content Include="Views\Shipp\ADDShippingInfor1.cshtml" />
     <Content Include="Views\Staff\UpdateStaffPwd.cshtml" />
   </ItemGroup>
   <ItemGroup>

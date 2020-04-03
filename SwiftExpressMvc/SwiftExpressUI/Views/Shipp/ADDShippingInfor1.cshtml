@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ADDShippingInfor";
+    ViewBag.Title = "ADDShippingInfor1";
 }
 
 
@@ -187,7 +187,7 @@
         var jibeiz = $("#jibeiz").val();
 
         $.ajax({
-            url: "/Shipp/ADDShippingInfor",
+            url: "/Shipp/ADDShippingInfor1",
             type: "Post",
             dataType: "json",
             data: {
@@ -207,7 +207,7 @@
                     //请求成功
                     if (res.IsRegistSuccess) {
                         alert(res.Message);
-                        location.href = "/Shipp/ADDShippingInfor";
+                        location.href = "/Shipp/ADDShippingInfor1";
                     }
                     else {
                         alert(res.Message);
@@ -221,3 +221,4 @@
         })
     }
 </script>
+
