@@ -29,7 +29,13 @@ namespace DAL.Staff
         //修改
         public int UpdateStaff(StaffModel m )
         {
-            string sql =$"update Staff set StaffName ='{m.StaffName}',StaffSex='{m.StaffSex}',StaffAge='{m.StaffAge}', StaffPhone='{m.StaffPhone},StaffDuty='{m.StaffDuty}',StaffLoginTime ='{m.StaffLoginTime}',StaffStatus='{m.StaffStatus}',StaffRemark='{m.StaffRemark}'where  StaffId =‘{m.StaffId}’";
+            string sql =$"update Staff set StaffName ='{m.StaffName}',StaffSex='{m.StaffSex}',StaffAge='{m.StaffAge}', StaffPhone='{m.StaffPhone},StaffDuty='{m.StaffDuty}',StaffLoginTime ='{m.StaffLoginTime}',StaffStatus='{m.StaffStatus}',StaffRemark='{m.StaffRemark}'where  StaffId ='{m.StaffId}'";
+            return DBHelper.ExecuteNonQuery(sql);
+        }
+        //修改密码
+        public int UpdateStaffPwd(string spwd,int sid)
+        {
+            string sql = $"update Staff set StaffPwd='{spwd}' where  StaffId ={sid}";
             return DBHelper.ExecuteNonQuery(sql);
         }
     }

@@ -27,7 +27,10 @@ namespace BLL
         public UpdateStaffResponse UpdateStaff(UpdateStaffRequest request)
         {
             return ApiRequestHelper.Post<UpdateStaffRequest, UpdateStaffResponse>(request);
-
+        }
+        public UpdateStaffPwdResponse UpdateStaffPwd(UpdateStaffPwdRequest request)
+        {
+            return ApiRequestHelper.Post<UpdateStaffPwdRequest, UpdateStaffPwdResponse>(request);
         }
     }
 }
