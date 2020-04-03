@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "cargoAdd";
+﻿
+@{
+    ViewBag.Title = "UpdateStaffPwd";
 }
 
 <!DOCTYPE html>
@@ -19,60 +20,39 @@
     <form class="layui-form layui-form-pane" action="">
 
         <div class="layui-form-item">
-            <label class="layui-form-label">货物名称</label>
+            <label class="layui-form-label">员工名称</label>
             <div class="layui-input-inline">
-                <input id="txtname" name="username" class="layui-input" type="text" placeholder="请输入货物名称" autocomplete="off" lay-verify="required">
+                <input id="txtname" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
             </div>
         </div>
 
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">货物类型</label>
-                    <div class="layui-input-block">
-                        <input type="radio" name="b" value="1" title="货到付款" checked="">
-                        <input type="radio" name="b" value="2" title="普通快递">
-                    </div>
+                <label class="layui-form-label">原密码</label>
+                <div class="layui-input-block">
+                    <input id="txtoriginal" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                </div>
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">货物重量</label>
+                <label class="layui-form-label">修改密码</label>
                 <div class="layui-input-block">
-                    <input id="txtheavy" name="username" class="layui-input" type="text" placeholder="请输入货物重量" autocomplete="off" lay-verify="required">
+                    <input id="txtupdate" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">快递单号</label>
+                <label class="layui-form-label">确认密码</label>
                 <div class="layui-input-block">
-                    <input id="txtorder" name="username" class="layui-input" type="text" placeholder="请输入快递单号" autocomplete="off" lay-verify="required">
+                    <input id="txtsure" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
-        </div>
         <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">货物状态</label>
-                <div class="layui-input-block">
-                    <input type="radio" name="a" value="1" title="出库" checked="">
-                    <input type="radio" name="a" value="2" title="在库">
-                </div>
-            </div>
-
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">货物备注</label>
-                <div class="layui-input-block">
-                    <input id="txtremark" name="username" class="layui-input" type="text" placeholder="" autocomplete="off" lay-verify="required">
-                </div>
-            </div>
-
-        </div>
-        <div class="layui-form-item">
-            <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Addcargo()">立即提交</button>
+            <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Addcargo()">确认修改</button>
             <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
         </div>
     </form>
@@ -160,29 +140,30 @@
     //货物添加
     function Addcargo() {
         var name = $("#txtname").val();
-        var ctype = $("input[name='b']:checked").val();
-        var weight = $("#txtheavy").val();
-        var order = $("#txtorder").val();
-        var cstate = $("input[name='a']:checked").val();
-        var remark = $("#txtremark").val();
+        var origin = $("#txtoriginal").val();
+        var uppwd = $("#txtupdate").val();
+        var surepwd = $("#txtsure").val();
 
+        if (origin == uppwd) {
+            alert("密码与原密码一直，请重新修改");
+        }
+        if (uppwd != surepwd) {
+            alert("密码不一致，请重新输入");
+        }
+      
         $.ajax({
-            url: "/Cargo/cargoAdd",
+            url: "/Staff/UpdateStaffPwd",
             dataType: "json",
             type: "POST",
             data:
             {
-                CargoName: name,
-                CargoType: ctype,
-                CargoWeight: weight,
-                ShippingOrder: order,
-                CargoState: cstate,
-                CargoRemark: remark
+                spwd: uppwd,
+                sid:
             },
             success: function (res) {
                 if (res.Status) {
                     alert(res.Message);
-                    location.href = "/Cargo/cargoShow";
+                    location.href = "/User/Lay";
                 }
                 else {
                     alert(res.Message);

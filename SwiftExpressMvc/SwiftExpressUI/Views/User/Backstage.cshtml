@@ -3,8 +3,6 @@
     ViewBag.Title = "Backstage";
 }
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +10,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>网站后台管理模版</title>
+    <title>雨燕速递</title>
     <link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="../../static/admin/css/admin.css" />
 
@@ -20,17 +18,19 @@
 <body>
     <div class="main-layout" id='main-layout'>
         <!--侧边栏-->
-        <div class="main-layout-side">
-            <div class="m-logo"style="background-image: url('../../img/雨燕速递.jpg');">
+        <div class="main-layout-side" >
+            <div class="m-logo"  style="background-image: url('../../img/雨燕速递.jpg');background-color:white">
+
             </div>
-            <ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
+            <ul class="layui-nav layui-nav-tree" lay-filter="leftNav" style="margin-top:60px;">
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;"><i class="iconfont">&#xe607;</i>员工管理</a>
                     <dl class="layui-nav-child">
                         @*改下自己的路径页面*@
-                    <dd><a href="javascript:;" data-url="/User/UserLogin" data-id='1' data-text="添加员工"><span class="l-line"></span>添加员工</a></dd>
-                    <dd><a href="javascript:;" data-url="/User/Index" data-id='2' data-text="员工信息"><span class="l-line"></span>员工信息</a></dd>
-                </dl>
+
+                        <dd><a href="javascript:;" data-url="/Staff/ShowStaff" data-id='2' data-text="员工信息"><span class="l-line"></span>员工信息</a></dd>
+                        <dd><a href="javascript:;" data-url="/Staff/AddStaff1" data-id='1' data-text="添加员工"><span class="l-line"></span>添加员工</a></dd>
+                    </dl>
             </li>
             <li class="layui-nav-item">
                 <a href="javascript:;"><i class="iconfont">&#xe608;</i>货物信息管理</a>
@@ -44,6 +44,9 @@
                 <a href="javascript:;"><i class="iconfont">&#xe608;</i>仓库储信息</a>
                 <dl class="layui-nav-child">
                     @*改下自己的路径页面*@
+                    <dd><a href="javascript:;" data-url="/Contraband/GetContraband" data-id='9' data-text="储物信息"><span class="l-line"></span>储物信息</a></dd>
+                    <dd><a href="javascript:;" data-url="/Contraband/AddStorage" data-id='5' data-text="添加储物"><span class="l-line"></span>添加储物</a></dd>
+                    <dd><a href="javascript:;" data-url="/WareHouse/wareHouseShow" data-id='6' data-text="云仓管理"><span class="l-line"></span>云仓管理</a></dd>
                     <dd><a href="javascript:;" data-url="/Contraband/GetStorage" data-id='5' data-text="文章管理"><span class="l-line"></span>存储</a></dd>
                     <dd><a href="javascript:;" data-url="danye-list.html" data-id='9' data-text="单页管理"><span class="l-line"></span>单页管理</a></dd>
                     <dd><a href="javascript:;" data-url="/WareHouse/wareHouseShow" data-id='6' data-text="云仓管理"><span class="l-line"></span>仓库管理</a></dd>
@@ -71,7 +74,7 @@
                 <ul class="layui-nav" lay-filter="rightNav">
                     <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i class="iconfont">&#xe603;</i></a></li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" data-url="admin-info.html" data-id='5' data-text="个人信息">超级管理员</a>
+                        <a href="javascript:;" data-url="/Staff/UpdateStaffPwd?name=@Request["name"]" data-id='5' data-text="个人信息">当前登录人为：@Request["name"]</a>
                     </li>
                     <li class="layui-nav-item"><a href="/User/Index">退出</a></li>
                 </ul>
@@ -87,9 +90,10 @@
 
                         <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
                             <!--1-->
-                            <iframe src="~/img/IMG20190905_170942.jpg" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
+                            @*<iframe src="~/img/IMG20190905_170942.jpg" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>*@
                             <!--1end-->
-                        
+
+                            <img src="~/img/IMG20190905_170942.jpg" />
                         </div>
                       
                     </div>

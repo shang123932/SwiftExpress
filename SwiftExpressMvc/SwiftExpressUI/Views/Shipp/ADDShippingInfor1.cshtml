@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ADDShippingInfor";
+    ViewBag.Title = "ADDShippingInfor1";
 }
 
 
@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Layui</title>
+    <title>雨燕速递（YUY）</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,21 +18,21 @@
 </head>
 
 <body>
-    <form class="layui-form layui-form-pane" action="">
+    <form class="layui-form layui-form-pane" action="" style="width:800px;">
 
         <div class="layui-form-item">
             <label class="layui-form-label">快递单号</label>
             <div class="layui-input-inline">
 
-                <input id="danh" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <input id="danh" name="username" class="layui-input" type="text" placeholder="请输入快递单号" autocomplete="off" lay-verify="required">
             </div>
         </div>
 
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">寄件姓名</label>
-                <div class="layui-input-block">
-                    <input id="jiname" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <label class="layui-form-label">寄件人姓名</label>
+                <div class="layui-input-inline">
+                    <input id="jiname" name="username" class="layui-input" type="text" placeholder="请输入寄件人姓名" autocomplete="off" lay-verify="required">
 
                 </div>
             </div>
@@ -41,8 +41,8 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">寄件联系方式</label>
-                <div class="layui-input-block">
-                    <input id="jilian" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <div class="layui-input-inline">
+                    <input id="jilian" name="username" class="layui-input" type="text" placeholder="寄件联系方式" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
@@ -50,8 +50,8 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">寄件地址</label>
-                <div class="layui-input-block">
-                    <input id="jidiz" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <div class="layui-input-inline">
+                    <input id="jidiz" name="username" class="layui-input" type="text" placeholder="请输入寄件地址" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
@@ -59,8 +59,8 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">收件人姓名</label>
-                <div class="layui-input-block">
-                    <input id="shouname" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <div class="layui-input-inline">
+                    <input id="shouname" name="username" class="layui-input" type="text" placeholder="请输入收件人姓名" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
@@ -68,8 +68,8 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">收件联系方式</label>
-                <div class="layui-input-block">
-                    <input id="shouphone" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <div class="layui-input-inline">
+                    <input id="shouphone" name="username" class="layui-input" type="text" placeholder="请输入收件联系方式" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
@@ -77,8 +77,8 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">收件地址</label>
-                <div class="layui-input-block">
-                    <input id="shoujian" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <div class="layui-input-inline">
+                    <input id="shoujian" name="username" class="layui-input" type="text" placeholder="请输入收件地址" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
@@ -86,15 +86,15 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">备注</label>
-                <div class="layui-input-block">
-                    <input id="jibeiz" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <div class="layui-input-inline">
+                    <input id="jibeiz" name="username" class="layui-input" type="text" placeholder="" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
         </div>
         <div class="layui-form-item">
-            <button class="layui-btn" type="button" lay-filter="demo1" onclick="Regist1()">立即提交</button>
-            <button class="layui-btn" type="button" lay-filter="demo1">取消</button>
+            <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Regist1()">立即提交</button>
+            <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
         </div>
     </form>
     <script src="~/layui/layui.js"></script>
@@ -172,11 +172,11 @@
 <script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
     $.post("/User/VIPKaHao", function (data) {
-            $("#danh").val(data);
-        })
+        $("#danh").val(data);
+    })
     //寄件
     function Regist1() {
-      
+
         var danh = $("#danh").val();
         var jiname = $("#jiname").val();
         var jilian = $("#jilian").val();
@@ -185,11 +185,11 @@
         var shouphone = $("#shouphone").val();
         var shoujian = $("#shoujian").val();
         var jibeiz = $("#jibeiz").val();
-  
+
         $.ajax({
-            url: "/Shipp/ADDShippingInfor",
+            url: "/Shipp/ADDShippingInfor1",
             type: "Post",
-            dataType:"json",
+            dataType: "json",
             data: {
                 ShippingOrder1: danh,
                 ShippingName1: jiname,
@@ -198,16 +198,16 @@
                 ReceiveName1: shouname,
                 ReceivePhone1: shouphone,
                 ReceiveAddress1: shoujian,
-                ShippingRemark1:jibeiz,
+                ShippingRemark1: jibeiz,
 
-        },
+            },
             success: function (res) {
                 //表示接口成功
                 if (res.Status) {
                     //请求成功
                     if (res.IsRegistSuccess) {
                         alert(res.Message);
-                        location.href = "/Shipp/ADDShippingInfor";
+                        location.href = "/Shipp/ADDShippingInfor1";
                     }
                     else {
                         alert(res.Message);
@@ -221,3 +221,4 @@
         })
     }
 </script>
+
