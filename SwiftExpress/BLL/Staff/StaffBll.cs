@@ -50,12 +50,12 @@ namespace BLL.Staff
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
-                response.Message = "添加员工成功";
+                response.Message = "员工注册成功";
             }
             else
             {
                 response.Status = false;
-                response.Message = "添加员工失败";
+                response.Message = "员工注册失败";
 
             }
 
@@ -105,6 +105,31 @@ namespace BLL.Staff
                 response.Status = true;
                 response.Message = $"获取信息成功";
             }
+            return response;
+        }
+
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public UpdateStaffPwdResponse UpdateStaffPwd(UpdateStaffPwdRequest request)
+        {
+            UpdateStaffPwdResponse response = new UpdateStaffPwdResponse();
+            var res = dal.UpdateStaffPwd(request.spwd,request.sid);
+            if (res > 0)
+            {
+                response.IsRegistSuccess = true;
+                response.Message = "密码修改成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "密码修改失败";
+
+            }
+
             return response;
         }
 

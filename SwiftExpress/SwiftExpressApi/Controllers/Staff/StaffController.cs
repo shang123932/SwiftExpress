@@ -39,6 +39,17 @@ namespace SwiftExpressApi.Controllers.Staff
 
             return Sbl.AddStaff(request);
         }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public UpdateStaffPwdResponse UpdateStaffPwd(UpdateStaffPwdRequest request)
+        {
+            return Sbl.UpdateStaffPwd(request);
+        }
         //public UpdateStaffResponse UpdateStaff(UpdateStaffRequest request)
         //{
 

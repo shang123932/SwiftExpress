@@ -3,8 +3,6 @@
     ViewBag.Title = "Backstage";
 }
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +47,9 @@
                     <dd><a href="javascript:;" data-url="/Contraband/GetStorage" data-id='9' data-text="储物信息"><span class="l-line"></span>储物信息</a></dd>
                     <dd><a href="javascript:;" data-url="/Contraband/AddStorage" data-id='5' data-text="添加储物"><span class="l-line"></span>添加储物</a></dd>
                     <dd><a href="javascript:;" data-url="/WareHouse/wareHouseShow" data-id='6' data-text="云仓管理"><span class="l-line"></span>云仓管理</a></dd>
+                    <dd><a href="javascript:;" data-url="/Contraband/GetStorage" data-id='5' data-text="文章管理"><span class="l-line"></span>存储</a></dd>
+                    <dd><a href="javascript:;" data-url="danye-list.html" data-id='9' data-text="单页管理"><span class="l-line"></span>单页管理</a></dd>
+                    <dd><a href="javascript:;" data-url="/WareHouse/wareHouseShow" data-id='6' data-text="云仓管理"><span class="l-line"></span>仓库管理</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">
@@ -73,7 +74,7 @@
                 <ul class="layui-nav" lay-filter="rightNav">
                     <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i class="iconfont">&#xe603;</i></a></li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" data-url="admin-info.html" data-id='5' data-text="个人信息">当前登录人为：</a>
+                        <a href="javascript:;" data-url="/Staff/UpdateStaffPwd?name=@Request["name"]" data-id='5' data-text="个人信息">当前登录人为：@Request["name"]</a>
                     </li>
                     <li class="layui-nav-item"><a href="/User/Index">退出</a></li>
                 </ul>

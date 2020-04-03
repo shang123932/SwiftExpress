@@ -22,7 +22,7 @@
             <form class="layui-form" action="">
                 <div class="layui-form-item">
                     <div class="layui-inline tool-btn">
-                        <button class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs" data-url="menu-add.html"><i class="layui-icon">&#xe654;</i></button>
+                        <button class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs" onclick="Add()"><i class="layui-icon">&#xe654;</i></button>
                         <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs" data-url="menu-add.html"><i class="iconfont">&#xe656;</i></button>
                     </div>
                     <div class="layui-inline">
@@ -118,5 +118,9 @@
     }
     function Xg(StorageId) {
         location.href = "/Contraband/UpdateStorageSt/" + StorageId;
+        }
+
+    function Add() {
+        location.href="/Contraband/AddStorage"
     }
 </script>

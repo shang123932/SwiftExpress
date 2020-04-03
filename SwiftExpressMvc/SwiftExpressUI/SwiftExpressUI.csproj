@@ -819,6 +819,7 @@
     <Content Include="Views\Staff\ShowStaff.cshtml" />
     <Content Include="Views\Staff\UpdateStaff.cshtml" />
     <Content Include="Views\Shipp\ADDShippingInfor1.cshtml" />
+    <Content Include="Views\Staff\UpdateStaffPwd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -53,14 +53,14 @@ namespace SwiftExpressUI
         //{
         //    return Json(b.GetStaff1(request));
         //}
-        public ActionResult UpdateStaff()
+        public ActionResult UpdateStaffPwd()
         {
             return View();
         }
         [HttpPost]
-        public JsonResult UpdateStaff(UpdateStaffRequest request)
+        public JsonResult UpdateStaffPwd(UpdateStaffPwdRequest request)
         {
-            return Json(b.UpdateStaff(request));
+            return Json(b.UpdateStaffPwd(request));
         }
         /// <summary>
         /// 显示员工
