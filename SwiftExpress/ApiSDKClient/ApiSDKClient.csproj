@@ -70,6 +70,7 @@
     <Compile Include="FApi\Request\Distribution\GetOneDistributionRequest.cs" />
     <Compile Include="FApi\Request\Distribution\UpdateDistributionRequest.cs" />
     <Compile Include="FApi\Request\ShippingInfor\ADDShippingInforRequest.cs" />
+    <Compile Include="FApi\Request\ShippingInfor\ShowShippingRequest.cs" />
     <Compile Include="FApi\Request\Staff\ADDStaffRequest.cs" />
     <Compile Include="FApi\Request\Staff\DelStaffRequest.cs" />
     <Compile Include="FApi\Request\Staff\GetStaffRequest.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="FApi\Response\Distribution\UpdateDistributionResponse.cs" />
     <Compile Include="FApi\Response\ShippingInfor\ADDShippingInforResonse.cs" />
     <Compile Include="FApi\Response\ShippingInfor\GetShippingInforResonse.cs" />
+    <Compile Include="FApi\Response\ShippingInfor\ShowShippingResponse.cs" />
     <Compile Include="FApi\Response\Staff\ADDStaffResponse.cs" />
     <Compile Include="FApi\Response\Staff\DelStaffResponse.cs" />
     <Compile Include="FApi\Response\Staff\GetStaffResponse.cs" />

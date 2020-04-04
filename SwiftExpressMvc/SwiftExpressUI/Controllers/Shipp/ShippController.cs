@@ -17,7 +17,7 @@ namespace SwiftExpressUI
         }
         ShippingInforBll bll = new ShippingInforBll();
         /// <summary>
-        /// 添加库房
+        /// 添加寄件
         /// </summary>
         /// <returns></returns>
         public ActionResult ADDShippingInfor1()
@@ -32,7 +32,7 @@ namespace SwiftExpressUI
 
       
         /// <summary>
-        /// 显示库房
+        /// 显示寄件
         /// </summary>
         /// <returns></returns>
         public ActionResult GetShippingInfor()
@@ -40,9 +40,12 @@ namespace SwiftExpressUI
             return View();
         }
         [HttpPost]
-        public JsonResult GetShippingInfor(ShippingInforRequest request)
+        public JsonResult GetShippingInfor(ShowShippingRequest request)
         {
-            return Json(bll.GetShippingInfor(request));
+            return Json(bll.ShowShippingInfo(request));
         }
+
+
+        
     }
 }

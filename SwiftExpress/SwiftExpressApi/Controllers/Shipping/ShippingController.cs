@@ -1,4 +1,5 @@
-﻿using ApiSDKClient.FApi.Request.ShippingInfor;
+﻿using ApiSDKClient;
+using ApiSDKClient.FApi.Request.ShippingInfor;
 using ApiSDKClient.FApi.Request.Staff;
 using ApiSDKClient.FApi.Response.ShippingInfor;
 using ApiSDKClient.FApi.Response.Staff;
@@ -60,6 +61,13 @@ namespace SwiftExpressApi
 
         //    return Sbl.(request);
         //}
+        [HttpPost]
+        public ShowShippingResponse ShowShipping(ShowShippingRequest request)
+        {
+            
+           return  bll.ShowShipping(request);
+          
+        }
     }
 }
 

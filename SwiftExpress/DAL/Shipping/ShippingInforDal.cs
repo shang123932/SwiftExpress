@@ -18,5 +18,12 @@ namespace DAL
             string sql = "select * from ShippingInfor";
             return DBHelper.GetToList<ShippingInforModel>(sql);
         }
+
+
+        public List<ShippingInforModel> ShowShipping(string name)
+        {
+            string sql = $"select * from ShippingInfo where ShippingName='{name}'";
+            return DBHelper.GetToList<ShippingInforModel>(sql);
+        }
     }
 }

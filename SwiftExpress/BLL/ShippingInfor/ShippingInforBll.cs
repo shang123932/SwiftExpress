@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ApiSDKClient;
 using ApiSDKClient.FApi.Request.ShippingInfor;
 using ApiSDKClient.FApi.Response.ShippingInfor;
 using ApiSDKClient.ShippingInfor;
@@ -61,6 +62,23 @@ namespace BLL
             return response;
         }
 
-        
+        public ShowShippingResponse ShowShipping(ShowShippingRequest request)
+        {
+            ShowShippingResponse response = new ShowShippingResponse();
+            var list = dal.ShowShipping(request.Sname);
+            if (list.Count < 0)
+            {
+                response.Status = false;
+                response.Message = "获取失败";
+            }
+            else
+            {
+                response.shiplist = list;
+                response.IsRegistSuccess = true;
+                response.Message = "获取成功";
+            }
+            return response;
+        }
+
     }
 }
