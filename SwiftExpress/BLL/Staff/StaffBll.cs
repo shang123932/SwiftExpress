@@ -117,7 +117,7 @@ namespace BLL.Staff
         public UpdateStaffPwdResponse UpdateStaffPwd(UpdateStaffPwdRequest request)
         {
             UpdateStaffPwdResponse response = new UpdateStaffPwdResponse();
-            var res = dal.UpdateStaffPwd(request.spwd,request.sid);
+            var res = dal.UpdateStaffPwd(request.spwd,request.sname);
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
@@ -127,6 +127,7 @@ namespace BLL.Staff
             {
                 response.Status = false;
                 response.Message = "密码修改失败";
+                return response;
 
             }
 

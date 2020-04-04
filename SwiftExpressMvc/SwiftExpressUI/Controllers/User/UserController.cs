@@ -51,6 +51,17 @@ namespace SwiftExpressUI
             return Json(b.UserLogin(request));
         }
         /// <summary>
+        /// 管理员登录
+        /// </summary>
+        /// <returns></returns>
+        /// 
+
+        [HttpPost]
+        public JsonResult AdminLogin(AdminLoginRequest request)
+        {
+            return Json(b.AdminLogin(request));
+        }
+        /// <summary>
         /// 登录页面验证码
         /// </summary>
         /// <returns></returns>

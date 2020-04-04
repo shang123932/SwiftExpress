@@ -10,6 +10,7 @@ using Common;
 using ApiSDKClient.FApi.Request.ShippingInfor;
 using ApiSDKClient.FApi.Response.ShippingInfor;
 using System.Security.Cryptography;
+using MODEL.Staff;
 
 namespace BLL
 {
@@ -18,7 +19,7 @@ namespace BLL
         UserDal d = new UserDal();
         DistributionDal dl = new DistributionDal();
         /// <summary>
-        /// 登录
+        /// 用户登录
         /// </summary>
         /// <param name="name"></param>
         /// <param name="dh"></param>
@@ -149,6 +150,47 @@ namespace BLL
             {
                 response.Status = false;
                 response.Message = "寄件失败";
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// 管理员登录
+        /// </summary>
+        /// <param name="userlogin"></param>
+        /// <returns></returns>
+        public AdminLoginResponse AdminLogin(AdminLoginRequest request)
+        {
+            AdminLoginResponse response = new AdminLoginResponse();
+            StaffModel smodel = new StaffModel()
+            {
+                 StaffName = request.AdminName,
+                 StaffPhone = request.AdminPhone,
+                  StaffPwd= request.AdminPwd
+            };
+            //if (request == null || request.AdminName == null)
+            //{
+            //    response.Status = false;
+            //    response.Message = "用户不能为空";
+            //    return response;
+            //}
+            //if (request == null || request.AdminPwd == null)
+            //{
+            //    response.Status = false;
+            //    response.Message = "密码不能为空";
+            //    return response;
+            //}
+            var res = d.Administrator(smodel);
+            if (!string.IsNullOrEmpty(res))
+            {
+                response.IsRegistSuccess = true;
+                response.Aname= res;
+                response.Message = "登录成功";
+            }
+            else
+            {
+                response.Status = false;
+                response.Message = "登录失败";
             }
             return response;
         }

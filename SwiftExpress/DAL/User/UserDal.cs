@@ -1,4 +1,5 @@
 ﻿using MODEL;
+using MODEL.Staff;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,11 @@ namespace DAL
         /// <param name="name"></param>
         /// <param name="dh"></param>
         /// <returns></returns>
-        public int Administrator(UserModel u)
+        public string Administrator(StaffModel s)
         {
-            string sql = $"select count(1) from UserInfo where UserPhone='{u.UserPhone}' and PassWord='{u.PassWord}' and UserStatus=1";
+            string sql = $"select staffname from Staff where StaffName='{s.StaffName}' or StaffPhone='{s.StaffPhone}' and StaffPwd='{s.StaffPwd}' and StaffStatus=1 and StaffDuty=3";
 
-            return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
+            return DBHelper.ExecuteScalar(sql).ToString();
         }
         /// <summary>
         /// 注册

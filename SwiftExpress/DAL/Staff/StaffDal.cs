@@ -33,9 +33,9 @@ namespace DAL.Staff
             return DBHelper.ExecuteNonQuery(sql);
         }
         //修改密码
-        public int UpdateStaffPwd(string spwd,int sid)
+        public int UpdateStaffPwd(string spwd,string sname)
         {
-            string sql = $"update Staff set StaffPwd='{spwd}' where  StaffId ={sid}";
+            string sql = $"update Staff set StaffPwd='{spwd}' where  StaffName ='{sname}'";
             return DBHelper.ExecuteNonQuery(sql);
         }
     }

@@ -22,6 +22,8 @@ namespace MODEL.Staff
         public DateTime UpdateTime	 { get; set; }
         public int CreaterId	 { get; set; }
         public int UpdaterId { get; set; }
+        
+        public string StaffPwd { get; set; }
 
     }
 }

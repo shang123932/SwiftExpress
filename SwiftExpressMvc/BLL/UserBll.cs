@@ -85,6 +85,15 @@ namespace BLL
 
         }
 
+        /// <summary>
+        /// 管理员登录
+        /// </summary>
+        /// <param name="userRegistered"></param>
+        /// <returns></returns>
+        public AdminLoginResponse AdminLogin(AdminLoginRequest loginRequest)
+        {
+            return ApiRequestHelper.Post<AdminLoginRequest, AdminLoginResponse>(loginRequest);
+        }
 
 
     }
