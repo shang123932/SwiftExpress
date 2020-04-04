@@ -24,7 +24,7 @@
             <label class="layui-form-label">快递单号</label>
             <div class="layui-input-inline">
 
-                <input id="danh" name="username" class="layui-input" type="text" placeholder="请输入快递单号" autocomplete="off" lay-verify="required">
+                <input id="danh" name="username" disabled="disabled" class="layui-input" type="text" placeholder="请输入快递单号" autocomplete="off" lay-verify="required">
             </div>
         </div>
 
@@ -94,7 +94,7 @@
         </div>
         <div class="layui-form-item">
             <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Regist1()">立即提交</button>
-            <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
+            <a class="layui-btn layui-btn-primary layui-btn-radius" href="javascript:history.back(-1)">取消</a>
         </div>
     </form>
     <script src="~/layui/layui.js"></script>
@@ -207,7 +207,7 @@
                     //请求成功
                     if (res.IsRegistSuccess) {
                         alert(res.Message);
-                        location.href = "/Shipp/ADDShippingInfor1";
+                        location.href = "/User/Index";
                     }
                     else {
                         alert(res.Message);

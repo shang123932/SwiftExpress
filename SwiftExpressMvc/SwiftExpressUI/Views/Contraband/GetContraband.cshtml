@@ -34,13 +34,14 @@
                     <input type="text" placeholder="请输入物品关键字" autocomplete="off" class="layui-input" id="wp" />
                 </div>
                 @*<div class="layui-inline">
-                        <select name="states" lay-filter="status">
-                            <option value="">请选择一个状态</option>
-                            <option value="010">显示</option>
-                            <option value="021">隐藏</option>
-                        </select>
-                    </div>*@
+            <select name="states" lay-filter="status">
+                <option value="">请选择一个状态</option>
+                <option value="010">显示</option>
+                <option value="021">隐藏</option>
+            </select>
+        </div>*@
                 <button class="layui-btn layui-btn-danger layui-btn-radius" onclick="Cx()">搜索</button>
+                <a class="layui-btn layui-btn-primary layui-btn-radius" href="javascript:history.back(-1)">取消</a>
             </div>
 
             <div class="layui-form" id="table-list">

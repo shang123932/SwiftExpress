@@ -10,7 +10,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>雨燕速递</title>
+    <title>雨燕速递(YUY)</title>
     <link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="../../static/admin/css/admin.css" />
 
@@ -18,8 +18,8 @@
 <body>
     <div class="main-layout" id='main-layout'>
         <!--侧边栏-->
-        <div class="main-layout-side" >
-            <div class="m-logo"  style="background-image: url('../../img/雨燕速递.jpg');background-color:white">
+        <div class="main-layout-side">
+            <div class="m-logo" style="background-image: url('../../img/雨燕速递.jpg');background-color:white">
 
             </div>
             <ul class="layui-nav layui-nav-tree" lay-filter="leftNav" style="margin-top:60px;">
@@ -31,35 +31,32 @@
                         <dd><a href="javascript:;" data-url="/Staff/ShowStaff" data-id='2' data-text="员工信息"><span class="l-line"></span>员工信息</a></dd>
                         <dd><a href="javascript:;" data-url="/Staff/AddStaff1" data-id='1' data-text="添加员工"><span class="l-line"></span>添加员工</a></dd>
                     </dl>
-            </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;"><i class="iconfont">&#xe608;</i>货物信息管理</a>
-                <dl class="layui-nav-child">
-                    @*改下自己的路径页面*@
-                    <dd><a href="javascript:;" data-url="/Cargo/cargoShow" data-id='3' data-text="货物管理"><span class="l-line"></span>货物管理</a></dd>
-                    <dd><a href="javascript:;" data-url="/Cargo/cargoAdd" data-id='4' data-text="添加货物"><span class="l-line"></span>添加货物</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;"><i class="iconfont">&#xe608;</i>仓库储信息</a>
-                <dl class="layui-nav-child">
-                    @*改下自己的路径页面*@
-                    <dd><a href="javascript:;" data-url="/Contraband/GetStorage" data-id='9' data-text="储物信息"><span class="l-line"></span>储物信息</a></dd>
-                    <dd><a href="javascript:;" data-url="/Contraband/AddStorage" data-id='5' data-text="添加储物"><span class="l-line"></span>添加储物</a></dd>
-                    <dd><a href="javascript:;" data-url="/WareHouse/wareHouseShow" data-id='6' data-text="云仓管理"><span class="l-line"></span>云仓管理</a></dd>
-                    <dd><a href="javascript:;" data-url="/Contraband/GetStorage" data-id='5' data-text="文章管理"><span class="l-line"></span>存储</a></dd>
-                    <dd><a href="javascript:;" data-url="danye-list.html" data-id='9' data-text="单页管理"><span class="l-line"></span>单页管理</a></dd>
-                    <dd><a href="javascript:;" data-url="/WareHouse/wareHouseShow" data-id='6' data-text="云仓管理"><span class="l-line"></span>仓库管理</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;"><i class="iconfont">&#xe608;</i>配送信息管理</a>
-                <dl class="layui-nav-child">
-                    @*改下自己的路径页面*@
-                <dd><a href="javascript:;" data-url="/User/GetDistribution11" data-id='7' data-text="配送信息"><span class="l-line"></span>配送信息</a></dd>
-                <dd><a href="javascript:;" data-url="/User/AddDistribution1" data-id='8' data-text="添加配送信息"><span class="l-line"></span>添加配送信息</a></dd>
-            </dl>
-            </li>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="iconfont">&#xe608;</i>货物信息管理</a>
+                    <dl class="layui-nav-child">
+                        @*改下自己的路径页面*@
+                        <dd><a href="javascript:;" data-url="/Cargo/cargoShow" data-id='3' data-text="货物管理"><span class="l-line"></span>货物管理</a></dd>
+                        <dd><a href="javascript:;" data-url="/Cargo/cargoAdd" data-id='4' data-text="添加货物"><span class="l-line"></span>添加货物</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="iconfont">&#xe608;</i>仓库储信息</a>
+                    <dl class="layui-nav-child">
+                        @*改下自己的路径页面*@
+                        <dd><a href="javascript:;" data-url="/Contraband/GetStorage" data-id='9' data-text="储物信息"><span class="l-line"></span>储物信息</a></dd>
+                        <dd><a href="javascript:;" data-url="/Contraband/AddStorage" data-id='5' data-text="添加储物"><span class="l-line"></span>添加储物</a></dd>
+                        <dd><a href="javascript:;" data-url="/WareHouse/wareHouseShow" data-id='6' data-text="云仓管理"><span class="l-line"></span>云仓管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="iconfont">&#xe608;</i>配送信息管理</a>
+                    <dl class="layui-nav-child">
+                        @*改下自己的路径页面*@
+                        <dd><a href="javascript:;" data-url="/User/GetDistribution11" data-id='7' data-text="配送信息"><span class="l-line"></span>配送信息</a></dd>
+                        <dd><a href="javascript:;" data-url="/User/AddDistribution1" data-id='8' data-text="添加配送信息"><span class="l-line"></span>添加配送信息</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
         <!--右侧内容-->
@@ -73,7 +70,7 @@
                 </div>
                 <ul class="layui-nav" lay-filter="rightNav">
                     <li class="layui-nav-item">
-                        <a href="javascript:;" data-url="/Staff/UpdateStaffPwd?name=@Request["name"]" data-id='5' data-text="个人信息">当前登录人为：@Request["name"]</a>
+                        <a href="javascript:;" data-url="" onclick="xiu()" data-id='5' data-text="个人信息">当前登录人为:<input style="width:50px;height:40px; border:#FFFFFF" id="aa1" type="text" /></a>
                     </li>
                     <li class="layui-nav-item"><a href="/User/Index">退出</a></li>
                 </ul>
@@ -94,7 +91,7 @@
 
                             <img src="~/img/IMG20190905_170942.jpg" />
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -116,7 +113,10 @@
 
 </body>
 </html>
-
+<script src="~/Scripts/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
     $().ready(function () {
         $.ajax({
@@ -124,8 +124,13 @@
             type: "POST",
             dataType: "json",
             success: function (res) {
-                $("#aa").val(res.name1);
+                $("#aa1").val(res.name1);
             }
         })
     })
+    function xiu() {
+        var ss = $("#aa1").val();
+        location.href = "/Staff/UpdateStaffPwd?name="+ss;
+
+    }
 </script>
