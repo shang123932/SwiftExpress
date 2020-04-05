@@ -20,8 +20,8 @@
     <div class="layui-form-item" style="float:right">
         <input id="Dh" type="text" />
         <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="ShipSearch()">查询</button>
-        <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
-        <input id="Hidden1" type="hidden" value="@Request["sname"]"/>
+        <a class="layui-btn layui-btn-primary layui-btn-radius" href="javascript:history.back(-1)">取消</a>
+        <input id="Hidden1" type="hidden" value="@Request["sname"]" />
     </div>
     <table class="layui-table" lay-skin="line">
        
@@ -65,7 +65,7 @@
                         + "<td>" + this.ShippingOrder + "</td>"
                         + "<td>" + this.ShippingName + "</td>"
                         + "<td>" + this.ShippingPhone + "</td>"
-                        + "<td>" + this.ShippingAddres + "</td>"
+                        + "<td>" + this.ShippingAddress + "</td>"
                         + "<td>" + this.ReceiveName + "</td>"
                         + "<td>" + this.ReceivePhone + "</td>"
                         + "<td>" + this.ReceiveAddress + "</td>"

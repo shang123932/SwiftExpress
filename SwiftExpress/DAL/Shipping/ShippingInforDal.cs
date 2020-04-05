@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,37 @@ namespace DAL
 
         public List<ShippingInforModel> ShowShipping(string name)
         {
+        
+            SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=SwiftExpress;Integrated Security=True");
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+            var table = new List<ShippingInforModel>();
             string sql = $"select * from ShippingInfo where ShippingName='{name}'";
-            return DBHelper.GetToList<ShippingInforModel>(sql);
+            SqlCommand comm = new SqlCommand(sql, connection);
+            var res = comm.ExecuteReader();
+            while (res.Read())
+            {
+                ShippingInforModel shipping = new ShippingInforModel()
+                {
+                    ShippingOrder = Convert.ToString(res["ShippingOrder"]),
+                    ShippingName = Convert.ToString(res["ShippingName"]),
+                    ShippingPhone = Convert.ToString(res["ShippingPhone"]),
+                     ShippingAddress = Convert.ToString(res["ShippingAddress"]),
+                    ReceiveName = Convert.ToString(res["ReceiveName"]),
+                    ReceivePhone =Convert.ToString( res["ReceivePhone"]),
+                    ReceiveAddress = Convert.ToString(res["ReceiveAddress"]),
+                };
+                table.Add(shipping);
+            }
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+            }
+
+
+            return table;
         }
     }
 }
