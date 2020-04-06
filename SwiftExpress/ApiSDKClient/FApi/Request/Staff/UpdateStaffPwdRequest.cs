@@ -13,9 +13,9 @@ namespace ApiSDKClient.FApi.Request.Staff
         /// </summary>
         public string spwd { get; set; }
         /// <summary>
-        /// 员工id
+        /// 员工姓名
         /// </summary>
-        public int sid { get; set; }
+        public string sname { get; set; }
 
         public override string GetApiName()
         {

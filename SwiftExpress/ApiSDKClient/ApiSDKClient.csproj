@@ -70,11 +70,13 @@
     <Compile Include="FApi\Request\Distribution\GetOneDistributionRequest.cs" />
     <Compile Include="FApi\Request\Distribution\UpdateDistributionRequest.cs" />
     <Compile Include="FApi\Request\ShippingInfor\ADDShippingInforRequest.cs" />
+    <Compile Include="FApi\Request\ShippingInfor\ShowShippingRequest.cs" />
     <Compile Include="FApi\Request\Staff\ADDStaffRequest.cs" />
     <Compile Include="FApi\Request\Staff\DelStaffRequest.cs" />
     <Compile Include="FApi\Request\Staff\GetStaffRequest.cs" />
     <Compile Include="FApi\Request\Staff\UpdateStaffPwdRequest.cs" />
     <Compile Include="FApi\Request\Staff\UpdateStaffRequest.cs" />
+    <Compile Include="FApi\Request\User\AdminLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserRegisteredRequest.cs" />
     <Compile Include="FApi\Request\WareHouse\WareHouseAddRequest.cs" />
@@ -110,11 +112,13 @@
     <Compile Include="FApi\Response\Distribution\UpdateDistributionResponse.cs" />
     <Compile Include="FApi\Response\ShippingInfor\ADDShippingInforResonse.cs" />
     <Compile Include="FApi\Response\ShippingInfor\GetShippingInforResonse.cs" />
+    <Compile Include="FApi\Response\ShippingInfor\ShowShippingResponse.cs" />
     <Compile Include="FApi\Response\Staff\ADDStaffResponse.cs" />
     <Compile Include="FApi\Response\Staff\DelStaffResponse.cs" />
     <Compile Include="FApi\Response\Staff\GetStaffResponse.cs" />
     <Compile Include="FApi\Response\Staff\UpdateStaffPwdResponse.cs" />
     <Compile Include="FApi\Response\Staff\UpdateStaffResponse.cs" />
+    <Compile Include="FApi\Response\User\AdminLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserRegisteredResponse.cs" />
     <Compile Include="FApi\Response\WareHouse\WareHouseAddResponse.cs" />

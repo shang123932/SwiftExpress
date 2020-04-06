@@ -57,7 +57,7 @@
                     <div class="layui-tab" style="color:white">
                         <ul class="layui-tab-title">
                             <li class="layui-this">快递单号</li>
-                            <li>手机号</li>
+                    
                         </ul>
                         <div class="layui-tab-content">
                             <div class="layui-tab-item layui-show">
@@ -68,21 +68,14 @@
                                     <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius" onclick="Cx()">查询</button>
                                 </div>
                             </div>
-                            <div class="layui-tab-item">
-                                <div>
-                                    <input type="text" name="username" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
-                                </div>
-                                <div style="float:right;margin-top:5px;">
-                                    <button type="button" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">查询</button>
-                                </div>
-                            </div>
+                         
                         </div>
                     </div>
                 </div>
 
         </div>
         <div style="height:150px;width:1200px;background-color:#FF5511; float:left;border-radius:8px;">
-            <div style="height:50px;width:200px; background-color:#C63300; float:left; text-align:center;line-height:50px;margin:50px 35px 50px 100px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/Shipp/ADDShippingInfor" style="color:white">在线寄件</a></div>
+            <div style="height:50px;width:200px; background-color:#C63300; float:left; text-align:center;line-height:50px;margin:50px 35px 50px 100px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/Shipp/ADDShippingInfor1" style="color:white">在线寄件</a></div>
             <div style="height:50px;width:200px;background-color:#C63300;  float:left; text-align:center;line-height:50px;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/Contraband/GetContraband" style="color:white">违禁品查询</a></div>
             <div style="height:50px;width:200px; background-color:#C63300;  float:left; text-align:center;line-height:50px ;margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/Area/Freight" style="color:white">自助查询</a></div>
             <div style="height:50px;width:200px; background-color:#C63300;  float:left; text-align:center;line-height:50px; margin:50px 35px;font-family:KaiTi;font-size:24px;font-weight:bold"><a href="/User/UserLogin" style="color:white">加盟云仓</a></div>
@@ -221,6 +214,7 @@
         var Dh = $("#Dh").val();
         location.href = "/Contraband/GetShippingInfor/" + Dh;
     }
+
 
 
 </script>

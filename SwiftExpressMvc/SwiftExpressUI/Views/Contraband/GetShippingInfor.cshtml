@@ -8,35 +8,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>雨燕速递(YUY)</title>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>网站后台管理模版</title>
+    <title>雨燕速递(YUY)</title>
     <link rel="stylesheet" type="text/css" href="~/static/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="~/static/admin/css/admin.css" />
 
 </head>
 
 <body>
+  
     <div>
         <input id="dh" value="@ViewBag.id" type="hidden" />
         <div class="page-content-wrap">
-            
+
             <div class="layui-form" id="table-list">
+                <a class="layui-btn layui-btn-primary layui-btn-radius" style="float:right" href="javascript:history.back(-1)">取消</a>
+                <input id="Text1" type="hidden"  />
                 <table class="layui-table" lay-skin="line">
-                    <colgroup>
-                        <col width="50">
-                        <col class="hidden-xs" width="50">
-                        <col class="hidden-xs" width="100">
-                        <col class="hidden-xs" width="100">
-                        <col>
-                        <col width="80">
-                        <col width="130">
-                    </colgroup>
+                   
                     <thead>
                         <tr>
+
                             <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
                             <th class="hidden-xs">快递单号</th>
                             <th class="hidden-xs">寄件姓名</th>
@@ -49,11 +45,10 @@
                             <th class="hidden-xs">货物类型</th>
                             <th class="hidden-xs">货物重量</th>
                             <th class="hidden-xs">货物状态</th>
+
                         </tr>
                     </thead>
-                    <tbody id="tb">
-                       
-                    </tbody>
+                    <tbody id="tb"></tbody>
                 </table>
             </div>
         </div>
@@ -104,9 +99,19 @@
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <script>
-
+       $().ready(function () {
+        $.ajax({
+            url: "/User/Cookieqest",
+            type: "POST",
+            dataType: "json",
+            success: function (res) {
+                $("#Text1").val(res.name1);
+            }
+        })
+    })
     $().ready(function () {
         var db = $("#dh").val();
+        var hi = $("#Text1").val(); 
         $.ajax({
             url: "/Contraband/GetShippingInfors",
             type: "Post",
@@ -130,7 +135,6 @@
                         + "<td class='hidden-xs'>" + this.CargoType + "</td>"
                         + "<td class='hidden-xs'>" + this.CargoWeight + "</td>"
                         + "<td class='hidden-xs'>" + this.CargoState + "</td>"
-                        + "<td class='hidden-xs'><div class='layui-inline'><button class='layui-btn layui-btn-mini layui-btn-normal  edit-btn' data-id='1' data-url='menu-add.html' onclick='Xg(" + this.StorageId + ")'><i class='layui-icon'>&#xe642;</i></button><button class='layui-btn layui-btn-mini layui-btn-danger del-btn' data-id='1'  onclick='Sc(" + this.StorageId + ")'><i class='layui-icon'>&#xe640;</i></button></div></td>"
                         + "</tr>";
                 });
                 $("#tb").append(tb);

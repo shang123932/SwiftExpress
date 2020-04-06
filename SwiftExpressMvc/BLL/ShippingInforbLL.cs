@@ -1,4 +1,5 @@
-﻿using ApiSDKClient.FApi.Request.ShippingInfor;
+﻿using ApiSDKClient;
+using ApiSDKClient.FApi.Request.ShippingInfor;
 using ApiSDKClient.FApi.Response.ShippingInfor;
 using ApiSDKClient.ShippingInfor;
 using System;
@@ -19,6 +20,9 @@ namespace BLL
         {
             return ApiRequestHelper.Post<ShippingInforRequest, GetShippingInforResonse>(getRequest);
         }
-
+        public ShowShippingResponse ShowShippingInfo(ShowShippingRequest getRequest)
+        {
+            return ApiRequestHelper.Post<ShowShippingRequest, ShowShippingResponse>(getRequest);
+        }
     }
 }

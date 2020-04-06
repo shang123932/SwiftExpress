@@ -91,7 +91,7 @@ namespace DAL
                 connection.Open();
             }
             var table = new ShippingInfors();
-            string sql = $"select * from ShippingInfor  s join Cargo c on s.ShippingOrder=c.ShippingOrder where s.ShippingOrder='{name}'";
+            string sql = $"select * from ShippingInfo  s join Cargo c on s.ShippingOrder=c.ShippingOrder where s.ShippingOrder='{name}'";
             SqlCommand comm = new SqlCommand(sql,connection);
             var res = comm.ExecuteReader();
             while (res.Read())
