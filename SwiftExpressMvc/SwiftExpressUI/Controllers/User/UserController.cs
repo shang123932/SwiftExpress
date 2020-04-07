@@ -11,7 +11,6 @@ namespace SwiftExpressUI
     public class UserController : Controller
     {
         UserBll b = new UserBll();
-        LogHelper log = new LogHelper();
 
 
         // GET: User
@@ -40,7 +39,6 @@ namespace SwiftExpressUI
         /// <returns></returns>
         public ActionResult UserLogin()
         {
-            log.WriteLog("用户", "用户登录");
             return View();
         }
         /// <summary>
