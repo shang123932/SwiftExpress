@@ -19,7 +19,11 @@ namespace DAL
             return DBHelper.GetToList<ShippingInforModel>(sql);
         }
 
-
+      /// <summary>
+      /// 显示寄件
+      /// </summary>
+      /// <param name="name"></param>
+      /// <returns></returns>
         public List<ShippingInforModel> ShowShipping(string name)
         {
             string sql = $"select * from ShippingInfo where ShippingName='{name}'";
