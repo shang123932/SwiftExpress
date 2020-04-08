@@ -36,4 +36,3 @@ using System.Runtime.InteropServices;
 
 //开关日志记录的操作
 //Watch= true是必须的，否则程序就不会对这个进行监听
-[assembly: log4net.Config.XmlConfigurator(Watch = true)]

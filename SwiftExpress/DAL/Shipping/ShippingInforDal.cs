@@ -24,7 +24,7 @@ namespace DAL
       /// 显示寄件
       /// </summary>
       /// <param name="name"></param>
-      /// <returns></returns>
+      /// <returns></returns>  
         public List<ShippingInforModel> ShowShipping(string name)
         {
         
