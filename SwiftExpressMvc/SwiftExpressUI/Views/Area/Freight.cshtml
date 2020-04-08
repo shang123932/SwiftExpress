@@ -14,7 +14,9 @@
     <div style="float:left;margin-left:-200px;height:222px;width:281px;margin-top:30px;">
         <img src="~/img/运费查询.png" />
     </div>
+
     <div style="margin-left:130px;float:left;margin-top:-220px;">
+
 
         <div style="width:1000px;height:500px; border:1px solid  #808080;line-height:40px;">
             <div style="margin-top:20px;margin-left:40px;">
@@ -30,11 +32,12 @@
                         <select id="quiz1" onchange="Q1()">
                             <option value="0">请选择省</option>
                         </select>
+                        <input id="Hidpro1" type="hidden" />
+
                     </div>
                     <div class="layui-input-inline">
                         <select id="quiz2" onchange="F1()">
-                            <option value="0">请选择市</option>
-
+                            <option value="0" name="">请选择市</option>
                         </select>
                     </div>
                     <input id="Hid1" type="hidden" />
@@ -47,13 +50,12 @@
                     <div class="layui-input-inline">
                         <select id="quiz3" onchange="Q2()">
                             <option value="0">请选择省</option>
-
                         </select>
+                        <input id="Hidpro2" type="hidden" />
                     </div>
                     <div class="layui-input-inline">
                         <select id="quiz4" onchange="F2()">
                             <option value="0">请选择市</option>
-
                         </select>
                     </div>
                     <input id="Hid2" type="hidden" />
@@ -75,11 +77,16 @@
                 <div style="        margin-top: 20px;
         float: right;
         margin-right: 40px;">
+                    <button class='layui-btn layui-btn-danger' style="float:right" type='button' onclick="ToShipping()">前往寄件>></button>
+
+                    <a class="layui-btn layui-btn-primary" href="javascript:history.back(-1)">返回上层>></a>
+
                 </div>
+
             </div>
 
         </div>
-        <div style="background-color:yellow; width:1000px;height:200px; border:1px solid  #808080;line-height:40px;margin-top:30px;" id="divshow">
+        <div style="width:500px;height:200px;line-height:40px;margin-top:30px;margin-left:250px;" id="divshow">
 
         </div>
     </div>
@@ -439,10 +446,11 @@
             success: function (res) {
                 var ops = "";
                 $(res.arealist).each(function () {
-                    var op = "<option value='" + this.SId + "'>" + this.SName + "</option>";
+                    var op = "<option value='" + this.SId + "' name='" + this.SName + "'>" + this.SName + "</option>";
                     ops += op;
                 })
                 $("#quiz1").append(ops);
+                $("#Hidpro1").val($("[name='SName']").val());
             }
         })
         //获取目的地的省份
@@ -453,10 +461,11 @@
             success: function (res) {
                 var ops = "";
                 $(res.arealist).each(function () {
-                    var op = "<option value='" + this.SId + "'>" + this.SName + "</option>";
+                    var op = "<option value='" + this.SId + "' name='" + this.SName + "'>" + this.SName + "</option>";
                     ops += op;
                 })
                 $("#quiz3").append(ops);
+                $("#Hidpro2").val($("[name='SName']").val());
             }
         })
     })
@@ -481,6 +490,8 @@
                 $("#quiz2").append(ops);
             }
         })
+        var Pro1 = $("#quiz1").find("option:selected").text()
+        $("#Hidpro1").val(Pro1);
     }
 
     //获取目的地的市区
@@ -497,12 +508,14 @@
             success: function (res) {
                 var ops = "";
                 $(res.Alist).each(function () {
-                    var op = "<option value='" + this.SId + "'>" + this.SName + "</option>";
+                    var op = "<option value='" + this.SId + "' name='" + this.SName + "'>" + this.SName + "</option>";
                     ops += op;
                 })
                 $("#quiz4").append(ops);
             }
         })
+        var Pro2 = $("#quiz3").find("option:selected").text()
+        $("#Hidpro2").val(Pro2);
     }
 
     //获取原寄地did
@@ -566,10 +579,8 @@
         }
         return Dates.getFullYear() + "-" + mon + "-" + day;
     }
-    //显示费用
-
+    //费用的显示
     function FreightShow() {
-        debugger;
         var f1 = $("#Hid1").val();
         var f2 = $("#Hid2").val();
         var weight = $("#cweight").val();  //快递重量
@@ -578,42 +589,42 @@
         var tb = "";
 
         var dvalue = 0;//dvalue 差值
-        var fare = 0;  //fare 运费
+        var sfare = 0;  //fare 运费
         if ((f1 - f2) > 0) {   //原寄地为附近区域
             dvalue = f1 - f2;//获取差值
             if (dvalue == 1) {//江浙沪费用
                 if (weight == 1) {//获取首重8
-                    fare = 1 * 8;
+                    sfare = 1 * 8;
                 }
                 if (weight > 1) {
-                    fare = (weight - 1) * 1.5 + 8;//续重1.5
+                    sfare = (weight - 1) * 1.5 + 8;//续重1.5
                 }
-                sendday = AddDate(senddate, 1);
+                sday = AddDate(senddate, 1);
 
-                tb = "<table><tr>"
+                tb = "<table class='table' style='color:white; background-color:#FF8800'><tr>"
                     + "<td>预计到达时间</td>"
                     + "<td>预计费用</td>"
                     + " </tr><tr>"
-                    + "<td>" + this.sendday + "</td>"
-                    + "<td>" + this.fare + "</td>"
+                    + "<td>" + sday + "</td>"
+                    + "<td>" + sfare + "</td>"
                     + "</tr></table>";
 
                 $("#divshow").html(tb);
             }
             if (dvalue == 2 || dvalue == 3) { //其他城市
                 if (weight == 1) {//获取首重8
-                    fare = 1 * 15;
+                    sfare = 1 * 15;
                 }
                 if (weight > 1) {
-                    fare = (weight - 1) * 12 * dvalue + 15;//续重12
+                    sfare = (weight - 1) * 12 * dvalue + 15;//续重12
                 }
-                sendday = AddDate(senddate, dvalue + 1);
-                tb = "<table><tr>"
+                sday = AddDate(senddate, dvalue + 1);
+                tb = "<table class='table'style='color:white; background-color:#FF8800'><tr>"
                     + "<td>预计到达时间</td>"
                     + "<td>预计费用</td>"
                     + " </tr><tr>"
-                    + "<td>" + this.sendday + "</td>"
-                    + "<td>" + this.fare + "</td>"
+                    + "<td>" + sday + "</td>"
+                    + "<td>" + sfare + "</td>"
                     + "</tr></table>";
 
                 $("#divshow").html(tb);
@@ -624,63 +635,75 @@
             dvalue = f2 - f1;
             if (dvalue == 1) {//江浙沪费用
                 if (weight == 1) {//获取首重8
-                    fare = 1 * 8;
+                    sfare = 1 * 8;
 
                 }
                 if (weight > 1) {
-                    fare = (weight - 1) * 1.5 + 8;//续重1.5
+                    sfare = (weight - 1) * 1.5 + 8;//续重1.5
                 }
 
-                sendday = AddDate(senddate, 1);
+                sday = AddDate(senddate, 1);
 
-                tb = "<table><tr>"
+                tb = "<table class='table'style='color:white; background-color:#FF8800'><tr>"
                     + "<td>预计到达时间</td>"
                     + "<td>预计费用</td>"
                     + " </tr><tr>"
-                    + "<td>" + this.sendday + "</td>"
-                    + "<td>" + this.fare + "</td>"
+                    + "<td>" + sday + "</td>"
+                    + "<td>" + sfare + "</td>"
                     + "</tr></table>";
 
                 $("#divshow").html(tb);
             }
             if (dvalue == 2 || dvalue == 3) { //其他城市
                 if (weight == 1) {//获取首重8
-                    fare = 1 * 15;
+                    sfare = 1 * 15;
                 }
                 if (weight > 1) {
-                    fare = (weight - 1) * 12 * dvalue + 15;//续重12
+                    sfare = (weight - 1) * 12 * dvalue + 15;//续重12
                 }
                 sendday = AddDate(senddate, dvalue + 1);
-                tb = "<table><tr>"
+                tb = "<table class='table'style='color:white; background-color:#FF8800'><tr>"
                     + "<td>预计到达时间</td>"
                     + "<td>预计费用</td>"
                     + " </tr><tr>"
-                    + "<td>" + this.sendday + "</td>"
-                    + "<td>" + this.fare + "</td>"
+                    + "<td>" + sday + "</td>"
+                    + "<td>" + sfare + "</td>"
                     + "</tr></table>";
 
                 $("#divshow").html(tb);
             }
         }
         else if ((f2 - f1) == 0) {
-            fare = 8;
-            sendday = senddate;
+            sfare = 8;
+            sday = senddate;
 
-            tb = "<table><tr>"
+            tb = "<table class='table'style='color:white; background-color:#FF8800'><tr>"
                 + "<td>预计到达时间</td>"
                 + "<td>预计费用</td>"
                 + " </tr><tr>"
                 + "<td>" + sday + "</td>"
-                + "<td>" + fare + "</td>"
+                + "<td>" + sfare + "</td>"
                 + "</tr></table>";
 
             $("#divshow").html(tb);
         }
 
 
-
-
-
     }
 
+
+    function ToShipping() {
+        debugger;
+        var city1 = $("#quiz2").find("option:selected").text()
+
+        var city2 = $("#quiz4").find("option:selected").text()
+
+        var Originalplace = $("#Hidpro1").val() + city1;//原寄地
+        var Destination = $("#Hidpro2").val() + city2;//目的地
+        sessionStorage["Ori"] = Originalplace;
+        sessionStorage["Des"] = Destination;
+        //ApplicationCache["Ori"] = Originalplace;
+        //ApplicationCache["Des"] = Destination;
+        location.href = "/Shipp/ADDShippingInfor1";
+    }
 </script>

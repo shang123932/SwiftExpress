@@ -17,70 +17,71 @@
 </head>
 <body>
     <div class="wrap-container">
-        <input value="@ViewBag.Id" id="UpdateId" type="hidden" />
-        <div class="layui-form-item">
-            <label class="layui-form-label">货物id：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物id" autocomplete="off" class="layui-input">
+        <form class="layui-form layui-form-pane" action="">
+            <input value="@ViewBag.Id" id="UpdateId" type="hidden" />
+            <div class="layui-form-item">
+                <label class="layui-form-label">货物id：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物id" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">仓库id：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库id" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">员工id：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工id" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">入库时间：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">入库数量：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">出库时间：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">出库数量：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">备注</label>
+                <div class="layui-input-inline">
+                    <input id="bz" class="layui-input" type="text" placeholder="" autocomplete="off" lay-verify="required">
+                </div>
             </div>
 
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">仓库id：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库id" autocomplete="off" class="layui-input">
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-danger" onclick="Add()">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
             </div>
-
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">员工id：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工id" autocomplete="off" class="layui-input">
-            </div>
-
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">入库时间：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" class="layui-input">
-            </div>
-
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">入库数量：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
-            </div>
-
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">出库时间：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
-            </div>
-
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">出库数量：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
-            </div>
-
-        </div>
-        <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">备注</label>
-            <div class="layui-input-block">
-                <textarea name="desc" id="bz" placeholder="请输入备注" class="layui-textarea"></textarea>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn layui-btn-normal" onclick="Add()">立即提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            </div>
-        </div>
-
+        </form>
     </div>
 </body>
 </html>
@@ -122,7 +123,7 @@
         var bz = $("#bz").val();
 
         var aaa = {
-            StorageId:$("#UpdateId").val(),
+            StorageId: $("#UpdateId").val(),
             CargoId: hw,
             WareHouseId: ck,
             StaffId: yg,
