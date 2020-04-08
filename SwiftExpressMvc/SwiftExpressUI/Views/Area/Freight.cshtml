@@ -11,11 +11,11 @@
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-   <div style="float:left;margin-left:-200px;height:222px;width:281px;margin-top:30px;">
-    <img src="~/img/运费查询.png" />
-</div>
-    <div style="margin-left:130px;float:left;margin-top:-220px;" >
-        
+    <div style="float:left;margin-left:-200px;height:222px;width:281px;margin-top:30px;">
+        <img src="~/img/运费查询.png" />
+    </div>
+    <div style="margin-left:130px;float:left;margin-top:-220px;">
+
         <div style="width:1000px;height:500px; border:1px solid  #808080;line-height:40px;">
             <div style="margin-top:20px;margin-left:40px;">
                 <h3 style="color:#FF5511">运费时效查询</h3>
@@ -29,7 +29,6 @@
                     <div class="layui-input-inline">
                         <select id="quiz1" onchange="Q1()">
                             <option value="0">请选择省</option>
-
                         </select>
                     </div>
                     <div class="layui-input-inline">
@@ -38,7 +37,7 @@
 
                         </select>
                     </div>
-                    <input id="Hid1" type="hidden"  />
+                    <input id="Hid1" type="hidden" />
 
                 </div>
                 <div class="layui-form-item">
@@ -63,105 +62,29 @@
 
             <div style="margin-top:20px;margin-left:80px;">
                 <div>
-                    <span>物品重量：</span>
-                    <input id="cweight" type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-                </div>
-                <div>
                     <div class="layui-input-inline">
                         <span>寄出时间：</span>
                         <input type="text" class="layui-input" id="test30" placeholder="yyyy-MM-dd">
                     </div>
                 </div>
+                <div>
+                    <span>物品重量：</span>
+                    <input id="cweight" type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" onchange="FreightShow()">
+                </div>
+
                 <div style="        margin-top: 20px;
         float: right;
         margin-right: 40px;">
-                    <button type="button" class="layui-btn layui-btn-danger layui-btn-radius" onclick="Fre()">查询</button>
-                    <a class="layui-btn layui-btn-primary layui-btn-radius" href="javascript:history.back(-1)">取消</a>
                 </div>
             </div>
 
         </div>
-        <div style="font-size:medium;width:900px;margin-top:50px;line-height:40px;">
-            <br>
-            <h4 style="font-weight: bold;">一、运费计算基于以下计费规则：</h4>
-            <br>
-            <h5 style="font-weight:bold;">1.  体积重量计算方法</h5>
+        <div style="background-color:yellow; width:1000px;height:200px; border:1px solid  #808080;line-height:40px;margin-top:30px;" id="divshow">
 
-            托寄物的计费重量取体积重量与实际重量两者之间的较大值，体积重量的计算方法为：
-
-            <br>【顺丰即日/次晨/标快】
-
-            <br>同城、省内件以及经济区域内互寄，体积重量=长(CM)×宽(CM)×高(CM)÷12000；
-
-            <br>省外跨经济区域互寄，体积重量=长(CM)×宽(CM)×高(CM)÷6000；(经济区域包含：京津冀区域，江浙沪皖区域,，川渝区域，黑吉辽区域)
-
-            <br>【顺丰标快（陆运）】 体积重量=长(CM)×宽(CM)×高(CM)÷12000；
-
-            <br>【重货包裹/小票零担/冷运速配/冷运特惠】 体积重量=长(CM)×宽(CM)×高(CM)÷6000；
-
-            <br>【冷运零担】 体积重量=长(CM)×宽(CM)×高(CM)÷3000；
-
-            <br>【港澳台（服务）】 体积重量=长(CM)×宽(CM)×高(CM)÷6000
-
-            <br>【国际快递（服务）】体积重量=长(CM)×宽(CM)×高(CM) ÷5000
-
-            <br>其他产品计算方法请致电95338或咨询当地收派员。
-            <br>
-            <br>
-            <h5 style="font-weight:bold;"> 2. 计费重量小数点进位处理方式</h5>
-            【中国内地互寄业务】100KG以下，续重以0.5KG为计重单位，不足0.5kg，按0.5kg计；100KG及以上，四舍五入取整数。
-
-            <br>【港澳本地业务】续重以0.5KG为计重单位，不足0.5kg，按0.5kg计。
-
-            <br>【中国内地始发至港澳台业务】100KG以下, 续重以0.5KG为计重单位，不足0.5kg，按0.5kg计；100KG及以上，以1KG为计重单位，小数点后尾数大于零的，向上进位至下一个1KG。
-
-            <br>【中国内地始发至海外国家及地区业务】20KG以下, 续重以0.5KG为计重单位，不足0.5kg，按0.5kg计；20KG及以上，以1KG为计重单位，小数点后尾数大于零的，向上进位至下一个1KG。
-            <br>
-            <br>
-            <h5 style="font-weight:bold;">3. 运费计算结果处理方式</h5>
-
-            - 运费计算结果按四舍五入取整数值；
-
-            <br>- 不同产品起始重量各有差异，不足起重的快件将按起重计费并显示。
-
-            <br>以上计费规则可能因服务（产品）或所在地区不同而有所差异，详情致电95338或与当地收派员进行咨询。
-            <br>
-            <br>
-            <h4 style="font-weight:bold;">温馨提示：</h4>
-            <br>
-            <h5 style="font-weight:bold;">一、时效标准</h5>
-
-            <span>1、预计时效因节假日、天气、交通管控、资源等原因不同日期时间查询会有所差异，具体以系统实时返回为准。</span>
-            <br>
-            <br>
-            <h5 style="font-weight:bold;">二、始发地或目的地任一方为港澳台地区：</h5>
-
-            1、此价格供参考。更多收费和服务详情，详情请致电中国内地客户服务热线 95338。
-
-            <br>2、中国台湾地区寄往中国内地的特殊包裹品项及价格请按此查询，参考时效在顺丰标快产品基础上加时3-5天；。
-
-            <br> 3、对于约定由收件人或第三方付费（含运费及增值服务费）的快件，在快件签收之前，可提出对费用付款方式变更为寄方付。对于需要更改付款方式的快件，寄件人除需要支付运费外，每票需另外支付更改付款方式服务费。详见具体收费标准。
-
-            <br> 4、如收派件地址为香港地区偏远地区，收派件时效需加1个工作日。
-
-            <br>5、中国台湾地区部分地区收派时效需加0.5-1工作日，可按此查阅详情。
-
-            <br>6、以上由中国香港、中国澳门及中国台湾地区寄件至中国内地，以及中国港澳台地区之间互寄,运费已包含燃油附加费。燃油附加费说明请按此了解。
-            <br>
-            <br>
-            <h5 style="font-weight:bold;">三、始发地或目的地任一方为海外国家:</h5>
-
-            1、以上查询的流向价格与时效仅供参考。具体服务及收费详情，请致电国际业务客服专线9533883.
-
-            <br>2、以上查询的流向运费已包含燃油附加费（请按此了解更多燃油附加费的资料），但未包含清关税费、偏远地区附加费、住宅派送附加费、特殊处理费等可能产生的其他费用。
-
-            <br>3、时效标准天数是指工作日，不包含收件日，不包括周末和节假日。具体派送时效以目的地邮编为准。如遇偏远地区或郊区、航班延误、清关异常等情形，时效会额外增加。时效为参考时效，非承诺时效。
-
-            <br>4、在清关资料齐全且不存在自扣与海关扣等风险或异常的情况，以下情况需在参考时效的基础上增加时长：中国内地、港澳台进口的个人物品和正式报关货件增加1-2个工作日，中国内地进口的分运行李货件增加2-4个工作日，中国内地、港澳台出口的正式报关货件增加1个工作日，海外国家进口的正式报关货件增加2-3个工作日。
-
-            <br>5、为降低因收发件人信息、申报品名不完整或错误及申报价值不符等原因导致的清关风险；收发件人信息必须真实有效，托寄物品名需写明材质和用途，托寄物价值必须如实申报。如因以上原因造成的查验延误，及产生的相关所有费用将与相关税费一起向寄件人或者收件人收取。
         </div>
     </div>
+
+
 
 </body>
 <script src="~/layui/layui.js"></script>
@@ -625,14 +548,34 @@
             }
         })
     }
-
-
     //运费及到达时间的计算
     function Fre() {
+
+    }
+    //日期加减
+    function AddDate(date, addDays) { //date传入你需要的日期，格式"xxxx-xx-xx"。addDays传要加减的日期数，往前传正数，往后传负数
+        var Dates = new Date(date);
+        Dates.setDate(Dates.getDate() + addDays);
+        var mon = Dates.getMonth() + 1,
+            day = Dates.getDate();
+        if (mon < 10) {
+            mon = "0" + mon;//月份小于10，在前面补充0
+        }
+        if (day < 10) {
+            day = "0" + day;//日小于10，在前面补充0
+        }
+        return Dates.getFullYear() + "-" + mon + "-" + day;
+    }
+    //显示费用
+
+    function FreightShow() {
+        debugger;
         var f1 = $("#Hid1").val();
         var f2 = $("#Hid2").val();
         var weight = $("#cweight").val();  //快递重量
-        var sendday = $("#test30").val();
+        var senddate = $("#test30").val();
+        var sday = "";
+        var tb = "";
 
         var dvalue = 0;//dvalue 差值
         var fare = 0;  //fare 运费
@@ -645,7 +588,17 @@
                 if (weight > 1) {
                     fare = (weight - 1) * 1.5 + 8;//续重1.5
                 }
-                sendday = sendday + 1;
+                sendday = AddDate(senddate, 1);
+
+                tb = "<table><tr>"
+                    + "<td>预计到达时间</td>"
+                    + "<td>预计费用</td>"
+                    + " </tr><tr>"
+                    + "<td>" + this.sendday + "</td>"
+                    + "<td>" + this.fare + "</td>"
+                    + "</tr></table>";
+
+                $("#divshow").html(tb);
             }
             if (dvalue == 2 || dvalue == 3) { //其他城市
                 if (weight == 1) {//获取首重8
@@ -654,21 +607,41 @@
                 if (weight > 1) {
                     fare = (weight - 1) * 12 * dvalue + 15;//续重12
                 }
-                sendday = sendday + dvalue + 1;
+                sendday = AddDate(senddate, dvalue + 1);
+                tb = "<table><tr>"
+                    + "<td>预计到达时间</td>"
+                    + "<td>预计费用</td>"
+                    + " </tr><tr>"
+                    + "<td>" + this.sendday + "</td>"
+                    + "<td>" + this.fare + "</td>"
+                    + "</tr></table>";
+
+                $("#divshow").html(tb);
             }
 
-            alert("运费为：" + fare + ",预计到达时间为：" + sendday );
-
-        } else if ((f2 - f1) > 0) {   //原寄地为远地区
+        }
+        else if ((f2 - f1) > 0) {   //原寄地为远地区
             dvalue = f2 - f1;
             if (dvalue == 1) {//江浙沪费用
                 if (weight == 1) {//获取首重8
                     fare = 1 * 8;
-                    sendday = sendday + 1;
+
                 }
                 if (weight > 1) {
                     fare = (weight - 1) * 1.5 + 8;//续重1.5
                 }
+
+                sendday = AddDate(senddate, 1);
+
+                tb = "<table><tr>"
+                    + "<td>预计到达时间</td>"
+                    + "<td>预计费用</td>"
+                    + " </tr><tr>"
+                    + "<td>" + this.sendday + "</td>"
+                    + "<td>" + this.fare + "</td>"
+                    + "</tr></table>";
+
+                $("#divshow").html(tb);
             }
             if (dvalue == 2 || dvalue == 3) { //其他城市
                 if (weight == 1) {//获取首重8
@@ -677,14 +650,36 @@
                 if (weight > 1) {
                     fare = (weight - 1) * 12 * dvalue + 15;//续重12
                 }
-                sendday = sendday + dvalue + 1;
+                sendday = AddDate(senddate, dvalue + 1);
+                tb = "<table><tr>"
+                    + "<td>预计到达时间</td>"
+                    + "<td>预计费用</td>"
+                    + " </tr><tr>"
+                    + "<td>" + this.sendday + "</td>"
+                    + "<td>" + this.fare + "</td>"
+                    + "</tr></table>";
+
+                $("#divshow").html(tb);
             }
-            alert("运费为：" + fare + ",预计到达时间为：" + sendday );
         }
         else if ((f2 - f1) == 0) {
             fare = 8;
-            alert("运费为：" + fare + ",预计到达时间为：" + sendday );
+            sendday = senddate;
+
+            tb = "<table><tr>"
+                + "<td>预计到达时间</td>"
+                + "<td>预计费用</td>"
+                + " </tr><tr>"
+                + "<td>" + sday + "</td>"
+                + "<td>" + fare + "</td>"
+                + "</tr></table>";
+
+            $("#divshow").html(tb);
         }
+
+
+
+
 
     }
 

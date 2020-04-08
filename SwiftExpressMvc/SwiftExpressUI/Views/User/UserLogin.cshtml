@@ -16,21 +16,22 @@
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-    <div style="        height: 750px;
-        width: 1140px;
-        background-image: url('../../img/背景.jpg');
+    <div style="        height: 800px;
+        width: 1720px;
+        background-image: url('../../img/登录背景.png');
+        margin-left: -280px;
         float: left;">
-        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top:200px;margin-left:370px;">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top:200px;margin-left:670px;">
             <h2 style="color:white;margin-left:133px;">用户登录</h2>
             <br />
-            
-            <div class="layui-tab-content" style="height: 350px;background-color:white;width:400px;border:1px solid #DDDDDD;">
-               
-                <ul class="layui-tab-title" style="width:396px;background-color:white;margin-left:-8px;">
-                    <li class="layui-this" >用户登录</li>
-                    <li >管理员登录</li>
+
+            <div class="layui-tab-content" style="height: 350px;background-color:white;width:400px;border:1px solid #DDDDDD;" id="content">
+
+                <ul id="userMenu" class="layui-tab-title" style="width:396px;background-color:white;margin-left:-8px;">
+                    <li class="layui-this" data-id="Users">用户登录</li>
+                    <li data-id="Admins">管理员登录</li>
                 </ul>
-                <div class="layui-tab-item layui-show">
+                <div class="layui-tab-item layui-show" id="user_Users">
                     <div class="layui-form-item">
                         <label class="layui-form-label">用户名</label>
                         <div class="layui-input-block">
@@ -57,15 +58,15 @@
 
                     </div>
 
-                    <div class="layui-form-item">
-                        <button type="button" class="layui-btn-lg layui-btn-danger layui-btn-radius" onclick="Login()" style="margin-left:25px;">登录</button>
-
-                        <button type="button" class="layui-btn-lg layui-btn-primary layui-btn-radius" style="margin-left:150px;" onclick="ind()">取消</button>
-
+                    <div class="layui-form-item m-login-btn">
+                            <button type="button" class="layui-btn layui-btn-danger" onclick="Login()" style="margin-left:50px;">立即登录</button>
+                       
+                            <button type="button" class="layui-btn layui-btn-primary" style="margin-left:80px;" onclick="ind()">返回首页</button>
+                      
                     </div>
 
                 </div>
-                <div class="layui-tab-item">
+                <div class="layui-tab-item" id="user_Admins">
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">管理员</label>
@@ -80,27 +81,28 @@
                         </div>
                     </div>
 
-                 
+
                     <div class="layui-form-item">
-            <label class="layui-form-label">验证码</label>
-            <div class="layui-input-block">
-                <input id="yanz1" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入验证码" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-input-block">
-                <img class="verifyImg" src="/Content/ValidateCode.ashx" onclick="this.src='/Content/ValidateCode.ashx?d='+new Date()" />
-            </div>
+                        <label class="layui-form-label">验证码</label>
+                        <div class="layui-input-block">
+                            <input id="yanz1" type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-input-block">
+                            <img class="verifyImg" src="/Content/ValidateCode.ashx" onclick="this.src='/Content/ValidateCode.ashx?d='+new Date()" />
+                        </div>
 
-        </div>
+                    </div>
                     <div class="layui-form-item" style="margin-top:51px;">
-                        <button type="button" class="layui-btn-lg layui-btn-danger layui-btn-radius" onclick="AAA()" style="margin-left:25px;">登录</button>
+                        <button type="button" class="layui-btn layui-btn-danger " onclick="AdminLog()" style="margin-left:50px;">立即登录</button>
 
-                        <button type="button" class="layui-btn-lg layui-btn-primary layui-btn-radius" style="margin-left: 150px;" onclick="ind()">取消</button>
+                        <button type="button" class="layui-btn layui-btn-primary" style="margin-left: 80px;" onclick="ind()">返回首页</button>
 
                     </div>
 
 
                 </div>
             </div>
+
         </div>
     </div>
     <script src="~/layui/layui.js"></script>
@@ -264,7 +266,7 @@
                                     $.ajax({
                                         url: "/User/Cookie",
                                         type: "POST",
-                                        dataType:"JSON",
+                                        dataType: "JSON",
                                         data: {
                                             SS: JSON.stringify(res.UserName)
                                         },
@@ -332,7 +334,7 @@
     function refer() {
         location.reload();
     }
-    function AAA() {
+    function AdminLog() {
         var aname = $("#txtname").val();
         var apwd = $("#txtpwd").val();
         var yanz = $("#yanz1").val();
@@ -363,10 +365,10 @@
                             if (res.Status) {
                                 if (res.IsRegistSuccess) {
                                     alert(res.Message);
-                                       $.ajax({
+                                    $.ajax({
                                         url: "/User/Cookie",
                                         type: "POST",
-                                        dataType:"JSON",
+                                        dataType: "JSON",
                                         data: {
                                             SS: JSON.stringify(res.Aname)
                                         },

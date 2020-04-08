@@ -159,9 +159,17 @@
     <Content Include="img\5d12c2e6f1f16.jpg" />
     <Content Include="img\9217.jpg_wh1200.jpg" />
     <Content Include="img\IMG20190905_170942.jpg" />
+    <Content Include="img\logo1.png" />
+    <Content Include="img\logo2.png" />
+    <Content Include="img\logo3.png" />
+    <Content Include="img\logo4.png" />
     <Content Include="img\wKhBFl4NqOGAXi6pAAS6Y1QC39Y309.jpg" />
     <Content Include="img\YuYan.jfif" />
     <Content Include="img\快递.jpg" />
+    <Content Include="img\登录背景.png" />
+    <Content Include="img\轮播2.jpeg" />
+    <Content Include="img\轮播图1.jpeg" />
+    <Content Include="img\轮播图2.jpg" />
     <Content Include="img\雨燕速递.jpg" />
     <Content Include="layui\css\layui.css" />
     <Content Include="layui\css\layui.mobile.css" />
