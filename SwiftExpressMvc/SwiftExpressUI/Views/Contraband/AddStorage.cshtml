@@ -23,13 +23,22 @@
                 <div class="layui-input-inline">
                     <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物编号" autocomplete="off" class="layui-input">
                 </div>
-
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">仓库编号：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库编号" autocomplete="off" class="layui-input">
+                    <select id="ss">
+                        <option value=0>请选择仓库编号</option>
+                        <option value="1001">1001</option>
+                        <option value="1002">1002</option>
+                        <option value="1003">1003</option>
+                        <option value="1004">1004</option>
+                        <option value="1005">1005</option>
+                        <option value="1006">1006</option>
+                        <option value="1007">1007</option>
+
+                    </select>
                 </div>
 
             </div>
@@ -77,8 +86,9 @@
 
             <div class="layui-form-item">
                 <div class="layui-input-inline">
-                    <button class="layui-btn layui-btn-normal" onclick="Add()">立即提交</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+                    <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Add()">立即提交</button>
+                    <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
                 </div>
             </div>
         </form>
@@ -104,9 +114,24 @@
 <script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <script src="~/Scripts/Scripts/My97DatePicker/My97DatePicker/WdatePicker.js"></script>
 <script>
+        //$.ajax({
+        //    url: "/User/wareHouseBll",
+        //    type: "POST",
+        //    dataType: "json",          
+        //    success: function (res) {
+        //        var ops = "";
+        //        $(res.Id).each(function () {
+        //            var op = "<option value='" + this.WareHouseId + "'>" + this.WareHouseName + "</option>";
+        //            ops += op;
+        //        })
+        //        $("#Select1").append(ops);
+        //    }
+        //})
+
+
     function Add() {
         var hw = $("#hw").val();
-        var ck = $("#ck").val();
+        var ck = $("#ss").val();
         var yg = $("#yg").val();
         var rk = $("#rk").val();
         var rs = $("#rs").val();
@@ -129,6 +154,7 @@
             success: function (res) {
                 if (res.Status) {
                     alert("保存成功");
+                    location.href = "/Contraband/GetStorage";
                 }
                 else {
                        alert(res.Message);

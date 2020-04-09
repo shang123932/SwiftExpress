@@ -132,9 +132,9 @@
                         + "<td class='hidden-xs'>" + this.ReceivePhone + "</td>"
                         + "<td class='hidden-xs'>" + this.ReceiveAddress + "</td>"
                         + "<td class='hidden-xs'>" + this.CargoName + "</td>"
-                        + "<td class='hidden-xs'>" + this.CargoType + "</td>"
+                        + "<td class='hidden-xs'>" + (this.CargoType==1?"货到付款":"普通快递") + "</td>"
                         + "<td class='hidden-xs'>" + this.CargoWeight + "</td>"
-                        + "<td class='hidden-xs'>" + this.CargoState + "</td>"
+                        + "<td class='hidden-xs'>" + (this.CargoState==1?"出库":"入库") + "</td>"
                         + "</tr>";
                 });
                 $("#tb").append(tb);

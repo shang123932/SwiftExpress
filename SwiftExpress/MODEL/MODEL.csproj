@@ -53,6 +53,7 @@
     <Compile Include="Staff\StaffModel.cs" />
     <Compile Include="User\DistributionModel.cs" />
     <Compile Include="User\UserModel.cs" />
+    <Compile Include="User\WareHouseId1.cs" />
     <Compile Include="WareHouse\WareHouseInfo.cs" />
   </ItemGroup>
   <ItemGroup />

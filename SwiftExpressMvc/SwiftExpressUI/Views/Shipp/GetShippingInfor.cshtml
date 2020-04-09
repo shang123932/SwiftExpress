@@ -21,7 +21,7 @@
         <input id="Dh" type="text" />
         <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="ShipSearch()">查询</button>
         <a class="layui-btn layui-btn-primary layui-btn-radius" href="javascript:history.back(-1)">取消</a>
-        <input id="Hidden1" type="hidden" value="@Request["sname"]" />
+        <input id="Hidden1" type="hidden"  value="@Request["sname"]" />
     </div>
     <table class="layui-table" lay-skin="line">
        
@@ -49,6 +49,7 @@
 <script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
+
     $().ready(function () {
         var sname = $("#Hidden1").val();
         $.ajax({

@@ -22,8 +22,6 @@
             <form class="layui-form" action="">
                 <div class="layui-form-item">
                     <div class="layui-inline tool-btn">
-                        <button class="layui-btn  layui-btn-normal addBtn hidden-xs" onclick="Add()"><i class="layui-icon">&#xe654;</i></button>
-
                     </div>
                     <div class="layui-inline">
                         <input type="text" name="title" required lay-verify="required" placeholder="请输入物品关键字" autocomplete="off" class="layui-input">
@@ -33,18 +31,9 @@
             </form>
             <div class="layui-form" id="table-list">
                 <table class="layui-table" lay-skin="line">
-                    <colgroup>
-                        <col width="50">
-                        <col class="hidden-xs" width="50">
-                        <col class="hidden-xs" width="100">
-                        <col class="hidden-xs" width="100">
-                        <col>
-                        <col width="80">
-                        <col width="130">
-                    </colgroup>
+                   
                     <thead>
-                        <tr>
-                            <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+                        <tr>            
                             <th class="hidden-xs">存储编号</th>
                             <th class="hidden-xs">货物编号</th>
                             <th class="hidden-xs">仓库编号</th>
@@ -80,7 +69,7 @@
                 var tb = "";
                 $(res.Storagelist).each(function () {
                     tb += "<tr>"
-                        + "<td><input type='checkbox' name='' lay-skin='primary' lay-filter='allChoose'></td>"
+                      
                         + "<td class='hidden-xs'>" + this.StorageId + "</td>"
                         + "<td class='hidden-xs'>" + this.CargoId + "</td>"
                         + "<td class='hidden-xs'>" + this.WareHouseId + "</td>"
@@ -111,6 +100,7 @@
                 success: function (res) {
                     $(res).each(function () {
                         alert(this.Message);
+                        location.href = "/Contraband/GetStorage";
                     })
                 }
             });

@@ -79,6 +79,7 @@
     <Compile Include="FApi\Request\User\AdminLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserLoginRequest.cs" />
     <Compile Include="FApi\Request\User\UserRegisteredRequest.cs" />
+    <Compile Include="FApi\Request\User\WareHouseBllRequest.cs" />
     <Compile Include="FApi\Request\WareHouse\WareHouseAddRequest.cs" />
     <Compile Include="FApi\Request\WareHouse\WareHouseDelRequest.cs" />
     <Compile Include="FApi\Request\WareHouse\WareHouseGetOneRequest.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="FApi\Response\User\AdminLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserLoginResponse.cs" />
     <Compile Include="FApi\Response\User\UserRegisteredResponse.cs" />
+    <Compile Include="FApi\Response\User\WareHouseBllResponse.cs" />
     <Compile Include="FApi\Response\WareHouse\WareHouseAddResponse.cs" />
     <Compile Include="FApi\Response\WareHouse\WareHouseDelResponse.cs" />
     <Compile Include="FApi\Response\WareHouse\WareHouseGetOneResponse.cs" />

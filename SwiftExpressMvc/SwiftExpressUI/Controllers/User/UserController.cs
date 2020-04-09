@@ -154,6 +154,16 @@ namespace SwiftExpressUI
         }
 
         /// <summary>
+        /// 显示仓库下拉
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult wareHouseBll(WareHouseBllRequest request)
+        {
+            return Json(b.wareHouseBll(request));
+        }
+
+        /// <summary>
         /// 传值
         /// </summary>
         /// <returns></returns> 

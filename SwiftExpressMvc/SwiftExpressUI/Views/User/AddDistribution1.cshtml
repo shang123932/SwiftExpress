@@ -38,8 +38,18 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">仓库号</label>
-                <div class="layui-input-block">
-                    <input id="cangk" name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+                <div class="layui-input-inline">
+                    <select id="ss">
+                        <option value=0>请选择仓库编号</option>
+                        <option value="1001">1001</option>
+                        <option value="1002">1002</option>
+                        <option value="1003">1003</option>
+                        <option value="1004">1004</option>
+                        <option value="1005">1005</option>
+                        <option value="1006">1006</option>
+                        <option value="1007">1007</option>
+                        
+                    </select>
                 </div>
             </div>
 
@@ -82,8 +92,9 @@
 
         </div>
         <div class="layui-form-item">
-            <button class="layui-btn" type="button" lay-filter="demo1" onclick="adddis()">立即提交</button>
-            <button class="layui-btn" type="button" lay-filter="demo1">取消</button>
+
+            <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="adddis()">立即提交</button>
+            <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
         </div>
     </form>
     <script src="~/layui/layui.js"></script>
@@ -160,10 +171,11 @@
 <script src="~/Scripts/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
+   
     function adddis() {
         var kuaidi = $("#kuaidi").val();
         var yuang = $("#yuang").val();
-        var cangk = $("#cangk").val();
+        var cangk = $("#ss").val();
         var date1 = $("#date1").val();
         var date2 = $("#date2").val();
         var zhaung= $("input[type='radio']:checked").val();
