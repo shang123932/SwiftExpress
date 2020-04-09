@@ -30,7 +30,11 @@
         font-family: KaiTi;
         font-size: 20px;"><span class="l-line"></span>我要寄件</a>
                         </dd>
-
+                        <dd>
+                            <a href="javascript:;" data-url="/WareHouse/wareHouseAdd" data-id='12000' data-text="加盟云仓" style="        color: #FF5511;
+        font-family: KaiTi;
+        font-size: 20px;"><span class="l-line"></span>加盟云仓</a>
+                        </dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed" style="background-color:#DDDDDD;">
@@ -117,6 +121,7 @@
             }
         })
     })
+
     function Search() {
         var ss = $("#aa").val();
         location.href = "/Shipp/GetShippingInfor?sname=" + ss;

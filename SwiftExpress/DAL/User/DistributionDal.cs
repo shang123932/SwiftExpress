@@ -19,7 +19,7 @@ namespace DAL
         /// <returns></returns>
         public List<DistributionModel> GetDistribution()
         {
-            string sql = $"select  * from  Distribution where SendState>=0 ";
+            string sql = $"select  * from  Distribution where SendState>=0 order by DistributionId desc ";
             return DBHelper.GetToList<DistributionModel>(sql);
         }
         /// <summary>
@@ -28,7 +28,7 @@ namespace DAL
         /// <returns></returns>
         public List<DistributionModel> GetCxDistribution(string name)
         {      
-             string   sql = $"select * from Distribution where ShippingOrder='{name}' and SendState>=0 ";        
+             string   sql = $"select * from Distribution where ShippingOrder='{name}' and SendState>=0 order by DistributionId desc";        
             return DBHelper.GetToList<DistributionModel>(sql);
         }
 

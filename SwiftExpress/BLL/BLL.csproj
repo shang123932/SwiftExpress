@@ -50,6 +50,7 @@
     <Compile Include="ShippingInfor\ShippingInforBll.cs" />
     <Compile Include="Staff\StaffBll.cs" />
     <Compile Include="User\UserBll.cs" />
+    <Compile Include="User\WareHouseBll.cs" />
     <Compile Include="WareHouse\WareHouseBLL.cs" />
   </ItemGroup>
   <ItemGroup>

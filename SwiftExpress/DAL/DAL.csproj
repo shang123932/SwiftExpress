@@ -50,6 +50,7 @@
     <Compile Include="Staff\StaffDal.cs" />
     <Compile Include="User\DistributionDal.cs" />
     <Compile Include="User\UserDal.cs" />
+    <Compile Include="User\WareHouseId2.cs" />
     <Compile Include="WareHouse\WareHouseDAL.cs" />
   </ItemGroup>
   <ItemGroup>
