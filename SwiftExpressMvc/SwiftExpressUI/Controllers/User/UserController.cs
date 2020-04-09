@@ -12,6 +12,7 @@ namespace SwiftExpressUI
     {
         UserBll b = new UserBll();
 
+
         // GET: User
         /// <summary>
         /// 用户注册

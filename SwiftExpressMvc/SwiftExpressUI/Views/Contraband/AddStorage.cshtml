@@ -14,83 +14,77 @@
     <title>雨燕速递(YUY)</title>
     <link rel="stylesheet" type="text/css" href="~/static/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="~/static/admin/css/admin.css" />
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
 </head>
 <body>
     <div class="wrap-container">
-        <form class="layui-form" style="width: 90%;padding-top: 20px;">
-            <div class="layui-form-item">
-                <label class="layui-form-label">货物编号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物编号" autocomplete="off" class="layui-input">
-                </div>
-            </div>
+        <form class="layui-form layui-form-pane" action="" style="margin-top:50px;margin-left:260px;">
+            <br />
+            <h2 style="color:#ff5511">雨燕，实现智的飞跃</h2>
+            <br />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">货物编号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物编号" autocomplete="off" class="layui-input">
+                    </div>
 
-            <div class="layui-form-item">
-                <label class="layui-form-label">仓库编号：</label>
-                <div class="layui-input-inline">
-                    <select id="ss">
-                        <option value=0>请选择仓库编号</option>
-                        <option value="1001">1001</option>
-                        <option value="1002">1002</option>
-                        <option value="1003">1003</option>
-                        <option value="1004">1004</option>
-                        <option value="1005">1005</option>
-                        <option value="1006">1006</option>
-                        <option value="1007">1007</option>
-
-                    </select>
                 </div>
 
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">员工编号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工编号" autocomplete="off" class="layui-input">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">仓库编号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库编号" autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">员工编号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工编号" autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">入库时间：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">入库数量：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">出库时间：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">出库数量：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-inline">
+                        <input id="bz" class="layui-input" type="text" placeholder="" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
 
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">入库时间：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
+                <div class="layui-form-item">
+                    <div class="layui-input-inline" style="margin-left:80px;">
+                        <button class="layui-btn layui-btn-danger" onclick="Add()">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
                 </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">入库数量：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
-                </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">出库时间：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
-                </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">出库数量：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
-                </div>
-
-            </div>
-            <div class="layui-form-item layui-form-text">
-                <label class="layui-form-label">备注</label>
-                <div class="layui-input-inline">
-                    <textarea name="desc" id="bz" placeholder="请输入备注" class="layui-textarea"></textarea>
-                </div>
-            </div>
-
-            <div class="layui-form-item">
-                <div class="layui-input-inline">
-
-                    <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Add()">立即提交</button>
-                    <button class="layui-btn layui-btn-primary layui-btn-radius" type="button" lay-filter="demo1">取消</button>
-                </div>
-            </div>
         </form>
     </div>
 
@@ -114,24 +108,9 @@
 <script src="~/Scripts/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <script src="~/Scripts/Scripts/My97DatePicker/My97DatePicker/WdatePicker.js"></script>
 <script>
-        //$.ajax({
-        //    url: "/User/wareHouseBll",
-        //    type: "POST",
-        //    dataType: "json",          
-        //    success: function (res) {
-        //        var ops = "";
-        //        $(res.Id).each(function () {
-        //            var op = "<option value='" + this.WareHouseId + "'>" + this.WareHouseName + "</option>";
-        //            ops += op;
-        //        })
-        //        $("#Select1").append(ops);
-        //    }
-        //})
-
-
     function Add() {
         var hw = $("#hw").val();
-        var ck = $("#ss").val();
+        var ck = $("#ck").val();
         var yg = $("#yg").val();
         var rk = $("#rk").val();
         var rs = $("#rs").val();
@@ -154,7 +133,6 @@
             success: function (res) {
                 if (res.Status) {
                     alert("保存成功");
-                    location.href = "/Contraband/GetStorage";
                 }
                 else {
                        alert(res.Message);

@@ -18,83 +18,106 @@
 </head>
 
 <body>
-    <form class="layui-form layui-form-pane" action="" style="width:800px;">
+    <br />
+    <h2 style="color:#ff5511">请仔细填写收寄信息哦，否则你的小宝贝就找不到家了</h2>
+    <br />
+    <form class="layui-form layui-form-pane" action="">
+        <div style="width:500px;height:1000px;margin-top:50px;">
+            <div class="layui-form-item">
+                @*<label >快递单号</label>*@
+                <div style="float:left;line-height:36px;width:100px;">
+                    <span>快递单号:</span>
+                </div>
+                <div class="layui-input-inline" style="float:left;">
 
-        <div class="layui-form-item">
-            <label class="layui-form-label">快递单号</label>
-            <div class="layui-input-inline">
-
-                <input id="danh" name="username" disabled="disabled" class="layui-input" type="text" placeholder="请输入快递单号" autocomplete="off" lay-verify="required">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">寄件人姓名</label>
-                <div class="layui-input-inline">
-                    <input id="jiname" name="username" class="layui-input" type="text" placeholder="请输入寄件人姓名" autocomplete="off" lay-verify="required">
-
+                    <input id="danh" disabled="disabled" class="layui-input" type="text" placeholder="请输入快递单号" autocomplete="off" lay-verify="required">
                 </div>
             </div>
 
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">寄件联系方式</label>
-                <div class="layui-input-inline">
-                    <input id="jilian" name="username" class="layui-input" type="text" placeholder="寄件联系方式" autocomplete="off" lay-verify="required">
-                </div>
-            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div style="float:left;line-height:36px;width:100px;">
+                        <span>寄件人姓名:</span>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input id="jiname" class="layui-input" type="text" placeholder="请输入寄件人姓名" autocomplete="off" lay-verify="required">
 
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">寄件地址</label>
-                <div class="layui-input-inline">
-                    <input id="jidiz" name="username" class="layui-input" type="text" placeholder="请输入寄件地址" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">收件人姓名</label>
-                <div class="layui-input-inline">
-                    <input id="shouname" name="username" class="layui-input" type="text" placeholder="请输入收件人姓名" autocomplete="off" lay-verify="required">
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div style="float:left;line-height:36px;width:100px;">
+                        <span>寄件联系方式:</span>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input id="jilian" class="layui-input" type="text" placeholder="寄件联系方式" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">收件联系方式</label>
-                <div class="layui-input-inline">
-                    <input id="shouphone" name="username" class="layui-input" type="text" placeholder="请输入收件联系方式" autocomplete="off" lay-verify="required">
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div style="float:left;line-height:36px;width:100px;">
+                        <span>寄件地址:</span>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input id="jidiz" class="layui-input" type="text" placeholder="请输入寄件地址" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">收件地址</label>
-                <div class="layui-input-inline">
-                    <input id="shoujian" name="username" class="layui-input" type="text" placeholder="请输入收件地址" autocomplete="off" lay-verify="required">
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div style="float:left;line-height:36px;width:100px;">
+                        <span>收件人姓名:</span>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input id="shouname" class="layui-input" type="text" placeholder="请输入收件人姓名" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">备注</label>
-                <div class="layui-input-inline">
-                    <input id="jibeiz" name="username" class="layui-input" type="text" placeholder="" autocomplete="off" lay-verify="required">
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div style="float:left;line-height:36px;width:100px;">
+                        <span>收件联系方式:</span>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input id="shouphone" class="layui-input" type="text" placeholder="请输入收件联系方式" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="layui-form-item">
-            <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" lay-filter="demo1" onclick="Regist1()">立即提交</button>
-            <a class="layui-btn layui-btn-primary layui-btn-radius" href="javascript:history.back(-1)">取消</a>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div style="float:left;line-height:36px;width:100px;">
+                        <span>收件地址:</span>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input id="shoujian" class="layui-input" type="text" placeholder="请输入收件地址" autocomplete="off" lay-verify="required">
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <div style="float:left;line-height:36px;width:100px;">
+                        <span>备注:</span>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input id="jibeiz" class="layui-input" type="text" placeholder="" autocomplete="off" lay-verify="required">
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <a class="layui-btn layui-btn-primary " href="javascript:history.back(-1)">返回上层<<</a>
+                <button class="layui-btn layui-btn-danger" type="button" lay-filter="demo1" onclick="Regist1()">立即提交</button>
+                <button class="layui-btn layui-btn-primary" type="reset" lay-filter="demo1">重置</button>
+
+            </div>
         </div>
     </form>
     <script src="~/layui/layui.js"></script>
@@ -220,5 +243,13 @@
 
         })
     }
+
+    $().ready(function () {
+
+        $("#jidiz").val(sessionStorage["Ori"]);
+        $("#shoujian").val(sessionStorage["Des"]);
+        sessionStorage.removeItem("Ori");
+       
+    })
 </script>
 
