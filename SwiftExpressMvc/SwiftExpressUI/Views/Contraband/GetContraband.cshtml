@@ -57,7 +57,6 @@
                     </colgroup>
                     <thead>
                         <tr>
-                            <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
                             <th class="hidden-xs">ID</th>
                             <th class="hidden-xs">违禁品名称</th>
 
@@ -104,7 +103,6 @@
                 var tb = "";
                 $(res.Contrabandlist).each(function () {
                     tb += "<tr>"
-                        + "<td><input type='checkbox'/></td>"
                         + "<td class='hidden-xs'>" + this.ContrabandId + "</td>"
                         + "<td class='hidden-xs'>" + this.ItemName + "</td>"
                         + "</tr>";
@@ -130,7 +128,6 @@
                 var tb = "";
                 $(res.Contrabandlist).each(function () {
                     tb += "<tr>"
-                        + "<td><input type='checkbox'/></td>"
                         + "<td class='hidden-xs'>" + this.ContrabandId + "</td>"
                         + "<td class='hidden-xs'>" + this.ItemName + "</td>"
                         + "</tr>";

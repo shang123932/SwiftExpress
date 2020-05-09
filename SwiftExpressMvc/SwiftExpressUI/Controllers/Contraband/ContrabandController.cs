@@ -7,6 +7,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using PagedList;
+using MODEL;
+
 namespace SwiftExpressUI
 {
     public class ContrabandController : Controller
@@ -14,8 +17,16 @@ namespace SwiftExpressUI
         ContrabandBll bll = new ContrabandBll();
         // GET: Contraband
         #region  违禁品
-        public ActionResult GetContraband()
+        public ActionResult GetContraband(int? page)
         {
+            //ContrabandRequest request = new ContrabandRequest();
+            //var list = bll.GetContrabands(request);
+            ////第几页  
+            //int pageNumber = page ?? 1;
+            ////每页显示多少条  
+            //int pageSize = 5;
+            
+            //IPagedList< Contraband > pagelist=list.topagelist
             return View();
         }
         /// <summary>
@@ -36,7 +47,9 @@ namespace SwiftExpressUI
             {
                 request.ItemName = ss;
             }
-            return Json(bll.GetContrabands(request));
+            var list = bll.GetContrabands(request);
+
+            return Json(list);
         }
         #endregion
 
