@@ -18,6 +18,7 @@ namespace SwiftExpressApi.Controllers.User
     {
         UserBll userBll = new UserBll();
         DistributionBll disbll = new DistributionBll();
+        WareHouseBll wbll = new WareHouseBll();
         /// <summary>
         /// 登录接口
         /// </summary>
@@ -131,6 +132,15 @@ namespace SwiftExpressApi.Controllers.User
             return userBll.AdminLogin(request);
         }
 
+        /// <summary>
+        /// 显示仓库下拉
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public WareHouseBllResponse WareHouseBllShow()
+        {
+            return wbll.WareHouseBllShow();
+        }
 
     }
 }

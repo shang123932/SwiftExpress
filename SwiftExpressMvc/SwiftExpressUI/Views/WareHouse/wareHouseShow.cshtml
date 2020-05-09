@@ -15,12 +15,7 @@
 <body>
 
     <table class="layui-table" lay-skin="line">
-        <colgroup>
-            <col width="150">
-            <col width="150">
-            <col width="200">
-            <col>
-        </colgroup>
+        
         <thead>
             <tr>
                 <th>序号    </th>
@@ -61,7 +56,7 @@
                             + "<td>" + this.WareHouseAddress + "</td> "
                             + "<td>" + this.WareHouseRemark + "</td> "
                             + "<td>" + (this.WareHouseStatus == 1 ? '使用中' : '备用') + "</td> "
-                            + " <td><a href='/WareHouse/wareHouseUpdate?pid=" + this.WareHouseId + "'>修改</a></td> "
+                            + " <td><a  class='btn btn-default' href='/WareHouse/wareHouseUpdate?pid=" + this.WareHouseId + "'>修改</a></td> "
                             + "<td><input id='Button1' type='button' value='删除' onclick='Delware(" + this.WareHouseId + ")' class='btn btn-danger' /></td> "
                             + " </tr >";
                         tbs += tb;

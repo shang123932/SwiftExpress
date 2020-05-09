@@ -94,6 +94,15 @@ namespace BLL
         {
             return ApiRequestHelper.Post<AdminLoginRequest, AdminLoginResponse>(loginRequest);
         }
+        /// <summary>
+        /// 显示仓库下拉
+        /// </summary>
+        /// <param name="houseBllRequest"></param>
+        /// <returns></returns>
+        public WareHouseBllResponse wareHouseBll(WareHouseBllRequest houseBllRequest)
+        {
+            return ApiRequestHelper.Post<WareHouseBllRequest, WareHouseBllResponse>(houseBllRequest);
+        }
 
 
     }

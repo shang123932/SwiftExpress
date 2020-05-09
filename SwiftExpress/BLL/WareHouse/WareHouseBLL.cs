@@ -127,12 +127,12 @@ namespace BLL.WareHouse
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
-                response.Message = "保存成功";
+                response.Message = "修改成功";
             }
             else
             {
                 response.Status = false;
-                response.Message = "保存失败";
+                response.Message = "修改失败";
                 return response;
             }
             return response;

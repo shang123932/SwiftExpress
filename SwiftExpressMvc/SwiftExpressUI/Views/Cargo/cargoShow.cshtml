@@ -15,13 +15,8 @@
 </head>
 <body>
 
-    <table class="layui-table" lay-skin="line">
-        <colgroup>
-            <col width="150">
-            <col width="150">
-            <col width="200">
-            <col>
-        </colgroup>
+    <table class="layui-table" lay-skin="line" style="margin-top:50px;">
+        
         <thead>
             <tr>
                 <th>序号    </th>
@@ -64,7 +59,7 @@
                         + "<td>" + this.ShippingOrder + "</td> "
                         + "<td>" + (this.CargoState == 1 ? '在库' : '出库') + "</td> "
                         + "<td>" + this.CargoRemark + "</td> "
-                        + " <td><a href='/Cargo/cargoUpdate?pid=" + this.CargoId + "'>详情</a></td > "
+                        + " <td><a class='btn btn-default' type='button' href='/Cargo/cargoUpdate?pid=" + this.CargoId + "'>修改</a></td > "
                         + "<td><input id='Button1' type='button' value='删除' onclick='Delcargo(" + this.CargoId + ")' class='btn btn-danger' /></td> "
                         + " </tr >";
                     tbs += tb;

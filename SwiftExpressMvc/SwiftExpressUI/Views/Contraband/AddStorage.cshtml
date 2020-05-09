@@ -14,73 +14,77 @@
     <title>雨燕速递(YUY)</title>
     <link rel="stylesheet" type="text/css" href="~/static/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="~/static/admin/css/admin.css" />
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
 </head>
 <body>
     <div class="wrap-container">
-        <form class="layui-form" style="width: 90%;padding-top: 20px;">
-            <div class="layui-form-item">
-                <label class="layui-form-label">货物编号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物编号" autocomplete="off" class="layui-input">
+        <form class="layui-form layui-form-pane" action="" style="margin-top:50px;margin-left:260px;">
+            <br />
+            <h2 style="color:#ff5511">雨燕，实现智的飞跃</h2>
+            <br />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">货物编号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="hw" required lay-verify="required" placeholder="请输入货物编号" autocomplete="off" class="layui-input">
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">仓库编号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库编号" autocomplete="off" class="layui-input">
+                    </div>
 
-            <div class="layui-form-item">
-                <label class="layui-form-label">仓库编号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="ck" required lay-verify="required" placeholder="请输入仓库编号" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">员工编号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工编号" autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">入库时间：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">入库数量：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">出库时间：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">出库数量：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-inline">
+                        <input id="bz" class="layui-input" type="text" placeholder="" autocomplete="off" lay-verify="required">
+                    </div>
                 </div>
 
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">员工编号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="yg" required lay-verify="required" placeholder="请输入员工编号" autocomplete="off" class="layui-input">
+                <div class="layui-form-item">
+                    <div class="layui-input-inline" style="margin-left:80px;">
+                        <button class="layui-btn layui-btn-danger" onclick="Add()">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
                 </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">入库时间：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="rk" required lay-verify="required" placeholder="请输入入库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
-                </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">入库数量：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="rs" required lay-verify="required" placeholder="请输入入库数量" autocomplete="off" class="layui-input">
-                </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">出库时间：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="cksj" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" onclick="WdatePicker()" class="layui-input">
-                </div>
-
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">出库数量：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="title" id="cksl" required lay-verify="required" placeholder="请输入出库时间" autocomplete="off" class="layui-input">
-                </div>
-
-            </div>
-            <div class="layui-form-item layui-form-text">
-                <label class="layui-form-label">备注</label>
-                <div class="layui-input-inline">
-                    <textarea name="desc" id="bz" placeholder="请输入备注" class="layui-textarea"></textarea>
-                </div>
-            </div>
-
-            <div class="layui-form-item">
-                <div class="layui-input-inline">
-                    <button class="layui-btn layui-btn-normal" onclick="Add()">立即提交</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                </div>
-            </div>
         </form>
     </div>
 
